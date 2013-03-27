@@ -1,0 +1,35 @@
+﻿@model RentalMVC2010.Models.UnitGallery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>UnitGallery</legend>
+
+    <div class="display-label">Path</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Path)
+    </div>
+
+    <div class="display-label">Caption</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Caption)
+    </div>
+
+    <div class="display-label">Rank</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rank)
+    </div>
+
+    <div class="display-label">Unit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Unit.Address)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UnitGalleryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

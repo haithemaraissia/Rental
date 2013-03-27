@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Zestimate:zestimate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Zestimate="http://www.zillow.com/static/xsd/Zestimate.xsd" xsi:schemaLocation="http://www.zillow.com/static/xsd/Zestimate.xsd http://www.zillowstatic.com/vstatic/222ea8a2794dd51f12897c77ffc0bcba/static/xsd/Zestimate.xsd">
+  <request>
+    <zpid>48749425</zpid>
+  </request>
+  <message>
+    <text>Request successfully processed</text>
+    <code>0</code>
+  </message>
+  <response>
+    <zpid>48749425</zpid>
+    <links>
+      <homedetails>http://www.zillow.com/homedetails/2114-Bigelow-Ave-N-Seattle-WA-98109/48749425_zpid/</homedetails>
+      <graphsanddata>http://www.zillow.com/homedetails/2114-Bigelow-Ave-N-Seattle-WA-98109/48749425_zpid/#charts-and-data</graphsanddata>
+      <mapthishome>http://www.zillow.com/homes/48749425_zpid/</mapthishome>
+      <comparables>http://www.zillow.com/homes/comps/48749425_zpid/</comparables>
+    </links>
+    <address>
+      <street>2114 Bigelow Ave N</street>
+      <zipcode>98109</zipcode>
+      <city>Seattle</city>
+      <state>WA</state>
+      <latitude>47.637933</latitude>
+      <longitude>-122.347938</longitude>
+    </address>
+    <zestimate>
+      <amount currency="USD">1146376</amount>
+      <last-updated>03/21/2013</last-updated>
+      <oneWeekChange deprecated="true"></oneWeekChange>
+      <valueChange duration="30" currency="USD">-24638</valueChange>
+      <valuationRange>
+        <low currency="USD">836854</low>
+        <high currency="USD">1329796</high>
+      </valuationRange>
+      <percentile>95</percentile>
+    </zestimate>
+    <localRealEstate>
+      <region id="271856" type="neighborhood" name="East Queen Anne">
+        <links>
+          <overview>http://www.zillow.com/local-info/WA-Seattle/East-Queen-Anne/r_271856/</overview>
+          <forSaleByOwner>http://www.zillow.com/east-queen-anne-seattle-wa/fsbo/</forSaleByOwner>
+          <forSale>http://www.zillow.com/east-queen-anne-seattle-wa/</forSale>
+        </links>
+      </region>
+    </localRealEstate>
+    <regions>
+      <zipcode-id>99569</zipcode-id>
+      <city-id>16037</city-id>
+      <county-id>207</county-id>
+      <state-id>59</state-id>
+    </regions>
+  </response>
+</Zestimate:zestimate>
+<!-- H:003  T:7ms  S:878  R:Sat Mar 23 19:34:16 PDT 2013  B:3.0.187681.20130321115357299-comp_rel_a.187681.20130321115656538-comp_rel_a -->

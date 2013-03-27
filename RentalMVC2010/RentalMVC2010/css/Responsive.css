@@ -1,0 +1,35 @@
+﻿    
+    /* Large desktop */
+    @media (min-width: 1200px) {
+    
+
+    }
+     
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 768px) and (max-width: 979px) {
+    /*#page{
+	width:70%;
+	margin:0 auto;
+	position:relative;*/
+}
+    }
+     
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 767px) 
+    {
+    	/*#page{
+	width:80%;
+	margin:0 auto;
+	position:relative;*/
+}
+    }
+     
+    /* Landscape phones and down */
+    /*@media (max-width: 480px) {
+    #page{
+	width:90%;
+	margin:0 auto;
+	position:relative;*/
+}
+
+    }

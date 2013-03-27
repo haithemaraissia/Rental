@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMVC2010", "RentalMVC2010\RentalMVC2010.csproj", "{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "galleriffic-2.0", "..\galleriffic-2.0\galleriffic-2.0\", "{6956B5F9-A4EB-4687-AA8B-F9034B2B1047}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/galleriffic-2.0"
+		Debug.AspNetCompiler.PhysicalPath = "..\galleriffic-2.0\galleriffic-2.0\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\galleriffic-2.0\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/galleriffic-2.0"
+		Release.AspNetCompiler.PhysicalPath = "..\galleriffic-2.0\galleriffic-2.0\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\galleriffic-2.0\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56818"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FancyImageUploader", "..\MVCProjectToReview\demo\FancyImageUploader\", "{918655D0-E19F-460F-861D-3888902FEE0A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/FancyImageUploader"
+		Debug.AspNetCompiler.PhysicalPath = "..\MVCProjectToReview\demo\FancyImageUploader\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\FancyImageUploader\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/FancyImageUploader"
+		Release.AspNetCompiler.PhysicalPath = "..\MVCProjectToReview\demo\FancyImageUploader\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\FancyImageUploader\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49853"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6956B5F9-A4EB-4687-AA8B-F9034B2B1047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6956B5F9-A4EB-4687-AA8B-F9034B2B1047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6956B5F9-A4EB-4687-AA8B-F9034B2B1047}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6956B5F9-A4EB-4687-AA8B-F9034B2B1047}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{918655D0-E19F-460F-861D-3888902FEE0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918655D0-E19F-460F-861D-3888902FEE0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918655D0-E19F-460F-861D-3888902FEE0A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{918655D0-E19F-460F-861D-3888902FEE0A}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

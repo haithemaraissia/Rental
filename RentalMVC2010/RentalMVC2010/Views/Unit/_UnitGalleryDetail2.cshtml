@@ -1,0 +1,42 @@
+﻿@model IEnumerable<RentalMVC2010.Models.UnitGallery>
+
+<table>
+    <tr>
+        <th>
+            Path
+        </th>
+        <th>
+            Caption
+        </th>
+        <th>
+            Rank
+        </th>
+        <th>
+            UnitId
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Path)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Caption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UnitGalleryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UnitGalleryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UnitGalleryId })
+        </td>
+    </tr>
+}
+
+</table>

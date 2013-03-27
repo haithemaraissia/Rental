@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Comps:comps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Comps="http://www.zillow.com/static/xsd/Comps.xsd" xsi:schemaLocation="http://www.zillow.com/static/xsd/Comps.xsd http://www.zillowstatic.com/vstatic/222ea8a2794dd51f12897c77ffc0bcba/static/xsd/Comps.xsd">
+  <request>
+    <zpid>48749425</zpid>
+    <count>5</count>
+  </request>
+  <message>
+    <text>Request successfully processed</text>
+    <code>0</code>
+  </message>
+  <response>
+    <properties>
+      <principal>
+        <zpid>48749425</zpid>
+        <links>
+          <homedetails>http://www.zillow.com/homedetails/2114-Bigelow-Ave-N-Seattle-WA-98109/48749425_zpid/</homedetails>
+          <graphsanddata>http://www.zillow.com/homedetails/2114-Bigelow-Ave-N-Seattle-WA-98109/48749425_zpid/#charts-and-data</graphsanddata>
+          <mapthishome>http://www.zillow.com/homes/48749425_zpid/</mapthishome>
+          <comparables>http://www.zillow.com/homes/comps/48749425_zpid/</comparables>
+        </links>
+        <address>
+          <street>2114 Bigelow Ave N</street>
+          <zipcode>98109</zipcode>
+          <city>Seattle</city>
+          <state>WA</state>
+          <latitude>47.637933</latitude>
+          <longitude>-122.347938</longitude>
+        </address>
+        <zestimate>
+          <amount currency="USD">1146376</amount>
+          <last-updated>03/21/2013</last-updated>
+          <oneWeekChange deprecated="true"></oneWeekChange>
+          <valueChange duration="30" currency="USD">-24638</valueChange>
+          <valuationRange>
+            <low currency="USD">836854</low>
+            <high currency="USD">1329796</high>
+          </valuationRange>
+          <percentile>95</percentile>
+        </zestimate>
+        <localRealEstate>
+          <region id="271856" type="neighborhood" name="East Queen Anne">
+            <links>
+              <overview>http://www.zillow.com/local-info/WA-Seattle/East-Queen-Anne/r_271856/</overview>
+              <forSaleByOwner>http://www.zillow.com/east-queen-anne-seattle-wa/fsbo/</forSaleByOwner>
+              <forSale>http://www.zillow.com/east-queen-anne-seattle-wa/</forSale>
+            </links>
+          </region>
+        </localRealEstate>
+      </principal>
+      <comparables>
+        <comp score="14.0">
+          <zpid>49139644</zpid>
+          <links>
+            <homedetails>http://www.zillow.com/homedetails/1019-N-49th-St-Seattle-WA-98103/49139644_zpid/</homedetails>
+            <graphsanddata>http://www.zillow.com/homedetails/1019-N-49th-St-Seattle-WA-98103/49139644_zpid/#charts-and-data</graphsanddata>
+            <mapthishome>http://www.zillow.com/homes/49139644_zpid/</mapthishome>
+            <comparables>http://www.zillow.com/homes/comps/49139644_zpid/</comparables>
+          </links>
+          <address>
+            <street>1019 N 49th St</street>
+            <zipcode>98103</zipcode>
+            <city>Seattle</city>
+            <state>WA</state>
+            <latitude>47.664081</latitude>
+            <longitude>-122.345184</longitude>
+          </address>
+          <zestimate>
+            <amount currency="USD">631288</amount>
+            <last-updated>03/21/2013</last-updated>
+            <oneWeekChange deprecated="true"></oneWeekChange>
+            <valueChange duration="30" currency="USD">-9618</valueChange>
+            <valuationRange>
+              <low currency="USD">517656</low>
+              <high currency="USD">725981</high>
+            </valuationRange>
+            <percentile>86</percentile>
+          </zestimate>
+          <localRealEstate>
+            <region id="252248" type="neighborhood" name="Wallingford">
+              <links>
+                <overview>http://www.zillow.com/local-info/WA-Seattle/Wallingford/r_252248/</overview>
+                <forSaleByOwner>http://www.zillow.com/wallingford-seattle-wa/fsbo/</forSaleByOwner>
+                <forSale>http://www.zillow.com/wallingford-seattle-wa/</forSale>
+              </links>
+            </region>
+          </localRealEstate>
+        </comp>
+        <comp score="18.0">
+          <zpid>48724887</zpid>
+          <links>
+            <homedetails>http://www.zillow.com/homedetails/951-12th-Ave-E-Seattle-WA-98102/48724887_zpid/</homedetails>
+            <graphsanddata>http://www.zillow.com/homedetails/951-12th-Ave-E-Seattle-WA-98102/48724887_zpid/#charts-and-data</graphsanddata>
+            <mapthishome>http://www.zillow.com/homes/48724887_zpid/</mapthishome>
+            <comparables>http://www.zillow.com/homes/comps/48724887_zpid/</comparables>
+          </links>
+          <address>
+            <street>951 12th Ave E</street>
+            <zipcode>98102</zipcode>
+            <city>Seattle</city>
+            <state>WA</state>
+            <latitude>47.628028</latitude>
+            <longitude>-122.317142</longitude>
+          </address>
+          <zestimate>
+            <amount currency="USD">934792</amount>
+            <last-updated>03/21/2013</last-updated>
+            <oneWeekChange deprecated="true"></oneWeekChange>
+            <valueChange duration="30" currency="USD">-13849</valueChange>
+            <valuationRange>
+              <low currency="USD">710442</low>
+              <high currency="USD">1187186</high>
+            </valuationRange>
+            <percentile>89</percentile>
+          </zestimate>
+          <localRealEstate>
+            <region id="250206" type="neighborhood" name="Capitol Hill">
+              <links>
+                <overview>http://www.zillow.com/local-info/WA-Seattle/Capitol-Hill/r_250206/</overview>
+                <forSaleByOwner>http://www.zillow.com/capitol-hill-seattle-wa/fsbo/</forSaleByOwner>
+                <forSale>http://www.zillow.com/capitol-hill-seattle-wa/</forSale>
+              </links>
+            </region>
+          </localRealEstate>
+        </comp>
+        <comp score="12.0">
+          <zpid>48818711</zpid>
+          <links>
+            <homedetails>http://www.zillow.com/homedetails/2423-2nd-Ave-W-Seattle-WA-98119/48818711_zpid/</homedetails>
+            <graphsanddata>http://www.zillow.com/homedetails/2423-2nd-Ave-W-Seattle-WA-98119/48818711_zpid/#charts-and-data</graphsanddata>
+            <mapthishome>http://www.zillow.com/homes/48818711_zpid/</mapthishome>
+            <comparables>http://www.zillow.com/homes/comps/48818711_zpid/</comparables>
+          </links>
+          <address>
+            <street>2423 2nd Ave W</street>
+            <zipcode>98119</zipcode>
+            <city>Seattle</city>
+            <state>WA</state>
+            <latitude>47.640293</latitude>
+            <longitude>-122.359981</longitude>
+          </address>
+          <zestimate>
+            <amount currency="USD">1045326</amount>
+            <last-updated>03/21/2013</last-updated>
+            <oneWeekChange deprecated="true"></oneWeekChange>
+            <valueChange duration="30" currency="USD">40624</valueChange>
+            <valuationRange>
+              <low currency="USD">857167</low>
+              <high currency="USD">1296204</high>
+            </valuationRange>
+            <percentile>92</percentile>
+          </zestimate>
+          <localRealEstate>
+            <region id="271942" type="neighborhood" name="North Queen Anne">
+              <links>
+                <overview>http://www.zillow.com/local-info/WA-Seattle/North-Queen-Anne/r_271942/</overview>
+                <forSaleByOwner>http://www.zillow.com/north-queen-anne-seattle-wa/fsbo/</forSaleByOwner>
+                <forSale>http://www.zillow.com/north-queen-anne-seattle-wa/</forSale>
+              </links>
+            </region>
+          </localRealEstate>
+        </comp>
+        <comp score="14.0">
+          <zpid>48651107</zpid>
+          <links>
+            <homedetails>http://www.zillow.com/homedetails/1214-6th-Ave-N-APT-B-Seattle-WA-98109/48651107_zpid/</homedetails>
+            <graphsanddata>http://www.zillow.com/homedetails/1214-6th-Ave-N-APT-B-Seattle-WA-98109/48651107_zpid/#charts-and-data</graphsanddata>
+            <mapthishome>http://www.zillow.com/homes/48651107_zpid/</mapthishome>
+            <comparables>http://www.zillow.com/homes/comps/48651107_zpid/</comparables>
+          </links>
+          <address>
+            <street>1214 6th Ave N APT B</street>
+            <zipcode>98109</zipcode>
+            <city>Seattle</city>
+            <state>WA</state>
+            <latitude>47.63024</latitude>
+            <longitude>-122.344734</longitude>
+          </address>
+          <zestimate>
+            <amount currency="USD">406358</amount>
+            <last-updated>03/21/2013</last-updated>
+            <oneWeekChange deprecated="true"></oneWeekChange>
+            <valueChange duration="30" currency="USD">2221</valueChange>
+            <valuationRange>
+              <low currency="USD">337277</low>
+              <high currency="USD">467312</high>
+            </valuationRange>
+            <percentile>53</percentile>
+          </zestimate>
+          <localRealEstate>
+            <region id="271856" type="neighborhood" name="East Queen Anne">
+              <links>
+                <overview>http://www.zillow.com/local-info/WA-Seattle/East-Queen-Anne/r_271856/</overview>
+                <forSaleByOwner>http://www.zillow.com/east-queen-anne-seattle-wa/fsbo/</forSaleByOwner>
+                <forSale>http://www.zillow.com/east-queen-anne-seattle-wa/</forSale>
+              </links>
+            </region>
+          </localRealEstate>
+        </comp>
+        <comp score="8.0">
+          <zpid>48651109</zpid>
+          <links>
+            <homedetails>http://www.zillow.com/homedetails/1207-Aurora-Ave-N-Seattle-WA-98109/48651109_zpid/</homedetails>
+            <graphsanddata>http://www.zillow.com/homedetails/1207-Aurora-Ave-N-Seattle-WA-98109/48651109_zpid/#charts-and-data</graphsanddata>
+            <mapthishome>http://www.zillow.com/homes/48651109_zpid/</mapthishome>
+            <comparables>http://www.zillow.com/homes/comps/48651109_zpid/</comparables>
+          </links>
+          <address>
+            <street>1207 Aurora Ave N</street>
+            <zipcode>98109</zipcode>
+            <city>Seattle</city>
+            <state>WA</state>
+            <latitude>47.630027</latitude>
+            <longitude>-122.343913</longitude>
+          </address>
+          <zestimate>
+            <amount currency="USD">440426</amount>
+            <last-updated>03/21/2013</last-updated>
+            <oneWeekChange deprecated="true"></oneWeekChange>
+            <valueChange duration="30" currency="USD">-81822</valueChange>
+            <valuationRange>
+              <low currency="USD">343532</low>
+              <high currency="USD">506490</high>
+            </valuationRange>
+            <percentile>57</percentile>
+          </zestimate>
+          <localRealEstate>
+            <region id="271856" type="neighborhood" name="East Queen Anne">
+              <links>
+                <overview>http://www.zillow.com/local-info/WA-Seattle/East-Queen-Anne/r_271856/</overview>
+                <forSaleByOwner>http://www.zillow.com/east-queen-anne-seattle-wa/fsbo/</forSaleByOwner>
+                <forSale>http://www.zillow.com/east-queen-anne-seattle-wa/</forSale>
+              </links>
+            </region>
+          </localRealEstate>
+        </comp>
+      </comparables>
+    </properties>
+  </response>
+</Comps:comps>
+<!-- H:003  T:22ms  S:4036  R:Sat Mar 23 19:41:28 PDT 2013  B:3.0.187681.20130321115357299-comp_rel_a.187681.20130321115656538-comp_rel_a -->
