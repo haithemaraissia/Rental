@@ -8,10 +8,10 @@
 <h2>
     SimpleRendering</h2>
 <div>
-    <div id="">
-        <table width="100%">
+    <div id="GloablDiv" style="margin: 0 auto" id="" align="center">
+        <table id="ResponsiveTable1" width="100%">
             <tr>
-                <td style="width: 15%; background-color:Yellow">
+                <td style="width: 15%; background-color: Yellow">
                     <div id="thumbs" class="navigation">
                         <ul class="thumbs noscript">
                             <li><a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg"
@@ -344,59 +344,91 @@
                         </ul>
                     </div>
                 </td>
-                <td style="width: 50%; background-color:white; margin:0 auto">
-                    <div id="gallery" class="content">
-                        <div id="controls" class="controls">
-                        </div>
-                        <div class="slideshow-container">
-                            <div id="loading" class="loader">
-                            </div>
-                            <div id="slideshow" class="slideshow">
-                            </div>
-                        </div>
-                        <div id="caption" class="caption-container">
-                        </div>
+                <td style="width: 50%; background-color: white;" align="center">
+                    <div style="clear: both;">
                     </div>
+                    <table border="1" align="center" style="width: 100%; background-color: black;">
+                        <tr>
+                            <th>
+                                Month
+                            </th>
+                            <th>
+                                Savings
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                January
+                            </td>
+                            <td>
+                                $100
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                February
+                            </td>
+                            <td>
+                                $80
+                            </td>
+                        </tr>
+                        <tr colspan="2">
+                            <td colspan="2" style="text-align: center">
+                                <div style="margin: 0 auto">
+                                    <div id="gallery" class="content">
+                                        <div id="controls" class="controls">
+                                        </div>
+                                        <div class="slideshow-container">
+                                            <div id="loading" class="loader">
+                                            </div>
+                                            <div id="slideshow" class="slideshow">
+                                            </div>
+                                        </div>
+                                        <div id="caption" class="caption-container">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
-                <td style="width: 15% ; background-color:Red">
-                    
+                <td style="width: 15%; background-color: Red">
+                    <div id="side">
+                        <h5>
+                            Potential Lister</h5>
+                        <ul>
+                            <li>
+                                <label>
+                                    jack smith</label>
+                                <a href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6.jpg" title="Title #23">
+                                    <img src="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_s.jpg" alt="Title #23" />
+                                </a></li>
+                            <li>
+                                <label>
+                                    jack smith</label>
+                                <a href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6.jpg" title="Title #23">
+                                    <img src="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_s.jpg" alt="Title #23" />
+                                </a></li>
+                            <li>
+                                <label>
+                                    jack smith</label>
+                                <a href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6.jpg" title="Title #23">
+                                    <img src="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_s.jpg" alt="Title #23" />
+                                </a></li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         </table>
-        <div id="thumbs" class="navigation">
-        </div>
         <!-- Start Advanced Gallery Html Containers -->
     </div>
-    @*<div id ="side">
-    <h5>Potential Lister</h5>  
-      <ul>
-        <li>
-            <label>jack smith</label>   
-            <a  href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6.jpg" title="Title #23">
-                <img src="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_s.jpg" alt="Title #23" />
-            </a>
-        </li>
-        <li>
-            <label>jack smith</label>   
-            <a  href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6.jpg" title="Title #23">
-                <img src="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_s.jpg" alt="Title #23" />
-            </a>
-        </li>
-        <li>
-            <label>jack smith</label>   
-            <a  href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6.jpg" title="Title #23">
-                <img src="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_s.jpg" alt="Title #23" />
-            </a>
-        </li>
-    </ul>
-</div>*@
     <div style="clear: both;">
     </div>
 </div>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         // We only want these styles applied when javascript is enabled
-        $('div.navigation').css({ 'width': '300px', 'float': 'left' });
+        $('div.navigation').css({ 'width': '100%', 'margin': '0' });
         $('div.content').css('display', 'block');
 
         // Initially set opacity on thumbs and add

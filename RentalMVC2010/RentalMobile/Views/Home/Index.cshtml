@@ -1,0 +1,565 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_DotLayoutPage.cshtml";
+}
+
+			<!-- Section: slider -->
+			<section class="sixteen columns home-slider add-bottom">
+				
+				<ul class="bxslider">
+					<li>
+						<img src="../../../Nero-Danty-Dot Real/Dot Real/images/sliders/home-slide-01.jpg" title="Spacious and elegant apartment features an excellent layout" alt="slide 1"/>
+					</li>
+					<li>
+						<img src="../../../Nero-Danty-Dot Real/Dot Real/images/sliders/home-slide-02.jpg" title="Elegant apartment features an excellent layout" alt="slide 1" />
+					</li>
+					<li>
+						<img src="../../../Nero-Danty-Dot Real/Dot Real/images/sliders/home-slide-03.jpg" title="Apartment features an excellent layout" alt="slide 1" />
+					</li>
+				</ul>
+
+				<div id="bx-pager">
+					<a data-slide-index="0" href="#">
+						<img src="../../../Nero-Danty-Dot Real/Dot Real/images/sliders/home-slide-thumb-01.png" alt="//" />
+						<h5>Live in Your Dream Home Today</h5>
+						<p class="price">$96,250.00</p>
+					</a>
+					<a data-slide-index="1" href="#">
+						<img src="../../../Nero-Danty-Dot Real/Dot Real/images/sliders/home-slide-thumb-02.png" alt="//" />
+						<h5>Spectacular Loft to enjoy life and work</h5>
+						<p class="price">$295,000.00</p>
+					</a>
+					<a data-slide-index="2" href="#">
+						<img src="../../../Nero-Danty-Dot Real/Dot Real/images/sliders/home-slide-thumb-03.png" alt="//" />
+						<h5>Stunning corner loft with  1900 sq ft</h5>
+						<p class="price">$659,000.00</p>
+					</a>
+				</div>
+
+
+			</section>
+			<!-- /section: slider -->
+
+			<!-- Search form -->
+			<form action="#" class="sixteen columns shadded wide-on-small-screen">
+
+				<!-- tag filters -->
+				<ul class="radio-list fourteen columns push by-one">
+					<li>
+						<input type="radio" id="filter-1" name="operation-filter" value="1" checked />
+						<label for="filter-1">For sale</label>
+					</li>
+					<li>
+						<input type="radio" id="filter-2" name="operation-filter" value="2" />
+						<label for="filter-2">For rent</label>
+					</li>
+					<li>
+						<input type="radio" id="filter-3" name="operation-filter" value="3" />
+						<label for="filter-3">Sold</label>
+					</li>
+					<li>
+						<input type="radio" id="filter-4" name="operation-filter" value="4" />
+						<label for="filter-4">Estimates</label>
+					</li>
+				</ul>
+
+				<ul class="grid-form fourteen columns push by-one remove-bottom">
+					<li class="eight columns alpha">
+						<label for="location-field" class="screen-reader-text">Location</label>
+						<input id="location-field" type="text" placeholder="Location" required />
+					</li>
+					<li class="three columns relative">
+						<label for="beds-select" class="screen-reader-text">Beds</label>
+						<select id="beds-select" class="custom-select" title="Beds">
+							<option value="1">Beds</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</li>
+					<li class="three columns omega relative">
+						<label for="baths-select" class="screen-reader-text">Baths</label>
+						<select id="baths-select" class="custom-select" title="Baths">
+							<option value="1">Baths</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</li>
+					<li class="three columns alpha">
+						<label for="min-field" class="screen-reader-text">Min price</label>
+						<input id="min-field" type="text" placeholder="$Min" required />
+					</li>
+					<li class="three columns">	
+						<label for="max-field" class="screen-reader-text">Max price</label>
+						<input id="max-field" type="text" placeholder="$Max" required />
+					</li>
+					<li class="three columns">
+						<label for="meters-field" class="screen-reader-text">Meters</label>
+						<input id="meters-field" type="text" placeholder="Meters" required />
+					</li>
+					<li class="three columns">
+						<label for="property-type-field" class="screen-reader-text">Property type</label>
+						<input id="property-type-field" type="text" placeholder="Property type" required />
+					</li>
+					<li class="two columns omega">		
+						<input type="submit" value="Search" />
+					</li>
+				</ul>
+
+				<div class="fourteen columns push by-one add-bottom row">
+					<a href="../../../Nero-Danty-Dot Real/Dot Real/advanced-search.html" class="fl">Advanced Search</a><a href="#" class="fr">My Searches</a>
+				</div>
+
+			</form>
+			<!-- /section: search form -->
+
+			<!-- Section: tagline -->
+			<section class="sixteen columns">
+
+				<h3 class="tagline">We have become the fastest growing real estate company in our country</h3>
+			
+			</section>
+			<!-- /section: tagline -->
+
+			<!-- Section: rent -->
+			<section class="sixteen columns">
+				
+				<h2>Rent</h2>
+
+				<!-- filters -->
+				<form action="#" class="row">
+					
+					<!-- tag filters -->
+					<ul class="filter-list nine alpha columns row">
+						
+						<li><a data-rel="all" class="current">All</a></li>
+						<li><a data-rel="house">House</a></li>
+						<li><a data-rel="appartment">Apartment</a></li>
+						<li><a data-rel="loft">Loft</a></li>
+						<li><a data-rel="offices">Offices</a></li>
+						<li><a data-rel="condos">Condos</a></li>
+						
+					</ul>
+
+					<div class="select-filter five columns relative">
+
+						<select id="sort-by" class="custom-select" title="Sort by">
+							<option value="sort by">Sort by</option>
+							<option value="1">Featured</option>
+							<option value="2">Price Descending</option>
+							<option value="3">Price Ascending</option>
+							<option value="4">Date Descending</option>
+							<option value="5">Date Ascending</option>
+							<option value="6">Number of photos</option>
+							<option value="7">Transtit</option>
+							<option value="8">+ More Options</option>
+						</select>
+
+					</div>
+
+					<div class="switcher fr">
+						<a href="#" id="gridview" class="switcher"><i class="icon-layout"></i></a> <a href="#" id="listview" class="switcher active"><i class="icon-menu"></i></a>
+					</div>
+
+				</form>
+
+				<!-- List/Grid gallery -->
+				<ul id="property-list" class="list-grid-gallery list">
+					
+					<li class="prop-type all house">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">3</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>House 79th St #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #1</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+					
+					<li class="prop-type all house">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">5</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>Other house 9th St #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #2</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+
+					<li class="prop-type all appartment">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">3</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>Appartment 79th St #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #1</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+					
+					<li class="prop-type all appartment">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">5</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>Other appartment #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #2</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+					
+					<li class="prop-type all loft">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">7</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>A great loft St #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #3</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+					
+					<li class="prop-type all offices">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">4</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>An Office St #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #4</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+
+					<li class="prop-type all condos">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">4</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>A Condo St #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #4</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+
+					<li class="prop-type all condos">
+						<article>
+							<figure class="five columns alpha">
+								<a href="#" class="camera">4</a>
+								<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-280x165.png" class="scale-with-grid" alt="gallery" />
+							</figure>
+							<div class="ten columns omega">
+								<h4>Other condo St #8C, New York NY, USA</h4>
+								<ul class="prop-data">
+									<li class="price">$1,875,000</li>
+									<li class="new">New construction</li>
+								</ul>
+								<p class="propr-details">1 bedroom  /  2 bathrom  / 1,300 sqft </p>
+								<p class="prop-extract">Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum commodteger bibendum c scele.</p>
+								<p class="prop-webid">Web ID #4</p>
+								<ul class="toolbar">
+									<li class="dollar"><a href="#">Compare</a></li>
+									<li class="map"><a href="#">Map</a></li>
+									<li class="next-arr"><a href="../../../Nero-Danty-Dot Real/Dot Real/property-single.html">Description</a></li>
+								</ul>
+							</div>
+						</article>
+					</li>
+				
+				</ul>
+				<!-- /.List -->
+
+			</section>
+			<!-- /section: rent -->
+
+			<!-- Section: partners -->
+			<section class="sixteen columns add-bottom">
+	
+				<h2>Our partners</h2>
+	
+				<figure class="partners">
+					<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/partners/partner-1.jpg" alt="partner1" /></a>
+					<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/partners/partner-2.jpg" alt="partner2" /></a>
+					<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/partners/partner-3.jpg" alt="partner3" /></a>
+					<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/partners/partner-4.jpg" alt="partner4" /></a>
+					<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/partners/partner-5.jpg" alt="partner5" /></a>
+					<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/partners/partner-6.jpg" alt="partner6" /></a>
+					<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/partners/partner-7.jpg" alt="partner7" /></a>
+				</figure>
+
+			</section>
+			<!-- /section: partners -->
+
+			<!-- Section: hot-properties -->
+			<section class="sixteen columns add-bottom">
+
+				<h2>Hot properties</h2>
+						
+				<div class="tab-container big-tabs">
+						
+					<ul class="etabs">
+				    	<li><a href="#sale">Home for sale</a></li>
+				    	<li><a href="#sold">Recently sold</a></li>
+				    	<li><a href="#commercial">Commercial</a></li>
+					</ul>
+						
+					<div id="sale" class="panel">
+				    	
+						<ul class="gallery-in-two">
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+						</ul>
+
+					</div>
+						
+					<div id="sold" class="panel">
+						
+						<ul class="gallery-in-two">
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+						</ul>
+
+				  	</div>
+					  	
+				  	<div id="commercial" class="panel">
+
+						<ul class="gallery-in-two">
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+							<li>
+								<article>
+									<figure>
+										<a href="#">Property title for semantics</a>
+										<img src="../../../Nero-Danty-Dot Real/Dot Real/images/properties/gallery-160x115.png" alt="property-thumb">
+									</figure>
+									<h4><a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+									<p class="prop-extract">Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat a lorem suscipit.</p>
+									<p class="price">Price: <span>$35,000</span></p>
+								</article>
+							</li>
+						</ul>
+
+					</div>	
+
+				</div>
+
+			</section>
+			<!-- /section: hot-properties -->
+
+			<figure class="sixteen columns advertising add-bottom">
+
+				<a href="#"><img src="../../../Nero-Danty-Dot Real/Dot Real/images/advertise-placeholder.png" class="scale-with-grid" alt="Advertise here" /></a>
+
+			</figure>

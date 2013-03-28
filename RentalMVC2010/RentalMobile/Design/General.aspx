@@ -1,0 +1,170 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="General.aspx.cs" Inherits="RentalMobile.Design.General" %>
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <!-- Basic Page Needs
+  	================================================== -->
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Mobile Specific Metas
+  	================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS
+  	================================================== -->
+    <link rel="stylesheet" href="../Views/../css/dotcss/base.css">
+    <link rel="stylesheet" href="../Views/../css/dotcss/skeleton.css">
+    <link rel="stylesheet" href="../Views/../css/dotcss/layout.css">
+    <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- JS
+	================================================== -->
+    <script type="text/javascript" src="../Views/../Scripts/js/jquery.min.js"></script>
+    <!-- Favicons
+	================================================== -->
+    <link rel="shortcut icon" href="../Views/../images/dotimages/favicon.ico">
+    <link rel="apple-touch-icon" href="../Views/../images/dotimages/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../Views/../images/dotimages/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../Views/../images/dotimages/apple-touch-icon-114x114.png">
+    <script src='../Views/../WIP/google_analytics_auto.html'></script>
+</head>
+    <title></title>
+</head>
+<body>
+       <div class="container page add-bottom">
+        <!-- top-bar -->
+        <div class="top-bar clearfix">
+            <p class="eight columns">
+                Sales: 555 912 5412 | Email: <a href="#">info@yourcompany.com</a></p>
+            <!-- Language nav -->
+            <ul class="nav lang">
+                <li><a href="#" class="selected">
+                    <img src="../Views/../images/dotimages/icons/es.gif" alt="spain" /></a></li>
+                <li><a href="#">
+                    <img src="../Views/../images/dotimages/icons/it.gif" alt="italy" /></a></li>
+                <li><a href="#">
+                    <img src="../Views/../images/dotimages/icons/en.gif" alt="uk" /></a></li>
+                <li><a href="#">
+                    <img src="../Views/../images/dotimages/icons/fr.gif" alt="frence" /></a></li>
+                <li><a href="#">
+                    <img src="../Views/../images/dotimages/icons/us.gif" alt="usa" /></a></li>
+            </ul>
+            <ul class="menu user">
+                <li><a href="../Views/../WIP/registration.html" class="register-btn">Register</a></li>
+                <li><a href="#" data-dropdown="#login">Login</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+        <!-- /.top-bar -->
+        <header class="row">
+            <!-- brand -->
+            <h1 class="logo one-half column">
+                <a href="../Views/../WIP/index.html">
+                    <img src="../Views/../images/dotimages/logo.png" alt="Dot. Real State"></a>
+            </h1>
+            <!-- follow us -->
+            <div class="follow">
+                <h6 class="half-bottom">
+                    <span>Follow us</span></h6>
+                <ul class="menu social">
+                    <li><a href="#" title="Twitter"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#" title="Flickr"><i class="icon-flickr"></i></a></li>
+                    <li><a href="#" title="Facebook"><i class="icon-facebook"></i></a></li>
+                    <li><a href="#" title="Vimeo"><i class="icon-vimeo"></i></a></li>
+                    <li><a href="#" title="Skype"><i class="icon-skype"></i></a></li>
+                </ul>
+            </div>
+            <!-- /.follow -->
+            <!-- Main nav-bar -->
+            <nav class="menu-bar sixteen columns row">
+                <!-- Main menu -->
+                <ul class="menu clearfix">
+                    <li><a href="../Views/../WIP/buy.html">Buy</a></li>
+                    <li><a href="../Views/../WIP/rent.html">Rent</a></li>
+                    <li><a href="../Views/../WIP/sell.html">Sell</a></li>
+                    <li><a href="../Views/../WIP/mortgage.html">Mortgage</a></li>
+                    <li><a href="#">Pages <i class="icon-down-dir"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="../Views/../WIP/index.html">Home Slider</a></li>
+                            <li><a href="../Views/../WIP/home2.html">Home Form</a></li>
+                            <li><a href="../Views/../WIP/home-nivoslider.html">Home Nivoslider</a></li>
+                            <li><a href="../Views/../WIP/home-static-image.html">Home Static Image</a></li>
+                            <li><a href="../Views/../WIP/home-static-video.html">Home Static Video</a></li>
+                            <li><a href="#">Extra Submenu <i class="icon-right-dir"></i></a>
+                                <ul>
+                                    <li><a href="#">Example</a></li>
+                                    <li><a href="#">Example</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../Views/../WIP/advanced-search.html">Advanced Search</a></li>
+                            <li><a href="../Views/../WIP/advices.html">Advices</a></li>
+                            <li><a href="../Views/../WIP/property-single.html">Property</a></li>
+                            <li><a href="../Views/../WIP/company-single.html">Sales Agent</a></li>
+                            <li><a href="../Views/../WIP/registration.html">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Views/../WIP/building.html">Building</a></li>
+                    <li><a href="../Views/../WIP/company.html">Company</a></li>
+                    <li><a href="../Views/../WIP/contact.html">Contact</a></li>
+                </ul>
+                <!-- Home btn -->
+                <a href="#" class="home-btn" title="Home"><i class="icon-home"></i></a>
+            </nav>
+            <!-- /.nav-bar -->
+        </header>
+        <!-- /header-->
+        <div class="main" role="main">
+          @RenderBody()
+        </div>
+        <!-- /.main -->
+        <ol class="breadcrumbs fourteen columns remove-bottom">
+            <li>You are here:</li>
+            <li><a href="../Views/../WIP/index.html">Home</a> / Registration</li>
+        </ol>
+        <a href="#" class="scroll-top fr">Top <i class="icon-up-open"></i></a>
+    </div>
+    <!-- /.container -->
+    <footer class="container">
+        <p class="remove-bottom">
+            Copyright &copy; DOT Real State. All Rights Reserved. Designed by Coralix Themes.</p>
+        <p>
+            Vivamus cursus eget Phasellus quis wisi.</p>
+    </footer>
+    <!-- /footer -->
+    <div id="login" class="dropdown dropdown-tip dropdown-anchor-right">
+        <div class="dropdown-panel">
+            <img src="../Views/../images/dotimages/logo-small.png" alt="//" />
+            <form action="#" class="remove-bottom login-form">
+                <label>
+                    <span class="entypo"><i class="icon-user"></i></span>
+                    <input type="text" class="inline remove-bottom" placeholder="USER">
+                </label>
+                <label class="half-bottom">
+                    <span class="entypo"><i class="icon-lock"></i></span>
+                    <input type="password" class="inline remove-bottom" placeholder="PASSWORD">
+                </label>
+                <input type="submit" value="Log in" class="remove-bottom full-width">
+            </form>
+        </div>
+    </div>
+        
+	<!-- Scripts & Plugins
+  ================================================== -->
+	
+	<!-- jQuery dropdown -->
+	<script src="../Views/../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
+	<!-- Tipsy -->
+	<script src="../Views/../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
+	<!-- Custom Scripts -->
+	<script src="../Views/../Scripts/js/scripts.js" type="text/javascript"></script>
+</body>
+</html>
+
