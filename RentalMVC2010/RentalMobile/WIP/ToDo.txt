@@ -1,2 +1,7 @@
 ﻿<script src='../../WIP/google_analytics_auto.html'></script> under _DotLayoutPage.cshtml
 
+
+Pages 
+Advanced Search
+Rent
+Sell (Post your propery)
