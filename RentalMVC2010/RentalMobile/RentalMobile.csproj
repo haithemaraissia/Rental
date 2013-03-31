@@ -60,12 +60,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationHelper.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdvancedSearchController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LegalController.cs" />
     <Compile Include="Controllers\MaintainController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\RentController.cs" />
+    <Compile Include="Controllers\SpecialistController.cs" />
+    <Compile Include="Controllers\UnitDetailController.cs" />
     <Compile Include="Design\General.aspx.cs">
       <DependentUpon>General.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,7 +244,21 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="WIP\advices.html" />
+    <Content Include="WIP\contact.html" />
     <Content Include="WIP\index.html" />
+    <Content Include="WIP\advanced-search.html" />
+    <Content Include="WIP\Pool\building.html" />
+    <Content Include="WIP\Pool\buy.html" />
+    <Content Include="WIP\company-single.html" />
+    <Content Include="WIP\company.html" />
+    <Content Include="WIP\Pool\home-nivoslider.html" />
+    <Content Include="WIP\Pool\home-static-image.html" />
+    <Content Include="WIP\Pool\home-static-video.html" />
+    <Content Include="WIP\Pool\home2.html" />
+    <Content Include="WIP\Pool\mortgage.html" />
+    <Content Include="WIP\Pool\property-single.html" />
+    <Content Include="WIP\Pool\sell.html" />
     <Content Include="WIP\registration.html" />
     <Content Include="WIP\rent.html" />
     <Content Include="WIP\ToDo.txt" />
@@ -318,6 +338,12 @@
     <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Views\Maintain\Index.cshtml" />
     <Content Include="Views\Legal\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\AdvancedSearch\Index.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\UnitDetail\Index.cshtml" />
+    <Content Include="Views\Specialist\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

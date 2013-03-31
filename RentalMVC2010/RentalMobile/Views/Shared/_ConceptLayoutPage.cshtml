@@ -56,7 +56,7 @@
             <ul class="menu user">
                 <li><a href="/Account/Register" class="register-btn">Register</a></li>
                 <li><a href="#" data-dropdown="#login">Login</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href="Help">Help</a></li>
             </ul>
         </div>
         <!-- /.top-bar -->
@@ -87,7 +87,7 @@
                     <li>@Html.ActionLink("Post", "Index", "Post")</li>
                     <li>@Html.ActionLink("Maintain", "Index", "Maintain")</li>
                     <li>@Html.ActionLink("Legal", "Index", "Legal")</li>
-                    <li><a href="#">Pages <i class="icon-down-dir"></i></a>
+@*                    <li><a href="#">Pages <i class="icon-down-dir"></i></a>
                         <ul class="sub-menu">
                             <li><a href="../../WIP/index.html">Home Slider</a></li>
                             <li><a href="../../WIP/home2.html">Home Form</a></li>
@@ -106,19 +106,20 @@
                             <li><a href="../../WIP/company-single.html">Sales Agent</a></li>
                             <li><a href="/Account/Register">Registration</a></li>
                         </ul>
-                    </li>
-                    <li><a href="../../WIP/building.html">Building</a></li>
-                    <li><a href="../../WIP/company.html">Company</a></li>
-                    <li><a href="../../WIP/contact.html">Contact</a></li>
+                    </li>*@
+                   @* <li><a href="../../WIP/building.html">Building</a></li>*@
+                    <li>@Html.ActionLink("About", "Index", "About")</li>
+                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
                 </ul>
                 <!-- Home btn -->
-                <a href="#" class="home-btn" title="Home"><i class="icon-home"></i></a>
+             @*   @Html.ActionLink("", "Index", "Home", new { @class = "classname", @title = "Home" })
+*@                <a href="." class="home-btn" title="Home"><i class="icon-home"></i></a>
             </nav>
             <!-- /.nav-bar -->
         </header>
         <!-- /header-->
         <div class="main" role="main">
-          @RenderBody()
+            @RenderBody()
         </div>
         <!-- /.main -->
         <ol class="breadcrumbs fourteen columns remove-bottom">
@@ -139,28 +140,26 @@
         <div class="dropdown-panel">
             <img src="../../images/dotimages/logo-small.png" alt="//" />
             <form action="#" class="remove-bottom login-form">
-                <label>
-                    <span class="entypo"><i class="icon-user"></i></span>
-                    <input type="text" class="inline remove-bottom" placeholder="USER">
-                </label>
-                <label class="half-bottom">
-                    <span class="entypo"><i class="icon-lock"></i></span>
-                    <input type="password" class="inline remove-bottom" placeholder="PASSWORD">
-                </label>
-                <input type="submit" value="Log in" class="remove-bottom full-width">
+            <label>
+                <span class="entypo"><i class="icon-user"></i></span>
+                <input type="text" class="inline remove-bottom" placeholder="USER">
+            </label>
+            <label class="half-bottom">
+                <span class="entypo"><i class="icon-lock"></i></span>
+                <input type="password" class="inline remove-bottom" placeholder="PASSWORD">
+            </label>
+            <input type="submit" value="Log in" class="remove-bottom full-width">
             </form>
         </div>
     </div>
-        
-	<!-- Scripts & Plugins
+    <!-- Scripts & Plugins
   ================================================== -->
-	
-	<!-- jQuery dropdown -->
-	<script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
-	<!-- Tipsy -->
-	<script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
-	<!-- Custom Scripts -->
+    <!-- jQuery dropdown -->
+    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
+    <!-- Tipsy -->
+    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
+    <!-- Custom Scripts -->
     <script src="../../Scripts/js/scripts.js" type="text/javascript"></script>
-       @RenderSection("scripts",false)
+    @RenderSection("scripts", false)
 </body>
 </html>

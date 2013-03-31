@@ -1,0 +1,81 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
+}
+
+		<!-- Section: map -->
+			<section class="sixteen columns">
+				<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.ar/maps?f=q&amp;source=s_q&amp;hl=es-419&amp;geocode=&amp;q=Chicago,+Illinois,+Estados+Unidos&amp;aq=0&amp;oq=chicago&amp;sll=40.720201,-73.944855&amp;sspn=0.15196,0.308647&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Chicago,+Condado+de+Cook,+Illinois,+Estados+Unidos&amp;ll=41.878114,-87.629798&amp;spn=0.037321,0.077162&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+			</section>
+			<!-- /section: map -->
+
+			<!-- Section: search form -->
+			<section class="nine columns add-bottom relative">
+				
+				<h2>Contact form</h2>
+
+				<small class="fly-out">Please feel free to send us a message if you have any cuestion</small>
+				
+				<form class="boxed shadded wide-on-small-screen" action="#">
+
+					<ul class="grid-form row remove-bottom">
+						<li class="four columns">
+							<label for="name-field" class="screen-reader-text">Your name</label>
+							<input id="name-field" type="text" placeholder="Your Name" class="full-width"/>
+						</li>
+						<li class="four columns omega">
+							<label for="last-field" class="screen-reader-text">Last name</label>
+							<input id="last-field" type="text" placeholder="Last Name" class="full-width"/>
+						</li>
+						<li class="four columns">
+							<label for="email-field" class="screen-reader-text">E-mail</label>
+							<input id="email-field" type="email" placeholder="Email" class="full-width"/>
+						</li>
+						<li class="four columns omega">
+							<label for="web-field" class="screen-reader-text">Website</label>
+							<input id="web-field" type="url" placeholder="Website" class="full-width"/>
+						</li>
+						<li class="eight columns omega">
+							<label for="message-field" class="screen-reader-text">Message</label>
+							<textarea id="message-field" placeholder="Message" class="full-width"></textarea>
+						</li>
+						<li class="six columns">
+							<small>All the fields are required.</small>
+						</li>
+						<li class="two columns omega">
+							<input type="submit" value="Send it" />
+						</li> 
+					</ul>
+					
+				</form>
+
+			</section>
+			<!-- /section: search form -->
+
+			<!-- Aside -->
+			<aside class="seven columns">
+				
+				<h2>Information</h2>
+
+				<p>Note: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor. Nullam augue turpis, auctor at facilisis ac, accumsan eu nibh</p>
+
+				<ul class="address">
+					<li>Your company Name</li>
+					<li>26598 Some Street</li>
+					<li>City, Somewhere 1541, USA</li>
+				</ul>
+				<ul class="address">
+					<li>Phone 1: 123.456.7890</li>
+					<li>Phone 2: 111.222.3333</li>
+					<li>Email 1: <a href="#">info@mycompany.com</a></li>
+					<li>Email 2: <a href="#">mike@mycompany.com</a></li>
+				</ul>
+			
+			</aside>
+			<!-- /aside -->
+
+
+		<!-- /.main -->
+

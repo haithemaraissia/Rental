@@ -1,5 +1,6 @@
 ﻿@model dynamic
 
+
 @{
     ViewBag.Title = "Maintain";
     Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
@@ -54,7 +55,7 @@
                     <figure class="avatar"><img src="../../images/dotimages/avatar-placeholder.png" alt="//"></figure>
                     <div class="entry">
                         <h4>Real Estate Investing: How To Start Investing</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit... @Html.ActionLink("read more", "Index", "Specialist")</p>
                         <p class="links-tools">
                             <a href="#"><i class="icon-clock"></i> Sat Oct 6, 2012</a>
                             <a href="#"><i class="icon-comment"></i> 12 Comments</a>

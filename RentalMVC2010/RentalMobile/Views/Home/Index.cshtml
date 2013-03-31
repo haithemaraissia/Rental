@@ -120,10 +120,11 @@
         <input type="submit" value="Search" />
     </li>
 </ul>
-<div class="fourteen columns push by-one add-bottom row">
-    <a href="../../Scripts/advanced-search.html" class="fl">Advanced
-        Search</a><a href="#" class="fr">My Searches</a>
-</div>
+    <div class="fourteen columns push by-one add-bottom row">
+@*        @Html.ActionLink("AdvancedSearch", "Index", "AdvancedSearch", new { @class = "fly-out"})*@
+        <a href="AdvancedSearch" class="fl">Advanced
+            Search</a><a href="#" class="fr">My Searches</a>
+    </div>
 </form>
 <!-- /section: search form -->
 <!-- Section: tagline -->

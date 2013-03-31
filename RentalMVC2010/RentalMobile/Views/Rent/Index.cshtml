@@ -50,8 +50,9 @@
 								<p class="prop-webid">Web ID #1</p>
 								<ul class="toolbar">
 									<li class="dollar"><a href="#">Compare</a></li>
-									<li class="map"><a href="#">Map</a></li>
-									<li class="next-arr"><a href="../../WIP/property-single.html">Description</a></li>
+                                    <li class="map"><a href="#">Map</a></li>
+                                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+									<li class="next-arr">@Html.ActionLink("Description", "Index", "UnitDetail")></li>
 								</ul>
 							</div>
 						</article>
@@ -271,9 +272,14 @@
 				
 				<div class="shadded boxed relative">
 	
-					<h4 class="remove-top add-bottom">Search</h4>
-					
-					<a href="#" class="fly-out">Advanced searches</a>
+                    <h4 class="remove-top add-bottom">Search</h4>
+
+                    @*    @Html.ActionLink("AdvancedSearch", "Index", "AdvancedSearch", new { @class = "fly-out"})*@
+                    
+@*                   @Html.ActionLink("AdvancedSearch", "Index", "AdvancedSearch", null, new { @class = "fly-out", @style = "width:100px; color: red;" })*@
+                   
+                    @Html.ActionLink("AdvancedSearch", "Index", "AdvancedSearch", null, new { @class = "fly-out" })
+                    @*<a href="AdvancedSearch" class="fly-out">Advanced searches</a>*@
 				
 					<form action="#" class="remove-bottom">
 
