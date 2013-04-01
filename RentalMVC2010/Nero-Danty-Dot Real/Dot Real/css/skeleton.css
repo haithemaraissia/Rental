@@ -83,6 +83,7 @@
     .container .pull.by-fifteen                 { left: -890px; }
     
     .container .push.by-one                     { left: 50px }
+    .container .push.by-half                    { left: 25px }
     .container .push.by-two                     { left: 110px; }
     .container .push.by-three                   { left: 170px; }
     .container .push.by-four                    { left: 230px; }
@@ -156,6 +157,7 @@
         .container .pull.by-fifteen                 { left: -710px; }
 
         .container .push.by-one                     { left: 38px }
+        .container .push.by-half                    { left: 19px }
         .container .push.by-two                     { left: 86px; }
         .container .push.by-three                   { left: 134px; }
         .container .push.by-four                    { left: 182px; }
@@ -227,6 +229,7 @@
         .container .pull.by-thirteen,
         .container .pull.by-fourteen,
         .container .pull.by-fifteen,
+        .container .push.by-half,
         .container .push.by-one,
         .container .push.by-two,
         .container .push.by-three,
