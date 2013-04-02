@@ -1,0 +1,353 @@
+﻿@{
+    ViewBag.Title = "Tenant Profile";
+    Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
+    //Layout = "~/Views/Shared/_DotLayoutPage.cshtml";
+    	
+}
+<link rel="stylesheet" href="../../css/dotcss/jquery.bxslider.css">
+<!-- Section: hot-properties -->
+<section class="sixteen columns add-bottom">
+    <h2>
+        Hot properties</h2>
+    <div class="tab-container big-tabs">
+        <ul class="etabs">
+            <li><a href="#sale">Profile</a></li>
+            <li><a href="#sold">Maintenance</a></li>
+            <li><a href="#commercial">Forms</a></li>
+            <li><a href="#Forms">Forms</a></li>
+        </ul>
+        <div id="sale" class="panel">
+
+                    <!-- Section: slider -->
+                    <section class="row">
+                        <h2 class="section-titling">
+                            Central Park West, $390.000</h2>
+                        <div class="tab-container mini-tabs eight columns">
+                            <ul class="etabs">
+                                <li><a href="#photos"><i class="icon-camera"></i>Photos</a></li>
+                                <li><a href="#video"><i class="icon-video"></i>Video</a></li>
+                                <li><a href="#map"><i class="icon-map"></i>Map</a></li>
+                                <li><a href="#agent"><i class="icon-user"></i>Agent</a></li>
+                            </ul>
+                            <div id="photos" class="panel">
+                                <a id="fancybox-manual-c" href="javascript:;">
+                                    <img src="../../images/dotimages/single-property/gallery-480x350.png" class="img-preview scale-with-grid"
+                                        alt="image">
+                                </a>
+                            </div>
+                            <div id="video" class="panel">
+                                <iframe src="http://player.vimeo.com/video/12158329" width="500" height="281" frameborder="0"
+                                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                            <div id="map" class="panel">
+                                <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0"
+                                    marginwidth="0" src="https://maps.google.com.ar/maps?f=q&amp;source=s_q&amp;hl=es-419&amp;geocode=&amp;q=United+Center,+West+Madison+Street,+Chicago,+Illinois,+Estados+Unidos&amp;aq=3&amp;oq=Chicago+bulls+&amp;sll=-38.452918,-63.598921&amp;sspn=39.850301,79.013672&amp;ie=UTF8&amp;hq=United+Center,+West+Madison+Street,&amp;hnear=Chicago,+Condado+de+Cook,+Illinois,+Estados+Unidos&amp;t=m&amp;ll=41.880042,-87.671242&amp;spn=0.038343,0.072956&amp;z=13&amp;output=embed">
+                                </iframe>
+                            </div>
+                            <div id="agent" class="panel">
+                                <img src="../../images/dotimages/single-property/agent-480x350.png" alt="Agent" class="scale-with-grid">
+                            </div>
+                        </div>
+                        @*<div class="eight columns prop-details">
+                            <h4>
+                                Recuest showing</h4>
+                            <p>
+                                Please complete the form below to request a showing for this property. Quisque non
+                                mi magna, eget aliquet urna. Curabitur ut justo est. Quisque iaculis risus et tortor
+                                congue porta. Suspendisse eleifend tempor dapibus.
+                            </p>
+                            <form action="#">
+                            <ul class="grid-form">
+                                <li class="four columns alpha">
+                                    <label for="your-name" class="screen-reader-text">
+                                        Your name</label>
+                                    <input id="your-name" placeholder="Your name" type="text" required>
+                                </li>
+                                <li class="four columns omega">
+                                    <label for="your-email" class="screen-reader-text">
+                                        E-mail</label>
+                                    <input id="your-email" placeholder="email" type="email" required>
+                                </li>
+                                <li class="four columns alpha">
+                                    <label for="your-telephone" class="screen-reader-text">
+                                        Your telephone</label>
+                                    <input id="your-telephone" placeholder="telephone" type="text" required>
+                                </li>
+                                <li class="four columns omega">
+                                    <label for="showing-date" class="screen-reader-text">
+                                        Showing date</label>
+                                    <input id="showing-date" placeholder="showing date" type="text" required>
+                                </li>
+                            </ul>
+                            <input type="submit" class="full-width tall" value="Request a showing">
+                            </form>
+                        </div>*@
+                    </section>
+
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+
+        </div>
+        <div id="sold" class="panel">
+            <ul class="gallery-in-two">
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+            </ul>
+        </div>
+        <div id="commercial" class="panel">
+            <ul class="gallery-in-two">
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+            </ul>
+        </div>
+        <div id="forms" class="panel">
+            <ul class="gallery-in-two">
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="#">Property title for semantics</a>
+                            <img src="../../images/dotimages/properties/gallery-160x115.png" alt="property-thumb">
+                        </figure>
+                        <h4>
+                            <a href="#">Nunc diam Sed orci vitae aliqu</a></h4>
+                        <p class="prop-extract">
+                            Et malesuada Morbi velit iaculis nonummy leo dis turpis lorem congue facilisis feugiat
+                            a lorem suscipit.</p>
+                        <p class="price">
+                            Price: <span>$35,000</span></p>
+                    </article>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- /section: hot-properties -->
+<figure class="sixteen columns advertising add-bottom">
+    <a href="#">
+        <img src="../../images/dotimages/advertise-placeholder.png" class="scale-with-grid"
+            alt="Advertise here" /></a>
+</figure>
+@section scripts{
+    <!-- Scripts & Plugins
+  	================================================== -->
+    <!-- BX Slider -->
+    <script src="../../Scripts/js/jquery.bxslider.min.js" type="text/javascript"></script>
+    <!-- Tabs -->
+    <script src="../../Scripts/js/jquery.easytabs.min.js" type="text/javascript"></script>
+    <!-- Gallery switcher -->
+    <script src="../../Scripts/js/switcher.js" type="text/javascript"></script>
+    <!-- jQuery dropdown -->
+    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
+    <!-- Tipsy -->
+    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
+    <!-- jQuery Custom selects-->
+    <script src="../../Scripts/js/jquery.customSelect.min.js" type="text/javascript"></script>
+    <!-- Custom Scripts -->
+    @*    <script src="../../Scripts/js/scripts.js" type="text/javascript"></script>*@
+    <script type="text/javascript">
+		
+        $(document).ready(function($) {
+			
+            // Init bx slider 
+            $('.bxslider').bxSlider({
+                mode: 'fade',
+                captions: true,
+                pagerCustom: '#bx-pager',
+                auto: true,
+            });
+
+            //Easy tabs
+            $('.tab-container').easytabs();
+
+            //Custom selects
+            $('.custom-select').customSelect();
+			
+		
+
+        });
+	  	
+    </script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}
