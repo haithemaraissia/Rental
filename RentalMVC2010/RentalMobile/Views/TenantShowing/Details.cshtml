@@ -1,0 +1,30 @@
+﻿@model RentalMobile.Models.TenantShowing
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>TenantShowing</legend>
+
+    <div class="display-label">ShowingId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShowingId)
+    </div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">UnitId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

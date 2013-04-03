@@ -131,6 +131,15 @@ ul.address {
 	text-decoration: none;
 	color: #e7e7e7;
 }
+.h6custom{
+	color: #254F71;
+	text-transform: uppercase;
+}
+.h6custom:hover 
+{
+	color: #ffffff;
+	background-color: #96B0C7;
+}
 
 .register-btn {
 	background-color: #254F71;

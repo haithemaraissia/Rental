@@ -34,8 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -72,8 +78,10 @@
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
+    <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitDetailController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Controllers\ViewUserProfileController.cs" />
     <Compile Include="Design\General.aspx.cs">
       <DependentUpon>General.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,6 +94,34 @@
     </Compile>
     <Compile Include="MobileViewEngine.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\RentalContextGenerator.Context.cs">
+      <DependentUpon>RentalContextGenerator.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\RentalContextGenerator.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\RentalModel.Designer.cs">
+      <DependentUpon>RentalModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Tenant.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TenantShowing.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Unit.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnitGallery.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelViews\TenantModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -346,8 +382,41 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\UnitDetail\Index.cshtml" />
     <Content Include="Views\Specialist\Index.cshtml" />
-    <Content Include="Views\UserProfile\Index.cshtml" />
+    <Content Include="Views\UserProfile\TenantProfile.cshtml" />
+    <Content Include="Design\Tenant\Index.cshtml" />
+    <None Include="Models\RentalContextGenerator.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RentalContextGenerator.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\RentalContextGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RentalContextGenerator.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Models\RentalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RentalModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\TenantShowing\Index.cshtml" />
+    <Content Include="Views\TenantShowing\Details.cshtml" />
+    <Content Include="Views\TenantShowing\Create.cshtml" />
+    <Content Include="Views\TenantShowing\Edit.cshtml" />
+    <Content Include="Views\TenantShowing\Delete.cshtml" />
+    <Content Include="Views\TenantShowing\_PartialViewPage.cshtml" />
     <Content Include="Views\Tenant\Index.cshtml" />
+    <Content Include="Views\Tenant\Details.cshtml" />
+    <Content Include="Views\Tenant\Create.cshtml" />
+    <Content Include="Views\Tenant\Edit.cshtml" />
+    <Content Include="Views\Tenant\Delete.cshtml" />
+    <Content Include="Views\UserProfile\MaintenanceProfile.cshtml" />
+    <Content Include="Views\UserProfile\OwnerProfile.cshtml" />
+    <Content Include="Views\ViewUserProfile\Tenant.cshtml" />
+    <Content Include="Views\ViewUserProfile\OwnerorAgent.cshtml" />
+    <Content Include="Views\ViewUserProfile\Maintenance.cshtml" />
+    <Content Include="Views\ViewUserProfile\Index.cshtml" />
+    <Content Include="Views\UserProfile\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

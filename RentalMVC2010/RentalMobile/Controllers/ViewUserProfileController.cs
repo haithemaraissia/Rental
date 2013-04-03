@@ -6,11 +6,11 @@ using System.Web.Mvc;
 
 namespace RentalMobile.Controllers
 {
-    public class UserProfileController : Controller
+    public class ViewUserProfileController : Controller
     {
         //
-        // GET: /UserProfile/
-        
+        // GET: /ViewUserProfile/
+
         public ActionResult Index()
         {
             return View();
@@ -23,23 +23,19 @@ namespace RentalMobile.Controllers
 
 
 
-
-
-
-        public ActionResult TenantProfile()
+        public ActionResult Maintenance()
         {
             return View();
         }
 
-        public ActionResult OwnerProfile()
+        public ActionResult OwnerorAgent()
         {
             return View();
         }
 
-        public ActionResult MaintenanceProfile()
+        public ActionResult Tenant()
         {
             return View();
         }
-
     }
 }
