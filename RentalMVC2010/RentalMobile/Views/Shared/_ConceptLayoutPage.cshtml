@@ -20,6 +20,18 @@
     <link rel="stylesheet" href="../../css/dotcss/base.css">
     <link rel="stylesheet" href="../../css/dotcss/skeleton.css">
     <link rel="stylesheet" href="../../css/dotcss/layout.css">
+    @*     
+    <!-- BOOTSTRAP
+     ================================================== -->
+    <!-- Le styles -->
+    <link href="../../css/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+  <link href="../../css/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">*@
     <!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -55,7 +67,9 @@
             </ul>
             <ul class="menu user">
                 <li><a href="/Account/Register" class="register-btn">Register</a></li>
-                <li><a href="#" data-dropdown="#login">Login</a></li>
+                @*               <li><a href="#" data-dropdown="#login">Login</a></li>*@
+                <li>@Html.Partial("_LogOnPartial")</li>
+         @*       <li><a href="#" data-dropdown="#login">Login</a></li>*@
                 <li><a href="Help">Help</a></li>
             </ul>
         </div>
@@ -83,11 +97,11 @@
             <nav class="menu-bar sixteen columns row">
                 <!-- Main menu -->
                 <ul class="menu clearfix">
-                     <li>@Html.ActionLink("Rent", "Index", "Rent")</li>
+                    <li>@Html.ActionLink("Rent", "Index", "Rent")</li>
                     <li>@Html.ActionLink("Post", "Index", "Post")</li>
                     <li>@Html.ActionLink("Maintain", "Index", "Maintain")</li>
                     <li>@Html.ActionLink("Legal", "Index", "Legal")</li>
-@*                    <li><a href="#">Pages <i class="icon-down-dir"></i></a>
+                    @*                    <li><a href="#">Pages <i class="icon-down-dir"></i></a>
                         <ul class="sub-menu">
                             <li><a href="../../WIP/index.html">Home Slider</a></li>
                             <li><a href="../../WIP/home2.html">Home Form</a></li>
@@ -106,14 +120,13 @@
                             <li><a href="../../WIP/company-single.html">Sales Agent</a></li>
                             <li><a href="/Account/Register">Registration</a></li>
                         </ul>
-                    </li>*@
-                   @* <li><a href="../../WIP/building.html">Building</a></li>*@
+                    </li>*@ @* <li><a href="../../WIP/building.html">Building</a></li>*@
                     <li>@Html.ActionLink("About", "Index", "About")</li>
                     <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
                 </ul>
                 <!-- Home btn -->
-             @*   @Html.ActionLink("", "Index", "Home", new { @class = "classname", @title = "Home" })
-*@                <a href="." class="home-btn" title="Home"><i class="icon-home"></i></a>
+                @*   @Html.ActionLink("", "Index", "Home", new { @class = "classname", @title = "Home" })
+*@ <a href="." class="home-btn" title="Home"><i class="icon-home"></i></a>
             </nav>
             <!-- /.nav-bar -->
         </header>
@@ -136,24 +149,45 @@
             Vivamus cursus eget Phasellus quis wisi.</p>
     </footer>
     <!-- /footer -->
-    <div id="login" class="dropdown dropdown-tip dropdown-anchor-right">
+ @*   <div id="login" class="dropdown dropdown-tip dropdown-anchor-right">
         <div class="dropdown-panel">
             <img src="../../images/dotimages/logo-small.png" alt="//" />
             <form action="#" class="remove-bottom login-form">
-                <label>
-                    <span class="entypo"><i class="icon-user"></i></span>
-                    <input type="text" class="inline remove-bottom" placeholder="USER">
-                </label>
-                <label class="half-bottom">
-                    <span class="entypo"><i class="icon-lock"></i></span>
-                    <input type="password" class="inline remove-bottom" placeholder="PASSWORD">
-                </label>
+            <label>
+                <span class="entypo"><i class="icon-user"></i></span>
+                <input type="text" class="inline remove-bottom" placeholder="USER">
+            </label>
+            <label class="half-bottom">
+                <span class="entypo"><i class="icon-lock"></i></span>
+                <input type="password" class="inline remove-bottom" placeholder="PASSWORD">
+            </label>
                 <input type="submit" value="Log in" class="remove-bottom full-width">
+  
+                <!--MORE WORK ON THIS -->
+                	<div class="">
+
+						<select id="Role" class="custom-select" title="Role">
+							<option value="Tenant">Tenant</option>
+							<option value="LandLoard">LandLord</option>
+						</select>
+
+					</div>
+                <hr />
+            <label class="checkbox pull-left">
+                <div  style="float: left" id="uniform-remember">
+                    <span> <input type="checkbox" class="checkbox" id="remember" style="opacity: 0;"> Remember me</span></div>
+            </label>
+            <a data-toggle="tab" style="float: right" href="#forgot">Forgot Password?</a>
             </form>
             <!-- Addition for the Profile-->
             <a href="../Tenant">Tenant</a>
+            <!--MORE WORK ON THIS -->
+            
+            
+            
+
         </div>
-    </div>
+    </div>*@
     <!-- Scripts & Plugins
   ================================================== -->
     <!-- jQuery dropdown -->

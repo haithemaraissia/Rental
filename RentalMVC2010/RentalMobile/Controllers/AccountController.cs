@@ -84,6 +84,7 @@ namespace RentalMobile.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                    Roles.AddUserToRole(model.UserName, model.Role);
                     return RedirectToAction("Index", "Home");
                 }
                 else

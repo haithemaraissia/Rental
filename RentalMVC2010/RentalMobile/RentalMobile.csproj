@@ -92,6 +92,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\RolesHelperExtension.cs" />
     <Compile Include="MobileViewEngine.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\RentalContextGenerator.Context.cs">
@@ -125,6 +126,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="css\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap\css\bootstrap.css" />
+    <Content Include="css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="css\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="css\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="css\bootstrap\js\bootstrap.js" />
+    <Content Include="css\bootstrap\js\bootstrap.min.js" />
     <Content Include="css\dotcss\base.css" />
     <Content Include="css\dotcss\entypo\entypo.svg" />
     <Content Include="css\dotcss\entypo\stylesheet.css" />
@@ -282,14 +291,14 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="WIP\advices.html" />
-    <Content Include="WIP\contact.html" />
-    <Content Include="WIP\index.html" />
-    <Content Include="WIP\advanced-search.html" />
+    <Content Include="WIP\Used\advices.html" />
+    <Content Include="WIP\Used\contact.html" />
+    <Content Include="WIP\Used\index.html" />
+    <Content Include="WIP\Used\advanced-search.html" />
     <Content Include="WIP\Pool\building.html" />
     <Content Include="WIP\Pool\buy.html" />
-    <Content Include="WIP\company-single.html" />
-    <Content Include="WIP\company.html" />
+    <Content Include="WIP\Used\company-single.html" />
+    <Content Include="WIP\Used\company.html" />
     <Content Include="WIP\Pool\home-nivoslider.html" />
     <Content Include="WIP\Pool\home-static-image.html" />
     <Content Include="WIP\Pool\home-static-video.html" />
@@ -297,8 +306,8 @@
     <Content Include="WIP\Pool\mortgage.html" />
     <Content Include="WIP\Pool\property-single.html" />
     <Content Include="WIP\Pool\sell.html" />
-    <Content Include="WIP\registration.html" />
-    <Content Include="WIP\rent.html" />
+    <Content Include="WIP\Used\registration.html" />
+    <Content Include="WIP\Used\rent.html" />
     <Content Include="WIP\ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
