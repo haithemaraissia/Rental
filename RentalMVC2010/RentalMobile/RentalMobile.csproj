@@ -160,10 +160,12 @@
     <Content Include="css\dotcss\skeleton.css" />
     <Content Include="css\dotcss\tipsy.css" />
     <Content Include="css\dotcss\ui\jquery-ui.css" />
+    <Content Include="css\dotcss\UserMenu.css" />
     <Content Include="css\Html5Reset.css" />
     <Content Include="css\Mobile.css" />
     <Content Include="Design\General.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\arrowsub.png" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\blue-gradient.png" />
     <Content Include="images\dotimages\advertise-placeholder.png" />
@@ -238,6 +240,8 @@
     <Content Include="images\dotimages\sliders\office-slide.png" />
     <Content Include="images\dotimages\small-avatar-placeholder.png" />
     <Content Include="images\dotimages\static-image.jpg" />
+    <Content Include="images\hsep.png" />
+    <Content Include="images\mainbk.png" />
     <Content Include="Scripts\html5.js" />
     <Content Include="Scripts\jquery-1.6.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -293,6 +297,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="WIP\Used\advices.html" />
     <Content Include="WIP\Used\contact.html" />
+    <Content Include="WIP\Used\CSS3 Menu.html" />
     <Content Include="WIP\Used\index.html" />
     <Content Include="WIP\Used\advanced-search.html" />
     <Content Include="WIP\Pool\building.html" />
