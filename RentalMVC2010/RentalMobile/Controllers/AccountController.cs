@@ -38,7 +38,7 @@ namespace RentalMobile.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", model.Role);
                     }
                 }
                 else
@@ -85,7 +85,10 @@ namespace RentalMobile.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     Roles.AddUserToRole(model.UserName, model.Role);
-                    return RedirectToAction("Index", "Home");
+
+
+                    //Add User to the Databases
+                    return RedirectToAction("Index", model.Role);
                 }
                 else
                 {

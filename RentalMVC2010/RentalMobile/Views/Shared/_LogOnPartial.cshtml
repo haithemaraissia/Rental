@@ -1,33 +1,26 @@
 ﻿@if (Request.IsAuthenticated)
 { 
-    <link href="../../css/dotcss/UserMenu.css" rel="stylesheet" type="text/css" />
-    
-        <!-- Start UserMenu.com BODY section -->
     <ul id="UserMenu" class="topmenu">
-        <li class="toplast"><a class="pressed" href="#" style="height: 13; line-height: 0.5;">
-            <span>Hi Michael 1</span></a>
+        <li class="toplast"><a href="#" style="height: 13; line-height: 0.5;"><span>Hi @User.Identity.Name</span>
+        </a>
             <ul>
-                <li><a href="#">Hi Michael 1</a></li>
-                <li><a href="LogOFf">Log Off</a></li>
+                @{
+                if (User.IsInRole("Tenant"))
+                    {
+                        <li>@Html.ActionLink("Profile", "Index", "Tenant") </li>
+                    }
+                else if (User.IsInRole("Landlord"))
+                    {
+                        <li>@Html.ActionLink("Profile", "Index", "Landlord") </li>
+                    }
+                }
+                <li>@Html.ActionLink("Log Off", "LogOff", "Account") </li>
             </ul>
         </li>
     </ul>
-    <!-- End UserMenu.com BODY section -->
-    
-    
-    
-@*    <li><a href="#" data-dropdown="#login">User</a></li>
-    <div id="login" class="dropdown dropdown-tip dropdown-anchor-right">
-        <div class="dropdown-panel">
-            @Html.ActionLink("Log Off", "LogOff", "Account") 
-            <a href="">Go To Profile</a>
-        </div>
-    </div>*@
+    <link href="../../css/dotcss/UserMenu.css" rel="stylesheet" type="text/css" />
 }
 else
 {
     @Html.ActionLink("Log in", "LogOn", "Account") 
 }
-
-
-@*    <li><a href="#" data-dropdown="#login">Hi <strong>@User.Identity.Name</strong>!</a></li>*@

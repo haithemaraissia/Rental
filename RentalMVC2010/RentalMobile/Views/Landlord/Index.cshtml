@@ -1,12 +1,13 @@
-﻿@model dynamic
+﻿@model IEnumerable<RentalMobile.Models.Tenant>
 @{
-    ViewBag.Title = "Tenant Profile";
+    ViewBag.Title = "LandLord";
     Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
 }
-<h2>Tenant Profile</h2>
+<h2>
+    Owner Profile</h2>
 <div class="tools sixteen columns add-bottom">
-    <a href="#">Back</a> | <a href="registration.html">Save</a> | <a href="mortgage.html">
-        Mortgage Calculator</a> | <a href="registration.html">My Favorites</a> | <a href="advanced-search.html">
+    <a href="#">Back</a> | <a href="../Landloard/registration.html">Save</a> | <a href="../Landloard/mortgage.html">
+        Mortgage Calculator</a> | <a href="../Landloard/registration.html">My Favorites</a> | <a href="../Landloard/advanced-search.html">
             Advanced Search</a>
 </div>
 <!-- /section: search form -->
@@ -138,22 +139,27 @@
     <div class="tab-container big-tabs sixteen columns">
         <ul class="etabs">
             <li><a href="#generalprofile">General</a></li>
-            <li><a href="#showing">Showing</a></li>
-            <li><a href="#maintenance">Maintenance</a></li>
+            <li><a href="#showing">Property</a></li>
+             <li><a href="#showing">Showing</a></li>
+            <li><a href="#maintenance">Maintenance Reports</a></li>
             @*            <li><a href="#share-on-fb">Share on Facebook</a></li>*@
             <li><a href="#contract">Contract/Application</a></li>
-            <li><a href="#comments">Future Pay Rent</a></li>
+            <li><a href="#contract">Recommendation (by maintenance)</a></li>
+            <li><a href="#comments">(Future) Accept Rent</a></li>
         </ul>
         <div id="generalprofile">
             <!-- Section: slider -->
             <p>
                 Maybe Favorites Unit, Saved Unit, Views..
+                
+                <a href=""><strong> Profile ( think about the link of all of the type of account)</strong></a>
             </p>
         </div>
         <div id="showing" class="panel">
             <div class="seven columns">
                 <h4>
-                    Maybe Current Showing. Then Make application or delete and might be another option for creating new showing</h4>
+                    Maybe Current Showing. Then Make application or delete and might be another option
+                    for creating new showing</h4>
                 <p>
                     Enter this stately apartment and you are rewarded with a spectacular view of not
                     only Central Parkoin id rhoncus massa. Pellentesque quis orci non lacus tincidunt

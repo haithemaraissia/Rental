@@ -40,6 +40,9 @@ namespace RentalMobile.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        [Display(Name = "Role")]
+        public string Role { get; set; }
     }
 
     public class RegisterModel

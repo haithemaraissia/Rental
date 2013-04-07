@@ -1230,6 +1230,9 @@ ul.prop-data .new {
 	margin: 0 auto 10px;
 }
 
+.login-label-spacing {
+	padding-left:3px
+}
 
 /*------- Radio lists as filters -------*/
 

@@ -17,6 +17,8 @@ namespace RentalMobile.Models
         public Tenant()
         {
             this.TenantShowings = new HashSet<TenantShowing>();
+            this.TenantFavorites = new HashSet<TenantFavorite>();
+            this.TenantSavedSearches = new HashSet<TenantSavedSearch>();
         }
     
         public int TenantId { get; set; }
@@ -27,5 +29,7 @@ namespace RentalMobile.Models
         public string Description { get; set; }
     
         public virtual ICollection<TenantShowing> TenantShowings { get; set; }
+        public virtual ICollection<TenantFavorite> TenantFavorites { get; set; }
+        public virtual ICollection<TenantSavedSearch> TenantSavedSearches { get; set; }
     }
 }

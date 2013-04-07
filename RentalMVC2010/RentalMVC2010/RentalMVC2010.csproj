@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\ZipTastic.dll" />
     <Content Include="css\Galleriffic\basic.css" />
     <Content Include="css\Galleriffic\black.css" />
     <Content Include="css\Galleriffic\caption.png" />
@@ -158,7 +159,9 @@
     <Content Include="Scripts\Galleriffic\js\jush.js" />
     <Content Include="Scripts\modernizr-2.0.6.js" />
     <Content Include="Views\ViewUserControl1.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

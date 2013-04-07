@@ -72,6 +72,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandlordController.cs" />
     <Compile Include="Controllers\LegalController.cs" />
     <Compile Include="Controllers\MaintainController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -92,7 +93,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\RolesHelperExtension.cs" />
+    <Compile Include="Helpers\HtmlHelperExtension.cs" />
     <Compile Include="MobileViewEngine.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\RentalContextGenerator.Context.cs">
@@ -111,6 +112,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Models\Tenant.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TenantFavorite.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TenantSavedSearch.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TenantShowing.cs">
@@ -396,7 +403,6 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\UnitDetail\Index.cshtml" />
     <Content Include="Views\Specialist\Index.cshtml" />
-    <Content Include="Views\UserProfile\TenantProfile.cshtml" />
     <Content Include="Design\Tenant\Index.cshtml" />
     <None Include="Models\RentalContextGenerator.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -422,12 +428,12 @@
     <Content Include="Views\Tenant\Edit.cshtml" />
     <Content Include="Views\Tenant\Delete.cshtml" />
     <Content Include="Views\UserProfile\MaintenanceProfile.cshtml" />
-    <Content Include="Views\UserProfile\OwnerProfile.cshtml" />
     <Content Include="Views\ViewUserProfile\Tenant.cshtml" />
     <Content Include="Views\ViewUserProfile\OwnerorAgent.cshtml" />
     <Content Include="Views\ViewUserProfile\Maintenance.cshtml" />
     <Content Include="Views\ViewUserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
+    <Content Include="Views\Landlord\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

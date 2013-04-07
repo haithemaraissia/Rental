@@ -1,16 +1,14 @@
-﻿
-ul#UserMenu, ul#UserMenu ul
+﻿ul#UserMenu, ul#UserMenu ul
 {
 	margin: 0;
 	list-style: none;
 	padding: 0;
-	background-color: #dedede;
 	border-width: 1px;
 	border-style: solid;
 	border-color: #5f5f5f;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-	border-radius: 7px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
 }
 ul#UserMenu ul
 {
@@ -21,10 +19,10 @@ ul#UserMenu ul
 	-moz-box-shadow: 3.5px 3.5px 5px #000000;
 	-webkit-box-shadow: 3.5px 3.5px 5px #000000;
 	box-shadow: 3.5px 3.5px 5px #000000;
-	background-color: #FFFFFF;
-	border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
+	background-color: #ffffff;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
 	border-color: #d4d4d4;
 	padding: 0 10px 10px;
 }
@@ -47,20 +45,34 @@ ul#UserMenu li:hover
 ul#UserMenu
 {
 	font-size: 0;
+	width: 100%;
 	z-index: 999;
 	position: relative;
 	display: inline-block;
 	zoom: 1;
-	padding: 0;
+	padding: 0 0%;
+	margin: 0 0%;
 	display: inline;
+	padding-right: 1.52%;
 }
-html ul#UserMenu li a
+* html ul#UserMenu li a
 {
 	display: inline-block;
 }
 ul#UserMenu > li
 {
 	margin: 0;
+	width: 100%;
+}
+body:first-of-type ul#UserMenu
+{
+	display: inline-table;
+	border-spacing: 0px 0;
+}
+body:first-of-type ul#UserMenu > li
+{
+	display: table-cell;
+	float: none;
 }
 ul#UserMenu a:active, ul#UserMenu a:focus
 {
@@ -70,18 +82,18 @@ ul#UserMenu a
 {
 	display: block;
 	vertical-align: middle;
-	text-align: left;
+	text-align: center;
 	text-decoration: none;
-	font: bold 14px Trebuchet MS;
+	font: 15px Trebuchet MS;
 	color: #000000;
 	text-shadow: #FFF 0 0 1px;
 	cursor: pointer;
 	padding: 10px;
-	background-color: #c1c1c1;
+	background-color: #35668E;
 	background-image: url("../../images/mainbk.png");
 	background-repeat: repeat;
 	background-position: 0 0;
-	border-width: 0 0 0 1px;
+	border-width: 0 0 0 0px;
 	border-style: solid;
 	border-color: #C0C0C0;
 }
@@ -92,25 +104,24 @@ ul#UserMenu ul li
 }
 ul#UserMenu ul a
 {
-	text-align: left;
+	text-align: center;
 	padding: 4px;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	background-image: none;
 	border-width: 0;
-	border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	font: 14px Tahoma;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	font: bold 14px Tahoma;
 	color: #000000;
 	text-decoration: none;
 }
 ul#UserMenu li:hover > a, ul#UserMenu li a.pressed
 {
-	background-color: #f8ac00;
 	border-color: #C0C0C0;
 	border-style: solid;
-	color: #000000;
-	text-shadow: #FFF 0 0 1px;
+	color: #ffffff;
+	text-shadow: #FFF 0 0 0px;
 	background-image: url("../../images/mainbk.png");
 	background-position: 0 100px;
 	text-decoration: none;
@@ -121,20 +132,20 @@ ul#UserMenu span
 	overflow: visible;
 	background-position: right center;
 	background-repeat: no-repeat;
-	padding-right: 0;
+	padding-right: 0px;
 }
 ul#UserMenu ul li:hover > a, ul#UserMenu ul li a.pressed
 {
-	background-color: #00557f;
 	background-image: none;
-	color: #ffffff;
+	color: #00557f;
 	text-decoration: none;
 }
 ul#UserMenu li.toplast > a
 {
-	border-radius: 0 8px 8px 0;
-	-moz-border-radius: 0 8px 8px 0;
+	border-radius: 0 0px 0px 0;
+	-moz-border-radius: 0 0px 0px 0;
 	-webkit-border-radius: 0;
-	-webkit-border-top-right-radius: 8px;
-	-webkit-border-bottom-right-radius: 8px;
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
 }
+

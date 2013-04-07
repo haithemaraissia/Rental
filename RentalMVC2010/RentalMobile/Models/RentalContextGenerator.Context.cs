@@ -29,5 +29,7 @@ namespace RentalMobile.Models
         public DbSet<UnitGallery> UnitGalleries { get; set; }
         public DbSet<TenantShowing> TenantShowings { get; set; }
         public DbSet<Tenant> Tenants { get; set; }
+        public DbSet<TenantFavorite> TenantFavorites { get; set; }
+        public DbSet<TenantSavedSearch> TenantSavedSearches { get; set; }
     }
 }

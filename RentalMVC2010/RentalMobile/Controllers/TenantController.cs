@@ -15,7 +15,7 @@ namespace RentalMobile.Controllers
 
         //
         // GET: /Tenant/
-
+        //GET: CurrentTenant
         public ViewResult Index()
         {
             return View(db.Tenants.ToList());
