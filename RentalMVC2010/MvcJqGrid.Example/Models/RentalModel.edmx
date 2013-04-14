@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_33736_rentalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_33736_rentalModelStoreContainer">
+          <EntitySet Name="Tenant" EntityType="DB_33736_rentalModel.Store.Tenant" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TenantFavorite" EntityType="DB_33736_rentalModel.Store.TenantFavorite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TenantSavedSearch" EntityType="DB_33736_rentalModel.Store.TenantSavedSearch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TenantShowing" EntityType="DB_33736_rentalModel.Store.TenantShowing" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Unit" EntityType="DB_33736_rentalModel.Store.Unit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitGallery" EntityType="DB_33736_rentalModel.Store.UnitGallery" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TenantFavorite_Tenant" Association="DB_33736_rentalModel.Store.FK_TenantFavorite_Tenant">
+            <End Role="Tenant" EntitySet="Tenant" />
+            <End Role="TenantFavorite" EntitySet="TenantFavorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TenantSavedSearch_Tenant" Association="DB_33736_rentalModel.Store.FK_TenantSavedSearch_Tenant">
+            <End Role="Tenant" EntitySet="Tenant" />
+            <End Role="TenantSavedSearch" EntitySet="TenantSavedSearch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TenantShowing_Tenant" Association="DB_33736_rentalModel.Store.FK_TenantShowing_Tenant">
+            <End Role="Tenant" EntitySet="Tenant" />
+            <End Role="TenantShowing" EntitySet="TenantShowing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UnitGallery_Unit" Association="DB_33736_rentalModel.Store.FK_UnitGallery_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="UnitGallery" EntitySet="UnitGallery" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Tenant">
+          <Key>
+            <PropertyRef Name="TenantId" />
+          </Key>
+          <Property Name="TenantId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TenantFavorite">
+          <Key>
+            <PropertyRef Name="FavoriteId" />
+          </Key>
+          <Property Name="FavoriteId" Type="int" Nullable="false" />
+          <Property Name="TenantId" Type="int" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="FavoriteDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TenantSavedSearch">
+          <Key>
+            <PropertyRef Name="SearchId" />
+          </Key>
+          <Property Name="SearchId" Type="int" Nullable="false" />
+          <Property Name="TenantId" Type="int" Nullable="false" />
+          <Property Name="Search" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SearchDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TenantShowing">
+          <Key>
+            <PropertyRef Name="ShowingId" />
+          </Key>
+          <Property Name="ShowingId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="TenantId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Bed" Type="int" Nullable="false" />
+          <Property Name="Bathroom" Type="float" Nullable="false" />
+          <Property Name="SquareFoot" Type="float" Nullable="false" />
+          <Property Name="YearBuilt" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="PrimaryPhoto" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitGallery">
+          <Key>
+            <PropertyRef Name="UnitGalleryId" />
+          </Key>
+          <Property Name="UnitGalleryId" Type="int" Nullable="false" />
+          <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Caption" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TenantFavorite_Tenant">
+          <End Role="Tenant" Type="DB_33736_rentalModel.Store.Tenant" Multiplicity="1" />
+          <End Role="TenantFavorite" Type="DB_33736_rentalModel.Store.TenantFavorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenant">
+              <PropertyRef Name="TenantId" />
+            </Principal>
+            <Dependent Role="TenantFavorite">
+              <PropertyRef Name="TenantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TenantSavedSearch_Tenant">
+          <End Role="Tenant" Type="DB_33736_rentalModel.Store.Tenant" Multiplicity="1" />
+          <End Role="TenantSavedSearch" Type="DB_33736_rentalModel.Store.TenantSavedSearch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenant">
+              <PropertyRef Name="TenantId" />
+            </Principal>
+            <Dependent Role="TenantSavedSearch">
+              <PropertyRef Name="TenantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TenantShowing_Tenant">
+          <End Role="Tenant" Type="DB_33736_rentalModel.Store.Tenant" Multiplicity="1" />
+          <End Role="TenantShowing" Type="DB_33736_rentalModel.Store.TenantShowing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenant">
+              <PropertyRef Name="TenantId" />
+            </Principal>
+            <Dependent Role="TenantShowing">
+              <PropertyRef Name="TenantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnitGallery_Unit">
+          <End Role="Unit" Type="DB_33736_rentalModel.Store.Unit" Multiplicity="1" />
+          <End Role="UnitGallery" Type="DB_33736_rentalModel.Store.UnitGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="UnitGallery">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_33736_rentalModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DB_33736_rentalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Units" EntityType="DB_33736_rentalModel.Unit" />
+          <EntitySet Name="UnitGalleries" EntityType="DB_33736_rentalModel.UnitGallery" />
+          <AssociationSet Name="FK_UnitGallery_Unit" Association="DB_33736_rentalModel.FK_UnitGallery_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="UnitGallery" EntitySet="UnitGalleries" />
+          </AssociationSet>
+          <EntitySet Name="TenantShowings" EntityType="DB_33736_rentalModel.TenantShowing" />
+          <EntitySet Name="Tenants" EntityType="DB_33736_rentalModel.Tenant" />
+          <AssociationSet Name="FK_TenantShowing_Tenant" Association="DB_33736_rentalModel.FK_TenantShowing_Tenant">
+            <End Role="Tenant" EntitySet="Tenants" />
+            <End Role="TenantShowing" EntitySet="TenantShowings" />
+          </AssociationSet>
+          <EntitySet Name="TenantFavorites" EntityType="DB_33736_rentalModel.TenantFavorite" />
+          <EntitySet Name="TenantSavedSearches" EntityType="DB_33736_rentalModel.TenantSavedSearch" />
+          <AssociationSet Name="FK_TenantFavorite_Tenant" Association="DB_33736_rentalModel.FK_TenantFavorite_Tenant">
+            <End Role="Tenant" EntitySet="Tenants" />
+            <End Role="TenantFavorite" EntitySet="TenantFavorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TenantSavedSearch_Tenant" Association="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant">
+            <End Role="Tenant" EntitySet="Tenants" />
+            <End Role="TenantSavedSearch" EntitySet="TenantSavedSearches" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Bed" Type="Int32" Nullable="false" />
+          <Property Name="Bathroom" Type="Double" Nullable="false" />
+          <Property Name="SquareFoot" Type="Double" Nullable="false" />
+          <Property Name="YearBuilt" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="PrimaryPhoto" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UnitGalleries" Relationship="DB_33736_rentalModel.FK_UnitGallery_Unit" FromRole="Unit" ToRole="UnitGallery" />
+        </EntityType>
+        <EntityType Name="UnitGallery">
+          <Key>
+            <PropertyRef Name="UnitGalleryId" />
+          </Key>
+          <Property Name="UnitGalleryId" Type="Int32" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Caption" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Unit" Relationship="DB_33736_rentalModel.FK_UnitGallery_Unit" FromRole="UnitGallery" ToRole="Unit" />
+        </EntityType>
+        <Association Name="FK_UnitGallery_Unit">
+          <End Role="Unit" Type="DB_33736_rentalModel.Unit" Multiplicity="1" />
+          <End Role="UnitGallery" Type="DB_33736_rentalModel.UnitGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="UnitGallery">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TenantShowing">
+          <Key>
+            <PropertyRef Name="ShowingId" />
+          </Key>
+          <Property Type="Int32" Name="ShowingId" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Int32" Name="TenantId" Nullable="false" />
+          <NavigationProperty Name="Tenant" Relationship="DB_33736_rentalModel.FK_TenantShowing_Tenant" FromRole="TenantShowing" ToRole="Tenant" />
+        </EntityType>
+        <EntityType Name="Tenant">
+          <Key>
+            <PropertyRef Name="TenantId" />
+          </Key>
+          <Property Type="Int32" Name="TenantId" Nullable="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TenantShowings" Relationship="DB_33736_rentalModel.FK_TenantShowing_Tenant" FromRole="Tenant" ToRole="TenantShowing" />
+          <NavigationProperty Name="TenantFavorites" Relationship="DB_33736_rentalModel.FK_TenantFavorite_Tenant" FromRole="Tenant" ToRole="TenantFavorite" />
+          <NavigationProperty Name="TenantSavedSearches" Relationship="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant" FromRole="Tenant" ToRole="TenantSavedSearch" />
+        </EntityType>
+        <Association Name="FK_TenantShowing_Tenant">
+          <End Type="DB_33736_rentalModel.Tenant" Role="Tenant" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.TenantShowing" Role="TenantShowing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenant">
+              <PropertyRef Name="TenantId" />
+            </Principal>
+            <Dependent Role="TenantShowing">
+              <PropertyRef Name="TenantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TenantFavorite">
+          <Key>
+            <PropertyRef Name="FavoriteId" />
+          </Key>
+          <Property Type="Int32" Name="FavoriteId" Nullable="false" />
+          <Property Type="Int32" Name="TenantId" Nullable="false" />
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="DateTime" Name="FavoriteDate" Nullable="false" />
+          <NavigationProperty Name="Tenant" Relationship="DB_33736_rentalModel.FK_TenantFavorite_Tenant" FromRole="TenantFavorite" ToRole="Tenant" />
+        </EntityType>
+        <EntityType Name="TenantSavedSearch">
+          <Key>
+            <PropertyRef Name="SearchId" />
+          </Key>
+          <Property Type="Int32" Name="SearchId" Nullable="false" />
+          <Property Type="Int32" Name="TenantId" Nullable="false" />
+          <Property Type="String" Name="Search" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SearchDate" Nullable="false" />
+          <NavigationProperty Name="Tenant" Relationship="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant" FromRole="TenantSavedSearch" ToRole="Tenant" />
+        </EntityType>
+        <Association Name="FK_TenantFavorite_Tenant">
+          <End Type="DB_33736_rentalModel.Tenant" Role="Tenant" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.TenantFavorite" Role="TenantFavorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenant">
+              <PropertyRef Name="TenantId" />
+            </Principal>
+            <Dependent Role="TenantFavorite">
+              <PropertyRef Name="TenantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TenantSavedSearch_Tenant">
+          <End Type="DB_33736_rentalModel.Tenant" Role="Tenant" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.TenantSavedSearch" Role="TenantSavedSearch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tenant">
+              <PropertyRef Name="TenantId" />
+            </Principal>
+            <Dependent Role="TenantSavedSearch">
+              <PropertyRef Name="TenantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_33736_rentalModelStoreContainer" CdmEntityContainer="DB_33736_rentalEntities">
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Bed" ColumnName="Bed" />
+                <ScalarProperty Name="Bathroom" ColumnName="Bathroom" />
+                <ScalarProperty Name="SquareFoot" ColumnName="SquareFoot" />
+                <ScalarProperty Name="YearBuilt" ColumnName="YearBuilt" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PrimaryPhoto" ColumnName="PrimaryPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitGalleries">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitGallery">
+              <MappingFragment StoreEntitySet="UnitGallery">
+                <ScalarProperty Name="UnitGalleryId" ColumnName="UnitGalleryId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TenantShowings">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.TenantShowing">
+              <MappingFragment StoreEntitySet="TenantShowing">
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ShowingId" ColumnName="ShowingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tenants">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.Tenant">
+              <MappingFragment StoreEntitySet="Tenant">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TenantFavorites">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.TenantFavorite">
+              <MappingFragment StoreEntitySet="TenantFavorite">
+                <ScalarProperty Name="FavoriteDate" ColumnName="FavoriteDate" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="FavoriteId" ColumnName="FavoriteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TenantSavedSearches">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.TenantSavedSearch">
+              <MappingFragment StoreEntitySet="TenantSavedSearch">
+                <ScalarProperty Name="SearchDate" ColumnName="SearchDate" />
+                <ScalarProperty Name="Search" ColumnName="Search" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="SearchId" ColumnName="SearchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RentalModel">
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Unit" Width="1.5" PointX="0.75" PointY="1" Height="3.1340950520833313" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitGallery" Width="1.5" PointX="3" PointY="1.5" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="DB_33736_rentalModel.FK_UnitGallery_Unit" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.5862939453125" />
+          <ConnectorPoint PointX="3" PointY="2.5862939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_33736_rentalModel.TenantShowing" Width="1.5" PointX="9.5" PointY="1.25" Height="1.9802864583333339" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Tenant" Width="1.5" PointX="7.125" PointY="1.25" Height="2.1725878906249996" />
+        <AssociationConnector Association="DB_33736_rentalModel.FK_TenantShowing_Tenant" >
+          <ConnectorPoint PointX="8.625" PointY="2.2401432291666667" />
+          <ConnectorPoint PointX="9.5" PointY="2.2401432291666667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_33736_rentalModel.TenantFavorite" Width="1.5" PointX="6" PointY="5.375" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.TenantSavedSearch" Width="1.5" PointX="8.75" PointY="5.25" Height="1.9802864583333317" />
+        <AssociationConnector Association="DB_33736_rentalModel.FK_TenantFavorite_Tenant" >
+          <ConnectorPoint PointX="7.3125" PointY="3.9994921875" />
+          <ConnectorPoint PointX="7.3125" PointY="5.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant" >
+          <ConnectorPoint PointX="8.09375" PointY="3.9994921875" />
+          <ConnectorPoint PointX="8.09375" PointY="5.28125" />
+          <ConnectorPoint PointX="8.75" PointY="5.28125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

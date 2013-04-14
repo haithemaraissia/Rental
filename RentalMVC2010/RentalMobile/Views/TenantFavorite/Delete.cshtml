@@ -1,0 +1,44 @@
+﻿@model RentalMobile.Models.TenantFavorite
+@{
+    ViewBag.Title = "Tenant Favorite Delete";
+    Layout = "~/Views/Shared/_Tenant.cshtml";
+}
+@section generalprofile
+
+{
+    <h2>
+        Delete</h2>
+    <h3>
+        Are you sure you want to delete this @Html.DisplayFor(model => model.FavoriteId)?</h3>
+    @*<fieldset>
+        <legend>TenantFavorite</legend>
+        <div class="display-label">
+            FavoriteId</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FavoriteId)
+        </div>
+        <div class="display-label">
+            Tenant</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Tenant.FirstName)
+        </div>
+        <div class="display-label">
+            UnitId</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.UnitId)
+        </div>
+        <div class="display-label">
+            FavoriteDate</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FavoriteDate)
+        </div>
+    </fieldset>*@
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" />
+            |
+            @Html.ActionLink("Back to List", "Index", "Tenant")
+        </p>
+    }
+}

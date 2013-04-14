@@ -11,13 +11,17 @@ namespace RentalMobile.Controllers
 { 
     public class TenantController : Controller
     {
-        private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
+        public DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
         //
         // GET: /Tenant/
         //GET: CurrentTenant
         public ViewResult Index()
         {
+            var tenantFavorite = (from t in db.TenantFavorites
+                                 where t.TenantId == 2
+                                     select t) ;
+            ViewBag.TenantProfile = tenantFavorite;
             return View(db.Tenants.ToList());
         }
 
@@ -118,6 +122,31 @@ namespace RentalMobile.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //DETAIL OF TENANT FAVORITE
+
+        //public PartialViewResult FavoriteDetails(int id)
+        //{
+
+        //    var tenantfavorite =  db.TenantFavorites.Where(x => x.TenantId == 2 && x.FavoriteId == id).FirstOrDefault();
+        //    //Tenant tenant = db.TenantFavorites.Where(Tenant == 6 && )
+        //    return PartialView("_TenantFavDetail",tenantfavorite);
+        //}
 
         protected override void Dispose(bool disposing)
         {

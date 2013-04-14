@@ -39,6 +39,9 @@
       <HintPath>bin\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcJqGrid">
+      <HintPath>..\packages\MvcJqGrid.1.0.9\lib\net40\MvcJqGrid.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -79,6 +82,7 @@
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
+    <Compile Include="Controllers\TenantFavoriteController.cs" />
     <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitDetailController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
@@ -259,7 +263,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.mobile-1.0.min.js" />
     <Content Include="Scripts\js\fitvids.min.js" />
+    <Content Include="Scripts\js\grid.locale-en.js" />
     <Content Include="Scripts\js\jPages.min.js" />
+    <Content Include="Scripts\js\jquery-1.5.2.min.js" />
     <Content Include="Scripts\js\jquery-ui.min.js" />
     <Content Include="Scripts\js\jquery.bxslider.min.js" />
     <Content Include="Scripts\js\jquery.customSelect.min.js" />
@@ -267,6 +273,7 @@
     <Content Include="Scripts\js\jquery.easytabs.min.js" />
     <Content Include="Scripts\js\jquery.fancybox-thumbs.js" />
     <Content Include="Scripts\js\jquery.fancybox.js" />
+    <Content Include="Scripts\js\jquery.jqGrid.min.js" />
     <Content Include="Scripts\js\jquery.min.js" />
     <Content Include="Scripts\js\jquery.nivo.slider.js" />
     <Content Include="Scripts\js\jquery.tipsy.js" />
@@ -434,6 +441,11 @@
     <Content Include="Views\ViewUserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\Landlord\Index.cshtml" />
+    <Content Include="Views\Tenant\_TenantFavorite.cshtml" />
+    <Content Include="Views\TenantFavorite\Delete.cshtml" />
+    <Content Include="Views\Shared\_Tenant.cshtml" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Tenant\Copy of Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
