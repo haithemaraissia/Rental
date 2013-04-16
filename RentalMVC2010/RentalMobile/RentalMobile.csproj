@@ -41,6 +41,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcJqGrid">
       <HintPath>..\packages\MvcJqGrid.1.0.9\lib\net40\MvcJqGrid.dll</HintPath>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -446,6 +448,7 @@
     <Content Include="Views\Shared\_Tenant.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Views\Tenant\Copy of Index.cshtml" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

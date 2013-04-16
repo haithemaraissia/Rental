@@ -39,6 +39,9 @@
       <HintPath>..\..\..\Test\RentalMVC2010\RentalMVC2010\bin\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -246,6 +249,7 @@
     <Content Include="Views\Unit\_UnitGalleryDetail2.cshtml" />
     <Content Include="Views\Unit\_UnitGallery_Gallerific.cshtml" />
     <Content Include="Views\Unit\SimpleRendering.cshtml" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

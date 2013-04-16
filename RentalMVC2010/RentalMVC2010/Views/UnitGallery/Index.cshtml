@@ -1,16 +1,21 @@
-﻿@model IEnumerable<RentalMVC2010.Models.UnitGallery>
-
+﻿@*@model IEnumerable<RentalMVC2010.Models.UnitGallery>*@
+@model PagedList.IPagedList<RentalMVC2010.Models.UnitGallery>
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
+<h2>
+    Index</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
     <tr>
+        <th>
+             @Html.ActionLink("UnitId", "Index", new { sortBy = ViewBag.UnitSort})
+        </th>
+         <th>
+             @Html.ActionLink("Unit Gallery", "Index", new { sortBy = ViewBag.GallerySort })
+        </th>
         <th>
             Path
         </th>
@@ -23,29 +28,65 @@
         <th>
             Unit
         </th>
-        <th></th>
+        <th>
+        </th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Path)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Caption)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rank)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Unit.Address)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UnitGalleryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UnitGalleryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UnitGalleryId })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Unit.UnitId)
+            </td>
+              <td>
+                  @Html.DisplayFor(modelItem => item.UnitGalleryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Path)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Caption)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit.Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UnitGalleryId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UnitGalleryId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UnitGalleryId })
+            </td>
+        </tr>
+    }
 </table>
+<div style="text-align:center">
+    
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { page = 1 })
+        @Html.Raw(" ");
+        @Html.ActionLink("< Prev ", "Index", new { page = Model.PageNumber - 1 })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Prev
+     }
+
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1 })
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount })         
+    }
+    else
+    {
+        @:Next >
+            @Html.Raw(" ")
+        @:>>
+    }
+</div>
