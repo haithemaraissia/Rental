@@ -241,7 +241,6 @@
                         <li><a href="#contract">Contract/Application</a></li>
                         <li><a href="#comments">Future Pay Rent</a></li>
                     </ul>
-                    @RenderSection("showing", false)
                     @RenderSection("maintenance", false)
                     @RenderSection("contract", false)
                     @RenderSection("comments", false)
@@ -249,7 +248,8 @@
                         <!-- Section: slider -->
                         @RenderSection("generalprofile", false)
                     </div>
-                    <div id="showing" class="panel">
+                     @RenderSection("showing", false)
+                    @*<div id="showing" class="panel">
                         <div class="seven columns">
                             <h4>
                                 Maybe Current Showing. Then Make application or delete and might be another option
@@ -280,7 +280,8 @@
                                 <li>Central air</li>
                             </ul>
                         </div>
-                    </div>
+                    </div>*@
+
                     <div id="maintenance">
                         <!-- Section: slider -->
                         <section class="row double-bottom">

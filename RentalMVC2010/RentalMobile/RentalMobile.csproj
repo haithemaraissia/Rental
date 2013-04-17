@@ -41,6 +41,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcJqGrid">
       <HintPath>..\packages\MvcJqGrid.1.0.9\lib\net40\MvcJqGrid.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -323,7 +324,7 @@
     <Content Include="WIP\Pool\home-nivoslider.html" />
     <Content Include="WIP\Pool\home-static-image.html" />
     <Content Include="WIP\Pool\home-static-video.html" />
-    <Content Include="WIP\Pool\home2.html" />
+    <Content Include="WIP\Used\home2.html" />
     <Content Include="WIP\Pool\mortgage.html" />
     <Content Include="WIP\Pool\property-single.html" />
     <Content Include="WIP\Pool\sell.html" />
