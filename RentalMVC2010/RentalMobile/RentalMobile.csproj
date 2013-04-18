@@ -312,6 +312,7 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="WIP\Design\advices.html" />
     <Content Include="WIP\Used\advices.html" />
     <Content Include="WIP\Used\contact.html" />
     <Content Include="WIP\Used\CSS3 Menu.html" />
