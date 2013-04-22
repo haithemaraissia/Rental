@@ -81,11 +81,13 @@
     <Compile Include="Controllers\LandlordController.cs" />
     <Compile Include="Controllers\LegalController.cs" />
     <Compile Include="Controllers\MaintainController.cs" />
+    <Compile Include="Controllers\MaintenanceOrderController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\TenantFavoriteController.cs" />
+    <Compile Include="Controllers\TenantMaintenanceController.cs" />
     <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitDetailController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
@@ -103,6 +105,18 @@
     <Compile Include="Helpers\HtmlHelperExtension.cs" />
     <Compile Include="MobileViewEngine.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CrewMaintenance.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaintenanceOrder.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaintenancePhoto.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OwnerMaintenance.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RentalContextGenerator.Context.cs">
       <DependentUpon>RentalContextGenerator.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -118,10 +132,19 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Models\ServiceType.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tenant.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TenantFavorite.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TenantMaintenance.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TenantSavedSearch.cs">
@@ -136,8 +159,13 @@
     <Compile Include="Models\UnitGallery.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UrgencyType.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelViews\TenantMaintenanceViewModel.cs" />
     <Compile Include="ModelViews\TenantModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentalMobile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap\css\bootstrap-responsive.css" />
@@ -451,6 +479,16 @@
     <Content Include="packages.config" />
     <Content Include="Views\Tenant\Copy of Index.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="Views\TenantMaintenance\Index.cshtml" />
+    <Content Include="Views\TenantMaintenance\Details.cshtml" />
+    <Content Include="Views\TenantMaintenance\Create.cshtml" />
+    <Content Include="Views\TenantMaintenance\Edit.cshtml" />
+    <Content Include="Views\TenantMaintenance\Delete.cshtml" />
+    <Content Include="Views\MaintenanceOrder\Index.cshtml" />
+    <Content Include="Views\MaintenanceOrder\Details.cshtml" />
+    <Content Include="Views\MaintenanceOrder\Create.cshtml" />
+    <Content Include="Views\MaintenanceOrder\Edit.cshtml" />
+    <Content Include="Views\MaintenanceOrder\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

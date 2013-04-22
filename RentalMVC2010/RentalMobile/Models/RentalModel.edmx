@@ -6,15 +6,47 @@
     <edmx:StorageModels>
     <Schema Namespace="DB_33736_rentalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DB_33736_rentalModelStoreContainer">
+          <EntitySet Name="CrewMaintenance" EntityType="DB_33736_rentalModel.Store.CrewMaintenance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MaintenanceOrder" EntityType="DB_33736_rentalModel.Store.MaintenanceOrder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MaintenancePhoto" EntityType="DB_33736_rentalModel.Store.MaintenancePhoto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OwnerMaintenance" EntityType="DB_33736_rentalModel.Store.OwnerMaintenance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceType" EntityType="DB_33736_rentalModel.Store.ServiceType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="DB_33736_rentalModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Tenant" EntityType="DB_33736_rentalModel.Store.Tenant" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TenantFavorite" EntityType="DB_33736_rentalModel.Store.TenantFavorite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TenantMaintenance" EntityType="DB_33736_rentalModel.Store.TenantMaintenance" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TenantSavedSearch" EntityType="DB_33736_rentalModel.Store.TenantSavedSearch" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TenantShowing" EntityType="DB_33736_rentalModel.Store.TenantShowing" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Unit" EntityType="DB_33736_rentalModel.Store.Unit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UnitGallery" EntityType="DB_33736_rentalModel.Store.UnitGallery" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UrgencyType" EntityType="DB_33736_rentalModel.Store.UrgencyType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CrewMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.Store.FK_CrewMaintenance_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
+            <End Role="CrewMaintenance" EntitySet="CrewMaintenance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaintenanceOrder_ServiceType" Association="DB_33736_rentalModel.Store.FK_MaintenanceOrder_ServiceType">
+            <End Role="ServiceType" EntitySet="ServiceType" />
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaintenanceOrder_UrgencyType" Association="DB_33736_rentalModel.Store.FK_MaintenanceOrder_UrgencyType">
+            <End Role="UrgencyType" EntitySet="UrgencyType" />
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaintenancePhoto_MaintenanceOrder" Association="DB_33736_rentalModel.Store.FK_MaintenancePhoto_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
+            <End Role="MaintenancePhoto" EntitySet="MaintenancePhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnerMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.Store.FK_OwnerMaintenance_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
+            <End Role="OwnerMaintenance" EntitySet="OwnerMaintenance" />
+          </AssociationSet>
           <AssociationSet Name="FK_TenantFavorite_Tenant" Association="DB_33736_rentalModel.Store.FK_TenantFavorite_Tenant">
             <End Role="Tenant" EntitySet="Tenant" />
             <End Role="TenantFavorite" EntitySet="TenantFavorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TenantMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.Store.FK_TenantMaintenance_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
+            <End Role="TenantMaintenance" EntitySet="TenantMaintenance" />
           </AssociationSet>
           <AssociationSet Name="FK_TenantSavedSearch_Tenant" Association="DB_33736_rentalModel.Store.FK_TenantSavedSearch_Tenant">
             <End Role="Tenant" EntitySet="Tenant" />
@@ -29,6 +61,59 @@
             <End Role="UnitGallery" EntitySet="UnitGallery" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CrewMaintenance">
+          <Key>
+            <PropertyRef Name="CrewID" />
+          </Key>
+          <Property Name="CrewID" Type="int" Nullable="false" />
+          <Property Name="MaintenanceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaintenanceOrder">
+          <Key>
+            <PropertyRef Name="MaintenanceID" />
+          </Key>
+          <Property Name="MaintenanceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+          <Property Name="MaintenanceDate" Type="datetime" Nullable="false" />
+          <Property Name="UrgencyID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="ServiceTypeID" Type="int" Nullable="false" />
+          <Property Name="PetsinUnit" Type="bit" Nullable="false" />
+          <Property Name="TenantPresence" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaintenancePhoto">
+          <Key>
+            <PropertyRef Name="PhotoID" />
+          </Key>
+          <Property Name="MaintenanceID" Type="int" Nullable="false" />
+          <Property Name="PhotoID" Type="int" Nullable="false" />
+          <Property Name="PhotoPath" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OwnerMaintenance">
+          <Key>
+            <PropertyRef Name="OwnerID" />
+          </Key>
+          <Property Name="OwnerID" Type="int" Nullable="false" />
+          <Property Name="MaintenanceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceType">
+          <Key>
+            <PropertyRef Name="ServiceTypeID" />
+          </Key>
+          <Property Name="ServiceTypeID" Type="int" Nullable="false" />
+          <Property Name="ServiceType" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="LCID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Tenant">
           <Key>
             <PropertyRef Name="TenantId" />
@@ -48,6 +133,13 @@
           <Property Name="TenantId" Type="int" Nullable="false" />
           <Property Name="UnitId" Type="int" Nullable="false" />
           <Property Name="FavoriteDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TenantMaintenance">
+          <Key>
+            <PropertyRef Name="TenantID" />
+          </Key>
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="MaintenanceID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TenantSavedSearch">
           <Key>
@@ -92,6 +184,74 @@
           <Property Name="Rank" Type="int" Nullable="false" />
           <Property Name="UnitId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="UrgencyType">
+          <Key>
+            <PropertyRef Name="UrgencyTypeID" />
+          </Key>
+          <Property Name="UrgencyTypeID" Type="int" Nullable="false" />
+          <Property Name="UrgencyType" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="LCID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CrewMaintenance_MaintenanceOrder">
+          <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="1" />
+          <End Role="CrewMaintenance" Type="DB_33736_rentalModel.Store.CrewMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="CrewMaintenance">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaintenanceOrder_ServiceType">
+          <End Role="ServiceType" Type="DB_33736_rentalModel.Store.ServiceType" Multiplicity="1" />
+          <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceType">
+              <PropertyRef Name="ServiceTypeID" />
+            </Principal>
+            <Dependent Role="MaintenanceOrder">
+              <PropertyRef Name="ServiceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaintenanceOrder_UrgencyType">
+          <End Role="UrgencyType" Type="DB_33736_rentalModel.Store.UrgencyType" Multiplicity="1" />
+          <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UrgencyType">
+              <PropertyRef Name="UrgencyTypeID" />
+            </Principal>
+            <Dependent Role="MaintenanceOrder">
+              <PropertyRef Name="UrgencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaintenancePhoto_MaintenanceOrder">
+          <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="1" />
+          <End Role="MaintenancePhoto" Type="DB_33736_rentalModel.Store.MaintenancePhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="MaintenancePhoto">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnerMaintenance_MaintenanceOrder">
+          <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="1" />
+          <End Role="OwnerMaintenance" Type="DB_33736_rentalModel.Store.OwnerMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="OwnerMaintenance">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TenantFavorite_Tenant">
           <End Role="Tenant" Type="DB_33736_rentalModel.Store.Tenant" Multiplicity="1" />
           <End Role="TenantFavorite" Type="DB_33736_rentalModel.Store.TenantFavorite" Multiplicity="*" />
@@ -101,6 +261,18 @@
             </Principal>
             <Dependent Role="TenantFavorite">
               <PropertyRef Name="TenantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TenantMaintenance_MaintenanceOrder">
+          <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="1" />
+          <End Role="TenantMaintenance" Type="DB_33736_rentalModel.Store.TenantMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="TenantMaintenance">
+              <PropertyRef Name="MaintenanceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -166,6 +338,38 @@
           <AssociationSet Name="FK_TenantSavedSearch_Tenant" Association="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant">
             <End Role="Tenant" EntitySet="Tenants" />
             <End Role="TenantSavedSearch" EntitySet="TenantSavedSearches" />
+          </AssociationSet>
+          <EntitySet Name="CrewMaintenances" EntityType="DB_33736_rentalModel.CrewMaintenance" />
+          <EntitySet Name="MaintenanceOrders" EntityType="DB_33736_rentalModel.MaintenanceOrder" />
+          <EntitySet Name="MaintenancePhotoes" EntityType="DB_33736_rentalModel.MaintenancePhoto" />
+          <EntitySet Name="OwnerMaintenances" EntityType="DB_33736_rentalModel.OwnerMaintenance" />
+          <EntitySet Name="ServiceTypes" EntityType="DB_33736_rentalModel.ServiceType" />
+          <EntitySet Name="sysdiagrams" EntityType="DB_33736_rentalModel.sysdiagram" />
+          <EntitySet Name="TenantMaintenances" EntityType="DB_33736_rentalModel.TenantMaintenance" />
+          <EntitySet Name="UrgencyTypes" EntityType="DB_33736_rentalModel.UrgencyType" />
+          <AssociationSet Name="FK_CrewMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
+            <End Role="CrewMaintenance" EntitySet="CrewMaintenances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaintenanceOrder_ServiceType" Association="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType">
+            <End Role="ServiceType" EntitySet="ServiceTypes" />
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaintenanceOrder_UrgencyType" Association="DB_33736_rentalModel.FK_MaintenanceOrder_UrgencyType">
+            <End Role="UrgencyType" EntitySet="UrgencyTypes" />
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaintenancePhoto_MaintenanceOrder" Association="DB_33736_rentalModel.FK_MaintenancePhoto_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
+            <End Role="MaintenancePhoto" EntitySet="MaintenancePhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnerMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.FK_OwnerMaintenance_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
+            <End Role="OwnerMaintenance" EntitySet="OwnerMaintenances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TenantMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.FK_TenantMaintenance_MaintenanceOrder">
+            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
+            <End Role="TenantMaintenance" EntitySet="TenantMaintenances" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Unit">
@@ -287,6 +491,158 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CrewMaintenance">
+          <Key>
+            <PropertyRef Name="CrewID" />
+          </Key>
+          <Property Type="Int32" Name="CrewID" Nullable="false" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <NavigationProperty Name="MaintenanceOrder" Relationship="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder" FromRole="CrewMaintenance" ToRole="MaintenanceOrder" />
+        </EntityType>
+        <EntityType Name="MaintenanceOrder">
+          <Key>
+            <PropertyRef Name="MaintenanceID" />
+          </Key>
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <Property Type="Int32" Name="UnitID" Nullable="false" />
+          <Property Type="DateTime" Name="MaintenanceDate" Nullable="false" />
+          <Property Type="Int32" Name="UrgencyID" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ServiceTypeID" Nullable="false" />
+          <Property Type="Boolean" Name="PetsinUnit" Nullable="false" />
+          <Property Type="Boolean" Name="TenantPresence" Nullable="false" />
+          <NavigationProperty Name="CrewMaintenances" Relationship="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder" FromRole="MaintenanceOrder" ToRole="CrewMaintenance" />
+          <NavigationProperty Name="ServiceType" Relationship="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType" FromRole="MaintenanceOrder" ToRole="ServiceType" />
+          <NavigationProperty Name="UrgencyType" Relationship="DB_33736_rentalModel.FK_MaintenanceOrder_UrgencyType" FromRole="MaintenanceOrder" ToRole="UrgencyType" />
+          <NavigationProperty Name="MaintenancePhotoes" Relationship="DB_33736_rentalModel.FK_MaintenancePhoto_MaintenanceOrder" FromRole="MaintenanceOrder" ToRole="MaintenancePhoto" />
+          <NavigationProperty Name="OwnerMaintenances" Relationship="DB_33736_rentalModel.FK_OwnerMaintenance_MaintenanceOrder" FromRole="MaintenanceOrder" ToRole="OwnerMaintenance" />
+          <NavigationProperty Name="TenantMaintenances" Relationship="DB_33736_rentalModel.FK_TenantMaintenance_MaintenanceOrder" FromRole="MaintenanceOrder" ToRole="TenantMaintenance" />
+        </EntityType>
+        <EntityType Name="MaintenancePhoto">
+          <Key>
+            <PropertyRef Name="PhotoID" />
+          </Key>
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <Property Type="Int32" Name="PhotoID" Nullable="false" />
+          <Property Type="String" Name="PhotoPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MaintenanceOrder" Relationship="DB_33736_rentalModel.FK_MaintenancePhoto_MaintenanceOrder" FromRole="MaintenancePhoto" ToRole="MaintenanceOrder" />
+        </EntityType>
+        <EntityType Name="OwnerMaintenance">
+          <Key>
+            <PropertyRef Name="OwnerID" />
+          </Key>
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <NavigationProperty Name="MaintenanceOrder" Relationship="DB_33736_rentalModel.FK_OwnerMaintenance_MaintenanceOrder" FromRole="OwnerMaintenance" ToRole="MaintenanceOrder" />
+        </EntityType>
+        <EntityType Name="ServiceType">
+          <Key>
+            <PropertyRef Name="ServiceTypeID" />
+          </Key>
+          <Property Type="Int32" Name="ServiceTypeID" Nullable="false" />
+          <Property Type="String" Name="ServiceType1" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LCID" Nullable="false" />
+          <NavigationProperty Name="MaintenanceOrders" Relationship="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType" FromRole="ServiceType" ToRole="MaintenanceOrder" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TenantMaintenance">
+          <Key>
+            <PropertyRef Name="TenantID" />
+          </Key>
+          <Property Type="Int32" Name="TenantID" Nullable="false" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <NavigationProperty Name="MaintenanceOrder" Relationship="DB_33736_rentalModel.FK_TenantMaintenance_MaintenanceOrder" FromRole="TenantMaintenance" ToRole="MaintenanceOrder" />
+        </EntityType>
+        <EntityType Name="UrgencyType">
+          <Key>
+            <PropertyRef Name="UrgencyTypeID" />
+          </Key>
+          <Property Type="Int32" Name="UrgencyTypeID" Nullable="false" />
+          <Property Type="String" Name="UrgencyType1" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LCID" Nullable="false" />
+          <NavigationProperty Name="MaintenanceOrders" Relationship="DB_33736_rentalModel.FK_MaintenanceOrder_UrgencyType" FromRole="UrgencyType" ToRole="MaintenanceOrder" />
+        </EntityType>
+        <Association Name="FK_CrewMaintenance_MaintenanceOrder">
+          <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.CrewMaintenance" Role="CrewMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="CrewMaintenance">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaintenanceOrder_ServiceType">
+          <End Type="DB_33736_rentalModel.ServiceType" Role="ServiceType" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceType">
+              <PropertyRef Name="ServiceTypeID" />
+            </Principal>
+            <Dependent Role="MaintenanceOrder">
+              <PropertyRef Name="ServiceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaintenanceOrder_UrgencyType">
+          <End Type="DB_33736_rentalModel.UrgencyType" Role="UrgencyType" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UrgencyType">
+              <PropertyRef Name="UrgencyTypeID" />
+            </Principal>
+            <Dependent Role="MaintenanceOrder">
+              <PropertyRef Name="UrgencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaintenancePhoto_MaintenanceOrder">
+          <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.MaintenancePhoto" Role="MaintenancePhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="MaintenancePhoto">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnerMaintenance_MaintenanceOrder">
+          <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.OwnerMaintenance" Role="OwnerMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="OwnerMaintenance">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TenantMaintenance_MaintenanceOrder">
+          <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.TenantMaintenance" Role="TenantMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaintenanceOrder">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="TenantMaintenance">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -362,6 +718,82 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CrewMaintenances">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.CrewMaintenance">
+              <MappingFragment StoreEntitySet="CrewMaintenance">
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="CrewID" ColumnName="CrewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaintenanceOrders">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.MaintenanceOrder">
+              <MappingFragment StoreEntitySet="MaintenanceOrder">
+                <ScalarProperty Name="TenantPresence" ColumnName="TenantPresence" />
+                <ScalarProperty Name="PetsinUnit" ColumnName="PetsinUnit" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UrgencyID" ColumnName="UrgencyID" />
+                <ScalarProperty Name="MaintenanceDate" ColumnName="MaintenanceDate" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaintenancePhotoes">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.MaintenancePhoto">
+              <MappingFragment StoreEntitySet="MaintenancePhoto">
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OwnerMaintenances">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.OwnerMaintenance">
+              <MappingFragment StoreEntitySet="OwnerMaintenance">
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceTypes">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.ServiceType">
+              <MappingFragment StoreEntitySet="ServiceType">
+                <ScalarProperty Name="LCID" ColumnName="LCID" />
+                <ScalarProperty Name="ServiceType1" ColumnName="ServiceType" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TenantMaintenances">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.TenantMaintenance">
+              <MappingFragment StoreEntitySet="TenantMaintenance">
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrgencyTypes">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UrgencyType">
+              <MappingFragment StoreEntitySet="UrgencyType">
+                <ScalarProperty Name="LCID" ColumnName="LCID" />
+                <ScalarProperty Name="UrgencyType1" ColumnName="UrgencyType" />
+                <ScalarProperty Name="UrgencyTypeID" ColumnName="UrgencyTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -406,6 +838,41 @@
           <ConnectorPoint PointX="8.09375" PointY="3.9994921875" />
           <ConnectorPoint PointX="8.09375" PointY="5.28125" />
           <ConnectorPoint PointX="8.75" PointY="5.28125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_33736_rentalModel.CrewMaintenance" Width="1.5" PointX="5.25" PointY="9.25" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.MaintenanceOrder" Width="1.5" PointX="3" PointY="11.875" Height="3.7109993489583317" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.MaintenancePhoto" Width="1.5" PointX="5.25" PointY="11.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.OwnerMaintenance" Width="1.5" PointX="5.25" PointY="14.125" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.ServiceType" Width="1.5" PointX="0.75" PointY="12.75" Height="1.787985026041671" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.sysdiagram" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.TenantMaintenance" Width="1.5" PointX="5.25" PointY="16.5" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UrgencyType" Width="1.5" PointX="0.75" PointY="9.75" Height="1.7879850260416674" />
+        <AssociationConnector Association="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder" >
+          <ConnectorPoint PointX="3.75" PointY="11.875" />
+          <ConnectorPoint PointX="3.75" PointY="10.047841796875" />
+          <ConnectorPoint PointX="5.25" PointY="10.047841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType" >
+          <ConnectorPoint PointX="2.25" PointY="13.643992513020836" />
+          <ConnectorPoint PointX="3" PointY="13.643992513020836" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_33736_rentalModel.FK_MaintenanceOrder_UrgencyType" >
+          <ConnectorPoint PointX="2.25" PointY="10.792913411458333" />
+          <ConnectorPoint PointX="3.3437475" PointY="10.792913411458333" />
+          <ConnectorPoint PointX="3.3437475" PointY="11.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_33736_rentalModel.FK_MaintenancePhoto_MaintenanceOrder" >
+          <ConnectorPoint PointX="4.5" PointY="12.643992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="12.643992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_33736_rentalModel.FK_OwnerMaintenance_MaintenanceOrder" >
+          <ConnectorPoint PointX="4.5" PointY="14.855499674479166" />
+          <ConnectorPoint PointX="5.25" PointY="14.855499674479166" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_33736_rentalModel.FK_TenantMaintenance_MaintenanceOrder" >
+          <ConnectorPoint PointX="3.75" PointY="15.585999348958332" />
+          <ConnectorPoint PointX="3.75" PointY="17.297841796875" />
+          <ConnectorPoint PointX="5.25" PointY="17.297841796875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMVC2010", "RentalMVC2010\RentalMVC2010.csproj", "{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FancyImageUploader", "demo\FancyImageUploader\", "{E2D00148-A3FF-4FC9-A9AD-D491C97FA4F9}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -23,49 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FancyImageUploader", "demo\
 		VWDPort = "49863"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "galleriffic-2.0", "galleriffic-2.0\galleriffic-2.0\", "{F1EE9A44-9029-410E-8A9F-791B91B5ADAD}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/galleriffic-2.0"
-		Debug.AspNetCompiler.PhysicalPath = "galleriffic-2.0\galleriffic-2.0\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\galleriffic-2.0\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/galleriffic-2.0"
-		Release.AspNetCompiler.PhysicalPath = "galleriffic-2.0\galleriffic-2.0\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\galleriffic-2.0\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "49870"
-	EndProjectSection
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Dot Real", "Nero-Danty-Dot Real\Dot Real\", "{41326C4A-486D-46AB-AAF0-706B0F30582A}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/Dot Real"
-		Debug.AspNetCompiler.PhysicalPath = "Nero-Danty-Dot Real\Dot Real\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Dot Real\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/Dot Real"
-		Release.AspNetCompiler.PhysicalPath = "Nero-Danty-Dot Real\Dot Real\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Dot Real\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "56896"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMobile", "RentalMobile\RentalMobile.csproj", "{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcJqGrid.Example", "MvcJqGrid.Example\MvcJqGrid.Example.csproj", "{EA890CB5-2409-46C1-9EDE-E40002158633}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,24 +29,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A68A4CE4-0BB4-4AAA-8BCA-FC14C5D5C25E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2D00148-A3FF-4FC9-A9AD-D491C97FA4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2D00148-A3FF-4FC9-A9AD-D491C97FA4F9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1EE9A44-9029-410E-8A9F-791B91B5ADAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1EE9A44-9029-410E-8A9F-791B91B5ADAD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{41326C4A-486D-46AB-AAF0-706B0F30582A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41326C4A-486D-46AB-AAF0-706B0F30582A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA890CB5-2409-46C1-9EDE-E40002158633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA890CB5-2409-46C1-9EDE-E40002158633}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA890CB5-2409-46C1-9EDE-E40002158633}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA890CB5-2409-46C1-9EDE-E40002158633}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

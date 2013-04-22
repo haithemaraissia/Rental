@@ -31,5 +31,13 @@ namespace RentalMobile.Models
         public DbSet<Tenant> Tenants { get; set; }
         public DbSet<TenantFavorite> TenantFavorites { get; set; }
         public DbSet<TenantSavedSearch> TenantSavedSearches { get; set; }
+        public DbSet<CrewMaintenance> CrewMaintenances { get; set; }
+        public DbSet<MaintenanceOrder> MaintenanceOrders { get; set; }
+        public DbSet<MaintenancePhoto> MaintenancePhotoes { get; set; }
+        public DbSet<OwnerMaintenance> OwnerMaintenances { get; set; }
+        public DbSet<ServiceType> ServiceTypes { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<TenantMaintenance> TenantMaintenances { get; set; }
+        public DbSet<UrgencyType> UrgencyTypes { get; set; }
     }
 }

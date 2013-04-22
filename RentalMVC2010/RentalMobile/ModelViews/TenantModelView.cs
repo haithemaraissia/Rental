@@ -11,5 +11,6 @@ namespace RentalMobile.Models
 
         public Tenant Tenants { get; set; }
         public List<TenantShowing> TenantShowings { get; set; }
+        //public List<TenantMaintenance> TenantMaitenance { get; set; }
     }
 }

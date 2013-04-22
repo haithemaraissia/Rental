@@ -1,0 +1,55 @@
+﻿@model RentalMobile.Models.MaintenanceOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MaintenanceOrder</legend>
+
+    <div class="display-label">MaintenanceID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaintenanceID)
+    </div>
+
+    <div class="display-label">UnitID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitID)
+    </div>
+
+    <div class="display-label">MaintenanceDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaintenanceDate)
+    </div>
+
+    <div class="display-label">UrgencyType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UrgencyType.UrgencyType1)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">ServiceType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ServiceType.ServiceType1)
+    </div>
+
+    <div class="display-label">PetsinUnit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PetsinUnit)
+    </div>
+
+    <div class="display-label">TenantPresence</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenantPresence)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

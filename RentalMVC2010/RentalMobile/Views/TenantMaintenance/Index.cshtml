@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RentalMobile.Models.TenantMaintenance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            TenantID
+        </th>
+        <th>
+            MaintenanceOrder
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenantID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceOrder.UnitID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceOrder.MaintenanceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceOrder.UrgencyType.UrgencyType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceOrder.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceOrder.ServiceType.ServiceType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceOrder.PetsinUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceOrder.TenantPresence)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TenantID  }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
