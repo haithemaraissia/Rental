@@ -18,8 +18,8 @@ namespace RentalMobile.Controllers
 
         public ViewResult Index()
         {
-            var maintenanceorders = db.MaintenanceOrders.Include(m => m.ServiceType).Include(m => m.UrgencyType).
-                Include(k => k.TenantMaintenances.Where(t => t.TenantID == 1));
+            var maintenanceorders = db.MaintenanceOrders.Include(m => m.ServiceType).Include(m => m.UrgencyType);
+                //Include(k => k.TenantMaintenances.Where(t => t.TenantID == 1));
 
                return View(maintenanceorders.ToList());
         }
@@ -47,7 +47,7 @@ namespace RentalMobile.Controllers
         // POST: /MaintenanceOrder/Create
 
         [HttpPost]
-        public ActionResult Create(MaintenanceOrder maintenanceorder)
+        public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
             if (ModelState.IsValid)
             {

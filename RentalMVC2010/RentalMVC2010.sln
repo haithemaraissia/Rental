@@ -18,7 +18,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FancyImageUploader", "demo\
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "49863"
+		VWDPort = "50286"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMobile", "RentalMobile\RentalMobile.csproj", "{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}"
