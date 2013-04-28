@@ -23,6 +23,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FancyImageUploader", "demo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMobile", "RentalMobile\RentalMobile.csproj", "{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Westwind.plUploadHandler", "Westwind.plUploadHandler\Westwind.plUploadHandler.csproj", "{913A8E97-DC0B-4D26-AB59-4AC5C232910E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyUpload", "MyUpload\MyUpload.csproj", "{B0F40D17-4A0C-4E2F-9CF7-960BE5C14059}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,14 @@ Global
 		{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913A8E97-DC0B-4D26-AB59-4AC5C232910E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913A8E97-DC0B-4D26-AB59-4AC5C232910E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913A8E97-DC0B-4D26-AB59-4AC5C232910E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913A8E97-DC0B-4D26-AB59-4AC5C232910E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F40D17-4A0C-4E2F-9CF7-960BE5C14059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F40D17-4A0C-4E2F-9CF7-960BE5C14059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F40D17-4A0C-4E2F-9CF7-960BE5C14059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F40D17-4A0C-4E2F-9CF7-960BE5C14059}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
