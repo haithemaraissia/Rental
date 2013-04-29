@@ -35,6 +35,11 @@
     </style>
 </head>
 <h2>@ViewBag.Message</h2>
+@using (Html.BeginForm("upload", "home", FormMethod.Post,
+                       new {enctype = "multipart/form-data"}))
+{
+    
+
 <p>
     To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
 </p>
@@ -79,3 +84,7 @@
     <!-- page specific JavaScript that puts up plUpload component -->
     <script src="../../Scripts/plupload/UploadImages.js"></script>
     
+    <input type="file" name="file" />
+    
+    <input type="submit" value="Upload" />
+}

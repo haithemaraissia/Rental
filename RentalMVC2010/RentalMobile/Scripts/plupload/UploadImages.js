@@ -12,8 +12,8 @@ $(document).ready(function () {
         resize: { width: 800, height: 600, quality: 90 },
         // Specify what files to browse for
         filters: [{ title: "Image files", extensions: "jpg,jpeg,gif,png" }],
-        flash_swf_url: 'scripts/plupload/plupload.flash.swf',
-        silverlight_xap_url: 'scripts/plupload/plupload.silverlight.xap',
+        flash_swf_url: '../Scripts/plupload/plupload.flash.swf',
+        silverlight_xap_url: '../Scripts/plupload/plupload.silverlight.xap',
         multiple_queues: true
     });
 
@@ -27,6 +27,7 @@ $(document).ready(function () {
     $("#btnStartUpload").click(function () {
         uploader.start();
     });
+
 
     // bind uploaded event and display the image
     // response.response returns the last response from server

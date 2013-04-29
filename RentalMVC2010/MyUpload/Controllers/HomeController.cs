@@ -19,5 +19,12 @@ namespace MyUpload.Controllers
         {
             return View();
         }
+
+
+        public string Upload(HttpPostedFileBase file)
+        {
+            HttpPostedFileBase FileData = Request.Files[0];
+            return "";
+        }
     }
 }

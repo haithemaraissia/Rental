@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -41,7 +42,14 @@ namespace RentalMobile.Controllers
             ViewBag.ServiceTypeID = new SelectList(db.ServiceTypes, "ServiceTypeID", "ServiceType1");
             ViewBag.UrgencyID = new SelectList(db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1");
             return View();
+        }
+
+
+        public ActionResult Create2()
+        {
+            return View();
         } 
+
 
         //
         // POST: /MaintenanceOrder/Create
@@ -49,6 +57,29 @@ namespace RentalMobile.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
+
+
+
+            HttpPostedFileBase fileData = Request.Files[0];
+
+            if (fileData == null)
+            {
+                fileData = Request.Files[0];
+
+                if (fileData.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(fileData.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content"), fileName);
+                    fileData.SaveAs(path);
+                }
+
+            }
+
+
+
+
+
+
             if (ModelState.IsValid)
             {
                 db.MaintenanceOrders.Add(maintenanceorder);
