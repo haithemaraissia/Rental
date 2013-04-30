@@ -1,0 +1,12 @@
+﻿@model FileInfo[]
+<ul>
+    @if (Model != null )
+    {
+        foreach (var name in Model)
+        {
+        <li>@name</li>
+        <li>@name.Name</li>
+        <li>@name.CreationTime</li>
+        }
+    }
+</ul>

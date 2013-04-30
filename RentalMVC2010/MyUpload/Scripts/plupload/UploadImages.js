@@ -14,7 +14,8 @@ $(document).ready(function () {
         filters: [{ title: "Image files", extensions: "jpg,jpeg,gif,png" }],
         flash_swf_url: 'scripts/plupload/plupload.flash.swf',
         silverlight_xap_url: 'scripts/plupload/plupload.silverlight.xap',
-        multiple_queues: true
+        multiple_queues: true,
+        multipart_params: { UserName: 'jack', requestid: 5 }
     });
 
     // get uploader instance

@@ -50,7 +50,7 @@ public abstract class plUploadBaseHandler : IHttpHandler
         Context = context;
         Request = context.Request;
         Response = context.Response;
-
+        var directory = "/" + Request.Params["UserName"] + "/" + "Requests" + "/" + Request.Params["requestid"];
         // Check to see whether there are uploaded files to process them
         if (Request.Files.Count > 0)
         {
@@ -94,8 +94,8 @@ public abstract class plUploadBaseHandler : IHttpHandler
                     WriteErrorResponse(Resources.UploadedFileIsTooLarge, 413);
                     return;
                 }
-
-                OnUploadCompleted(fileName);
+               
+                OnUploadCompleted(fileName, directory);
 
                 return;
             }
@@ -125,7 +125,7 @@ public abstract class plUploadBaseHandler : IHttpHandler
             {
                 // final response should just return
                 // the output you generate
-                OnUploadCompleted(fileName);
+                OnUploadCompleted(fileName, directory);
                 return;
             }
 
@@ -183,7 +183,8 @@ public abstract class plUploadBaseHandler : IHttpHandler
     /// Completion handler called when the download completes
     /// </summary>
     /// <param name="fileName"></param>
-    protected virtual void OnUploadCompleted(string fileName)
+    /// <param name="directory"></param>
+    protected virtual void OnUploadCompleted(string fileName, string directory)
     {
 
     }

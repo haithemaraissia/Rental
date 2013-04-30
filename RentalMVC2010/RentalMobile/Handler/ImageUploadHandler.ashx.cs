@@ -31,12 +31,16 @@ namespace plupload
             AllowedExtensions = ".jpg,.jpeg,.png,.gif,.bmp";
         }
 
-        protected override void OnUploadCompleted(string fileName)
+        protected override void OnUploadCompleted(string fileName, string directory)
         {
             var Server = Context.Server;
 
             // Physical Path is auto-transformed
-            var path = FileUploadPhysicalPath;
+            var path = FileUploadPhysicalPath + directory;
+
+            //Create Directory if this is the first file
+            CreateDirectoryIfNotExist(path);
+
             var fullUploadedFileName = Path.Combine(path, fileName);
 
             // Typically you'd want to ensure that the filename is unique
@@ -90,6 +94,70 @@ namespace plupload
         //{
         //    return true;
         //}
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Addition of Helper function to create and/or delete directory
+        /// </summary>
+        /// <param name="newDirectory"></param>
+        private void CreateDirectoryIfNotExist(string newDirectory)
+        {
+            try
+            {
+                // Checking the existence of directory
+                if (!Directory.Exists(newDirectory))
+                {
+
+                    //If No any such directory then creates the new one
+                    Directory.CreateDirectory(newDirectory);
+                }
+                else
+                {
+                    //Directory already exist
+                }
+            }
+            catch (IOException _err)
+            {
+                Response.Write(_err.Message);
+            }
+        }
+        private void DeleteDirectoryIfExist(string newDirectory)
+        {
+            try
+            {
+                // Checking the existence of directory
+                if (Directory.Exists(newDirectory))
+                {
+                    //If No any such directory then creates the new one
+                    Directory.Delete(newDirectory);
+                }
+                else
+                {
+                    //Directory doesn't exist
+                }
+            }
+            catch (IOException _err)
+            {
+                Response.Write(_err.Message);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
