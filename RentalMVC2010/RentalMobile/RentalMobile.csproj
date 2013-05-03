@@ -82,6 +82,7 @@
     <Compile Include="Controllers\LegalController.cs" />
     <Compile Include="Controllers\MaintainController.cs" />
     <Compile Include="Controllers\MaintenanceOrderController.cs" />
+    <Compile Include="Controllers\MaintenancePhotoGalleryController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
@@ -107,6 +108,7 @@
       <DependentUpon>ImageUploadHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtension.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="MobileViewEngine.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CrewMaintenance.cs">
@@ -352,6 +354,7 @@
     <Content Include="Scripts\js\scripts.js" />
     <Content Include="Scripts\js\switcher.js" />
     <Content Include="Scripts\modernizr-2.0.6.js" />
+    <Content Include="Scripts\plupload\BackUp\UploadImages.js" />
     <Content Include="Scripts\plupload\jquery.plupload.queue\css\jquery.plupload.queue.css" />
     <Content Include="Scripts\plupload\jquery.plupload.queue\img\backgrounds.gif" />
     <Content Include="Scripts\plupload\jquery.plupload.queue\img\buttons-disabled.png" />
@@ -550,12 +553,17 @@
     <Content Include="Views\MaintenanceOrder\Create.cshtml" />
     <Content Include="Views\MaintenanceOrder\Edit.cshtml" />
     <Content Include="Views\MaintenanceOrder\Delete.cshtml" />
-    <Content Include="Scripts\plupload\ww.jquery.min.js.map">
-      <DependentUpon>ww.jquery.js</DependentUpon>
-    </Content>
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\MaintenanceOrder\Create2.cshtml" />
+    <Content Include="Views\MaintenancePhotoGallery\Index.cshtml" />
+    <Content Include="Views\MaintenancePhotoGallery\Details.cshtml" />
+    <Content Include="Views\MaintenancePhotoGallery\Create.cshtml" />
+    <Content Include="Views\MaintenancePhotoGallery\Edit.cshtml" />
+    <Content Include="Views\MaintenancePhotoGallery\Delete.cshtml" />
+    <Content Include="Scripts\plupload\ww.jquery.min.js.map">
+      <DependentUpon>ww.jquery.js</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -567,6 +575,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Photo\Tenant\" />
     <Folder Include="TempUploads\" />
     <Folder Include="UploadedImages\" />
   </ItemGroup>

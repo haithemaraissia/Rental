@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace RentalMobile.Models
 {
     using System;
@@ -23,6 +21,7 @@ namespace RentalMobile.Models
             this.OwnerMaintenances = new HashSet<OwnerMaintenance>();
             this.TenantMaintenances = new HashSet<TenantMaintenance>();
         }
+    
         public int MaintenanceID { get; set; }
         public int UnitID { get; set; }
         public System.DateTime MaintenanceDate { get; set; }

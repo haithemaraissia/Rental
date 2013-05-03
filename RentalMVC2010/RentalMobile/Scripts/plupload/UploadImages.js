@@ -2,23 +2,36 @@ $(document).ready(function () {
     // initialize status bar
     showStatus({ autoClose: true });
 
+
+
+    var t = location.href + '/handler/ImageUploadHandler.ashx';
+    var x = location.href + '/scripts/plupload/plupload.flash.swf';
+    var y = location.href + 'scripts/plupload/plupload.silverlight.xap';
+    var d = '@ViewBag.TenantUserName';
+    alert(d);
+    alert(x);
+
     $("#Uploader").pluploadQueue({
+        t: location.href + 'scripts/plupload/plupload.flash.sw',
         runtimes: 'html5,silverlight,flash,html4',
-        url: 'Handler/ImageUploadHandler.ashx',
+        url: t,
         max_file_size: '2mb',
         chunk_size: '64kb',
         unique_names: false,
         // Resize images on clientside if we can
         resize: { width: 800, height: 600, quality: 90 },
         // Specify what files to browse for
-        filters: [{ title: "Image files", extensions: "jpg,jpeg,gif,png" }],
-        flash_swf_url: '../Scripts/plupload/plupload.flash.swf',
-        silverlight_xap_url: '../Scripts/plupload/plupload.silverlight.xap',
-        multiple_queues: true
+        filters: [{ title: "Image files", extensions: "jpg,jpeg,gif,png"}],
+        flash_swf_url: x,
+        silverlight_xap_url: y,
+        multiple_queues: true,
+        multipart_params: { UserName: 'jack', requestid: 5 }
     });
 
+    var t = location.href + 'scripts/plupload/plupload.flash.sw';
+
     // get uploader instance
-    var uploader = $("#Uploader").pluploadQueue();      
+    var uploader = $("#Uploader").pluploadQueue();
 
 
     $("#btnStopUpload").click(function () {
@@ -27,7 +40,6 @@ $(document).ready(function () {
     $("#btnStartUpload").click(function () {
         uploader.start();
     });
-
 
     // bind uploaded event and display the image
     // response.response returns the last response from server
@@ -45,7 +57,7 @@ $(document).ready(function () {
                         $("#ImageView").attr("src", imageUrl);
                         setTimeout(function () {
                             var ip = $("#ImagePreview");
-                            
+
                             // show as overlay
                             ip.fadeIn("slow")
                               .modalDialog()
@@ -63,8 +75,8 @@ $(document).ready(function () {
 
     // Error handler displays client side errors and transfer errors
     // when you click on the error icons
-    uploader.bind("Error", function (upload, error) {        
-        showStatus(error.message,3000,true);
+    uploader.bind("Error", function (upload, error) {
+        showStatus(error.message, 3000, true);
     });
 
     // only allow 5 files to be uploaded at once

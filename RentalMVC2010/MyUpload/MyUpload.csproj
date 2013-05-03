@@ -170,22 +170,6 @@
     <Content Include="Scripts\plupload\ww.jquery.min.js">
       <DependentUpon>ww.jquery.js</DependentUpon>
     </Content>
-    <Content Include="Tenant\Jack\Requests\5\img_agent-placeholder.png" />
-    <Content Include="Tenant\Jack\Requests\5\img_apple-touch-icon-114x114.png" />
-    <Content Include="Tenant\Jack\Requests\5\img_apple-touch-icon-72x72.png" />
-    <Content Include="Tenant\Jack\Requests\5\img_apple-touch-icon.png" />
-    <Content Include="Tenant\Jack\Requests\5\img_avatar-placeholder.png" />
-    <Content Include="Tenant\Jack\Requests\5\img_logo-small.png" />
-    <Content Include="Tenant\Jack\Requests\5\img_small-avatar-placeholder.png" />
-    <Content Include="Tenant\Jack\Requests\5\img_static-image.jpg" />
-    <Content Include="UploadedImages\jack\Requests\5\img_agent-placeholder.png" />
-    <Content Include="UploadedImages\jack\Requests\5\img_apple-touch-icon-114x114.png" />
-    <Content Include="UploadedImages\jack\Requests\5\img_apple-touch-icon-72x72.png" />
-    <Content Include="UploadedImages\jack\Requests\5\img_apple-touch-icon.png" />
-    <Content Include="UploadedImages\jack\Requests\5\img_avatar-placeholder.png" />
-    <Content Include="UploadedImages\jack\Requests\5\img_logo-small.png" />
-    <Content Include="UploadedImages\jack\Requests\5\img_small-avatar-placeholder.png" />
-    <Content Include="UploadedImages\jack\Requests\5\img_static-image.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -219,6 +203,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="TempUploads\" />
+    <Folder Include="Tenant\" />
+    <Folder Include="UploadedImages\jack\Requests\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

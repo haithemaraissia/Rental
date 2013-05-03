@@ -86,7 +86,7 @@
             <PropertyRef Name="PhotoID" />
           </Key>
           <Property Name="MaintenanceID" Type="int" Nullable="false" />
-          <Property Name="PhotoID" Type="int" Nullable="false" />
+          <Property Name="PhotoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PhotoPath" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="OwnerMaintenance">

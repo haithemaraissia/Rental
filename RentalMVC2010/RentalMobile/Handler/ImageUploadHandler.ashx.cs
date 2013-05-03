@@ -20,7 +20,7 @@ namespace plupload
     /// </summary>
     public class ImageUploadHandler : plUploadFileHandler
     {
-        const string ImageStoragePath = "~/UploadedImages";
+        public string ImageStoragePath = "~/UploadedImages";
         public static int ImageHeight = 480;
 
         public ImageUploadHandler()
@@ -36,10 +36,7 @@ namespace plupload
             var Server = Context.Server;
 
             // Physical Path is auto-transformed
-            var path = FileUploadPhysicalPath + directory;
-
-            //Create Directory if this is the first file
-            CreateDirectoryIfNotExist(path);
+            var path = FileUploadPhysicalPath;
 
             var fullUploadedFileName = Path.Combine(path, fileName);
 
@@ -47,7 +44,11 @@ namespace plupload
             // Some ID from the database to correlate - here I use a static img_ prefix
             string generatedFilename = "img_" + fileName;
 
-            string imagePath = Server.MapPath(ImageStoragePath);
+            string imagePath = Server.MapPath(ImageStoragePath) + directory;
+
+            //ImagePathDirectory
+            //Create Directory if this is the first file
+            CreateDirectoryIfNotExist(imagePath);
 
             try
             {
@@ -62,7 +63,7 @@ namespace plupload
                 WriteErrorResponse("Unable to write out uploaded file: " + ex.Message);
                 return;
             }
-
+            ImageStoragePath = ImageStoragePath + directory;
             string relativePath = VirtualPathUtility.ToAbsolute(ImageStoragePath);
             string finalImageUrl = relativePath + "/" + generatedFilename;
 
@@ -94,10 +95,6 @@ namespace plupload
         //{
         //    return true;
         //}
-
-
-
-
 
 
 
@@ -147,18 +144,6 @@ namespace plupload
                 Response.Write(_err.Message);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

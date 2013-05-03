@@ -41,6 +41,10 @@ namespace RentalMobile.Controllers
         {
             ViewBag.ServiceTypeID = new SelectList(db.ServiceTypes, "ServiceTypeID", "ServiceType1");
             ViewBag.UrgencyID = new SelectList(db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1");
+
+
+
+            ViewBag.TenantUserName = "Jack";
             return View();
         }
 
@@ -58,33 +62,19 @@ namespace RentalMobile.Controllers
         public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
 
-
-
-            HttpPostedFileBase fileData = Request.Files[0];
-
-            if (fileData == null)
-            {
-                fileData = Request.Files[0];
-
-                if (fileData.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(fileData.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content"), fileName);
-                    fileData.SaveAs(path);
-                }
-
-            }
-
-
-
-
-
-
             if (ModelState.IsValid)
             {
                 db.MaintenanceOrders.Add(maintenanceorder);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+
+
+                TempData["TenantUsername"] = "mike";
+                TempData["RequestID"] = maintenanceorder.MaintenanceID;
+
+                //Maybe we don't need to pass the entire model
+                //TempData["MaintenanceOrderModel"] = maintenanceorder;
+                //Maybe we don't need to pass the entire model
+                return RedirectToAction("Index","Upload"); 
             }
 
             ViewBag.ServiceTypeID = new SelectList(db.ServiceTypes, "ServiceTypeID", "ServiceType1", maintenanceorder.ServiceTypeID);

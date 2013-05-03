@@ -14,12 +14,15 @@ namespace MyUpload.Controllers
         //
         // GET: /Photo/
 
+        //Variables that should be queried with the request
+        public string TenantUsername = "Jack";
+        public string RequestID = "5";
 
         public ActionResult Index()
         {
             var imageStoragePath = Server.MapPath("~/UploadedImages");
             var tenantPath = Server.MapPath("~/Tenant");
-            const string directory = @"\" + "Jack" + @"\" + "Requests" + @"\" + "5" + @"\";
+            var directory = @"\" + TenantUsername + @"\" + "Requests" + @"\" + RequestID + @"\";
 
             var path = imageStoragePath + directory;
 
