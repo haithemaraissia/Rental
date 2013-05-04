@@ -551,7 +551,6 @@
     <Content Include="Views\MaintenanceOrder\Index.cshtml" />
     <Content Include="Views\MaintenanceOrder\Details.cshtml" />
     <Content Include="Views\MaintenanceOrder\Create.cshtml" />
-    <Content Include="Views\MaintenanceOrder\Edit.cshtml" />
     <Content Include="Views\MaintenanceOrder\Delete.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
@@ -564,6 +563,8 @@
     <Content Include="Scripts\plupload\ww.jquery.min.js.map">
       <DependentUpon>ww.jquery.js</DependentUpon>
     </Content>
+    <Content Include="Views\MaintenanceOrder\Edit.cshtml" />
+    <Content Include="Views\MaintenanceOrder\_MaintenancePhotoGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

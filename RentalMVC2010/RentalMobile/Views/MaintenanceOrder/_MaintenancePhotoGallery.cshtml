@@ -1,18 +1,10 @@
 ﻿@model IEnumerable<RentalMobile.Models.MaintenancePhoto>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
-            MaintenanceOrder
+            MaintenanceID
         </th>
         <th>
             PhotoID
@@ -26,7 +18,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.Description)
+            @Html.DisplayFor(modelItem => item.MaintenanceID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PhotoID)
@@ -36,9 +28,9 @@
             <img src="@Url.Content(item.PhotoPath)"/>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { Id = item.PhotoID }) |
-            @Html.ActionLink("Details", "Details", new { Id = item.PhotoID }) |
-            @Html.ActionLink("Delete", "Delete", new { Id = item.PhotoID }) |
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

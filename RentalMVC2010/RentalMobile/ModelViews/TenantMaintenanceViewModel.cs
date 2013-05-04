@@ -10,6 +10,7 @@ namespace RentalMobile.Models
     {
         public Tenant Tenant;
         public List<MaintenanceOrder> MaintenanceOrders;
+
         //public int TenantID { get; set; }
 
         //public int MaintenanceID { get; set; }
@@ -27,5 +28,6 @@ namespace RentalMobile.Models
         //public  List<MaintenancePhoto> MaintenancePhotoes { get; set; }
         //public  List<OwnerMaintenance> OwnerMaintenances { get; set; }
         //public  List<TenantMaintenance> TenantMaintenances { get; set; }
+
     }
 }

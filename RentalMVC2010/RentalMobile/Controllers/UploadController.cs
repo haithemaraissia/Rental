@@ -140,10 +140,10 @@ namespace RentalMobile.Controllers
                         if (!System.IO.File.Exists(destinationFile))
                         {
                             System.IO.File.Move(f.FullName, destinationFile);
+                            AddPicture(1, destinationFile);
                         }
                         if (System.IO.File.Exists(f.Name))
                             System.IO.File.Delete(f.Name);
-                        AddPicture(1, destinationFile);
                     }
                     DeleteDirectoryIfExist(path);
                 }
