@@ -172,11 +172,13 @@ Description
 
 
 
-
+@ViewBag.TenantUserName
 
 @using (Html.BeginForm("Create", "Upload", FormMethod.Post))
 {
-            <p>
-            <input type="submit" value="Publish" />
-        </p>
+    <p>
+        <input type="submit" value="Publish" />
+        <label runat="server" title="@ViewBag.RequestID"></label>
+        <input type="hidden" id="PackageID" value=" @ViewBag.RequestID">
+   </p>
 }

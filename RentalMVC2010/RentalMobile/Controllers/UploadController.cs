@@ -12,24 +12,23 @@ namespace RentalMobile.Controllers
     [Authorize]
     public class UploadController : Controller
     {
-        
+
         //Variables that should be queried with the request
         private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
-
-
-
         public string TenantUsername = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name).ToString();
-        public string RequestID = "10";
         public string TenantPhotoPath = "~/Photo/Tenant/Requests";
+        public string RequestID;
 
         //
         // GET: /Upload/
-        
+
         public ActionResult Index()
         {
+            RequestID = TempData["RequestID"].ToString();
             ViewBag.TenantUserName = TenantUsername;
-            ViewBag.RequestID = RequestID;
+            ViewBag.RequestID = TempData["RequestID"].ToString();
+            TempData["RequestID"] = RequestID;
             return View();
         }
 
@@ -97,11 +96,9 @@ namespace RentalMobile.Controllers
 
 
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult Create(FormCollection collection)
         {
             SavePictures();
-
-
             return RedirectToAction("Index", "MaintenanceOrder");
         }
 
@@ -116,45 +113,43 @@ namespace RentalMobile.Controllers
         {
             var imageStoragePath = Server.MapPath("~/UploadedImages");
             var photoPath = Server.MapPath(TenantPhotoPath);
-            var directory = @"\" + TenantUsername + @"\" + "Requests" + @"\" + RequestID + @"\";
-
+            var directory = @"\" + TenantUsername + @"\" + "Requests" + @"\" + TempData["RequestID"] + @"\";
             var path = imageStoragePath + directory;
-
             var uploadDirectory = new DirectoryInfo(path);
+            var newdirectory = photoPath + directory;
             if (Directory.Exists(path))
             {
-                if (uploadDirectory.GetFiles().Count() != 0)
-                {
-                    var files = uploadDirectory.GetFiles();
-
-                    //Create Directory if it doesn't exist
-                    var newdirectory = photoPath + directory;
-                    CreateDirectoryIfNotExist(newdirectory);
-
-                    foreach (var f in files)
-                    {
-
-                        //This is what you need.
-                        var destinationFile = newdirectory + @"\" + f.Name;
-
-                        if (!System.IO.File.Exists(destinationFile))
-                        {
-                            System.IO.File.Move(f.FullName, destinationFile);
-                            AddPicture(1, destinationFile);
-                        }
-                        if (System.IO.File.Exists(f.Name))
-                            System.IO.File.Delete(f.Name);
-                    }
-                    DeleteDirectoryIfExist(path);
-                }
+                //Create Directory if it doesn't exist
+                CreateDirectoryIfNotExist(newdirectory);
             }
+            //if (uploadDirectory.GetFiles().Count() != 0)
+            //{
+            var files = uploadDirectory.GetFiles();
 
+            foreach (var f in files)
+            {
+
+                //This is what you need.
+                var destinationFile = newdirectory + @"\" + f.Name;
+                var virtualdestinationFile = @"~\Photo\Tenant\Requests" + directory + f.Name;
+                if (!System.IO.File.Exists(destinationFile))
+                {
+                    System.IO.File.Move(f.FullName, destinationFile);
+                    AddPicture(Convert.ToInt32(TempData["RequestID"]), virtualdestinationFile);
+                }
+                if (System.IO.File.Exists(f.Name))
+                    System.IO.File.Delete(f.Name);
+            }
+            DeleteDirectoryIfExist(path);
+            //}
         }
+
+
+
 
         public void AddPicture(int maintenanceId, string photoPath)
         {
-            var maintenancephoto = new MaintenancePhoto 
-            {MaintenanceID = maintenanceId, PhotoPath = photoPath};
+            var maintenancephoto = new MaintenancePhoto { MaintenanceID = maintenanceId, PhotoPath = photoPath };
             if (!ModelState.IsValid) return;
             db.MaintenancePhotoes.Add(maintenancephoto);
             db.SaveChanges();

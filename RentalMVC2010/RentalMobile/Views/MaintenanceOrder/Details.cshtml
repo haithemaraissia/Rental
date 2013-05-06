@@ -1,11 +1,11 @@
-﻿@model RentalMobile.Models.MaintenanceOrder
+﻿@using RentalMobile.Models
+@model RentalMobile.Models.MaintenanceOrder
 
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
-
 <fieldset>
     <legend>MaintenanceOrder</legend>
 
@@ -58,7 +58,12 @@
 
 
 
+<div>
 
+Partial Photo
+@Html.Partial("_MaintenancePhotoGallery", Model.MaintenancePhotoes)
+
+</div>
 
 
 <p>

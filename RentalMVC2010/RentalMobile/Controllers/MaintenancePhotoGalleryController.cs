@@ -101,7 +101,7 @@ namespace RentalMobile.Controllers
             MaintenancePhoto maintenancephoto = db.MaintenancePhotoes.Find(id);
             db.MaintenancePhotoes.Remove(maintenancephoto);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","MaintenanceOrder");
         }
 
         protected override void Dispose(bool disposing)

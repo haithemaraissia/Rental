@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
@@ -30,7 +31,7 @@ namespace RentalMobile.Controllers
 
         public ViewResult Details(int id)
         {
-            MaintenanceOrder maintenanceorder = db.MaintenanceOrders.Find(id);
+            var maintenanceorder = db.MaintenanceOrders.Find(id);
             return View(maintenanceorder);
         }
 
@@ -44,7 +45,7 @@ namespace RentalMobile.Controllers
 
 
 
-            ViewBag.TenantUserName = "Jack";
+           // ViewBag.TenantUserName = "Jack";
             return View();
         }
 
@@ -62,18 +63,16 @@ namespace RentalMobile.Controllers
         public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
 
+                //Maybe we don't need to pass the entire model
+                //TempData["MaintenanceOrderModel"] = maintenanceorder;
+                //Maybe we don't need to pass the entire model
+
             if (ModelState.IsValid)
             {
                 db.MaintenanceOrders.Add(maintenanceorder);
                 db.SaveChanges();
-
-
-                TempData["TenantUsername"] = "mike";
+                TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
                 TempData["RequestID"] = maintenanceorder.MaintenanceID;
-
-                //Maybe we don't need to pass the entire model
-                //TempData["MaintenanceOrderModel"] = maintenanceorder;
-                //Maybe we don't need to pass the entire model
                 return RedirectToAction("Index","Upload"); 
             }
 
@@ -131,10 +130,24 @@ namespace RentalMobile.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+        
+        public ActionResult AddMorePhotos([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
+        {
+            TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+            TempData["RequestID"] = maintenanceorder.MaintenanceID;
+            return RedirectToAction("Index", "Upload"); 
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
             base.Dispose(disposing);
         }
+
+
     }
 }
