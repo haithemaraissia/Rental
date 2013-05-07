@@ -565,6 +565,7 @@
     </Content>
     <Content Include="Views\MaintenanceOrder\Edit.cshtml" />
     <Content Include="Views\MaintenanceOrder\_MaintenancePhotoGallery.cshtml" />
+    <Content Include="Views\MaintenancePhotoGallery\Json.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

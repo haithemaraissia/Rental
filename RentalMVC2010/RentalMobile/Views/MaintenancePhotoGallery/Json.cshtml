@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Json";
+}
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnGetPersons').click(function () {
+            $.getJSON("/MaintenancePhotoGallery/GetJsonData", null, function (data) {
+                var div = $('#ajaxDiv');
+                div.html("<br/> " + "Persons received from server: " + "<br/>");
+                $.each(data, function (i, item) {
+                    printPerson(div, item);
+                });
+            });
+        });
+    });
+
+    function printPerson(div, item) {
+        div.append("<br/>" + "FName: " + item.PhotoID + ", LName: " + item.PathPath);
+//        $.each(item.Addresses, function (i, addr) {
+//            printAddress(div, addr);
+//        });
+    }
+
+//    function printAddress(div, item) {
+//        div.append("<br/>" + "   " + "Line1: " + item.Line1);
+//    }
+</script>
+<h2>Json</h2>
+<input id="btnGetPersons" type="button" value="Get Persons" />
+<div>
+    <div id="ajaxDiv">
+    </div>
+</div>
+

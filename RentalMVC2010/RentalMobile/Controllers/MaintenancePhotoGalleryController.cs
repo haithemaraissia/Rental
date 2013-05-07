@@ -8,13 +8,76 @@ using System.Web.Mvc;
 using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
-{ 
+{
     public class MaintenancePhotoGalleryController : Controller
     {
         private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
+        public JsonResult GetJsonData()
+        {
+            //var persons = new List<Person>
+            //                  {
+            //                      new Person{Id = 1, FirstName = "F1", 
+            //                          LastName = "L1", 
+            //                          Addresses = new List<Address>
+            //                                          {
+            //                                              new Address{Line1 = "LaneA"},
+            //                                              new Address{Line1 = "LaneB"}
+            //                                          }},
+
+            //                      new Person{Id = 2, FirstName = "F2", 
+            //                          LastName = "L2", 
+            //                          Addresses = new List<Address>
+            //                                          {
+            //                                              new Address{Line1 = "LaneC"},
+            //                                              new Address{Line1 = "LaneD"}
+            //                                          }}};
+
+            var persons = db.MaintenancePhotoes.ToList();
+            var p = persons.Select(d => new Photo {PhotoID = d.PhotoID, PathPath = d.PhotoPath}).ToList();
+
+
+            return Json( p, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult PopulateDetails(int id)
+        {
+            var a = db.MaintenancePhotoes.ToList();
+            return Json(a, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ViewResult Json()
+        {
+            return View();
+        }
+
+        //public JsonResult PopulateDetails(int id)
+        //{
+        //    //userResultModel.LastName = user.LastName;
+        //    //userResultModel.FirstName = user.FirstName;
+        //    //userResultModel.Message = String.Empty; //success message is empty in this case
+
+        //    MaintenancePhoto maintenancephoto = db.MaintenancePhotoes.Find(35);
+        //   // IQueryable<MaintenancePhoto> maintenancephoto = db.MaintenancePhotoes.Where(o => o.MaintenanceID == 35);
+        //    return Json(maintenancephoto, JsonRequestBehavior.AllowGet);
+        //}
+
+
+
         //
         // GET: /MaintenancePhotoGallery/
+
+
+
+
+
+
+
+
+
+
+
 
         public ViewResult Index()
         {
@@ -38,7 +101,7 @@ namespace RentalMobile.Controllers
         {
             ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description");
             return View();
-        } 
+        }
 
         //
         // POST: /MaintenancePhotoGallery/Create
@@ -50,20 +113,22 @@ namespace RentalMobile.Controllers
             {
                 db.MaintenancePhotoes.Add(maintenancephoto);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
-            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description", maintenancephoto.MaintenanceID);
+            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description",
+                                                   maintenancephoto.MaintenanceID);
             return View(maintenancephoto);
         }
-        
+
         //
         // GET: /MaintenancePhotoGallery/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             MaintenancePhoto maintenancephoto = db.MaintenancePhotoes.Find(id);
-            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description", maintenancephoto.MaintenanceID);
+            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description",
+                                                   maintenancephoto.MaintenanceID);
             return View(maintenancephoto);
         }
 
@@ -79,13 +144,14 @@ namespace RentalMobile.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description", maintenancephoto.MaintenanceID);
+            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description",
+                                                   maintenancephoto.MaintenanceID);
             return View(maintenancephoto);
         }
 
         //
         // GET: /MaintenancePhotoGallery/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             MaintenancePhoto maintenancephoto = db.MaintenancePhotoes.Find(id);
@@ -97,11 +163,11 @@ namespace RentalMobile.Controllers
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
+        {
             MaintenancePhoto maintenancephoto = db.MaintenancePhotoes.Find(id);
             db.MaintenancePhotoes.Remove(maintenancephoto);
             db.SaveChanges();
-            return RedirectToAction("Index","MaintenanceOrder");
+            return RedirectToAction("Index", "MaintenanceOrder");
         }
 
         protected override void Dispose(bool disposing)
@@ -109,5 +175,59 @@ namespace RentalMobile.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public class Person
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public List<Address> Addresses { get; set; }
+    }
+
+    public class Address
+    {
+        public string Line1 { get; set; }
+        public string Line2 { get; set; }
+        public string ZipCode { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+    }
+
+    public class Photo
+    {
+        public int PhotoID { get; set; }
+        public string PathPath { get; set; }
     }
 }
