@@ -9,6 +9,13 @@ namespace RentalMobile.Helpers
 {
     public static class HtmlHelperExtensions
     {
+
+
+ //       public static string RelativePath(this HtmlHelper helper, string photopath)
+ //       {
+ //return server.Content(item.PhotoPath)
+ //       }
+
         public static IEnumerable<SelectListItem> GetRoles(this HtmlHelper helper)
         {
             return new[] {

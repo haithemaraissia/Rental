@@ -37,6 +37,17 @@ namespace RentalMobile.Controllers
             var p = persons.Select(d => new Photo {PhotoID = d.PhotoID, PathPath = d.PhotoPath}).ToList();
 
 
+
+            for (int i = 0; i < p.Count; i ++ )
+            {
+              p[i].PathPath =  p[i].PathPath.Replace(oldValue: @"~\Photo", newValue: @"../../Photo").Replace("\\","/");
+                  
+            }
+                //foreach (var i in p)
+                //{
+                //    i.PathPath.Replace(oldValue: @"~\Photo", newValue: @"../../Photo");
+                //    i.PathPath.Replace(oldValue: "Photo", newValue: "image");
+                //}
             return Json( p, JsonRequestBehavior.AllowGet);
         }
 

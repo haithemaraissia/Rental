@@ -1,35 +1,104 @@
 ﻿@{
     ViewBag.Title = "Json";
 }
+
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#btnGetPersons').click(function () {
-            $.getJSON("/MaintenancePhotoGallery/GetJsonData", null, function (data) {
-                var div = $('#ajaxDiv');
-                div.html("<br/> " + "Persons received from server: " + "<br/>");
-                $.each(data, function (i, item) {
-                    printPerson(div, item);
-                });
+        $.getJSON("/MaintenancePhotoGallery/GetJsonData", null, function (data) {
+            var div = $('#ajaxDiv');
+            div.html("<br/> " + "Persons received from server: " + "<br/>");
+            $.each(data, function (i, item) {
+                printPerson(div, item);
+                getJsonPicture(div, item);
             });
         });
     });
 
+    function getJsonPicture(div, item) {
+        $("<img>").attr({ src: item.PathPath })
+                .click(function() {
+                    $("<img>").attr({ src: item.PathPath.toString().replace("~\Photo","../../Photo").replace("\\","//")
+                    
+                    
+                    });
+                    setTimeout(function() {
+                        var ip = $("#ImagePreview");
+
+                        // show as overlay
+                        ip.fadeIn("slow")
+                            .modalDialog()
+                            .closable()
+                            .draggable();
+
+                        // close the modal by clicking on the overlay
+                        $("#_ModalOverlay").click(function() {
+                            $("#ImagePreview").modalDialog("hide");
+                        });
+                    }, 200);
+                })
+                .appendTo($("#ImageContainer"));
+        }
     function printPerson(div, item) {
         div.append("<br/>" + "FName: " + item.PhotoID + ", LName: " + item.PathPath);
-//        $.each(item.Addresses, function (i, addr) {
-//            printAddress(div, addr);
-//        });
+        //        $.each(item.Addresses, function (i, addr) {
+        //            printAddress(div, addr);
+        //        });
     }
 
-//    function printAddress(div, item) {
-//        div.append("<br/>" + "   " + "Line1: " + item.Line1);
-//    }
+    //    function printAddress(div, item) {
+    //        div.append("<br/>" + "   " + "Line1: " + item.Line1);
+    //    }
 </script>
-<h2>Json</h2>
+<link href="../../css/pupload/Css/Standard.css" rel="stylesheet" type="text/css" />
+<link href="../../Scripts/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css"
+    rel="stylesheet" type="text/css" />
+<style>
+    #ImageContainer img
+    {
+        margin: 10px;
+        vertical-align: top;
+        height: 165px;
+        border-radius: 5px;
+        -webkit-box-shadow: 2px 2px 4px #535353;
+        box-shadow: 2px 2px 4px #535353;
+    }
+    #Uploader_filelist
+    {
+        height: 140px;
+    }
+    #ImagePreview
+    {
+        padding: 20px;
+        background: white;
+        position: absolute;
+        border-radius: 8px;
+    }
+    #ImagePreview img
+    {
+    }
+</style>
+
+<div class="containercontent">
+    <div id="ImageContainer">
+    </div>
+    <div id="ImagePreview" style="display: none">
+        <img id="ImageView" />
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../../Scripts/plupload/plupload.full.js"></script>
+<script src="../../Scripts/plupload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+<!-- just for this demo: draggable, closable, modalDialog -->
+<script src="../../Scripts/plupload/ww.jquery.min.js"></script>
+
+
+<h2>
+    Json</h2>
 <input id="btnGetPersons" type="button" value="Get Persons" />
 <div>
     <div id="ajaxDiv">
     </div>
 </div>
-
+<img src="../../Photo/Tenant/Requests/test/Requests/35/img_toystory.jpg" />
+<img src="~\Photo\Tenant\Requests\test\Requests\36\img_walle.jpg"/>
