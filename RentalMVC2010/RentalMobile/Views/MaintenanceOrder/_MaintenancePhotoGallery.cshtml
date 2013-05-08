@@ -28,8 +28,7 @@
             <img src="@Url.Content(item.PhotoPath)"/>
         </td>
        <td>
-            @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+ 
             @Html.ActionLink("Delete", "Delete", "MaintenancePhotoGallery", new { id = item.PhotoID }, null )
         </td>
     </tr>

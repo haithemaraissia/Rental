@@ -1,0 +1,16 @@
+K 10
+svn:ignore
+V 114
+*.suo
+*.ncb
+*.sdf
+*.opensdf
+ipch
+*.user
+_ReSharper.*
+Westwind.plUploadHandler
+RentalMVC2010
+RentalMobile
+MyUpload
+
+END

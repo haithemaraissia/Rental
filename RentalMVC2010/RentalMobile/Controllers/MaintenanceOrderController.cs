@@ -15,54 +15,34 @@ namespace RentalMobile.Controllers
     {
         private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
-        //
         // GET: /MaintenanceOrder/
-
         public ViewResult Index()
         {
             var maintenanceorders = db.MaintenanceOrders.Include(m => m.ServiceType).Include(m => m.UrgencyType);
                 //Include(k => k.TenantMaintenances.Where(t => t.TenantID == 1));
-
                return View(maintenanceorders.ToList());
         }
 
-        //
         // GET: /MaintenanceOrder/Details/5
-
         public ViewResult Details(int id)
         {
             var maintenanceorder = db.MaintenanceOrders.Find(id);
             return View(maintenanceorder);
         }
 
-        //
         // GET: /MaintenanceOrder/Create
-
         public ActionResult Create()
         {
             ViewBag.ServiceTypeID = new SelectList(db.ServiceTypes, "ServiceTypeID", "ServiceType1");
             ViewBag.UrgencyID = new SelectList(db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1");
-
-
-
            // ViewBag.TenantUserName = "Jack";
             return View();
         }
 
-
-        public ActionResult Create2()
-        {
-            return View();
-        } 
-
-
-        //
         // POST: /MaintenanceOrder/Create
-
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
-
                 //Maybe we don't need to pass the entire model
                 //TempData["MaintenanceOrderModel"] = maintenanceorder;
                 //Maybe we don't need to pass the entire model
@@ -81,9 +61,7 @@ namespace RentalMobile.Controllers
             return View(maintenanceorder);
         }
         
-        //
         // GET: /MaintenanceOrder/Edit/5
- 
         public ActionResult Edit(int id)
         {
             MaintenanceOrder maintenanceorder = db.MaintenanceOrders.Find(id);
@@ -92,9 +70,7 @@ namespace RentalMobile.Controllers
             return View(maintenanceorder);
         }
 
-        //
         // POST: /MaintenanceOrder/Edit/5
-
         [HttpPost]
         public ActionResult Edit(MaintenanceOrder maintenanceorder)
         {
@@ -109,18 +85,14 @@ namespace RentalMobile.Controllers
             return View(maintenanceorder);
         }
 
-        //
         // GET: /MaintenanceOrder/Delete/5
- 
         public ActionResult Delete(int id)
         {
             MaintenanceOrder maintenanceorder = db.MaintenanceOrders.Find(id);
             return View(maintenanceorder);
         }
 
-        //
         // POST: /MaintenanceOrder/Delete/5
-
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
@@ -130,17 +102,12 @@ namespace RentalMobile.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-        
         public ActionResult AddMorePhotos([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
             TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
             TempData["RequestID"] = maintenanceorder.MaintenanceID;
             return RedirectToAction("Index", "Upload"); 
         }
-
-
 
         protected override void Dispose(bool disposing)
         {

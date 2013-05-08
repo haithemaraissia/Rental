@@ -38,12 +38,11 @@ namespace RentalMobile.Controllers
 
 
 
-            for (int i = 0; i < p.Count; i ++ )
+            foreach (var ph in p)
             {
-              p[i].PathPath =  p[i].PathPath.Replace(oldValue: @"~\Photo", newValue: @"../../Photo").Replace("\\","/");
-                  
+                ph.PathPath = ph.PathPath.Replace(@"~\Photo", @"../../Photo").Replace("\\", "/");
             }
-                //foreach (var i in p)
+            //foreach (var i in p)
                 //{
                 //    i.PathPath.Replace(oldValue: @"~\Photo", newValue: @"../../Photo");
                 //    i.PathPath.Replace(oldValue: "Photo", newValue: "image");
