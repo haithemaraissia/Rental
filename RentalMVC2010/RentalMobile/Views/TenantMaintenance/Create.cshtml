@@ -12,6 +12,7 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>MaintenanceOrder</legend>
+         @Html.LabelFor(model => model.MaintenanceID)
         <div class="editor-label">
             @Html.LabelFor(model => model.UnitID)
         </div>

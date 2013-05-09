@@ -11,6 +11,7 @@ namespace RentalMobile.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly DB_33736_rentalEntities _db = new DB_33736_rentalEntities();
 
         //
         // GET: /Account/LogOn
@@ -79,13 +80,18 @@ namespace RentalMobile.Controllers
             {
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null,
+                                      out createStatus);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     Roles.AddUserToRole(model.UserName, model.Role);
 
+                    if (model.Role =="Tenant")
+                    {
+                        RegisterTenant(model);
+                    }
 
                     //Add User to the Databases
                     return RedirectToAction("Index", model.Role);
@@ -155,6 +161,7 @@ namespace RentalMobile.Controllers
         }
 
         #region Status Codes
+
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
             // See http://go.microsoft.com/fwlink/?LinkID=177550 for
@@ -165,7 +172,8 @@ namespace RentalMobile.Controllers
                     return "User name already exists. Please enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
+                    return
+                        "A user name for that e-mail address already exists. Please enter a different e-mail address.";
 
                 case MembershipCreateStatus.InvalidPassword:
                     return "The password provided is invalid. Please enter a valid password value.";
@@ -183,15 +191,33 @@ namespace RentalMobile.Controllers
                     return "The user name provided is invalid. Please check the value and try again.";
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return
+                        "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return
+                        "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return
+                        "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }
         }
+
         #endregion
+
+
+
+        [Authorize]
+        public void RegisterTenant(RegisterModel model)
+        {
+            var newtenant = new Tenant();
+            newtenant.EmailAddress = model.Email;
+            var user = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+            newtenant.GUID = (Guid) user.ProviderUserKey;
+            _db.Tenants.Add(newtenant);
+            _db.SaveChanges();
+
+        }
     }
 }

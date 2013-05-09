@@ -74,6 +74,7 @@
     <Compile Include="ApplicationHelper.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddMaintenancePhotoController.cs" />
     <Compile Include="Controllers\AdvancedSearchController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitDetailController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Controllers\UploadMaintenancePhotoController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\ViewUserProfileController.cs" />
     <Compile Include="Design\General.aspx.cs">
@@ -578,6 +580,8 @@
     <Content Include="Views\TenantMaintenance\Delete.cshtml" />
     <Content Include="Views\TenantMaintenance\Details.cshtml" />
     <Content Include="Views\TenantMaintenance\Edit.cshtml" />
+    <Content Include="Views\UploadMaintenancePhoto\Index.cshtml" />
+    <Content Include="Views\AddMaintenancePhoto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

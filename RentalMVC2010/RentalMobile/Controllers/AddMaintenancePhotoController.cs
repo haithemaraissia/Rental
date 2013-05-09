@@ -12,7 +12,7 @@ namespace RentalMobile.Controllers
 {
 
     [Authorize]
-    public class MorePhotoController : Controller
+    public class AddMaintenancePhotoController : Controller
     {
 
         //Variables that should be queried with the request
@@ -29,9 +29,13 @@ namespace RentalMobile.Controllers
         {
             if (db.MaintenanceOrders.Find(Id) == null)
             {
-                RedirectToAction("Index", "TenantMaintenance");
+                RedirectToAction("Index", "MaintenanceOrder");
             }
+            var temp = db.MaintenanceOrders.Find(Id);
             RequestID = Id.ToString(CultureInfo.InvariantCulture);
+            // RequestID = TempData["RequestID"].ToString();
+            //   ViewBag.TenantUserName = TenantUsername;
+
             ViewBag.TenantUserName = TenantUsername;
             ViewBag.RequestID = RequestID;
             TempData["RequestID"] = RequestID;
@@ -39,11 +43,58 @@ namespace RentalMobile.Controllers
         }
 
 
+
+
+
+
+
+
+
+        //
+        // POST: /MaintenanceOrder/Create
+
+        //[HttpPost]
+        //public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
+        //{
+
+
+
+        //    HttpPostedFileBase fileData = Request.Files[0];
+
+        //    if (fileData == null)
+        //    {
+        //        fileData = Request.Files[0];
+
+        //        if (fileData.ContentLength > 0)
+        //        {
+        //            var fileName = Path.GetFileName(fileData.FileName);
+        //            var path = Path.Combine(Server.MapPath("~/Content"), fileName);
+        //            fileData.SaveAs(path);
+        //        }
+
+        //    }
+
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.MaintenanceOrders.Add(maintenanceorder);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.ServiceTypeID = new SelectList(db.ServiceTypes, "ServiceTypeID", "ServiceType1", maintenanceorder.ServiceTypeID);
+        //    ViewBag.UrgencyID = new SelectList(db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1", maintenanceorder.UrgencyID);
+        //    return View(maintenanceorder);
+        //}
+
+
+
+
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             SavePictures();
-            return RedirectToAction("Index", "TenantMaintenance");
+            return RedirectToAction("Index", "MaintenanceOrder");
         }
 
 

@@ -1,8 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
+using RentalMobile.Helpers;
 using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
@@ -13,7 +15,15 @@ namespace RentalMobile.Controllers
 
         public ViewResult Index()
         {
-            var maintenanceorders = _db.MaintenanceOrders.Include(m => m.ServiceType).Include(m => m.UrgencyType).Where(t => t.TenantMaintenance.TenantID == 2);
+            var maintenanceorders = _db.MaintenanceOrders.Include(m => m.ServiceType).Include(m => m.UrgencyType);
+             var userGUID = UserHelper.GetUserGUID();
+            if (userGUID == null)
+            {
+                return View(maintenanceorders.ToList());
+            }
+            var tenantID = UserHelper.GetTenantID((Guid) userGUID);
+            maintenanceorders = _db.MaintenanceOrders.Include(m => m.ServiceType).Include(m => m.UrgencyType).
+                Where(t => t.TenantMaintenance.TenantID == tenantID);
             return View(maintenanceorders.ToList());
         }
 
@@ -33,22 +43,29 @@ namespace RentalMobile.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
-            //You can pass the entire model
-            //TempData["MaintenanceOrderModel"] = maintenanceorder;
             if (ModelState.IsValid)
             {
-                var tenantMaintenance = new TenantMaintenance
-                {
-                    TenantID = 2,
-                    MaintenanceID = maintenanceorder.MaintenanceID,
-                    MaintenanceOrder = maintenanceorder
-                };
                 _db.MaintenanceOrders.Add(maintenanceorder);
-                _db.TenantMaintenances.Add(tenantMaintenance);
+                _db.SaveChanges();
+                var userGUID = UserHelper.GetUserGUID();
+                if (userGUID != null)
+                {
+                    var tenantID = UserHelper.GetTenantID((Guid) userGUID);
+                    if (tenantID != null)
+                    {
+                        var tenantMaintenance = new TenantMaintenance
+                                                    {
+                                                        TenantID = (int) tenantID,
+                                                        MaintenanceID = maintenanceorder.MaintenanceID,
+                                                        MaintenanceOrder = maintenanceorder
+                                                    };
+                        _db.TenantMaintenances.Add(tenantMaintenance);
+                    }
+                }
                 _db.SaveChanges();
                 TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
                 TempData["RequestID"] = maintenanceorder.MaintenanceID;
-                return RedirectToAction("Index", "Upload");
+                return RedirectToAction("Index", "UploadMaintenancePhoto");
             }
 
             ViewBag.ServiceTypeID = new SelectList(_db.ServiceTypes, "ServiceTypeID", "ServiceType1", maintenanceorder.ServiceTypeID);
