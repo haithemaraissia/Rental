@@ -83,6 +83,7 @@
     <Compile Include="Controllers\MaintainController.cs" />
     <Compile Include="Controllers\MaintenanceOrderController.cs" />
     <Compile Include="Controllers\MaintenancePhotoGalleryController.cs" />
+    <Compile Include="Controllers\MorePhotoController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
@@ -565,6 +566,7 @@
     <Content Include="Views\MaintenanceOrder\Edit.cshtml" />
     <Content Include="Views\MaintenanceOrder\_MaintenancePhotoGallery.cshtml" />
     <Content Include="Views\MaintenancePhotoGallery\Json.cshtml" />
+    <Content Include="Views\MorePhoto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

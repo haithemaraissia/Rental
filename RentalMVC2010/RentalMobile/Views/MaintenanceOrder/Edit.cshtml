@@ -10,8 +10,7 @@
 {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>MaintenanceOrder</legend>
-        @*        <div class="editor-label">
+        <legend>MaintenanceOrder</legend>@*        <div class="editor-label">
             @Html.LabelFor(model => model.MaintenanceID)
         </div>
         <div class="editor-field">
@@ -80,7 +79,7 @@
     </fieldset>
 }
 <div>
-    @Html.ActionLink("Add More Picture", "AddMorePhotos")
+    @Html.ActionLink("Add More Picture", "Index", "MorePhoto", new { id = Model.MaintenanceID }, null)
 </div>
 <div>
     @Html.ActionLink("Back to List", "Index")
