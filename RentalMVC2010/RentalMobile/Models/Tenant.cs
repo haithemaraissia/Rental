@@ -27,6 +27,7 @@ namespace RentalMobile.Models
         public string Address { get; set; }
         public string EmailAddress { get; set; }
         public string Description { get; set; }
+        public System.Guid GUID { get; set; }
     
         public virtual ICollection<TenantShowing> TenantShowings { get; set; }
         public virtual ICollection<TenantFavorite> TenantFavorites { get; set; }

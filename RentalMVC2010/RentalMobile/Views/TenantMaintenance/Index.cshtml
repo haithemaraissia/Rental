@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RentalMobile.Models.TenantMaintenance>
+﻿@model List<RentalMobile.Models.MaintenanceOrder>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,28 @@
 <table>
     <tr>
         <th>
-            TenantID
+            MaintenanceID
         </th>
         <th>
-            MaintenanceOrder
+            UnitID
+        </th>
+        <th>
+            MaintenanceDate
+        </th>
+        <th>
+            UrgencyType
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            ServiceType
+        </th>
+        <th>
+            PetsinUnit
+        </th>
+        <th>
+            TenantPresence
         </th>
         <th></th>
     </tr>
@@ -23,36 +41,40 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.TenantID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.MaintenanceID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.UnitID)
+            @Html.DisplayFor(modelItem => item.UnitID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.MaintenanceDate)
+            @Html.DisplayFor(modelItem => item.MaintenanceDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.UrgencyType.UrgencyType1)
+            @Html.DisplayFor(modelItem => item.UrgencyType.UrgencyType1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.Description)
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.ServiceType.ServiceType1)
+            @Html.DisplayFor(modelItem => item.ServiceType.ServiceType1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.PetsinUnit)
+            @Html.DisplayFor(modelItem => item.PetsinUnit)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceOrder.TenantPresence)
+            @Html.DisplayFor(modelItem => item.TenantPresence)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TenantID  }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                       <td>
+            Partial Photo
+            
+@Html.Partial("_MaintenancePhotoGallery", item.MaintenancePhotoes)
+        </td>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { Id = item.MaintenanceID }) |
+            @Html.ActionLink("Details", "Details", new { Id = item.MaintenanceID }) |
+            @Html.ActionLink("Delete", "Delete", new { Id = item.MaintenanceID }) |
         </td>
     </tr>
 }

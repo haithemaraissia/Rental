@@ -1,41 +1,86 @@
-﻿@model RentalMobile.Models.TenantMaintenance
-
+﻿@model RentalMobile.Models.MaintenanceOrder
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit</h2>
-
+<h2>
+    Edit</h2>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>TenantMaintenance</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TenantID)
+        <legend>MaintenanceOrder</legend>@*        <div class="editor-label">
+            @Html.LabelFor(model => model.MaintenanceID)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TenantID)
-            @Html.ValidationMessageFor(model => model.TenantID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.MaintenanceID, "MaintenanceOrder")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("MaintenanceID", String.Empty)
+            @Html.EditorFor(model => model.MaintenanceID)
             @Html.ValidationMessageFor(model => model.MaintenanceID)
+        </div>*@
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnitID)
         </div>
-
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnitID)
+            @Html.ValidationMessageFor(model => model.UnitID)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaintenanceDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaintenanceDate)
+            @Html.ValidationMessageFor(model => model.MaintenanceDate)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UrgencyID, "UrgencyType")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UrgencyID", String.Empty)
+            @Html.ValidationMessageFor(model => model.UrgencyID)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ServiceTypeID, "ServiceType")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ServiceTypeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ServiceTypeID)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PetsinUnit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PetsinUnit)
+            @Html.ValidationMessageFor(model => model.PetsinUnit)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenantPresence)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenantPresence)
+            @Html.ValidationMessageFor(model => model.TenantPresence)
+        </div>
+        <div>
+            <td>
+                Partial Photo
+                @Html.Partial("_MaintenancePhotoGallery", Model.MaintenancePhotoes)
+            </td>
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>
+        @Html.HiddenFor(model => model.MaintenanceID)
     </fieldset>
 }
-
+<div>
+    @Html.ActionLink("Add More Picture", "Index", "MorePhoto", new { id = Model.MaintenanceID }, null)
+</div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

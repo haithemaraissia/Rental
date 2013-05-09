@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Collections.Generic;
 using System.Web;
 using Westwind.plUpload;
 
-namespace plupload
+namespace RentalMobile.Handler
 {
 
     /// <summary>

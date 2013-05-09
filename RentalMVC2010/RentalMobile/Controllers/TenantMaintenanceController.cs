@@ -1,114 +1,112 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
 { 
     public class TenantMaintenanceController : Controller
     {
-        private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
-
-        //
-        // GET: /TenantMaintenance/
+        private readonly DB_33736_rentalEntities _db = new DB_33736_rentalEntities();
 
         public ViewResult Index()
         {
-            var tenantmaintenances = db.TenantMaintenances.Include(t => t.MaintenanceOrder).Where( t=> t.TenantID ==1 );
-
-            return View(tenantmaintenances.ToList());
+            var maintenanceorders = _db.MaintenanceOrders.Include(m => m.ServiceType).Include(m => m.UrgencyType).Where(t => t.TenantMaintenance.TenantID == 2);
+            return View(maintenanceorders.ToList());
         }
-
-        //
-        // GET: /TenantMaintenance/Details/5
 
         public ViewResult Details(int id)
         {
-            TenantMaintenance tenantmaintenance = db.TenantMaintenances.Find(id);
-            return View(tenantmaintenance);
+            var maintenanceorder = _db.MaintenanceOrders.Find(id);
+            return View(maintenanceorder);
         }
-
-        //
-        // GET: /TenantMaintenance/Create
 
         public ActionResult Create()
         {
-            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description");
+            ViewBag.ServiceTypeID = new SelectList(_db.ServiceTypes, "ServiceTypeID", "ServiceType1");
+            ViewBag.UrgencyID = new SelectList(_db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1");
             return View();
-        } 
-
-        //
-        // POST: /TenantMaintenance/Create
+        }
 
         [HttpPost]
-        public ActionResult Create(TenantMaintenance tenantmaintenance)
+        public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
+            //You can pass the entire model
+            //TempData["MaintenanceOrderModel"] = maintenanceorder;
             if (ModelState.IsValid)
             {
-                db.TenantMaintenances.Add(tenantmaintenance);
-                db.SaveChanges();
-                return RedirectToAction("Index");  
+                var tenantMaintenance = new TenantMaintenance
+                {
+                    TenantID = 2,
+                    MaintenanceID = maintenanceorder.MaintenanceID,
+                    MaintenanceOrder = maintenanceorder
+                };
+                _db.MaintenanceOrders.Add(maintenanceorder);
+                _db.TenantMaintenances.Add(tenantMaintenance);
+                _db.SaveChanges();
+                TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+                TempData["RequestID"] = maintenanceorder.MaintenanceID;
+                return RedirectToAction("Index", "Upload");
             }
 
-            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description", tenantmaintenance.MaintenanceID);
-            return View(tenantmaintenance);
+            ViewBag.ServiceTypeID = new SelectList(_db.ServiceTypes, "ServiceTypeID", "ServiceType1", maintenanceorder.ServiceTypeID);
+            ViewBag.UrgencyID = new SelectList(_db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1", maintenanceorder.UrgencyID);
+            return View(maintenanceorder);
         }
-        
-        //
-        // GET: /TenantMaintenance/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
-            TenantMaintenance tenantmaintenance = db.TenantMaintenances.Find(id);
-            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description", tenantmaintenance.MaintenanceID);
-            return View(tenantmaintenance);
+            MaintenanceOrder maintenanceorder = _db.MaintenanceOrders.Find(id);
+            ViewBag.ServiceTypeID = new SelectList(_db.ServiceTypes, "ServiceTypeID", "ServiceType1", maintenanceorder.ServiceTypeID);
+            ViewBag.UrgencyID = new SelectList(_db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1", maintenanceorder.UrgencyID);
+            return View(maintenanceorder);
         }
 
-        //
-        // POST: /TenantMaintenance/Edit/5
-
         [HttpPost]
-        public ActionResult Edit(TenantMaintenance tenantmaintenance)
+        public ActionResult Edit(MaintenanceOrder maintenanceorder)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tenantmaintenance).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(maintenanceorder).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaintenanceID = new SelectList(db.MaintenanceOrders, "MaintenanceID", "Description", tenantmaintenance.MaintenanceID);
-            return View(tenantmaintenance);
+            ViewBag.ServiceTypeID = new SelectList(_db.ServiceTypes, "ServiceTypeID", "ServiceType1", maintenanceorder.ServiceTypeID);
+            ViewBag.UrgencyID = new SelectList(_db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1", maintenanceorder.UrgencyID);
+            return View(maintenanceorder);
         }
 
-        //
-        // GET: /TenantMaintenance/Delete/5
- 
         public ActionResult Delete(int id)
         {
-            TenantMaintenance tenantmaintenance = db.TenantMaintenances.Find(id);
-            return View(tenantmaintenance);
+            MaintenanceOrder maintenanceorder = _db.MaintenanceOrders.Find(id);
+            return View(maintenanceorder);
         }
-
-        //
-        // POST: /TenantMaintenance/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
-            TenantMaintenance tenantmaintenance = db.TenantMaintenances.Find(id);
-            db.TenantMaintenances.Remove(tenantmaintenance);
-            db.SaveChanges();
+        {
+            MaintenanceOrder maintenanceorder = _db.MaintenanceOrders.Find(id);
+            TenantMaintenance tenantmaintenance = _db.TenantMaintenances.FirstOrDefault(x => x.MaintenanceID == id);
+            _db.MaintenanceOrders.Remove(maintenanceorder);
+            _db.TenantMaintenances.Remove(tenantmaintenance);
+            _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddMorePhotos([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
+        {
+            TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+            TempData["RequestID"] = maintenanceorder.MaintenanceID;
+            return RedirectToAction("Index", "Upload");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            _db.Dispose();
             base.Dispose(disposing);
         }
+
     }
 }

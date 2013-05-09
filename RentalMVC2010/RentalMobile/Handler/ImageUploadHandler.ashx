@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="ImageUploadHandler.ashx.cs" Class="plupload.ImageUploadHandler" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="ImageUploadHandler.ashx.cs" Class="RentalMobile.Handler.ImageUploadHandler" %>

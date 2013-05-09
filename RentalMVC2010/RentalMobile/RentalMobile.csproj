@@ -109,6 +109,7 @@
       <DependentUpon>ImageUploadHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtension.cs" />
+    <Compile Include="Helpers\UploadHelper.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="MobileViewEngine.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -447,6 +448,15 @@
     <Content Include="Views\Account\M\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Backup\TenantMaintenance\_MaintenanceOrder.cshtml" />
+    <Content Include="Backup\TenantMaintenance\_MaintenancePhotoGallery.cshtml" />
+    <Content Include="Backup\TenantMaintenance\_MaintenaneOrderCreate.cshtml" />
+    <Content Include="Backup\TenantMaintenance\Create.cshtml" />
+    <Content Include="Backup\TenantMaintenance\Delete.cshtml" />
+    <Content Include="Backup\TenantMaintenance\Details.cshtml" />
+    <Content Include="Backup\TenantMaintenance\Edit.cshtml" />
+    <Content Include="Backup\TenantMaintenance\Index.cshtml" />
+    <Content Include="Backup\TenantMaintenance\Index3.cshtml" />
     <None Include="css\dotcss\entypo\entypo.eot" />
     <None Include="css\dotcss\entypo\entypo.eot%40" />
     <None Include="css\dotcss\entypo\entypo.ttf" />
@@ -544,11 +554,6 @@
     <Content Include="packages.config" />
     <Content Include="Views\Tenant\Copy of Index.cshtml" />
     <Content Include="packages.config" />
-    <Content Include="Views\TenantMaintenance\Index.cshtml" />
-    <Content Include="Views\TenantMaintenance\Details.cshtml" />
-    <Content Include="Views\TenantMaintenance\Create.cshtml" />
-    <Content Include="Views\TenantMaintenance\Edit.cshtml" />
-    <Content Include="Views\TenantMaintenance\Delete.cshtml" />
     <Content Include="Views\MaintenanceOrder\Index.cshtml" />
     <Content Include="Views\MaintenanceOrder\Details.cshtml" />
     <Content Include="Views\MaintenanceOrder\Create.cshtml" />
@@ -567,6 +572,12 @@
     <Content Include="Views\MaintenanceOrder\_MaintenancePhotoGallery.cshtml" />
     <Content Include="Views\MaintenancePhotoGallery\Json.cshtml" />
     <Content Include="Views\MorePhoto\Index.cshtml" />
+    <Content Include="Views\TenantMaintenance\_MaintenancePhotoGallery.cshtml" />
+    <Content Include="Views\TenantMaintenance\Index.cshtml" />
+    <Content Include="Views\TenantMaintenance\Create.cshtml" />
+    <Content Include="Views\TenantMaintenance\Delete.cshtml" />
+    <Content Include="Views\TenantMaintenance\Details.cshtml" />
+    <Content Include="Views\TenantMaintenance\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
