@@ -11,7 +11,7 @@ namespace RentalMobile.Controllers
 {
     public class MaintenancePhotoGalleryController : Controller
     {
-        private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
+        private readonly DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
         public JsonResult GetJsonData()
         {
@@ -95,8 +95,6 @@ namespace RentalMobile.Controllers
             return View(maintenancephotoes.ToList());
         }
 
-        //
-        // GET: /MaintenancePhotoGallery/Details/5
 
         public ViewResult Details(int id)
         {
@@ -104,8 +102,6 @@ namespace RentalMobile.Controllers
             return View(maintenancephoto);
         }
 
-        //
-        // GET: /MaintenancePhotoGallery/Create
 
         public ActionResult Create()
         {
@@ -113,8 +109,6 @@ namespace RentalMobile.Controllers
             return View();
         }
 
-        //
-        // POST: /MaintenancePhotoGallery/Create
 
         [HttpPost]
         public ActionResult Create(MaintenancePhoto maintenancephoto)
@@ -131,8 +125,6 @@ namespace RentalMobile.Controllers
             return View(maintenancephoto);
         }
 
-        //
-        // GET: /MaintenancePhotoGallery/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -142,8 +134,6 @@ namespace RentalMobile.Controllers
             return View(maintenancephoto);
         }
 
-        //
-        // POST: /MaintenancePhotoGallery/Edit/5
 
         [HttpPost]
         public ActionResult Edit(MaintenancePhoto maintenancephoto)
@@ -159,8 +149,6 @@ namespace RentalMobile.Controllers
             return View(maintenancephoto);
         }
 
-        //
-        // GET: /MaintenancePhotoGallery/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -168,8 +156,6 @@ namespace RentalMobile.Controllers
             return View(maintenancephoto);
         }
 
-        //
-        // POST: /MaintenancePhotoGallery/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
@@ -177,7 +163,7 @@ namespace RentalMobile.Controllers
             MaintenancePhoto maintenancephoto = db.MaintenancePhotoes.Find(id);
             db.MaintenancePhotoes.Remove(maintenancephoto);
             db.SaveChanges();
-            return RedirectToAction("Index", "MaintenanceOrder");
+            return RedirectToAction("Index", "TenantMaintenance");
         }
 
         protected override void Dispose(bool disposing)

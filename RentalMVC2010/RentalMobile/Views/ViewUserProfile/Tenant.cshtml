@@ -3,7 +3,8 @@
     ViewBag.Title = "View TenantProfile";
     Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
 }
-<h2>Tenant</h2>
+<h2>
+    Tenant</h2>
 <div class="tools sixteen columns add-bottom">
     <a href="#">Back</a> | <a href="registration.html">Save</a> | <a href="mortgage.html">
         Mortgage Calculator</a> | <a href="registration.html">My Favorites</a> | <a href="advanced-search.html">
@@ -122,7 +123,7 @@
                 </div>
                 <div class="sixteen columns prop-details">
                     <div class="six columns push by-one">
-                        <input type="submit" class="full-width tall" value="Change Passowrd" />
+                        <input type="submit" class="full-width tall" value="Change Passowrd" onclick="location.href='./Account/ChangePassword';" />
                     </div>
                     <div class="six columns push by-two">
                         <input type="submit" class="full-width tall" value="Edit Email" />
@@ -153,7 +154,8 @@
         <div id="showing" class="panel">
             <div class="seven columns">
                 <h4>
-                    Maybe Current Showing. Then Make application or delete and might be another option for creating new showing</h4>
+                    Maybe Current Showing. Then Make application or delete and might be another option
+                    for creating new showing</h4>
                 <p>
                     Enter this stately apartment and you are rewarded with a spectacular view of not
                     only Central Parkoin id rhoncus massa. Pellentesque quis orci non lacus tincidunt

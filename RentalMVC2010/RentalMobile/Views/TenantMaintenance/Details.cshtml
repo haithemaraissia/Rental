@@ -1,18 +1,13 @@
-﻿@using RentalMobile.Models
-@model RentalMobile.Models.MaintenanceOrder
+﻿@model RentalMobile.Models.MaintenanceOrder
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
 }
 
 <h2>Details</h2>
 <fieldset>
     <legend>MaintenanceOrder</legend>
-
-    @*    <div class="display-label">MaintenanceID</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.MaintenanceID)
-    </div>*@
 
     <div class="display-label">UnitID</div>
     <div class="display-field">
@@ -60,8 +55,7 @@
 
 <div>
 
-Partial Photo
-@Html.Partial("_MaintenancePhotoGallery", Model.MaintenancePhotoes)
+@Html.Partial("_MaintenancePhotoGalleryList", Model.MaintenancePhotoes)
 
 </div>
 

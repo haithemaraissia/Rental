@@ -59,28 +59,12 @@ Description
         <script>
             $(document).ready(function () { // initialize status bar
                 showStatus({ autoClose: true });
-                var t = window.location.hostname + '/handler/ImageUploadHandler.ashx';
-                var x = window.location.hostname+ '/scripts/plupload/plupload.flash.swf';
-                var y = window.location.hostname + '/scripts/plupload/plupload.silverlight.xap';
-
-                var model = @Html.Raw(Json.Encode(Model));
-                var d = '@ViewBag.TenantUserName';
-                alert(d);
-
-                alert(t);
-                alert("X");
-                alert(model);
-                alert(y);
-
             });
 
         </script>
         <script>
             $(document).ready(function () { // initialize status bar
                 showStatus({ autoClose: true });
-                var t = window.location.hostname + '/handler/ImageUploadHandler.ashx';
-                var x = window.location.hostname + '/scripts/plupload/plupload.flash.swf';
-                var y = window.location.hostname + '/scripts/plupload/plupload.silverlight.xap';
                 $("#Uploader").pluploadQueue({
                     runtimes: 'html5,silverlight,flash,html4',
                     url: '../Handler/ImageUploadHandler.ashx',
@@ -94,7 +78,7 @@ Description
                     flash_swf_url: '../../scripts/plupload/plupload.flash.swf',
                     silverlight_xap_url: '../../scripts/plupload/plupload.silverlight.xap',
                     multiple_queues: true,
-                    multipart_params: { UserName: '@ViewBag.TenantUserName', requestid: @ViewBag.RequestID }
+                    multipart_params: { UserName: '@ViewBag.TenantUserName', requestid: '@ViewBag.RequestID' }
                 });
 
 
@@ -167,12 +151,7 @@ Description
             });
 
         </script>
-<!-- UPLOADER !-->
 
-
-
-
-@ViewBag.TenantUserName
 
 @using (Html.BeginForm("Create", "UploadMaintenancePhoto", FormMethod.Post))
 {

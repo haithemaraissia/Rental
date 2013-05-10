@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using RentalMobile.Models;
@@ -14,89 +11,31 @@ namespace RentalMobile.Controllers
     [Authorize]
     public class AddMaintenancePhotoController : Controller
     {
-
-        //Variables that should be queried with the request
-        private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
+        private readonly DB_33736_rentalEntities _db = new DB_33736_rentalEntities();
 
         public string TenantUsername = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name).ToString();
         public string TenantPhotoPath = @"~/Photo/Tenant/Requests";
         public string RequestID;
 
-        //
-        // GET: /Upload/
-
-        public ActionResult Index(int Id)
+        public ActionResult Index(int id)
         {
-            if (db.MaintenanceOrders.Find(Id) == null)
+            if (_db.MaintenanceOrders.Find(id) == null)
             {
                 RedirectToAction("Index", "MaintenanceOrder");
             }
-            var temp = db.MaintenanceOrders.Find(Id);
-            RequestID = Id.ToString(CultureInfo.InvariantCulture);
-            // RequestID = TempData["RequestID"].ToString();
-            //   ViewBag.TenantUserName = TenantUsername;
-
+            RequestID = id.ToString(CultureInfo.InvariantCulture);
             ViewBag.TenantUserName = TenantUsername;
             ViewBag.RequestID = RequestID;
             TempData["RequestID"] = RequestID;
             return View();
         }
 
-
-
-
-
-
-
-
-
-        //
-        // POST: /MaintenanceOrder/Create
-
-        //[HttpPost]
-        //public ActionResult Create([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
-        //{
-
-
-
-        //    HttpPostedFileBase fileData = Request.Files[0];
-
-        //    if (fileData == null)
-        //    {
-        //        fileData = Request.Files[0];
-
-        //        if (fileData.ContentLength > 0)
-        //        {
-        //            var fileName = Path.GetFileName(fileData.FileName);
-        //            var path = Path.Combine(Server.MapPath("~/Content"), fileName);
-        //            fileData.SaveAs(path);
-        //        }
-
-        //    }
-
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.MaintenanceOrders.Add(maintenanceorder);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    ViewBag.ServiceTypeID = new SelectList(db.ServiceTypes, "ServiceTypeID", "ServiceType1", maintenanceorder.ServiceTypeID);
-        //    ViewBag.UrgencyID = new SelectList(db.UrgencyTypes, "UrgencyTypeID", "UrgencyType1", maintenanceorder.UrgencyID);
-        //    return View(maintenanceorder);
-        //}
-
-
-
-
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             SavePictures();
-            return RedirectToAction("Index", "MaintenanceOrder");
+            return RedirectToAction("Index", "TenantMaintenance");
         }
-
 
         public void SavePictures()
         {
@@ -113,7 +52,6 @@ namespace RentalMobile.Controllers
             }
 
             var files = uploadDirectory.GetFiles();
-
             foreach (var f in files)
             {
 
@@ -135,8 +73,8 @@ namespace RentalMobile.Controllers
         {
             var maintenancephoto = new MaintenancePhoto { MaintenanceID = maintenanceId, PhotoPath = photoPath };
             if (!ModelState.IsValid) return;
-            db.MaintenancePhotoes.Add(maintenancephoto);
-            db.SaveChanges();
+            _db.MaintenancePhotoes.Add(maintenancephoto);
+            _db.SaveChanges();
         }
 
         /// <summary>

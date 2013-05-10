@@ -116,7 +116,7 @@ namespace RentalMobile.Controllers
         {
             TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
             TempData["RequestID"] = maintenanceorder.MaintenanceID;
-            return RedirectToAction("Index", "Upload");
+            return RedirectToAction("Index", "AddMaintenancePhoto");
         }
 
         protected override void Dispose(bool disposing)

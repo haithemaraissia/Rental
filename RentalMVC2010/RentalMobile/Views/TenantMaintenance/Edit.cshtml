@@ -1,6 +1,7 @@
 ﻿@model RentalMobile.Models.MaintenanceOrder
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
 }
 <h2>
     Edit</h2>
@@ -69,7 +70,7 @@
         <div>
             <td>
                 Partial Photo
-                @Html.Partial("_MaintenancePhotoGallery", Model.MaintenancePhotoes)
+                @Html.Partial("_MaintenancePhotoGalleryList", Model.MaintenancePhotoes)
             </td>
         </div>
         <p>

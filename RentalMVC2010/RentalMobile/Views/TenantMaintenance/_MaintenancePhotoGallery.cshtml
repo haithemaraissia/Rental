@@ -1,87 +1,21 @@
 ﻿@model IEnumerable<RentalMobile.Models.MaintenancePhoto>
-
-
 <table>
-    <tr>
-        <th>
-            MaintenanceID
-        </th>
-        <th>
-            PhotoID
-        </th>
-        <th>
-            PhotoPath
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaintenanceID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhotoID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhotoPath)
-            <img src="@Url.Content(item.PhotoPath)"/>
-        </td>
-       <td>
- 
-            @Html.ActionLink("Delete", "Delete", "MaintenancePhotoGallery", new { id = item.PhotoID }, null )
-        </td>
-    </tr>
-}
-
+    @{
+        if (Model.Any())
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content(Model.First().PhotoPath)" alt=""/>
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                    Empty Image
+                </td>
+            </tr>
+        }
+    }
 </table>
-<div class="containercontent">
-    <div id="ImageContainer">
-    </div>
-    <div id="Uploader">
-    </div>
-    <div id="ImagePreview" >
-        <img id="ImageView" />
-    </div>
-</div>
-
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var link;
-        $('a.client-list').click(function () {
-            link = $(this);
-            $.ajax({
-                url: '/MaintenancePhotoGallery/PopulateDetails?Id=5',
-                dataType: 'json',
-                success: function (data) {
-                    $.each(data, function (id, val) {
-                        alert(id.toString() + ' ' + val.toString());
-                    });
-                }
-            });
-            return false;
-        });
-    });
-    </script>
-@*<script>
-    $(document).ready(function () { // initialize status bar
-
-        function populateUserDetails() {
-            var user = {};
-            user.UserId = $("#UserId").val();
-            $.getJSON("/MaintenancePhotoGallery/PopulateDetails/5", user, updateFields);
-        };
-
-        updateFields = function (data) {
-
-            var test = data.LastName;
-            alert(test);
-//            $("#LastName").val(data.photoPath);
-//            $("#FirstName").val(data.FirstName);
-            $("#ImagePreview").html(data.photoPath);
-        };
-    });
-</script>*@
-
-

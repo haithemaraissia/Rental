@@ -36,7 +36,7 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\EntityFramework.dll</HintPath>
+      <HintPath>..\RentalMVC2010\bin\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcJqGrid">
@@ -582,6 +582,7 @@
     <Content Include="Views\TenantMaintenance\Edit.cshtml" />
     <Content Include="Views\UploadMaintenancePhoto\Index.cshtml" />
     <Content Include="Views\AddMaintenancePhoto\Index.cshtml" />
+    <Content Include="Views\TenantMaintenance\_MaintenancePhotoGalleryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -92,7 +92,6 @@ namespace RentalMobile.Controllers
                     {
                         RegisterTenant(model);
                     }
-
                     //Add User to the Databases
                     return RedirectToAction("Index", model.Role);
                 }
@@ -211,10 +210,14 @@ namespace RentalMobile.Controllers
         [Authorize]
         public void RegisterTenant(RegisterModel model)
         {
-            var newtenant = new Tenant();
-            newtenant.EmailAddress = model.Email;
-            var user = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
-            newtenant.GUID = (Guid) user.ProviderUserKey;
+            var newtenant = new Tenant {EmailAddress = model.Email};
+            var user = Membership.GetUser(model.UserName);
+            if (user != null)
+            {
+                var providerUserKey = user.ProviderUserKey;
+                if (providerUserKey != null)
+                    newtenant.GUID = (Guid)providerUserKey;
+            }
             _db.Tenants.Add(newtenant);
             _db.SaveChanges();
 
