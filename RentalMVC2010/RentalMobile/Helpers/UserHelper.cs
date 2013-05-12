@@ -43,6 +43,14 @@ namespace RentalMobile.Helpers
         }
 
 
+        public  static int? GetTenantID()
+        {
+            var userID = GetUserGUID();
+            Tenant tenant = _db.Tenants.FirstOrDefault(x => x.GUID == userID);
+            if (tenant != null) return tenant.TenantId;
+            return null;
+        }
+
         public static void ISBNewsCategory(string category)
         {
 

@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RentalMobile.Helpers;
 using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
@@ -19,7 +20,7 @@ namespace RentalMobile.Controllers
         public ViewResult Index()
         {
             var tenantFavorite = (from t in db.TenantFavorites
-                                 where t.TenantId == 2
+                                  where t.TenantId == UserHelper.GetTenantID()
                                      select t) ;
             ViewBag.TenantProfile = tenantFavorite;
             return View(db.Tenants.ToList());
