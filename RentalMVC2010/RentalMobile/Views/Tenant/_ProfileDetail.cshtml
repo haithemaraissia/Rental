@@ -1,0 +1,67 @@
+﻿@model RentalMobile.Models.Tenant
+<div id="profile" class="panel center">
+    <div class="seven columns">
+        <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />
+    </div>
+    <div class="seven columns prop-details">
+        <h6 class="h6custom">
+           @Html.DisplayFor(model => model.FirstName) + @Html.DisplayFor(model => model.FirstName)</h6>
+        <p class="profile-meta">
+            President | (555) 154 487
+            <br />
+            <span class="social-profile"><a href="#"><i class="icon-mail"></i></a><a href="#"><i
+                class="icon-vcard"></i></a><a href="#"><i class="icon-skype"></i></a><a href="#"><i
+                    class="icon-twitter"></i></a><a href="#"><i class="icon-linkedin"></i></a><a href="#">
+                        <i class="icon-gplus-1"></i></a></span>
+        </p>
+        <h6 class="h6custom">
+            About</h6>
+        <p>
+            Please complete the form below to request a showing for this property. Quisque non
+            mi magna, eget aliquet urna. Curabitur ut justo est. Quisque iaculis risus et tortor
+            congue porta. Suspendisse eleifend tempor dapibus.
+        </p>
+    </div>
+    <div style="float: right">
+        <li class="two columns omega">
+            <input type="submit" value="     EDIT     " />
+        </li>
+    </div>
+</div>
+<fieldset>
+    <legend>Tenant</legend>
+    <div class="display-label">
+        FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <div class="display-label">
+        LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div class="display-label">
+        Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+    <div class="display-label">
+        EmailAddress</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+    <div class="display-label">
+        Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    <div class="display-label">
+        GUID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GUID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TenantId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -119,7 +119,8 @@
                         <li><a href="#video"><i class="icon-video"></i>Video</a></li>
                         <li><a href="#map"><i class="icon-map"></i>Map</a></li>
                     </ul>
-                    <div id="profile" class="panel center">
+                    @RenderSection("profile", false)
+                   @* <div id="profile" class="panel center">
                         <div class="seven columns">
                             <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />
                         </div>
@@ -142,7 +143,7 @@
                                 congue porta. Suspendisse eleifend tempor dapibus.
                             </p>
                         </div>
-                    </div>
+                    </div>*@
                     <div id="photos" class="panel">
                         <div class="seven columns">
                             <a id="fancybox-manual-c" href="javascript:;">

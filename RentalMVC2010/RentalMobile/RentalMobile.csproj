@@ -583,6 +583,7 @@
     <Content Include="Views\UploadMaintenancePhoto\Index.cshtml" />
     <Content Include="Views\AddMaintenancePhoto\Index.cshtml" />
     <Content Include="Views\TenantMaintenance\_MaintenancePhotoGalleryList.cshtml" />
+    <Content Include="Views\Tenant\_ProfileDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,7 +1,38 @@
-﻿@model IEnumerable<RentalMobile.Models.Tenant>
+﻿@model List<RentalMobile.Models.Tenant>
 @{
     ViewBag.Title = "Tenant Profile";
     Layout = "~/Views/Shared/_Tenant.cshtml";
+}
+
+
+@section profile
+{
+ @*<div id="profile" class="panel center">
+                        <div class="seven columns">
+                            <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />
+                        </div>
+                        <div class="seven columns prop-details">
+                            <h6 class="h6custom">
+                                John Smithson</h6>
+                            <p class="profile-meta">
+                                President | (555) 154 487
+                                <br />
+                                <span class="social-profile"><a href="#"><i class="icon-mail"></i></a><a href="#"><i
+                                                                                                                      class="icon-vcard"></i></a><a href="#"><i class="icon-skype"></i></a><a href="#"><i
+                                                                                                                                                                                                           class="icon-twitter"></i></a><a href="#"><i class="icon-linkedin"></i></a><a href="#">
+                                                                                                                                                                                                                                                                                         <i class="icon-gplus-1"></i></a></span>
+                            </p>
+                            <h6 class="h6custom">
+                                About</h6>
+                            <p>
+                                Please complete the form below to request a showing for this property. Quisque non
+                                mi magna, eget aliquet urna. Curabitur ut justo est. Quisque iaculis risus et tortor
+                                congue porta. Suspendisse eleifend tempor dapibus.
+                            </p>
+                        </div>
+                    </div>*@
+    
+    @Html.Partial("_ProfileDetail", Model.FirstOrDefault());
 }
 @section generalprofile{
     @*<div id="generalprofile">
@@ -205,345 +236,7 @@
         <!-- /section: new development -->
     </div>
 }
-@*@section showing{
-    <div id="showing" class="panel">
-        <div class="seven columns">
-            <h4>
-                Maybe Current Showing. Then Make application or delete and might be another option
-                for creating new showing</h4>
-            <p>
-                Enter this stately apartment and you are rewarded with a spectacular view of not
-                only Central Parkoin id rhoncus massa. Pellentesque quis orci non lacus tincidunt
-                scelerisque. Integer bibendum commodo urn id suscipit sapien porta in. In sollicitudin
-                dui nec quam semper luctus.</p>
-            <p>
-                Nulla malesuada tempor mi, in dignissim tortor tempor ut. Donec semper risus feugiat
-                purus fermentum nec cursus elit dignissim. Aliquam convallis hendrerit ligula sed
-                ullamcorper. Phasellus porta aliquam velit quis sodales. Sed accumsan, nunc vel
-                elementum pharetra, magna neque condimentum purus, nec facilisis risus arcu in elit.
-                Morbi pulvinar diam aliquet risus. tristique nec interdum leo.</p>
-        </div>
-        <div class="six columns push by-two">
-            <h4>
-                General Amenities</h4>
-            <ul class="arrow">
-                <li>Garage</li>
-                <li>Exterior lighting</li>
-                <li>Dish washer</li>
-                <li>Barbecue</li>
-                <li>Garden</li>
-                <li>Burglar alarm</li>
-                <li>Swimming pool</li>
-                <li>Central air</li>
-            </ul>
-        </div>
-        <!-- Section: Gallery -->
-        <section class="sixteen columns">
-            <h2 class="remove-top">
-                A Community of properties</h2>
-            <!-- Posted asks list -->
-            <ul class="shadded boxed row" id="ask-posts">
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                             <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                4043 Walnut street APT 5011 Olathe, KS</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... @Html.ActionLink("read more", "Index", "Specialist");
-                            </p>
-                            <p class="price">Beds: <span>8</span>
-                                Bathes: <span>4</span>
-                                Price: <span>$35.000</span>
-                            </p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i><b>Sat Oct 6, 2012</b></a>
-                            </p>
-                            <p class="links-tools"><a href="#"><i class="icon-comment"></i>Delete </a> 
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.. <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry eight columns">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry eight columns">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry eight columns">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry eight columns">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-                <li>
-                    <article class="row remove-bottom">
-                        <figure class="avatar">
-                            <img src="../../images/dotimages/avatar-placeholder.png" alt="//">
-                        </figure>
-                        <div class="entry eight columns">
-                            <h4>
-                                Real Estate Investing: How To Start Investing</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus rutrum dolor.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit... <a href="#">read more</a></p>
-                            <p class="links-tools">
-                                <a href="#"><i class="icon-clock"></i>Sat Oct 6, 2012</a> <a href="#"><i class="icon-comment">
-                                                                                                      </i>12 Comments</a> <a href="#"><i class="icon-user"></i>by Carlisle Smithson</a>
-                            </p>
-                        </div>
-                    </article>
-                </li>
-            </ul>
-            <!-- jPages paginator holder -->
-            <div class="holder add-bottom boxed shadded">
-            </div>
-            <!-- Search advice block -->
-            <form action="#" class="shadded boxed row wide-on-small-screen">
-                <h4 class="remove-top add-bottom">
-                    Search advices form</h4>
-                <ul class="grid-form row remove-bottom">
-                    <li class="five columns alpha">
-                        <label class="screen-reader-text" for="keyword-field">
-                            Keyword</label>
-                        <input type="text" id="keyword-field" placeholder="Keyword">
-                    </li>
-                    <li class="five columns omega">
-                        <label class="screen-reader-text" for="placement">
-                            City, state, country</label>
-                        <input type="text" id="placement" placeholder="City, State, Country">
-                    </li>
-                </ul>
-                <a href="#" class="fr">My Searches</a>
-            </form>
-        </section>
-    </div>
-}*@
+
 @section showing{
     <div id="showing" class="panel">
         <section class="fifteen columns">
