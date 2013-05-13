@@ -586,6 +586,7 @@
     <Content Include="Views\Tenant\_ProfileDetail.cshtml" />
     <Content Include="Views\Account\ChangeEmail.cshtml" />
     <Content Include="Views\Account\ChangeEmailSuccess.cshtml" />
+    <Content Include="Views\Account\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

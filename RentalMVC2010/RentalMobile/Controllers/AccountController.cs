@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using RentalMobile.Helpers;
 using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
@@ -256,9 +258,9 @@ namespace RentalMobile.Controllers
                     if (User.IsInRole("Tenant"))
                     {
                         //Tenant
-                       Tenant t = _db.Tenants.FirstOrDefault(x => x.TenantId == (int) Helpers.UserHelper.GetTenantID());
+                        Tenant tenant = _db.Tenants.Find(UserHelper.GetTenantID());
                         {
-                            t.EmailAddress = model.Email;
+                            tenant.EmailAddress = model.Email;
                         }
                         _db.SaveChanges();
                     }
@@ -310,5 +312,80 @@ namespace RentalMobile.Controllers
             _db.SaveChanges();
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //UPLOAD PRIMARY PHOTO REGARDLESS OF THE ROLE; ONLY 1 PHOTO
+        //IT will requires another uploader.ashx
+
+        public string Username = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name).ToString();
+
+        //Depending on the role
+        public string UserPhotoPath = "~/Photo/Tenant/Requests";
+        public string UserID;
+
+        public ActionResult Upload()
+        {
+            //RequestID = TempData["RequestID"].ToString();
+            //ViewBag.TenantUserName = TenantUsername;
+            //ViewBag.RequestID = TempData["RequestID"].ToString();
+            //TempData["UserID"] = RequestID;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            SavePictures();
+            return RedirectToAction("Index", "MaintenanceOrder");
+        }
+
+        public void SavePictures()
+        {
+            var imageStoragePath = Server.MapPath("~/UploadedImages");
+            var photoPath = Server.MapPath(UserPhotoPath);
+            var directory = @"\" + Username + @"\" + "Requests" + @"\" + TempData["RequestID"] + @"\";
+            var path = imageStoragePath + directory;
+            var uploadDirectory = new DirectoryInfo(path);
+            var newdirectory = photoPath + directory;
+            if (Directory.Exists(path))
+            {
+                UploadHelper.CreateDirectoryIfNotExist(newdirectory);
+            }
+            var files = uploadDirectory.GetFiles();
+
+            foreach (var f in files)
+            {
+                var destinationFile = newdirectory + @"\" + f.Name;
+                var virtualdestinationFile = @"~\Photo\Tenant\Requests" + directory + f.Name;
+                if (!System.IO.File.Exists(destinationFile))
+                {
+                    System.IO.File.Move(f.FullName, destinationFile);
+                    AddPicture(Convert.ToInt32(TempData["RequestID"]), virtualdestinationFile);
+                }
+                if (System.IO.File.Exists(f.Name))
+                    System.IO.File.Delete(f.Name);
+            }
+            UploadHelper.DeleteDirectoryIfExist(path);
+        }
+
+        public void AddPicture(int maintenanceId, string photoPath)
+        {
+            var maintenancephoto = new MaintenancePhoto { MaintenanceID = maintenanceId, PhotoPath = photoPath };
+            if (!ModelState.IsValid) return;
+            _db.MaintenancePhotoes.Add(maintenancephoto);
+            _db.SaveChanges();
+        }
+
     }
 }
