@@ -1,8 +1,11 @@
 ﻿@model RentalMobile.Models.Tenant
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Tenant Profile";
+    Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
+
 }
+
 
 <h2>Edit</h2>
 
@@ -14,7 +17,7 @@
     <fieldset>
         <legend>Tenant</legend>
 
-        @Html.HiddenFor(model => model.TenantId)
+    @Html.HiddenFor(model => model.TenantId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.FirstName)
@@ -56,6 +59,70 @@
             @Html.ValidationMessageFor(model => model.Description)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GUID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GUID)
+            @Html.ValidationMessageFor(model => model.GUID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VCard)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VCard)
+            @Html.ValidationMessageFor(model => model.VCard)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Skype)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Skype)
+            @Html.ValidationMessageFor(model => model.Skype)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Twitter)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Twitter)
+            @Html.ValidationMessageFor(model => model.Twitter)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkedIn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LinkedIn)
+            @Html.ValidationMessageFor(model => model.LinkedIn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GooglePlus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GooglePlus)
+            @Html.ValidationMessageFor(model => model.GooglePlus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Photo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Photo)
+            @Html.ValidationMessageFor(model => model.Photo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GoogleMap)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GoogleMap)
+            @Html.ValidationMessageFor(model => model.GoogleMap)
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>
@@ -63,5 +130,9 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Update Picture", "Index", "AddMaintenancePhoto", new { id = Model.TenantId }, null)
+</div>
+
+<div>
+    @Html.ActionLink("Back", "Index")
 </div>

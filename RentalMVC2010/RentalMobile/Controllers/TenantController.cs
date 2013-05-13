@@ -10,20 +10,21 @@ using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
 { 
+    [Authorize]
     public class TenantController : Controller
     {
+
         public DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
         //
         // GET: /Tenant/
         //GET: CurrentTenant
+
         public ViewResult Index()
         {
-            var tenantFavorite = (from t in db.TenantFavorites
-                                  where t.TenantId == UserHelper.GetTenantID()
-                                     select t) ;
-            ViewBag.TenantProfile = tenantFavorite;
-            return View(db.Tenants.ToList());
+            Tenant tenant = db.Tenants.Find(UserHelper.GetTenantID());
+            ViewBag.TenantProfile = tenant;
+            return View(tenant);
         }
 
         //

@@ -1,4 +1,5 @@
-﻿@model List<RentalMobile.Models.Tenant>
+﻿@using System.Linq
+@model RentalMobile.Models.Tenant
 @{
     ViewBag.Title = "Tenant Profile";
     Layout = "~/Views/Shared/_Tenant.cshtml";
@@ -6,33 +7,8 @@
 
 
 @section profile
-{
- @*<div id="profile" class="panel center">
-                        <div class="seven columns">
-                            <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />
-                        </div>
-                        <div class="seven columns prop-details">
-                            <h6 class="h6custom">
-                                John Smithson</h6>
-                            <p class="profile-meta">
-                                President | (555) 154 487
-                                <br />
-                                <span class="social-profile"><a href="#"><i class="icon-mail"></i></a><a href="#"><i
-                                                                                                                      class="icon-vcard"></i></a><a href="#"><i class="icon-skype"></i></a><a href="#"><i
-                                                                                                                                                                                                           class="icon-twitter"></i></a><a href="#"><i class="icon-linkedin"></i></a><a href="#">
-                                                                                                                                                                                                                                                                                         <i class="icon-gplus-1"></i></a></span>
-                            </p>
-                            <h6 class="h6custom">
-                                About</h6>
-                            <p>
-                                Please complete the form below to request a showing for this property. Quisque non
-                                mi magna, eget aliquet urna. Curabitur ut justo est. Quisque iaculis risus et tortor
-                                congue porta. Suspendisse eleifend tempor dapibus.
-                            </p>
-                        </div>
-                    </div>*@
-    
-@*    @Html.Partial("_ProfileDetail", ViewBag.TenantProfile);*@
+{    
+  @Html.Partial("_ProfileDetail", (object)ViewBag.tenant)
 }
 @section generalprofile{
     @*<div id="generalprofile">

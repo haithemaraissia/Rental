@@ -120,30 +120,6 @@
                         <li><a href="#map"><i class="icon-map"></i>Map</a></li>
                     </ul>
                     @RenderSection("profile", false)
-                   @* <div id="profile" class="panel center">
-                        <div class="seven columns">
-                            <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />
-                        </div>
-                        <div class="seven columns prop-details">
-                            <h6 class="h6custom">
-                                John Smithson</h6>
-                            <p class="profile-meta">
-                                President | (555) 154 487
-                                <br />
-                                <span class="social-profile"><a href="#"><i class="icon-mail"></i></a><a href="#"><i
-                                                                                                                      class="icon-vcard"></i></a><a href="#"><i class="icon-skype"></i></a><a href="#"><i
-                                                                                                                                                                                                           class="icon-twitter"></i></a><a href="#"><i class="icon-linkedin"></i></a><a href="#">
-                                                                                                                                                                                                                                                                                         <i class="icon-gplus-1"></i></a></span>
-                            </p>
-                            <h6 class="h6custom">
-                                About</h6>
-                            <p>
-                                Please complete the form below to request a showing for this property. Quisque non
-                                mi magna, eget aliquet urna. Curabitur ut justo est. Quisque iaculis risus et tortor
-                                congue porta. Suspendisse eleifend tempor dapibus.
-                            </p>
-                        </div>
-                    </div>*@
                     <div id="photos" class="panel">
                         <div class="seven columns">
                             <a id="fancybox-manual-c" href="javascript:;">
@@ -207,15 +183,19 @@
                         <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0"
                                 marginwidth="0" src="https://maps.google.com.ar/maps?f=q&amp;source=s_q&amp;hl=es-419&amp;geocode=&amp;q=United+Center,+West+Madison+Street,+Chicago,+Illinois,+Estados+Unidos&amp;aq=3&amp;oq=Chicago+bulls+&amp;sll=-38.452918,-63.598921&amp;sspn=39.850301,79.013672&amp;ie=UTF8&amp;hq=United+Center,+West+Madison+Street,&amp;hnear=Chicago,+Condado+de+Cook,+Illinois,+Estados+Unidos&amp;t=m&amp;ll=41.880042,-87.671242&amp;spn=0.038343,0.072956&amp;z=13&amp;output=embed">
                         </iframe>
+                        
+                        
+                        <iframe width="100%" height="314" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=q=6108 cortez street merriam KS&amp;output=svembed"></iframe><br />
+
                     </div>
                     <div id="account" class="panel">
                         <section class="row double-bottom">
                             <div class="sixteen columns prop-details">
                                 <div class="six columns push by-one">
-                                    <input type="submit" class="full-width tall" value="Change Passowrd" />
+                                    <input type="submit" class="full-width tall" value="Change Passowrd" onclick="location.href='/Account/ChangePassword'"/>
                                 </div>
                                 <div class="six columns push by-two">
-                                    <input type="submit" class="full-width tall" value="Edit Email" />
+                                    <input type="submit" class="full-width tall" value="Edit Email"  onclick="location.href='/Account/ChangeEmail'"/> 
                                 </div>
                             </div>
                             <div class="sixteen columns prop-details">

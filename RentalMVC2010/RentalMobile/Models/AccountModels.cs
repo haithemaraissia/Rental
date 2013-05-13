@@ -53,6 +53,8 @@ namespace RentalMobile.Models
 
         [Required]
         [DataType(DataType.EmailAddress)]
+      //  [RegularExpression(@"[A-Za-z0-9._%+-]+[A-Za-z0-9.-]+\.[A-Za-z] {2,4}",
+      //ErrorMessage = "Email is not valid")]
         [Display(Name = "Email address")]
         public string Email { get; set; }
 
@@ -71,4 +73,14 @@ namespace RentalMobile.Models
         [Display(Name = "Role")]
         public string Role { get; set; }
     }
+
+
+    public class ChangeEmail
+    {
+         [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email address")]
+        public string Email { get; set; }
+    }
+
 }

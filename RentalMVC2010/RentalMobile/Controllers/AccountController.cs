@@ -207,6 +207,94 @@ namespace RentalMobile.Controllers
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //
+        // GET: /Account/ChangeEmail
+
+        [Authorize]
+        public ActionResult ChangeEmail()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/ChangePassword
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult ChangeEmail(ChangeEmail model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                // Change will throw an exception rather
+                // than return false in certain failure scenarios.
+                bool changeEmailSucceeded = true;
+                try
+                {
+
+                    //Membership
+                    MembershipUser u = Membership.GetUser(User.Identity.Name);
+                    u.Email = model.Email;
+                    Membership.UpdateUser(u);
+
+
+                    if (User.IsInRole("Tenant"))
+                    {
+                        //Tenant
+                       Tenant t = _db.Tenants.FirstOrDefault(x => x.TenantId == (int) Helpers.UserHelper.GetTenantID());
+                        {
+                            t.EmailAddress = model.Email;
+                        }
+                        _db.SaveChanges();
+                    }
+
+
+                }
+                catch (Exception)
+                {
+                    changeEmailSucceeded = false;
+                }
+
+                if (changeEmailSucceeded)
+                {
+                    return RedirectToAction("ChangeEmailSuccess");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The email address is incorrect.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        //
+        // GET: /Account/ChangeEmailSuccess
+
+        public ActionResult ChangeEmailSuccess()
+        {
+            return View();
+        }
+
+
+
+
         [Authorize]
         public void RegisterTenant(RegisterModel model)
         {

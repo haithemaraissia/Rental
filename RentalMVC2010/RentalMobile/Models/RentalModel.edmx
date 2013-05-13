@@ -125,6 +125,13 @@
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="300" />
           <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VCard" Type="nvarchar" MaxLength="100" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="100" />
+          <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="GoogleMap" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TenantFavorite">
           <Key>
@@ -436,6 +443,13 @@
           <NavigationProperty Name="TenantFavorites" Relationship="DB_33736_rentalModel.FK_TenantFavorite_Tenant" FromRole="Tenant" ToRole="TenantFavorite" />
           <NavigationProperty Name="TenantSavedSearches" Relationship="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant" FromRole="Tenant" ToRole="TenantSavedSearch" />
           <Property Type="Guid" Name="GUID" Nullable="false" />
+          <Property Type="String" Name="VCard" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Skype" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Twitter" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LinkedIn" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GooglePlus" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Photo" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_TenantShowing_Tenant">
           <End Type="DB_33736_rentalModel.Tenant" Role="Tenant" Multiplicity="1" />
@@ -691,6 +705,13 @@
           <EntitySetMapping Name="Tenants">
             <EntityTypeMapping TypeName="DB_33736_rentalModel.Tenant">
               <MappingFragment StoreEntitySet="Tenant">
+                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="VCard" ColumnName="VCard" />
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
@@ -826,7 +847,7 @@
           <ConnectorPoint PointX="3" PointY="2.5862939453125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DB_33736_rentalModel.TenantShowing" Width="1.5" PointX="9.5" PointY="1.25" Height="1.9802864583333339" />
-        <EntityTypeShape EntityType="DB_33736_rentalModel.Tenant" Width="1.5" PointX="7.125" PointY="1.25" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Tenant" Width="1.5" PointX="7.125" PointY="1.25" Height="4.2879036458333326" />
         <AssociationConnector Association="DB_33736_rentalModel.FK_TenantShowing_Tenant" >
           <ConnectorPoint PointX="8.625" PointY="2.2401432291666667" />
           <ConnectorPoint PointX="9.5" PointY="2.2401432291666667" />
@@ -834,13 +855,14 @@
         <EntityTypeShape EntityType="DB_33736_rentalModel.TenantFavorite" Width="1.5" PointX="6" PointY="5.375" Height="1.9802864583333335" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.TenantSavedSearch" Width="1.5" PointX="8.75" PointY="5.25" Height="1.9802864583333317" />
         <AssociationConnector Association="DB_33736_rentalModel.FK_TenantFavorite_Tenant" >
-          <ConnectorPoint PointX="7.3125" PointY="3.9994921875" />
-          <ConnectorPoint PointX="7.3125" PointY="5.375" />
+          <ConnectorPoint PointX="8.0625005" PointY="5.5379036458333326" />
+          <ConnectorPoint PointX="8.0625005" PointY="6.4465955520833322" />
+          <ConnectorPoint PointX="7.5" PointY="6.4465955520833322" />
         </AssociationConnector>
         <AssociationConnector Association="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant" >
-          <ConnectorPoint PointX="8.09375" PointY="3.9994921875" />
-          <ConnectorPoint PointX="8.09375" PointY="5.28125" />
-          <ConnectorPoint PointX="8.75" PointY="5.28125" />
+          <ConnectorPoint PointX="8.3750022500000014" PointY="5.5379036458333326" />
+          <ConnectorPoint PointX="8.3750022500000014" PointY="6.0235020989583337" />
+          <ConnectorPoint PointX="8.75" PointY="6.0235020989583337" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DB_33736_rentalModel.CrewMaintenance" Width="1.5" PointX="5.25" PointY="9.25" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.MaintenanceOrder" Width="1.5" PointX="3" PointY="11.875" Height="3.7109993489583317" />

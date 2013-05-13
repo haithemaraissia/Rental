@@ -28,6 +28,13 @@ namespace RentalMobile.Models
         public string EmailAddress { get; set; }
         public string Description { get; set; }
         public System.Guid GUID { get; set; }
+        public string VCard { get; set; }
+        public string Skype { get; set; }
+        public string Twitter { get; set; }
+        public string LinkedIn { get; set; }
+        public string GooglePlus { get; set; }
+        public string Photo { get; set; }
+        public string GoogleMap { get; set; }
     
         public virtual ICollection<TenantShowing> TenantShowings { get; set; }
         public virtual ICollection<TenantFavorite> TenantFavorites { get; set; }

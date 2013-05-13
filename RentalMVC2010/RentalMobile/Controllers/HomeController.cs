@@ -19,5 +19,6 @@ namespace RentalMobile.Controllers
         {
             return View();
         }
+
     }
 }

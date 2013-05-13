@@ -5,63 +5,26 @@
     </div>
     <div class="seven columns prop-details">
         <h6 class="h6custom">
-           @Html.DisplayFor(model => model.FirstName) + @Html.DisplayFor(model => model.FirstName)</h6>
+            @Html.DisplayFor(model => model.FirstName) + @Html.DisplayFor(model => model.LastName)</h6>
         <p class="profile-meta">
-            President | (555) 154 487
-            <br />
-            <span class="social-profile"><a href="#"><i class="icon-mail"></i></a><a href="#"><i
-                class="icon-vcard"></i></a><a href="#"><i class="icon-skype"></i></a><a href="#"><i
-                    class="icon-twitter"></i></a><a href="#"><i class="icon-linkedin"></i></a><a href="#">
-                        <i class="icon-gplus-1"></i></a></span>
+            @*            President | (555) 154 487*@ @*           <br />*@ <span class="social-profile">
+                <a href="mailto:@Html.DisplayFor(model => model.EmailAddress)"><i class="icon-mail">
+                </i></a><a href="@Html.DisplayFor(model => model.VCard)" target="_blank"><i class="icon-vcard">
+                </i></a><a href="@Html.DisplayFor(model => model.Skype)" target="_blank"><i class="icon-skype">
+                </i></a><a href="@Html.DisplayFor(model => model.Twitter)" target="_blank"><i class="icon-twitter">
+                </i></a><a href="@Html.DisplayFor(model => model.LinkedIn)" target="_blank"><i class="icon-linkedin">
+                </i></a><a href="@Html.DisplayFor(model => model.GooglePlus)" target="_blank"><i
+                    class="icon-gplus-1"></i></a></span>
         </p>
         <h6 class="h6custom">
             About</h6>
         <p>
-            Please complete the form below to request a showing for this property. Quisque non
-            mi magna, eget aliquet urna. Curabitur ut justo est. Quisque iaculis risus et tortor
-            congue porta. Suspendisse eleifend tempor dapibus.
+            @(Model.Description == null ? Html.TextBoxFor(model => model.Description, new { placeholder = "Description", style = "width:100%; min-height:100px" }) : Html.DisplayFor(model => model.Description, new { style = "width:100%; min-height:100px" }))
         </p>
     </div>
     <div style="float: right">
         <li class="two columns omega">
-            <input type="submit" value="     EDIT     " />
+            <input type="submit" value="     EDIT     "  onclick="location.href='/Tenant/Edit/@Model.TenantId'"/>
         </li>
     </div>
 </div>
-<fieldset>
-    <legend>Tenant</legend>
-    <div class="display-label">
-        FirstName</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FirstName)
-    </div>
-    <div class="display-label">
-        LastName</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.LastName)
-    </div>
-    <div class="display-label">
-        Address</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Address)
-    </div>
-    <div class="display-label">
-        EmailAddress</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EmailAddress)
-    </div>
-    <div class="display-label">
-        Description</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>
-    <div class="display-label">
-        GUID</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.GUID)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TenantId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
