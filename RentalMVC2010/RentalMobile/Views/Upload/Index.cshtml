@@ -94,7 +94,7 @@ Description
                     flash_swf_url: '../../scripts/plupload/plupload.flash.swf',
                     silverlight_xap_url: '../../scripts/plupload/plupload.silverlight.xap',
                     multiple_queues: true,
-                    multipart_params: { UserName: '@ViewBag.TenantUserName', requestid: @ViewBag.RequestID }
+                    multipart_params: { UserName: '@ViewBag.UserName', id: '@ViewBag.Id', type: '@ViewBag.Type' }
                 });
 
 

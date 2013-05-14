@@ -137,6 +137,12 @@ namespace RentalMobile.Controllers
 
 
 
+        public ActionResult UpdateProfilePicture(int id)
+        {
+            return RedirectToAction("Upload","Account",new {id = id});
+        }
+
+
 
 
 

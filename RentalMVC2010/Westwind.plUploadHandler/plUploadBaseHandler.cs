@@ -50,7 +50,15 @@ public abstract class plUploadBaseHandler : IHttpHandler
         Context = context;
         Request = context.Request;
         Response = context.Response;
-        var directory = "/" + Request.Params["UserName"] + "/" + "Requests" + "/" + Request.Params["requestid"];
+
+
+
+        //var directory = "/" + Request.Params["UserName"] + "/" + "Requests" + "/" + Request.Params["requestid"];
+        var directory = "/" + Request.Params["UserName"] + "/" +  Request.Params["Type"] + "/" + Request.Params["Id"];
+
+
+
+
         // Check to see whether there are uploaded files to process them
         if (Request.Files.Count > 0)
         {

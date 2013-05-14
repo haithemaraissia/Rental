@@ -107,6 +107,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handler\ProfileImageUploadHandler.ashx.cs">
+      <DependentUpon>ProfileImageUploadHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handler\ImageUploadHandler.ashx.cs">
       <DependentUpon>ImageUploadHandler.ashx</DependentUpon>
     </Compile>
@@ -520,6 +523,7 @@
     <Content Include="Views\Specialist\Index.cshtml" />
     <Content Include="Design\Tenant\Index.cshtml" />
     <Content Include="Handler\ImageUploadHandler.ashx" />
+    <Content Include="Handler\ProfileImageUploadHandler.ashx" />
     <None Include="Models\RentalContextGenerator.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RentalContextGenerator.Context.cs</LastGenOutput>

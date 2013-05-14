@@ -63,8 +63,9 @@ namespace RentalMobile.Controllers
                     }
                 }
                 _db.SaveChanges();
-                TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
-                TempData["RequestID"] = maintenanceorder.MaintenanceID;
+                TempData["UserName"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+                TempData["Id"] = maintenanceorder.MaintenanceID;
+                TempData["Type"] = "Requests";
                 return RedirectToAction("Index", "UploadMaintenancePhoto");
             }
 
@@ -114,8 +115,9 @@ namespace RentalMobile.Controllers
 
         public ActionResult AddMorePhotos([Bind(Exclude = "MaintenanceID")]MaintenanceOrder maintenanceorder)
         {
-            TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
-            TempData["RequestID"] = maintenanceorder.MaintenanceID;
+            TempData["UserName"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+            TempData["Id"] = maintenanceorder.MaintenanceID;
+            TempData["Type"] = "Requests";
             return RedirectToAction("Index", "AddMaintenancePhoto");
         }
 

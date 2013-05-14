@@ -143,10 +143,7 @@ namespace RentalMobile.Controllers
                 {
                     return RedirectToAction("ChangePasswordSuccess");
                 }
-                else
-                {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
-                }
+                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
             }
 
             // If we got this far, something failed, redisplay form
@@ -245,14 +242,17 @@ namespace RentalMobile.Controllers
 
                 // Change will throw an exception rather
                 // than return false in certain failure scenarios.
-                bool changeEmailSucceeded = true;
+                var changeEmailSucceeded = true;
                 try
                 {
 
                     //Membership
-                    MembershipUser u = Membership.GetUser(User.Identity.Name);
-                    u.Email = model.Email;
-                    Membership.UpdateUser(u);
+                    var u = Membership.GetUser(User.Identity.Name);
+                    if (u != null)
+                    {
+                        u.Email = model.Email;
+                        Membership.UpdateUser(u);
+                    }
 
 
                     if (User.IsInRole("Tenant"))
@@ -276,10 +276,7 @@ namespace RentalMobile.Controllers
                 {
                     return RedirectToAction("ChangeEmailSuccess");
                 }
-                else
-                {
-                    ModelState.AddModelError("", "The email address is incorrect.");
-                }
+                ModelState.AddModelError("", "The email address is incorrect.");
             }
 
             // If we got this far, something failed, redisplay form
@@ -328,14 +325,69 @@ namespace RentalMobile.Controllers
         //UPLOAD PRIMARY PHOTO REGARDLESS OF THE ROLE; ONLY 1 PHOTO
         //IT will requires another uploader.ashx
 
-        public string Username = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name).ToString();
+        //public string Username = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name).ToString();
 
-        //Depending on the role
-        public string UserPhotoPath = "~/Photo/Tenant/Requests";
-        public string UserID;
-
-        public ActionResult Upload()
+        //Helpers
+        public string GetUserPhotoPath()
         {
+            var role = GetCurrentRole();
+            if (role != null)
+            {
+                return "~/Photo/" + role + "/Profile";
+            }
+            return null;
+        }
+
+        public string GetVirtualUserPhotoPath()
+        {
+            var role = GetCurrentRole();
+            if (role != null)
+            {
+                return @"~\Photo\" + role + @"\Profile";
+            }
+            return null;
+        }
+
+        public string GetCurrentRole()
+        {
+            var user = System.Web.HttpContext.Current.User;
+            if (user.IsInRole("Tenant"))
+            {
+                return "Tenant";
+            }
+            if (user.IsInRole("Owner"))
+            {
+                return "Landlord";
+            }
+            return user.IsInRole("Specialist") ? "Specialist" : null;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //        TempData["TenantUsername"] = Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+                //TempData["RequestID"] = maintenanceorder.MaintenanceID;
+
+        public ActionResult Upload(int id)
+        {
+            var role = GetCurrentRole();
+            if (role == "Tenant")
+            {
+                ViewBag.Id = UserHelper.GetTenantID();
+                ViewBag.UserName = System.Web.HttpContext.Current.User.Identity.Name;
+                ViewBag.Type = "Profile";
+                TempData["UserID"] = UserHelper.GetTenantID();
+            }
+
             //RequestID = TempData["RequestID"].ToString();
             //ViewBag.TenantUserName = TenantUsername;
             //ViewBag.RequestID = TempData["RequestID"].ToString();
@@ -344,17 +396,24 @@ namespace RentalMobile.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult UpdateProfilePhoto(FormCollection collection)
         {
             SavePictures();
-            return RedirectToAction("Index", "MaintenanceOrder");
+            var user = System.Web.HttpContext.Current.User;
+            if (user.IsInRole("Tenant")) { return RedirectToAction("Index", "Tenant"); }
+            if (user.IsInRole("Owner")) { return RedirectToAction("Index", "Landlord"); }
+            return user.IsInRole("Specialist") ? RedirectToAction("Index", "Specialist") : null;
         }
 
         public void SavePictures()
         {
             var imageStoragePath = Server.MapPath("~/UploadedImages");
-            var photoPath = Server.MapPath(UserPhotoPath);
-            var directory = @"\" + Username + @"\" + "Requests" + @"\" + TempData["RequestID"] + @"\";
+            var photoPath = Server.MapPath(GetUserPhotoPath());
+
+            //Maybe we need to pass the role//
+            var directory = @"\" + "Profile" + @"\" + System.Web.HttpContext.Current.User.Identity.Name + @"\" + TempData["Id"] + @"\";
+            //
+
             var path = imageStoragePath + directory;
             var uploadDirectory = new DirectoryInfo(path);
             var newdirectory = photoPath + directory;
@@ -367,11 +426,11 @@ namespace RentalMobile.Controllers
             foreach (var f in files)
             {
                 var destinationFile = newdirectory + @"\" + f.Name;
-                var virtualdestinationFile = @"~\Photo\Tenant\Requests" + directory + f.Name;
+                var virtualdestinationFile = GetVirtualUserPhotoPath() + directory + f.Name;
                 if (!System.IO.File.Exists(destinationFile))
                 {
                     System.IO.File.Move(f.FullName, destinationFile);
-                    AddPicture(Convert.ToInt32(TempData["RequestID"]), virtualdestinationFile);
+                    AddPicture(virtualdestinationFile);
                 }
                 if (System.IO.File.Exists(f.Name))
                     System.IO.File.Delete(f.Name);
@@ -379,13 +438,67 @@ namespace RentalMobile.Controllers
             UploadHelper.DeleteDirectoryIfExist(path);
         }
 
-        public void AddPicture(int maintenanceId, string photoPath)
+
+
+
+        public void AddPicture(string photoPath)
         {
-            var maintenancephoto = new MaintenancePhoto { MaintenanceID = maintenanceId, PhotoPath = photoPath };
-            if (!ModelState.IsValid) return;
-            _db.MaintenancePhotoes.Add(maintenancephoto);
-            _db.SaveChanges();
+            var role = GetCurrentRole();
+            if (role == "Tenant")
+            {
+                AddTenantPicture(photoPath);
+            }
+            //if (role == "Landloard")
+            //{
+            //    AddLandlordPicture();
+            //}
+            //if (role == "Specialist")
+            //{
+            //    AddSpecialistPicture();
+            //}
         }
+
+
+
+
+
+
+
+
+
+         public void AddTenantPicture(string photoPath)
+         {
+             var tenant = _db.Tenants.Find(UserHelper.GetTenantID());
+             if (!ModelState.IsValid) return;
+             tenant.Photo = photoPath;
+             _db.SaveChanges();
+         }
+
+        //Future
+
+         //public void AddLandlordPicture( string photoPath)
+         //{
+         //    var tenant = _db.Tenants.Find(UserHelper.GetTenantID());
+         //    if (!ModelState.IsValid) return;
+         //    tenant.Photo = photoPath;
+         //    _db.SaveChanges();
+         //}
+
+         //public void AddSpecialistPicture(string photoPath)
+         //{
+         //    var tenant = _db.Tenants.Find(UserHelper.GetTenantID());
+         //    if (!ModelState.IsValid) return;
+         //    tenant.Photo = photoPath;
+         //    _db.SaveChanges();
+         //}
+
+
+
+
+
+
+
+
 
     }
 }

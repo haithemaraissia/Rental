@@ -17,10 +17,11 @@ namespace RentalMobile.Controllers
 
         public ActionResult Index()
         {
-            RequestID = TempData["RequestID"].ToString();
-            ViewBag.TenantUserName = TenantUsername;
-            ViewBag.RequestID = TempData["RequestID"].ToString();
-            TempData["RequestID"] = RequestID;
+            RequestID = TempData["Id"].ToString();
+            ViewBag.UserName = TenantUsername;
+            ViewBag.Id = TempData["Id"].ToString();
+            ViewBag.Type = "Requests";
+            TempData["Id"] = RequestID;
             return View();
         }
 
@@ -35,7 +36,7 @@ namespace RentalMobile.Controllers
         {
             var imageStoragePath = Server.MapPath("~/UploadedImages");
             var photoPath = Server.MapPath(TenantPhotoPath);
-            var directory = @"\" + TenantUsername + @"\" + "Requests" + @"\" + TempData["RequestID"] + @"\";
+            var directory = @"\" + TenantUsername + @"\" + "Requests" + @"\" + TempData["Id"] + @"\";
             var path = imageStoragePath + directory;
             var uploadDirectory = new DirectoryInfo(path);
             var newdirectory = photoPath + directory;
@@ -52,7 +53,7 @@ namespace RentalMobile.Controllers
                 if (!System.IO.File.Exists(destinationFile))
                 {
                     System.IO.File.Move(f.FullName, destinationFile);
-                    AddPicture(Convert.ToInt32(TempData["RequestID"]), virtualdestinationFile);
+                    AddPicture(Convert.ToInt32(TempData["Id"]), virtualdestinationFile);
                 }
                 if (System.IO.File.Exists(f.Name))
                     System.IO.File.Delete(f.Name);
