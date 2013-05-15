@@ -85,7 +85,7 @@ Description
                     runtimes: 'html5,silverlight,flash,html4',
                     url: '/handler/ImageUploadHandler.ashx',
                     max_file_size: '2mb',
-                    max_file_count : 1,
+                    max_file_count : '1',
                     chunk_size: '64kb',
                     unique_names: false,
                     // Resize images on clientside if we can
@@ -94,7 +94,7 @@ Description
                     filters: [{ title: "Image files", extensions: "jpg,jpeg,gif,png"}],
                     flash_swf_url: '../../scripts/plupload/plupload.flash.swf',
                     silverlight_xap_url: '../../scripts/plupload/plupload.silverlight.xap',
-                    multiple_queues: true,
+                    multiple_queues: false,
                     multipart_params: { UserName: '@ViewBag.UserName', id: '@ViewBag.Id', type: '@ViewBag.Type' }
                 });
 
@@ -150,8 +150,9 @@ Description
 
                 // only allow 5 files to be uploaded at once
                 uploader.bind("FilesAdded", function (up, filesToBeAdded) {
-                    if (up.files.length > 20) {
-                        up.files.splice(19, up.files.length - 20);
+                    if (up.files.length > 1) {
+                        up.files.splice(0, up.files.length - 1);
+                        alert("Only 1 file max are allowed per upload. Extra files will be removed.", 3000, true);
                         showStatus("Only 20 files max are allowed per upload. Extra files removed.", 3000, true);
                         return false;
                     }
@@ -175,7 +176,7 @@ Description
 
 @ViewBag.TenantUserName
 
-@using (Html.BeginForm("UpdateProfilePhoto", "Account", FormMethod.Post, new { ViewBag.Id }))
+@using (Html.BeginForm("UpdateProfilePhoto", "Account", new { id = ViewBag.Id }, FormMethod.Post))
 {
     <p>
         <input type="submit" value="Publish" />

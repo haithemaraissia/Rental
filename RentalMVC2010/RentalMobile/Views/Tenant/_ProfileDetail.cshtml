@@ -1,11 +1,13 @@
 ﻿@model RentalMobile.Models.Tenant
 <div id="profile" class="panel center">
     <div class="seven columns">
-        <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />
+       @* <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />*@
+        <img src="@Model.Photo" alt="agent" class="scale-with-grid" width="480" height="320" />
+@*        <img src="../../Photo/Tenant/Profile/robert/5/img_2.jpg"  />*@
     </div>
     <div class="seven columns prop-details">
         <h6 class="h6custom">
-            @Html.DisplayFor(model => model.FirstName) + @Html.DisplayFor(model => model.LastName)</h6>
+            @Html.DisplayFor(model => model.FirstName)   @Html.DisplayFor(model => model.LastName)</h6>
         <p class="profile-meta">
             @*            President | (555) 154 487*@ @*           <br />*@ <span class="social-profile">
                 <a href="mailto:@Html.DisplayFor(model => model.EmailAddress)"><i class="icon-mail">
@@ -16,6 +18,7 @@
                 </i></a><a href="@Html.DisplayFor(model => model.GooglePlus)" target="_blank"><i
                     class="icon-gplus-1"></i></a></span>
         </p>
+        <br />
         <h6 class="h6custom">
             About</h6>
         <p>
