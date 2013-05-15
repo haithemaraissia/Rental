@@ -58,9 +58,7 @@
             </ul>
             <ul class="menu user">
                 <li><a href="/Account/Register" class="register-btn">Register</a></li>
-                @*               <li><a href="#" data-dropdown="#login">Login</a></li>*@
                 <li>@Html.Partial("_LogOnPartial")</li>
-                @*       <li><a href="#" data-dropdown="#login">Login</a></li>*@
                 <li><a href="Help">Help</a></li>
             </ul>
         </div>
@@ -101,26 +99,26 @@
         </header>
         <!-- /header-->
         <div class="main" role="main">
-            <div class="tools sixteen columns add-bottom">
+            @*<div class="tools sixteen columns add-bottom">
                 <a href="#">Back</a> | <a href="../UserProfile/registration.html">Save</a> | <a href="../UserProfile/mortgage.html">
                                                                                                  Mortgage Calculator</a> | <a href="../UserProfile/registration.html">My Favorites</a>
                 | <a href="../UserProfile/advanced-search.html">Advanced Search</a>
-            </div>
+            </div>*@
             <!-- /section: search form -->
             <!-- Section: slider -->
             <section class="row">
-                <h2 class="section-titling">
-                    Central Park West, $390.000</h2>
+@*                <h2 class="section-titling">
+                    Central Park West, $390.000</h2>*@
                 <div class="tab-container mini-tabs sixteen columns">
                     <ul class="etabs">
                         <li><a href="#profile"><i class="icon-user"></i>Profile</a></li>
                         <li><a href="#account"><i class="icon-video"></i>Account</a></li>
-                        <li><a href="#photos"><i class="icon-camera"></i>Photos</a></li>
-                        <li><a href="#video"><i class="icon-video"></i>Video</a></li>
+@*                        <li><a href="#photos"><i class="icon-camera"></i>Photos</a></li>
+                        <li><a href="#video"><i class="icon-video"></i>Video</a></li>*@
                         <li><a href="#map"><i class="icon-map"></i>Map</a></li>
                     </ul>
                     @RenderSection("profile", false)
-                    <div id="photos" class="panel">
+                    @*    <div id="photos" class="panel">
                         <div class="seven columns">
                             <a id="fancybox-manual-c" href="javascript:;">
                                 <img src="../../images/dotimages/single-property/gallery-480x350.png" class="img-preview scale-with-grid"
@@ -174,11 +172,13 @@
                                 <input type="submit" class="full-width tall" value="Request a showing">
                             </form>
                         </div>
-                    </div>
-                    <div id="video" class="panel">
+                    </div>*@
+                    @RenderSection("photos", false)
+                    @*<div id="video" class="panel">
                         <iframe src="http://player.vimeo.com/video/12158329" width="500" height="281" frameborder="0"
                                 webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                    </div>
+                    </div>*@
+                    @RenderSection("video", false)
                     <div id="map" class="panel">
                         <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0"
                                 marginwidth="0" src="https://maps.google.com.ar/maps?f=q&amp;source=s_q&amp;hl=es-419&amp;geocode=&amp;q=United+Center,+West+Madison+Street,+Chicago,+Illinois,+Estados+Unidos&amp;aq=3&amp;oq=Chicago+bulls+&amp;sll=-38.452918,-63.598921&amp;sspn=39.850301,79.013672&amp;ie=UTF8&amp;hq=United+Center,+West+Madison+Street,&amp;hnear=Chicago,+Condado+de+Cook,+Illinois,+Estados+Unidos&amp;t=m&amp;ll=41.880042,-87.671242&amp;spn=0.038343,0.072956&amp;z=13&amp;output=embed">
