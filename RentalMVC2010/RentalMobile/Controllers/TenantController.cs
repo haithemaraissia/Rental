@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using RentalMobile.Helpers;
 using RentalMobile.Models;
 
@@ -128,6 +129,8 @@ namespace RentalMobile.Controllers
 
 
 
+    // Delete All associated records
+
             var tenantshowing = db.TenantShowings.Where(x => x.TenantId == id).ToList();
             foreach (var x in tenantshowing)
             {
@@ -136,12 +139,18 @@ namespace RentalMobile.Controllers
             db.SaveChanges();
 
 
-            // Delete All associated records
+        
 
             //Delete from Membership
 
+            if (Roles.GetRolesForUser(User.Identity.Name).Any())
+            {
+                Roles.RemoveUserFromRoles(User.Identity.Name, Roles.GetRolesForUser(User.Identity.Name));
+            }
+            Membership.DeleteUser(User.Identity.Name);
+            FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
 

@@ -258,7 +258,7 @@ namespace RentalMobile.Controllers
                     if (User.IsInRole("Tenant"))
                     {
                         //Tenant
-                        Tenant tenant = _db.Tenants.Find(UserHelper.GetTenantID());
+                        var tenant = _db.Tenants.Find(UserHelper.GetTenantID());
                         {
                             tenant.EmailAddress = model.Email;
                         }
@@ -305,6 +305,7 @@ namespace RentalMobile.Controllers
                 if (providerUserKey != null)
                     newtenant.GUID = (Guid)providerUserKey;
                 newtenant.FirstName = model.UserName;
+                newtenant.Photo = "./../images/dotimages/avatar-placeholder.png";
             }
 
             _db.Tenants.Add(newtenant);
