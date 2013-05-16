@@ -4,215 +4,218 @@
     ViewBag.Title = "Tenant Profile";
     Layout = "~/Views/Shared/_Tenant.cshtml";
 }
-
-
 @section profile
-{    
-  @Html.Partial("_ProfileDetail", (object)ViewBag.tenant)
+{
+    @Html.Partial("_ProfileDetail", (object)ViewBag.tenant)
 }
-@section generalprofile{
+@section favorite{
     @*<div id="generalprofile">
             <!-- Section: slider -->
             @Html.Partial("_TenantFavorite", (object)ViewBag.TenantProfile );
         </div>
  *@
-    <div id="generalprofile">
+    <div id="favorite">
         <!-- Section: new development -->
-        <h2 class="section-titling">
-            My Favorite</h2>
-        <ul class="row add-bottom mosaic-gallery">
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        12205 South Strange Line, Olathe, KS,USA.</h6>
-                    <h6 style="float: left">
-                        20 Sep 2012 2:00</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Bed: <span>4</span>Bathroom: <span>2</span>Price: <span>$35.000</span></p>
-                </div>
-                <div style="text-align: center">
-                    @Html.ActionLink("Create New", "Create")
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-                <div style="text-align: center">
-                    @Html.ActionLink("Create New", "Create")
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-                <div style="text-align: center">
-                    @Html.ActionLink("Create New", "Create")
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="four columns">
-                <figure>
-                    <a href="#"></a>
-                    <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
-                </figure>
-                <div class="details">
-                    <h6>
-                        Greenwich Village</h6>
-                    <p>
-                        Modern Space lorem ipsum dolor sit amet conse.</p>
-                    <p class="price">
-                        Price: <span>$35.000</span></p>
-                    <ul class="table-list">
-                        <li>Beds<span>8</span></li>
-                        <li>Bathes<span>4</span></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        <!-- /section: new development -->
+        @*        <h2 class="section-titling">
+            My Favorite</h2>*@
+            
+        <section>
+            
+       
+            <h2></h2>
+            <ul class="row add-bottom mosaic-gallery">
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            12205 South Strange Line, Olathe, KS,USA.</h6>
+                        <h6 style="float: left">
+                            20 Sep 2012 2:00</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Bed: <span>4</span>Bathroom: <span>2</span>Price: <span>$35.000</span></p>
+                    </div>
+                    <div style="text-align: center">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+         <!-- /section: new development -->
     </div>
 }
-
 @section showing{
     <div id="showing" class="panel">
         <section class="fifteen columns">
@@ -386,47 +389,128 @@
                 </li>
             </ul>
             <!-- /.List -->
-            
-            
-            
             <style>
+                #container
+                {
+                    width: 100%;
+                    text-align: center;
+                }
                 
-                #container {
-    width:100%;
-    text-align:center;
-}
-
-#left {
-    float:left;
-    width:50px;
-    height: 20px;
-    background: #ff0000;
-}
-
-#center {
-    display: inline-block;
-    margin:0 auto;
-    width:50px;
-    height: 20px;
-    background: #00ff00;
-}
-
-#right {
-    float:right;
-    width:50px;
-    height: 20px;
-    background: #0000ff;
-}
-            </style>     
-
+                #left
+                {
+                    float: left;
+                    width: 50px;
+                    height: 20px;
+                    background: #ff0000;
+                }
+                
+                #center
+                {
+                    display: inline-block;
+                    margin: 0 auto;
+                    width: 50px;
+                    height: 20px;
+                    background: #00ff00;
+                }
+                
+                #right
+                {
+                    float: right;
+                    width: 50px;
+                    height: 20px;
+                    background: #0000ff;
+                }
+            </style>
             <!--Pagination-->
-        <div id="container">
-  <div id="left">Previous</div>
-  <div id="center">Page 1 of 10</div>
-  <div id="right">Next</div>
-</div>
+            <div id="container">
+                <div id="left">
+                    Previous</div>
+                <div id="center">
+                    Page 1 of 10</div>
+                <div id="right">
+                    Next</div>
+            </div>
             <!--Pagination-->
         </section>
     </div>
     <!-- /section: gallery -->
+}
+@section maintenance
+{
+    <div id="maintenance">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Manage Provider" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Create New Request" onclick="location.href='./TenantMaintenance/Create';" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Current Requests" onclick="location.href='./TenantMaintenance';" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Archived Requests" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Future: Hire Specialist" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Future" />
+                </div>
+            </div>
+        </section>
+    </div>
+}
+@section application
+{
+    <div id="application">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Create Application" onclick="location.href='';" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Submit Application" onclick="location.href='';" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="View Application" onclick="location.href='';" />
+                </div>
+            </div>
+        </section>
+    </div>
+}
+@section contract
+{
+    <div id="contract" class="panel">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                      <input type="submit" class="full-width tall" value="View Contract" onclick="location.href='';" />
+                </div>
+            </div>
+        </section>
+    </div>
+}
+
+@section payment
+{
+    <div id="payment" class="panel">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Pay Rent" onclick="location.href='';" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Payment History" onclick="location.href='./TenantMaintenance/Create';" />
+                </div>
+            </div>
+        </section>
+    </div>
 }

@@ -1,11 +1,9 @@
 ﻿@model RentalMobile.Models.Tenant
 <div id="profile" class="panel center">
     <div class="seven columns">
-       @* <img src="../../images/dotimages/agent-placeholder.png" alt="agent" class="scale-with-grid" />*@
         <img src="@Model.Photo" alt="agent" class="scale-with-grid" width="480" height="320" />
-@*        <img src="../../Photo/Tenant/Profile/robert/5/img_2.jpg"  />*@
     </div>
-    <div class="seven columns prop-details">
+    <div class="eight columns prop-details">
         <h6 class="h6custom">
             @Html.DisplayFor(model => model.FirstName)   @Html.DisplayFor(model => model.LastName)</h6>
         <p class="profile-meta">
@@ -24,10 +22,5 @@
         <p>
             @(Model.Description == null ? Html.TextBoxFor(model => model.Description, new { placeholder = "Description", style = "width:100%; min-height:100px" }) : Html.DisplayFor(model => model.Description, new { style = "width:100%; min-height:100px" }))
         </p>
-    </div>
-    <div style="float: right">
-        <li class="two columns omega">
-            <input type="submit" value="     EDIT     "  onclick="location.href='/Tenant/Edit/@Model.TenantId'"/>
-        </li>
     </div>
 </div>

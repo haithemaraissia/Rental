@@ -24,6 +24,9 @@ namespace RentalMobile.Controllers
         {
             Tenant tenant = db.Tenants.Find(UserHelper.GetTenantID());
             ViewBag.TenantProfile = tenant;
+            ViewBag.TenantId = tenant.TenantId;
+            ViewBag.TenantGoogleMap = string.IsNullOrEmpty(tenant.Address) ? "USA" : tenant.Address;
+            
             return View(tenant);
         }
 
@@ -122,6 +125,22 @@ namespace RentalMobile.Controllers
             Tenant tenant = db.Tenants.Find(id);
             db.Tenants.Remove(tenant);
             db.SaveChanges();
+
+
+
+            var tenantshowing = db.TenantShowings.Where(x => x.TenantId == id).ToList();
+            foreach (var x in tenantshowing)
+            {
+                db.TenantShowings.Remove(x);
+            }
+            db.SaveChanges();
+
+
+            // Delete All associated records
+
+            //Delete from Membership
+
+
             return RedirectToAction("Index");
         }
 

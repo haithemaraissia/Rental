@@ -462,6 +462,15 @@
     <Content Include="Backup\TenantMaintenance\Edit.cshtml" />
     <Content Include="Backup\TenantMaintenance\Index.cshtml" />
     <Content Include="Backup\TenantMaintenance\Index3.cshtml" />
+    <Content Include="Backup\Shared\_ConceptLayoutPage.cshtml" />
+    <Content Include="Backup\Shared\_DefaultLayout.cshtml" />
+    <Content Include="Backup\Shared\_DotLayoutPage.cshtml" />
+    <Content Include="Backup\Shared\_Layout.cshtml" />
+    <Content Include="Backup\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Backup\Shared\_Tenant.cshtml" />
+    <Content Include="Backup\Shared\Error.cshtml" />
+    <Content Include="Backup\Shared\M\_Layout.cshtml" />
+    <Content Include="Backup\Shared\M\_LogOnPartial.cshtml" />
     <None Include="css\dotcss\entypo\entypo.eot" />
     <None Include="css\dotcss\entypo\entypo.eot%40" />
     <None Include="css\dotcss\entypo\entypo.ttf" />
@@ -623,7 +632,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10659</DevelopmentServerPort>
+          <DevelopmentServerPort>58724</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
