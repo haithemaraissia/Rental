@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -58,6 +59,11 @@ namespace RentalMobile.Helpers
             tag.Attributes.Add("for", html.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId(htmlFieldName));
             tag.SetInnerText(labelText);
             return MvcHtmlString.Create(tag.ToString(TagRenderMode.Normal));
+        }
+
+        public static HtmlString Label(this HtmlHelper helper, string target = "", string text = "", string id = "")
+        {
+            return new HtmlString(string.Format("<label id='{0}' for='{1}'>{2}</label>", id, target, text));
         }
     }
 }

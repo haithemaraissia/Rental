@@ -416,40 +416,27 @@ namespace RentalMobile.Controllers
             //Maybe we need to pass the role//
             var directory = @"\" + System.Web.HttpContext.Current.User.Identity.Name + @"\" + "Profile" + @"\" + id + @"\";
             var desinationdirectory = @"\" + System.Web.HttpContext.Current.User.Identity.Name + @"\" + id + @"\";
-
             var path = imageStoragePath + directory;
-
             var uploadDirectory = new DirectoryInfo(path);
             var newdirectory = photoPath + desinationdirectory;
-
-
             if (Directory.Exists(newdirectory))
             {
                 UploadHelper.CreateDirectoryIfNotExist(newdirectory);
             }
-
-
-
             var latestFile = (from f in uploadDirectory.GetFiles()
                               orderby f.LastWriteTime descending
                               select f).First();
             if (latestFile != null)
                 try
                 {
-
-
                     var destinationFile = newdirectory + @"\" + latestFile.Name;
                     var virtualdestinationFile = GetVirtualUserPhotoPath() + @"\" + "Profile" + @"\" + System.Web.HttpContext.Current.User.Identity.Name + @"\" + id + @"\" + latestFile.Name;
-
-
                     if (!System.IO.File.Exists(destinationFile))
                     {
-
                         //Delete all files in the destination folder 
                         var desintationDirectoryFolder = new DirectoryInfo(newdirectory);
                         if (desintationDirectoryFolder.Exists)
                         {
-
                             var files = desintationDirectoryFolder.GetFiles();
                             foreach (var f in files)
                             {
@@ -459,13 +446,11 @@ namespace RentalMobile.Controllers
                         else
                         {
                             UploadHelper.CreateDirectoryIfNotExist(newdirectory);
-                            
+
                         }
                         System.IO.File.Move(latestFile.FullName, destinationFile);
                         AddPicture(virtualdestinationFile);
                     }
-
-
                     //Delete all Files from UploaderDirectory
                     var files2 = uploadDirectory.GetFiles();
                     foreach (var f in files2)
@@ -474,11 +459,6 @@ namespace RentalMobile.Controllers
                     }
 
                 }
-
-
-
-
-
                 catch (Exception e)
                 {
 

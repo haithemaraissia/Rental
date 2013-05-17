@@ -35,6 +35,11 @@ namespace RentalMobile.Models
         public string GooglePlus { get; set; }
         public string Photo { get; set; }
         public string GoogleMap { get; set; }
+        public string Country { get; set; }
+        public string Region { get; set; }
+        public string City { get; set; }
+        public string Zip { get; set; }
+        public string CountryCode { get; set; }
     
         public virtual ICollection<TenantShowing> TenantShowings { get; set; }
         public virtual ICollection<TenantFavorite> TenantFavorites { get; set; }

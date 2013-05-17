@@ -132,6 +132,11 @@
           <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
           <Property Name="Photo" Type="nvarchar(max)" />
           <Property Name="GoogleMap" Type="nvarchar(max)" />
+          <Property Name="Country" Type="varchar" MaxLength="128" />
+          <Property Name="Region" Type="varchar" MaxLength="128" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="TenantFavorite">
           <Key>
@@ -450,6 +455,11 @@
           <Property Type="String" Name="GooglePlus" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Photo" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_TenantShowing_Tenant">
           <End Type="DB_33736_rentalModel.Tenant" Role="Tenant" Multiplicity="1" />
@@ -705,6 +715,11 @@
           <EntitySetMapping Name="Tenants">
             <EntityTypeMapping TypeName="DB_33736_rentalModel.Tenant">
               <MappingFragment StoreEntitySet="Tenant">
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />

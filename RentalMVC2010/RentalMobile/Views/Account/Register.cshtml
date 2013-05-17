@@ -29,23 +29,6 @@
                     @Html.PasswordFor(m => m.ConfirmPassword, new { type = "password", required = "required", CssClassPropertyAttribute = "full-width", placeholder = "Confirm Password" })
                     @Html.ValidationMessageFor(m => m.ConfirmPassword)
                 </li>
-@*                <li class="four columns">
-                    <label for="name-field" class="screen-reader-text">
-                        City</label>
-                    <input id="name-field" type="text" placeholder="City" class="full-width" />
-                </li>*@
-            @*<li class="four columns omega">
-                <label for="email-field" class="screen-reader-text">
-                    Zip Code</label>
-                <input id="email-field" type="email" placeholder="Zip Code" class="full-width" />
-            </li>*@
-            
-            
-  @*          <li class="four columns">
-                <label for="email-field" class="screen-reader-text">
-                    Zip Code</label>
-                <input id="zipcode-field" type="email" placeholder="Zip Code" class="full-width" />
-            </li>*@
             <li class="eight columns omega">
                 @Html.DropDownListFor(x => x.Role, Html.GetRoles(), new { @class = "custom-select" })
             </li>
