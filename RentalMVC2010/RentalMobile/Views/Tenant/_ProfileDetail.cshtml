@@ -1,7 +1,7 @@
 ﻿@model RentalMobile.Models.Tenant
 <div id="profile" class="panel center">
     <div class="seven columns">
-        <img src="@Model.Photo" alt="agent" class="scale-with-grid" width="380" height="320" />
+        <img src="@Model.Photo" alt="agent" class="scale-with-grid" style = "width:100%; min-height:320px"  />
     </div>
     <div class="eight columns prop-details">
         <h6 class="h6custom">
@@ -21,6 +21,13 @@
             About</h6>
         <p>
             @(Model.Description == null ? Html.TextBoxFor(model => model.Description, new { placeholder = "Description", style = "width:100%; min-height:150px" }) : Html.DisplayFor(model => model.Description, new { style = "width:100%; min-height:150px" }))
+        </p>
+        
+        <p>
+            
+            FOR TESTING
+            
+            CITY IS : @Model.City
         </p>
     </div>
 </div>

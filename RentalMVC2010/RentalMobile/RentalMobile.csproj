@@ -600,6 +600,8 @@
     <Content Include="Views\Account\ChangeEmail.cshtml" />
     <Content Include="Views\Account\ChangeEmailSuccess.cshtml" />
     <Content Include="Views\Account\Upload.cshtml" />
+    <Content Include="Views\Tenant\BackUp\Edit.cshtml" />
+    <Content Include="Views\Tenant\ChangeAddress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

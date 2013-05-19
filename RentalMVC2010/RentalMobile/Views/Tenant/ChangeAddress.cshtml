@@ -1,6 +1,6 @@
 ﻿@model RentalMobile.Models.Tenant
 @{
-    ViewBag.Title = "Edit Tenant Profile";
+    ViewBag.Title = "Cjange Tenant Address";
     Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
 
 }
@@ -51,6 +51,8 @@
                         $("#city").val(result.city);
 
                         $("#state").val(result.state);
+
+                        $("#country").val(result.country);
 
                         $(".fancy-form div > div").slideDown();
 
@@ -239,120 +241,78 @@
         margin-top: 10px;
         display: none;
     }
-    #Description
-    {
-        height: 150px;
-        min-height: 150px;
+    #Description {
+    	height: 150px; min-height:150px
     }
+    
+@*    , onkeydown = "javascript:EnterKeyFilter();" *@
 </style>
 <section class="sixteen columns add-bottom relative">
-    @using (Html.BeginForm("Edit", "Tenant", FormMethod.Post, new { @class = "fancy-form" }))
+    @using (Html.BeginForm("ChangeAddress", "Tenant", FormMethod.Post, new { @class = "fancy-form", onkeydown = "EnterKeyFilter();" }))
     {
         @Html.ValidationSummary(true)
         <fieldset>
-            <legend>EDIT PROFILE</legend>
-            <ul class="grid-form sixteen columns push by-one remove-bottom">
-                <li class="six columns alpha  pull by-one">
-                    @Html.HiddenFor(model => model.TenantId)
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.FirstName)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.FirstName)
-                        @Html.ValidationMessageFor(model => model.FirstName)
-                    </div>
-                    <br />
-                </li>
-                <li class="six columns alpha  push by-two">
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.LastName)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.LastName)
-                        @Html.ValidationMessageFor(model => model.LastName)
-                    </div>
-                    <br />
-                </li>
-                <li class="six columns alpha  pull by-one">
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.VCard)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.VCard)
-                        @Html.ValidationMessageFor(model => model.VCard)
-                    </div>
-                    <br />
-                </li>
-                <li class="six columns alpha  push by-two">
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Skype)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Skype)
-                        @Html.ValidationMessageFor(model => model.Skype)
-                    </div>
-                    <br />
-                </li>
-                <li class="six columns alpha  pull by-one">
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Twitter)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Twitter)
-                        @Html.ValidationMessageFor(model => model.Twitter)
-                    </div>
-                    <br />
-                </li>
-                <li class="six columns alpha  push by-two">
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.LinkedIn)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.LinkedIn)
-                        @Html.ValidationMessageFor(model => model.LinkedIn)
-                    </div>
-                    <br />
-                </li>
-                <li class="six columns alpha  pull by-one">
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.GooglePlus)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.GooglePlus)
-                        @Html.ValidationMessageFor(model => model.GooglePlus)
-                    </div>
-                    <br />
-                </li>
-                <li class="fourteen columns pull by-one alpha">
-                    <!--OVER HERE -->
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Description)
-                    </div>
-                    <div>
-                        @Html.TextAreaFor(model => model.Description, new { row = "20", required = "required", @class = "full-width", placeholder = "Description" })
-                    </div>
-                    <br />
-                </li>
-            </ul>
+            <legend>CHANGE ADDRESS</legend>
+            <div class=" instructions editor-label">
+                <label for="city">
+                    Zipcode</label>
+            </div>
             <div>
-                @Html.HiddenFor(model => model.Address)
-                @Html.HiddenFor(model => model.EmailAddress)
-                @Html.HiddenFor(model => model.GUID)
-                @Html.HiddenFor(model => model.Photo)
-                @Html.HiddenFor(model => model.Country)
-                @Html.HiddenFor(model => model.Region)
-                @Html.HiddenFor(model => model.City)
-                @Html.HiddenFor(model => model.Zip)
+                <div class="editor-label">
+                    <label for="address-line-1">
+                        Street #1</label>
+                </div>
+                <div class="editor-label">
+                    @Html.EditorFor(model => model.Address, new { id = "address-line-1", name = "address-line-1", required = "required", CssClassPropertyAttribute = "full-width", placeholder = "Name" })
+                </div>
+            </div>
+            <div>
+                <div class="editor-label">
+                    <label for="city">
+                        City</label>
+                </div>
+                <div class="editor-label">
+                    @Html.TextBoxFor(model => model.City, new { id = "city", name = "city" })
+                </div>
+                <div class="editor-label">
+                    <label for="state">
+                        State</label>
+                </div>
+                <div class="editor-label">
+                    @Html.TextBoxFor(model => model.Region, new { id = "state", name = "state" })
+                </div>
+                
+                                 <div class="editor-label">
+                    <label for="city">
+                        Country</label>
+                </div>
+                <div class="editor-label">
+                    @Html.TextBoxFor(model => model.CountryCode, new { id = "country", name = "country" })
+                </div>
+                <div class="zip-wrap">
+                    <div class="editor-label">
+                        <label for="zip">
+                            Zip</label></div>
+                    <input type="text" pattern="[0-9]*" maxlength="5" required name="zip" id="zip" />
+                    <p class="zip-error">
+                        Not a real zip code.</p>
+                </div>
             </div>
             <p>
                 <input type="submit" value="Save" />
             </p>
+            <div>
+                @Html.HiddenFor(model => model.FirstName)
+                @Html.HiddenFor(model => model.LastName)
+                @Html.HiddenFor(model => model.EmailAddress)
+                @Html.HiddenFor(model => model.GUID)
+                @Html.HiddenFor(model => model.Photo)
+                @Html.HiddenFor(model => model.Country)
+                @Html.HiddenFor(model => model.CountryCode)
+            </div>
         </fieldset>
     }
 </section>
-<div>
-    @Html.ActionLink("Update Picture", "UpdateProfilePicture", "Tenant", new { id = Model.TenantId }, null)
-</div>
 <div>
     @Html.ActionLink("Back", "Index")
 </div>

@@ -23,10 +23,10 @@ namespace RentalMobile.Controllers
 
         public ViewResult Index()
         {
-            Tenant tenant = db.Tenants.Find(UserHelper.GetTenantID());
+            var tenant = db.Tenants.Find(UserHelper.GetTenantID());
             ViewBag.TenantProfile = tenant;
             ViewBag.TenantId = tenant.TenantId;
-            ViewBag.TenantGoogleMap = string.IsNullOrEmpty(tenant.Address) ? "USA" : tenant.Address;
+            ViewBag.TenantGoogleMap = string.IsNullOrEmpty(tenant.Address) ? "USA" : tenant.Address + "," + tenant.Region + "," + tenant.CountryCode;
             
             return View(tenant);
         }
@@ -98,6 +98,31 @@ namespace RentalMobile.Controllers
 
         [HttpPost]
         public ActionResult Edit(Tenant tenant)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tenant).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(tenant);
+        }
+
+
+        //
+        // GET: /Tenant/Edit/5
+
+        public ActionResult ChangeAddress(int id)
+        {
+            Tenant tenant = db.Tenants.Find(id);
+            return View(tenant);
+        }
+
+        //
+        // POST: /Tenant/Edit/5
+
+        [HttpPost]
+        public ActionResult ChangeAddress(Tenant tenant)
         {
             if (ModelState.IsValid)
             {
