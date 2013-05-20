@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using Newtonsoft.Json;
 using RentalMobile.Models;
+
 
 namespace RentalMobile.Helpers
 {
@@ -51,9 +53,52 @@ namespace RentalMobile.Helpers
             return null;
         }
 
-        public static void ISBNewsCategory(string category)
-        {
 
+
+
+
+
+
+
+
+
+
+
+
+        public static bool ValidateLocation(string location)
+        {
+            var address = String.Format("http://maps.google.com/maps/api/geocode/json?address={0}&sensor=false", location.Replace(" ", "+"));
+            var result = new System.Net.WebClient().DownloadString(address);
+            var test = JsonConvert.DeserializeObject<GoogleGeoCodeResponse>(result);
+            return test.status == "OK";
+        }
+
+
+        public static string GetFormattedAdress(string location)
+        {
+            var address = String.Format("http://maps.google.com/maps/api/geocode/json?address={0}&sensor=false", location.Replace(" ", "+"));
+            var result = new System.Net.WebClient().DownloadString(address);
+            var test = JsonConvert.DeserializeObject<GoogleGeoCodeResponse>(result);
+            return test.results[0].formatted_address;
+        }
+
+
+
+        public static string GetFormattedLocation(string address, string city, string country)
+        {
+            if (ValidateLocation(address))
+            {
+                return GetFormattedAdress(address);
+            }
+
+            address = city;
+            if (ValidateLocation(address))
+            {
+                return GetFormattedAdress(address);
+            }
+
+            address = country;
+            return GetFormattedAdress(ValidateLocation(address) ? address : "USA");
         }
 
     }

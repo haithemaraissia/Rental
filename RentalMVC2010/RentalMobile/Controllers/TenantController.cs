@@ -26,8 +26,13 @@ namespace RentalMobile.Controllers
             var tenant = db.Tenants.Find(UserHelper.GetTenantID());
             ViewBag.TenantProfile = tenant;
             ViewBag.TenantId = tenant.TenantId;
-            ViewBag.TenantGoogleMap = string.IsNullOrEmpty(tenant.Address) ? "USA" : tenant.Address + "," + tenant.Region + "," + tenant.CountryCode;
-            
+
+           // ViewBag.test = UserHelper.GetFormattedLocation(tenant.Address, tenant.City, tenant.CountryCode);
+
+           // ViewBag.TenantGoogleMap = string.IsNullOrEmpty(tenant.Address) ? "USA" : tenant.Address + "," + tenant.Region + "," + tenant.CountryCode;
+
+
+            ViewBag.TenantGoogleMap = string.IsNullOrEmpty(tenant.Address) ? UserHelper.GetFormattedLocation("", "", "USA") : UserHelper.GetFormattedLocation(tenant.Address, tenant.City, tenant.CountryCode);
             return View(tenant);
         }
 
