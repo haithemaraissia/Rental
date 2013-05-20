@@ -186,6 +186,9 @@
     <Compile Include="RentalMobile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.pdb" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
     <Content Include="css\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap\css\bootstrap.css" />
