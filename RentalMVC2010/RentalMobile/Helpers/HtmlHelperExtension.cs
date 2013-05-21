@@ -20,8 +20,11 @@ namespace RentalMobile.Helpers
         public static IEnumerable<SelectListItem> GetRoles(this HtmlHelper helper)
         {
             return new[] {
-                new SelectListItem { Text="Tenant" },
-                new SelectListItem { Text="Landlord" },
+                new SelectListItem { Text="Tenant" , Value="Tenant"},
+                 new SelectListItem { Text="Owner" , Value="Owner"},
+                  new SelectListItem { Text="Agent" , Value="Agent"},
+                   new SelectListItem { Text="Specialist" , Value="Specialist"},
+                new SelectListItem { Text="Landlord", Value="Landlord" },
             };
         }
 

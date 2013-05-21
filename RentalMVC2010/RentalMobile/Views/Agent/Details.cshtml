@@ -1,0 +1,110 @@
+﻿@model RentalMobile.Models.Agent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Agent</legend>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">EmailAddress</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">GUID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GUID)
+    </div>
+
+    <div class="display-label">VCard</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VCard)
+    </div>
+
+    <div class="display-label">Skype</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Skype)
+    </div>
+
+    <div class="display-label">Twitter</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Twitter)
+    </div>
+
+    <div class="display-label">LinkedIn</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinkedIn)
+    </div>
+
+    <div class="display-label">GooglePlus</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GooglePlus)
+    </div>
+
+    <div class="display-label">Photo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Photo)
+    </div>
+
+    <div class="display-label">GoogleMap</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GoogleMap)
+    </div>
+
+    <div class="display-label">Country</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country)
+    </div>
+
+    <div class="display-label">Region</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region)
+    </div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">Zip</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zip)
+    </div>
+
+    <div class="display-label">CountryCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CountryCode)
+    </div>
+
+    <div class="display-label">Video</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Video)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AgentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

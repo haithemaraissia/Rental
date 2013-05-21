@@ -80,6 +80,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddMaintenancePhotoController.cs" />
     <Compile Include="Controllers\AdvancedSearchController.cs" />
+    <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Controllers\MaintenanceOrderController.cs" />
     <Compile Include="Controllers\MaintenancePhotoGalleryController.cs" />
     <Compile Include="Controllers\MorePhotoController.cs" />
+    <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
@@ -123,6 +125,9 @@
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="MobileViewEngine.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Agent.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CrewMaintenance.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
@@ -130,6 +135,9 @@
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MaintenancePhoto.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Owner.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OwnerMaintenance.cs">
@@ -151,6 +159,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Models\ServiceType.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialist.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -610,6 +621,30 @@
     <Content Include="Views\Account\Upload.cshtml" />
     <Content Include="Views\Tenant\BackUp\Edit.cshtml" />
     <Content Include="Views\Tenant\ChangeAddress.cshtml" />
+    <Content Include="Views\Shared\_Head.cshtml" />
+    <Content Include="Views\Shared\_IEHandler.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_InitialScripts.cshtml" />
+    <Content Include="Views\Shared\_BrandHeader.cshtml" />
+    <Content Include="Views\Shared\_TopBar.cshtml" />
+    <Content Include="Views\Shared\BackUp\_MiniTabs.cshtml" />
+    <Content Include="Views\Shared\BackUp\_BigTabs.cshtml" />
+    <Content Include="Views\Shared\_Features.cshtml" />
+    <Content Include="Views\Shared\_Partners.cshtml" />
+    <Content Include="Views\Shared\_BreadCrumb.cshtml" />
+    <Content Include="Views\Shared\_TopScroller.cshtml" />
+    <Content Include="Views\Shared\_TenantBigTabMenu.cshtml" />
+    <Content Include="Views\Shared\_TenantMiniTabMenu.cshtml" />
+    <Content Include="Views\Owner\Index.cshtml" />
+    <Content Include="Views\Owner\Details.cshtml" />
+    <Content Include="Views\Owner\Create.cshtml" />
+    <Content Include="Views\Owner\Edit.cshtml" />
+    <Content Include="Views\Owner\Delete.cshtml" />
+    <Content Include="Views\Agent\Index.cshtml" />
+    <Content Include="Views\Agent\Details.cshtml" />
+    <Content Include="Views\Agent\Create.cshtml" />
+    <Content Include="Views\Agent\Edit.cshtml" />
+    <Content Include="Views\Agent\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

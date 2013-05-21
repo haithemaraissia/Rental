@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -11,7 +10,7 @@ namespace RentalMobile.Helpers
 {
     public static class UserHelper
     {
-        private static readonly DB_33736_rentalEntities _db = new DB_33736_rentalEntities();
+        private static readonly DB_33736_rentalEntities DB = new DB_33736_rentalEntities();
 
         public static string Login()
         {
@@ -19,12 +18,8 @@ namespace RentalMobile.Helpers
 
         }
 
-
-
-
         public static Guid? GetUserGUID()
         {
-
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 var user = Membership.GetUser(HttpContext.Current.User.Identity.Name);
@@ -36,34 +31,44 @@ namespace RentalMobile.Helpers
             return null;
         }
 
-
         public static int? GetTenantID(Guid userID)
         {
-            Tenant tenant = _db.Tenants.FirstOrDefault(x => x.GUID == userID);
+            var tenant = DB.Tenants.FirstOrDefault(x => x.GUID == userID);
             if (tenant != null) return tenant.TenantId;
             return null;
         }
-
 
         public  static int? GetTenantID()
         {
             var userID = GetUserGUID();
-            Tenant tenant = _db.Tenants.FirstOrDefault(x => x.GUID == userID);
+            var tenant = DB.Tenants.FirstOrDefault(x => x.GUID == userID);
             if (tenant != null) return tenant.TenantId;
             return null;
         }
 
+        public static int? GetAgentID()
+        {
+            var userID = GetUserGUID();
+            var agent = DB.Agents.FirstOrDefault(x => x.GUID == userID);
+            if (agent != null) return agent.AgentId;
+            return null;
+        }
 
+        public static int? GetOwnerID()
+        {
+            var userID = GetUserGUID();
+            var owner = DB.Owners.FirstOrDefault(x => x.GUID == userID);
+            if (owner != null) return owner.OwnerId;
+            return null;
+        }
 
-
-
-
-
-
-
-
-
-
+        public static int? GetSpecialistID()
+        {
+            var userID = GetUserGUID();
+            var specialist = DB.Specialists.FirstOrDefault(x => x.GUID == userID);
+            if (specialist != null) return specialist.SpecialistId;
+            return null;
+        }
 
         public static bool ValidateLocation(string location)
         {
@@ -73,7 +78,6 @@ namespace RentalMobile.Helpers
             return test.status == "OK";
         }
 
-
         public static string GetFormattedAdress(string location)
         {
             var address = String.Format("http://maps.google.com/maps/api/geocode/json?address={0}&sensor=false", location.Replace(" ", "+"));
@@ -81,8 +85,6 @@ namespace RentalMobile.Helpers
             var test = JsonConvert.DeserializeObject<GoogleGeoCodeResponse>(result);
             return test.results[0].formatted_address;
         }
-
-
 
         public static string GetFormattedLocation(string address, string city, string country)
         {

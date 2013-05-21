@@ -39,5 +39,8 @@ namespace RentalMobile.Models
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<UrgencyType> UrgencyTypes { get; set; }
         public DbSet<TenantMaintenance> TenantMaintenances { get; set; }
+        public DbSet<Agent> Agents { get; set; }
+        public DbSet<Owner> Owners { get; set; }
+        public DbSet<Specialist> Specialists { get; set; }
     }
 }

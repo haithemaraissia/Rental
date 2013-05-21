@@ -1,24 +1,60 @@
-﻿@using System.Linq
-@model RentalMobile.Models.Tenant
+﻿@model RentalMobile.Models.Tenant
 @{
     ViewBag.Title = "Tenant Profile";
     Layout = "~/Views/Shared/_Tenant.cshtml";
 }
+
 @section profile
 {
     @Html.Partial("_ProfileDetail", (object)ViewBag.tenant)
 }
-@section favorite{
-    @*<div id="generalprofile">
-            <!-- Section: slider -->
-            @Html.Partial("_TenantFavorite", (object)ViewBag.TenantProfile );
-        </div>
- *@
-    <div id="favorite">
-   
-        <section>
 
-              <h2 class="section-titling"></h2>
+@section map
+{
+    <div id="map" class="panel">
+        <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?q=@ViewBag.TenantGoogleMap&amp;z=13&amp;output=embed">
+        </iframe>
+        <br />
+    </div>
+}
+
+@section account
+{
+    <div id="account" class="panel">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Edit Profile" onclick="location.href='/Tenant/Edit/@ViewBag.TenantId'"/>
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Edit Email" onclick="location.href='/Account/ChangeEmail'" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Change Passowrd" onclick="location.href='/Account/ChangePassword'" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Change Address" onclick="location.href='/Tenant/ChangeAddress/@ViewBag.TenantId'"/>
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Delete Account" onclick="location.href='/Tenant/Delete/@ViewBag.TenantId'"/>
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Update Photo" onclick="location.href='/Tenant/UpdateProfilePicture/@ViewBag.TenantId'"/>
+                </div>
+            </div>
+        </section>
+    </div>
+}
+
+@section favorite{
+    <div id="favorite">
+        <section>
+            <h2 class="section-titling">
+            </h2>
             <ul class="row add-bottom mosaic-gallery">
                 <li class="four columns">
                     <figure>
@@ -209,9 +245,9 @@
                 </li>
             </ul>
         </section>
-
     </div>
 }
+
 @section showing{
     <div id="showing" class="panel">
         <section class="fifteen columns">
@@ -431,6 +467,7 @@
     </div>
     <!-- /section: gallery -->
 }
+
 @section maintenance
 {
     <div id="maintenance">
@@ -462,6 +499,7 @@
         </section>
     </div>
 }
+
 @section application
 {
     <div id="application">
@@ -482,13 +520,14 @@
         </section>
     </div>
 }
+
 @section contract
 {
     <div id="contract" class="panel">
         <section class="row double-bottom">
             <div class="sixteen columns prop-details">
                 <div class="six columns push by-one">
-                      <input type="submit" class="full-width tall" value="View Contract" onclick="location.href='';" />
+                    <input type="submit" class="full-width tall" value="View Contract" onclick="location.href='';" />
                 </div>
             </div>
         </section>

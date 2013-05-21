@@ -26,8 +26,7 @@ namespace RentalMobile.Controllers
             var tenant = db.Tenants.Find(UserHelper.GetTenantID());
             ViewBag.TenantProfile = tenant;
             ViewBag.TenantId = tenant.TenantId;
-
-            ViewBag.TenantGoogleMap = string.IsNullOrEmpty(tenant.Address) ? UserHelper.GetFormattedLocation("", "", "USA") : UserHelper.GetFormattedLocation(tenant.Address, tenant.City, tenant.CountryCode);
+            ViewBag.TenantGoogleMap = tenant.GoogleMap;
             return View(tenant);
         }
 
@@ -127,6 +126,7 @@ namespace RentalMobile.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(tenant).State = EntityState.Modified;
+                tenant.GoogleMap = string.IsNullOrEmpty(tenant.Address) ? UserHelper.GetFormattedLocation("", "", "USA") : UserHelper.GetFormattedLocation(tenant.Address, tenant.City, tenant.CountryCode);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -154,7 +154,7 @@ namespace RentalMobile.Controllers
 
 
 
-    // Delete All associated records
+            // Delete All associated records
 
             var tenantshowing = db.TenantShowings.Where(x => x.TenantId == id).ToList();
             foreach (var x in tenantshowing)
@@ -192,7 +192,7 @@ namespace RentalMobile.Controllers
 
         public ActionResult UpdateProfilePicture(int id)
         {
-            return RedirectToAction("Upload","Account",new {id = id});
+            return RedirectToAction("Upload","Account",new {id});
         }
 
 

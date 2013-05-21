@@ -1,0 +1,141 @@
+﻿@model IEnumerable<RentalMobile.Models.Agent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            FirstName
+        </th>
+        <th>
+            LastName
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            EmailAddress
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            GUID
+        </th>
+        <th>
+            VCard
+        </th>
+        <th>
+            Skype
+        </th>
+        <th>
+            Twitter
+        </th>
+        <th>
+            LinkedIn
+        </th>
+        <th>
+            GooglePlus
+        </th>
+        <th>
+            Photo
+        </th>
+        <th>
+            GoogleMap
+        </th>
+        <th>
+            Country
+        </th>
+        <th>
+            Region
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Zip
+        </th>
+        <th>
+            CountryCode
+        </th>
+        <th>
+            Video
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GUID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Twitter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkedIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GooglePlus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GoogleMap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Video)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AgentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AgentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AgentId })
+        </td>
+    </tr>
+}
+
+</table>

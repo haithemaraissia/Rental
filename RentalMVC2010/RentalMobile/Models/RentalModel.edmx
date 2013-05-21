@@ -6,11 +6,14 @@
     <edmx:StorageModels>
     <Schema Namespace="DB_33736_rentalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DB_33736_rentalModelStoreContainer">
+          <EntitySet Name="Agent" EntityType="DB_33736_rentalModel.Store.Agent" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CrewMaintenance" EntityType="DB_33736_rentalModel.Store.CrewMaintenance" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MaintenanceOrder" EntityType="DB_33736_rentalModel.Store.MaintenanceOrder" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MaintenancePhoto" EntityType="DB_33736_rentalModel.Store.MaintenancePhoto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Owner" EntityType="DB_33736_rentalModel.Store.Owner" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OwnerMaintenance" EntityType="DB_33736_rentalModel.Store.OwnerMaintenance" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ServiceType" EntityType="DB_33736_rentalModel.Store.ServiceType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Specialist" EntityType="DB_33736_rentalModel.Store.Specialist" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="DB_33736_rentalModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Tenant" EntityType="DB_33736_rentalModel.Store.Tenant" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TenantFavorite" EntityType="DB_33736_rentalModel.Store.TenantFavorite" store:Type="Tables" Schema="dbo" />
@@ -61,6 +64,31 @@
             <End Role="UnitGallery" EntitySet="UnitGallery" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="AgentId" />
+          </Key>
+          <Property Name="AgentId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VCard" Type="nvarchar" MaxLength="100" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="100" />
+          <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="GoogleMap" Type="nvarchar(max)" />
+          <Property Name="Country" Type="varchar" MaxLength="128" />
+          <Property Name="Region" Type="varchar" MaxLength="128" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="3" />
+          <Property Name="Video" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="CrewMaintenance">
           <Key>
             <PropertyRef Name="CrewID" />
@@ -89,6 +117,30 @@
           <Property Name="PhotoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PhotoPath" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="OwnerId" />
+          </Key>
+          <Property Name="OwnerId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VCard" Type="nvarchar" MaxLength="100" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="100" />
+          <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="GoogleMap" Type="nvarchar(max)" />
+          <Property Name="Country" Type="varchar" MaxLength="128" />
+          <Property Name="Region" Type="varchar" MaxLength="128" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="3" />
+        </EntityType>
         <EntityType Name="OwnerMaintenance">
           <Key>
             <PropertyRef Name="OwnerID" />
@@ -103,6 +155,30 @@
           <Property Name="ServiceTypeID" Type="int" Nullable="false" />
           <Property Name="ServiceType" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="LCID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specialist">
+          <Key>
+            <PropertyRef Name="SpecialistId" />
+          </Key>
+          <Property Name="SpecialistId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VCard" Type="nvarchar" MaxLength="100" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="100" />
+          <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="GoogleMap" Type="nvarchar(max)" />
+          <Property Name="Country" Type="varchar" MaxLength="128" />
+          <Property Name="Region" Type="varchar" MaxLength="128" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -384,6 +460,9 @@
             <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
             <End Role="TenantMaintenance" EntitySet="TenantMaintenances" />
           </AssociationSet>
+          <EntitySet Name="Agents" EntityType="DB_33736_rentalModel.Agent" />
+          <EntitySet Name="Owners" EntityType="DB_33736_rentalModel.Owner" />
+          <EntitySet Name="Specialists" EntityType="DB_33736_rentalModel.Specialist" />
         </EntityContainer>
         <EntityType Name="Unit">
           <Key>
@@ -669,6 +748,79 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="AgentId" />
+          </Key>
+          <Property Type="Int32" Name="AgentId" Nullable="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="GUID" Nullable="false" />
+          <Property Type="String" Name="VCard" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Skype" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Twitter" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LinkedIn" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GooglePlus" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Photo" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Video" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="OwnerId" />
+          </Key>
+          <Property Type="Int32" Name="OwnerId" Nullable="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="GUID" Nullable="false" />
+          <Property Type="String" Name="VCard" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Skype" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Twitter" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LinkedIn" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GooglePlus" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Photo" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Specialist">
+          <Key>
+            <PropertyRef Name="SpecialistId" />
+          </Key>
+          <Property Type="Int32" Name="SpecialistId" Nullable="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="GUID" Nullable="false" />
+          <Property Type="String" Name="VCard" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Skype" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Twitter" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LinkedIn" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GooglePlus" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Photo" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -833,6 +985,82 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Agents">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="VCard" ColumnName="VCard" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Owners">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.Owner">
+              <MappingFragment StoreEntitySet="Owner">
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="VCard" ColumnName="VCard" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specialists">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.Specialist">
+              <MappingFragment StoreEntitySet="Specialist">
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="VCard" ColumnName="VCard" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SpecialistId" ColumnName="SpecialistId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -914,6 +1142,9 @@
           <ConnectorPoint PointX="3.75" PointY="17.672841796875" />
           <ConnectorPoint PointX="5.25" PointY="17.672841796875" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Agent" Width="1.5" PointX="7.625" PointY="8.75" Height="4.8648079427083388" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Owner" Width="1.5" PointX="9.375" PointY="8.75" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Specialist" Width="1.5" PointX="11.25" PointY="8.75" Height="4.6725065104166674" />
       </Diagram>
     </Diagrams>
   </Designer>

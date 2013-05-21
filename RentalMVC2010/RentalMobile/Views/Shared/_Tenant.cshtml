@@ -1,166 +1,29 @@
 ﻿<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
+@Html.Partial("_IEHandler")
 <html lang="en">
-<!--<![endif]-->
-<head>
-    <!-- Basic Page Needs
-  	================================================== -->
-    <meta charset="utf-8">
-    <title>@ViewBag.Title</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Mobile Specific Metas
-  	================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- CSS
-  	================================================== -->
-    <link rel="stylesheet" href="../../css/dotcss/base.css">
-    <link rel="stylesheet" href="../../css/dotcss/skeleton.css">
-    <link rel="stylesheet" href="../../css/dotcss/layout.css">
-    <!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-    <!-- JS
-	================================================== -->
-    <script type="text/javascript" src="../../Scripts/js/jquery.min.js"></script>
-    <!-- Favicons
-	================================================== -->
-    <link rel="shortcut icon" href="../../images/dotimages/favicon.ico">
-    <link rel="apple-touch-icon" href="../../images/dotimages/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../../images/dotimages/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../../images/dotimages/apple-touch-icon-114x114.png">
-    <script src='../../WIP/google_analytics_auto.html'></script>
-</head>
+@RenderSection("head", false)
+@Html.Partial("_Head")
 <body>
     <div class="main" role="main">
         @RenderBody()
     </div>
     <div class="container page add-bottom">
-        <!-- top-bar -->
-        <div class="top-bar clearfix">
-            <p class="eight columns">
-                Sales: 555 912 5412 | Email: <a href="#">info@yourcompany.com</a></p>
-            <!-- Language nav -->
-            <ul class="nav lang">
-                <li><a href="#" class="selected">
-                    <img src="../../images/dotimages/icons/es.gif" alt="spain" /></a></li>
-                <li><a href="#">
-                    <img src="../../images/dotimages/icons/it.gif" alt="italy" /></a></li>
-                <li><a href="#">
-                    <img src="../../images/dotimages/icons/en.gif" alt="uk" /></a></li>
-                <li><a href="#">
-                    <img src="../../images/dotimages/icons/fr.gif" alt="frence" /></a></li>
-                <li><a href="#">
-                    <img src="../../images/dotimages/icons/us.gif" alt="usa" /></a></li>
-            </ul>
-            <ul class="menu user">
-                <li><a href="/Account/Register" class="register-btn">Register</a></li>
-                <li>@Html.Partial("_LogOnPartial")</li>
-                <li><a href="Help">Help</a></li>
-            </ul>
-        </div>
-        <!-- /.top-bar -->
-        <header class="row">
-            <!-- brand -->
-            <h1 class="logo one-half column">
-                <a href="../../WIP/index.html">
-                    <img src="../../images/dotimages/logo.png" alt="Dot. Real State"></a>
-            </h1>
-            <!-- follow us -->
-            <div class="follow">
-                <h6 class="half-bottom">
-                    <span>Follow us</span></h6>
-                <ul class="menu social">
-                    <li><a href="#" title="Twitter"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#" title="Flickr"><i class="icon-flickr"></i></a></li>
-                    <li><a href="#" title="Facebook"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#" title="Vimeo"><i class="icon-vimeo"></i></a></li>
-                    <li><a href="#" title="Skype"><i class="icon-skype"></i></a></li>
-                </ul>
-            </div>
-            <!-- /.follow -->
-            <!-- Main nav-bar -->
-            <nav class="menu-bar sixteen columns row">
-                <!-- Main menu -->
-                <ul class="menu clearfix">
-                    <li>@Html.ActionLink("Rent", "Index", "Rent")</li>
-                    <li>@Html.ActionLink("Post", "Index", "Post")</li>
-                    <li>@Html.ActionLink("Maintain", "Index", "Maintain")</li>
-                    <li>@Html.ActionLink("Legal", "Index", "Legal")</li>
-                    <li>@Html.ActionLink("About", "Index", "About")</li>
-                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-                </ul>
-                <a href="." class="home-btn" title="Home"><i class="icon-home"></i></a>
-            </nav>
-            <!-- /.nav-bar -->
-        </header>
-        <!-- /header-->
+        @Html.Partial("_TopBar")
+        @Html.Partial("_BrandHeader")
         <div class="main" role="main">
-            <!-- /section: search form -->
-            <!-- Section: slider -->
             <section class="row">
                 <div class="tab-container mini-tabs sixteen columns">
-                    <ul class="etabs">
-                        <li><a href="#profile"><i class="icon-user"></i>Profile</a></li>
-                        <li><a href="#account"><i class="icon-video"></i>Account</a></li>
-                        <li><a href="#map"><i class="icon-map"></i>Map</a></li>
-                    </ul>
+                    @Html.Partial("_TenantMiniTabMenu")
                     @RenderSection("profile", false)
-                    <div id="map" class="panel">
-                        <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?q=@ViewBag.TenantGoogleMap&amp;z=13&amp;output=embed">
-                        </iframe>
-                        <br />
-                    </div>
-                    <div id="account" class="panel">
-                        <section class="row double-bottom">
-                            <div class="sixteen columns prop-details">
-                                <div class="six columns push by-one">
-                                    <input type="submit" class="full-width tall" value="Edit Profile" onclick="location.href='/Tenant/Edit/@ViewBag.TenantId'"/>
-                                </div>
-                                <div class="six columns push by-two">
-                                    <input type="submit" class="full-width tall" value="Edit Email" onclick="location.href='/Account/ChangeEmail'" />
-                                </div>
-                            </div>
-                            <div class="sixteen columns prop-details">
-                                <div class="six columns push by-one">
-                                    <input type="submit" class="full-width tall" value="Change Passowrd" onclick="location.href='/Account/ChangePassword'" />
-                                </div>
-                                <div class="six columns push by-two">
-                                    <input type="submit" class="full-width tall" value="Change Address" onclick="location.href='/Tenant/ChangeAddress/@ViewBag.TenantId'"/>
-                                </div>
-                            </div>
-                            
-                            
-                             <div class="sixteen columns prop-details">
-                                 <div class="six columns push by-one">
-                                     <input type="submit" class="full-width tall" value="Delete Account" onclick="location.href='/Tenant/Delete/@ViewBag.TenantId'"/>
-                                 </div>
-                                     <div class="six columns push by-two">
-                                    <input type="submit" class="full-width tall" value="Update Photo" onclick="location.href='/Tenant/UpdateProfilePicture/@ViewBag.TenantId'"/>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                    @RenderSection("map",false)
+                    @RenderSection("account",false)
                 </div>
             </section>
-            <!-- /Section: slider -->
-            <!-- Section: Property tabs -->
             <section class="row double-bottom">
                 <div class="tab-container big-tabs sixteen columns">
-                    <ul class="etabs">
-                        <li><a href="#favorite">Favorite</a></li>
-                        <li><a href="#showing">Showing</a></li>
-                        <li><a href="#maintenance">Maintenance</a></li>
-                        <li><a href="#application">Application</a></li>
-                        <li><a href="#contract">Contract</a></li>
-                        <li><a href="#payment">Payment</a></li>
-                    </ul>
+                    @Html.Partial("_TenantBigTabMenu")
                     @RenderSection("comments", false)
                     <div id="favorite">
-                        <!-- Section: slider -->
                         @RenderSection("favorite", false)
                     </div>
                     @RenderSection("showing", false)
@@ -169,178 +32,15 @@
                     @RenderSection("application", false)
                     @RenderSection("payment", false)
                 </div>
-                <!-- /.tab-container -->
             </section>
-            <!-- /section: tagline -->
-            <!-- Section: carousel -->
-            <section class="row double-bottom">
-                <h2 class="section-titling remove-bottom">
-                    Features properties for rent</h2>
-                <div class="carousel-controls row half-bottom">
-                    <span id="carousel-next" class="fr"></span><span id="carousel-prev" class="fr"></span>
-                </div>
-                <ul class="bx-carousel">
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-                        <div class="details">
-                            <h6>
-                                Greenwich Village</h6>
-                            <p class="text">
-                                Unique Loft | <span>$35.000 /month</span></p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <!-- /section: carousel -->
-            <!-- Section: partners -->
-            <section class="sixteen columns double-bottom">
-                <h2>
-                    Our partners</h2>
-                <figure class="partners">
-                    <a href="#">
-                        <img src="../../images/dotimages/partners/partner-1.jpg" alt="partner1" /></a>
-                    <a href="#">
-                        <img src="../../images/dotimages/partners/partner-2.jpg" alt="partner2" /></a>
-                    <a href="#">
-                        <img src="../../images/dotimages/partners/partner-3.jpg" alt="partner3" /></a>
-                    <a href="#">
-                        <img src="../../images/dotimages/partners/partner-4.jpg" alt="partner4" /></a>
-                    <a href="#">
-                        <img src="../../images/dotimages/partners/partner-5.jpg" alt="partner5" /></a>
-                    <a href="#">
-                        <img src="../../images/dotimages/partners/partner-6.jpg" alt="partner6" /></a>
-                    <a href="#">
-                        <img src="../../images/dotimages/partners/partner-7.jpg" alt="partner7" /></a>
-                </figure>
-            </section>
-            <!-- /section: partners -->
+            @Html.Partial("_Features")
+            @Html.Partial("_Partners")
         </div>
-        <!-- /.main -->
-        <ol class="breadcrumbs fourteen columns remove-bottom">
-            <li>You are here:</li>
-            <li><a href="../../WIP/index.html">Home</a> / Registration</li>
-        </ol>
-        <a href="#" class="scroll-top fr">Top <i class="icon-up-open"></i></a>
+        @Html.Partial("_BreadCrumb")
+        @Html.Partial("_TopScroller")
     </div>
-    <!-- /.container -->
-    <footer class="container">
-        <p class="remove-bottom">
-            Copyright &copy; DOT Real State. All Rights Reserved. Designed by Coralix Themes.</p>
-        <p>
-            Vivamus cursus eget Phasellus quis wisi.</p>
-    </footer>
-    <!-- /footer -->
-    <!-- Scripts & Plugins
-        ================================================== -->
-    <!-- BX Slider -->
-    <script src="../../Scripts/js/jquery.bxslider.min.js" type="text/javascript"></script>
-    <!--Fancybox Ligbox-->
-    <script src="../../Scripts/js/jquery.fancybox.js" type="text/javascript"></script>
-    <!--Fancybox Ligbox Thumbnails-->
-    <script src="../../Scripts/js/jquery.fancybox-thumbs.js" type="text/javascript"></script>
-    <!-- Tabs -->
-    <script src="../../Scripts/js/jquery.easytabs.min.js" type="text/javascript"></script>
-    <!-- jQuery dropdown -->
-    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
-    <!-- Tipsy -->
-    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
-    <!-- FitVids -->
-    <script src="../../Scripts/js/fitvids.min.js" type="text/javascript"></script>
-    <!-- Custom Scripts -->
-    @*    <script src="../../Scripts/js/scripts.js" type="text/javascript"></script>*@
-    <script type="text/javascript">
-
-        $(document).ready(function ($) {
-
-            // Init Carousel	
-            $('.bx-carousel').bxSlider({
-                auto: true,
-                minSlides: 1,
-                maxSlides: 3,
-                slideWidth: 300,
-                slideMargin: 20,
-                nextSelector: '#carousel-next',
-                prevSelector: '#carousel-prev',
-                pager: false
-            });
-
-            //Easy tabs
-            $('.tab-container').easytabs();
-
-            //FitVids
-            $('#video').fitVids();
-
-        });
-    </script>
-    <!-- jQuery dropdown -->
-    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
-    <!-- Tipsy -->
-    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
-    <!-- Custom Scripts -->
-    <script src="../../Scripts/js/scripts.js" type="text/javascript"></script>
+    @Html.Partial("_Footer")
+    @Html.Partial("_InitialScripts")
     @RenderSection("scripts", false)
 </body>
 </html>
