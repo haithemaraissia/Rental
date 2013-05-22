@@ -1,5 +1,4 @@
-﻿@using RentalMobile.Helpers
-@model RentalMobile.Models.Tenant
+﻿@model RentalMobile.Models.Owner
 @{
     ViewBag.Title = "Change Address";
     Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
@@ -282,7 +281,8 @@
                 <div class="editor-label">
                     @Html.TextBoxFor(model => model.Region, new { id = "state", name = "state" })
                 </div>
-                <div class="editor-label">
+                
+                                 <div class="editor-label">
                     <label for="city">
                         Country</label>
                 </div>
@@ -314,5 +314,5 @@
     }
 </section>
 <div>
-    @Html.CustomHyperlink("Back")
+    <a href="@Url.Action("Index", "@ViewBag.RoleModel")">Back</a>
 </div>

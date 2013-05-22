@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -564,5 +565,58 @@ namespace RentalMobile.Controllers
             return photoPath.Replace(@"~\Photo", @"../../Photo").Replace("\\", "/");
         }
 
+
+
+
+        ////
+        //// GET: /Tenant/Edit/5
+        //[Authorize]
+        //public ActionResult ChangeAddress(int id)
+        //{
+
+        //    var currentRole = GetCurrentRole();
+        //    ViewBag.RoleModel = currentRole;
+        //    if (currentRole == "Tenant")
+        //    {
+        //        var tenant = _db.Tenants.Find(id);
+        //        return View(tenant);
+
+        //    }
+        //    if (currentRole == "Owner")
+        //    {
+        //        var owner = _db.Owners.Find(id);
+        //        return View(owner);
+
+        //    }
+        //    if (currentRole == "Agent")
+        //    {
+        //        var agent = _db.Agents.Find(id);
+        //        return View(agent);
+
+        //    }
+        //    if (currentRole == "Specialist")
+        //    {
+        //        var specialist = _db.Specialists.Find(id);
+        //        return View(specialist);
+
+        //    }
+        //    return RedirectToAction("LogOn");
+        //}
+
+        ////
+        //// POST: /Tenant/Edit/5
+
+        //[HttpPost]
+        //public ActionResult ChangeAddress(dynamic model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _db.Entry(model).State = EntityState.Modified;
+        //        model.GoogleMap = string.IsNullOrEmpty(model.Address) ? UserHelper.GetFormattedLocation("", "", "USA") : UserHelper.GetFormattedLocation(model.Address, model.City, model.CountryCode);
+        //        _db.SaveChanges();
+        //        return RedirectToAction("Index", GetCurrentRole());
+        //    }
+        //    return View(_db);
+        //}
     }
 }

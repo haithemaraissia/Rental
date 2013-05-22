@@ -571,8 +571,8 @@
     <Content Include="Views\TenantShowing\Delete.cshtml" />
     <Content Include="Views\TenantShowing\_PartialViewPage.cshtml" />
     <Content Include="Views\Tenant\Index.cshtml" />
-    <Content Include="Views\Tenant\Details.cshtml" />
-    <Content Include="Views\Tenant\Create.cshtml" />
+    <Content Include="Views\Tenant\BackUp\Details.cshtml" />
+    <Content Include="Views\Tenant\BackUp\Create.cshtml" />
     <Content Include="Views\Tenant\Edit.cshtml" />
     <Content Include="Views\Tenant\Delete.cshtml" />
     <Content Include="Views\UserProfile\MaintenanceProfile.cshtml" />
@@ -586,7 +586,7 @@
     <Content Include="Views\TenantFavorite\Delete.cshtml" />
     <Content Include="Views\Shared\_Tenant.cshtml" />
     <Content Include="packages.config" />
-    <Content Include="Views\Tenant\Copy of Index.cshtml" />
+    <Content Include="Views\Tenant\BackUp\Copy of Index.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Views\MaintenanceOrder\Index.cshtml" />
     <Content Include="Views\MaintenanceOrder\Details.cshtml" />
@@ -620,7 +620,6 @@
     <Content Include="Views\Account\ChangeEmailSuccess.cshtml" />
     <Content Include="Views\Account\Upload.cshtml" />
     <Content Include="Views\Tenant\BackUp\Edit.cshtml" />
-    <Content Include="Views\Tenant\ChangeAddress.cshtml" />
     <Content Include="Views\Shared\_Head.cshtml" />
     <Content Include="Views\Shared\_IEHandler.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
@@ -645,6 +644,11 @@
     <Content Include="Views\Agent\Create.cshtml" />
     <Content Include="Views\Agent\Edit.cshtml" />
     <Content Include="Views\Agent\Delete.cshtml" />
+    <Content Include="Views\Shared\_Owner.cshtml" />
+    <Content Include="Views\Shared\_Agent.cshtml" />
+    <Content Include="Views\Shared\_Specialist.cshtml" />
+    <Content Include="Views\Tenant\ChangeAddress.cshtml" />
+    <Content Include="Views\Owner\ChangeAddress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

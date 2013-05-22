@@ -30,60 +30,7 @@ namespace RentalMobile.Controllers
             return View(tenant);
         }
 
-        //
-        // GET: /Tenant/Details/5
 
-        public ViewResult Details(int id)
-        {
-            Tenant tenant = db.Tenants.Find(id);
-            return View(tenant);
-
-
-         //   TenantModelView ModelView = new TenantModelView{ Tenants}
-
-
-            //UnitModelView myview = new UnitModelView { Units = db.Units.Find(id) };
-
-            //UnitGallery unitgallery = db.UnitGalleries.Find(id);
-
-
-            //IQueryable<UnitGallery> test = (from d in db.UnitGalleries
-            //                                where d.UnitId == id
-            //                                select d);
-
-
-            //myview.UnitGalleries = test.ToList();
-            ////var x = db.UnitGalleries.Where(x => x.UnitId == id);
-
-
-            //return View(myview);
-        }
-
-        //
-        // GET: /Tenant/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        } 
-
-        //
-        // POST: /Tenant/Create
-
-        [HttpPost]
-        public ActionResult Create(Tenant tenant)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Tenants.Add(tenant);
-                db.SaveChanges();
-                return RedirectToAction("Index");  
-            }
-
-            return View(tenant);
-        }
-        
-        //
         // GET: /Tenant/Edit/5
  
         public ActionResult Edit(int id)

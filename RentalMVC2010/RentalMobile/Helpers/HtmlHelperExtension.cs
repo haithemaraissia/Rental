@@ -12,10 +12,10 @@ namespace RentalMobile.Helpers
     {
 
 
- //       public static string RelativePath(this HtmlHelper helper, string photopath)
- //       {
- //return server.Content(item.PhotoPath)
- //       }
+        //       public static string RelativePath(this HtmlHelper helper, string photopath)
+        //       {
+        //return server.Content(item.PhotoPath)
+        //       }
 
         public static IEnumerable<SelectListItem> GetRoles(this HtmlHelper helper)
         {
@@ -67,6 +67,31 @@ namespace RentalMobile.Helpers
         public static HtmlString Label(this HtmlHelper helper, string target = "", string text = "", string id = "")
         {
             return new HtmlString(string.Format("<label id='{0}' for='{1}'>{2}</label>", id, target, text));
+        }
+
+
+
+        public static MvcHtmlString CustomHyperlink(this HtmlHelper helper, string linkText)
+        {
+            return MvcHtmlString.Create(String.Format("<a href='/{0}'>{1}</a>", GetCurrentRole(), linkText));
+        }
+
+        public static string GetCurrentRole()
+        {
+            var user = System.Web.HttpContext.Current.User;
+            if (user.IsInRole("Tenant"))
+            {
+                return "Tenant";
+            }
+            if (user.IsInRole("Owner"))
+            {
+                return "Owner";
+            }
+            if (user.IsInRole("Agent"))
+            {
+                return "Agent";
+            }
+            return user.IsInRole("Specialist") ? "Specialist" : null;
         }
     }
 }
