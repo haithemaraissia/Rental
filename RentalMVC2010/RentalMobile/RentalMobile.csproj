@@ -208,6 +208,7 @@
     <Content Include="css\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="css\bootstrap\js\bootstrap.js" />
     <Content Include="css\bootstrap\js\bootstrap.min.js" />
+    <Content Include="css\dotcss\fancy.css" />
     <Content Include="css\dotcss\base.css" />
     <Content Include="css\dotcss\entypo\entypo.svg" />
     <Content Include="css\dotcss\entypo\stylesheet.css" />
@@ -400,7 +401,9 @@
     <Content Include="Scripts\plupload\ww.jquery.min.js">
       <DependentUpon>ww.jquery.js</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -582,7 +585,7 @@
     <Content Include="Views\ViewUserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\Landlord\Index.cshtml" />
-    <Content Include="Views\Tenant\_TenantFavorite.cshtml" />
+    <Content Include="Views\Tenant\BackUp\_TenantFavorite.cshtml" />
     <Content Include="Views\TenantFavorite\Delete.cshtml" />
     <Content Include="Views\Shared\_Tenant.cshtml" />
     <Content Include="packages.config" />
@@ -634,11 +637,6 @@
     <Content Include="Views\Shared\_TopScroller.cshtml" />
     <Content Include="Views\Shared\_TenantBigTabMenu.cshtml" />
     <Content Include="Views\Shared\_TenantMiniTabMenu.cshtml" />
-    <Content Include="Views\Owner\Index.cshtml" />
-    <Content Include="Views\Owner\Details.cshtml" />
-    <Content Include="Views\Owner\Create.cshtml" />
-    <Content Include="Views\Owner\Edit.cshtml" />
-    <Content Include="Views\Owner\Delete.cshtml" />
     <Content Include="Views\Agent\Index.cshtml" />
     <Content Include="Views\Agent\Details.cshtml" />
     <Content Include="Views\Agent\Create.cshtml" />
@@ -648,7 +646,13 @@
     <Content Include="Views\Shared\_Agent.cshtml" />
     <Content Include="Views\Shared\_Specialist.cshtml" />
     <Content Include="Views\Tenant\ChangeAddress.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordSuccess.cshtml" />
+    <Content Include="Views\Owner\_ProfileDetail.cshtml" />
+    <Content Include="Views\Owner\Index.cshtml" />
     <Content Include="Views\Owner\ChangeAddress.cshtml" />
+    <Content Include="Views\Owner\Delete.cshtml" />
+    <Content Include="Views\Owner\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

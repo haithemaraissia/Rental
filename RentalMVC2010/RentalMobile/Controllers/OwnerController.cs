@@ -26,40 +26,6 @@ namespace RentalMobile.Controllers
             return View(owner);
         }
 
-        //
-        // GET: /Owner/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Owner owner = db.Owners.Find(id);
-            return View(owner);
-        }
-
-        //
-        // GET: /Owner/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        } 
-
-        //
-        // POST: /Owner/Create
-
-        [HttpPost]
-        public ActionResult Create(Owner owner)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Owners.Add(owner);
-                db.SaveChanges();
-                return RedirectToAction("Index");  
-            }
-
-            return View(owner);
-        }
-        
-        //
         // GET: /Owner/Edit/5
  
         public ActionResult Edit(int id)

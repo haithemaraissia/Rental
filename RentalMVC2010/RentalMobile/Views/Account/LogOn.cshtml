@@ -34,9 +34,13 @@
             <br />
             @Html.DropDownListFor(x => x.Role, Html.GetRoles(), new { @class = "custom-select" })
             <input type="submit" class="submit" value="Log On" />
+            <p>
+                Forgot your password? @Html.ActionLink("Click here to retrieve your Password.", "ForgotPassword", "Account")
+            </p>
         </fieldset>
    
-    }</section>
+    }
+</section>
 <!-- /section: search form -->
 <!-- Aside -->
 <aside class="seven columns">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -145,6 +146,7 @@ namespace RentalMobile.Controllers
             return View(model);
         }
 
+        [Authorize]
         public ActionResult ChangePasswordSuccess()
         {
             return View();
@@ -281,9 +283,99 @@ namespace RentalMobile.Controllers
             return View(model);
         }
 
+        [Authorize]
         public ActionResult ChangeEmailSuccess()
         {
             return View();
+        }
+
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //Get username from provided email address;
+                var userName = Membership.GetUserNameByEmail(model.Email);
+
+                //if username exist get the membership user to reset the password
+                if (userName != null)
+                {
+                    var currentUser = Membership.GetUser(userName);
+
+                    if (currentUser != null && model.Email.ToLower() == currentUser.Email.ToLower())
+                    {
+                        SendResetEmail(currentUser);
+
+                        return RedirectToAction("ResetPasswordSuccess", "Account");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "The email address entered does not exist.");
+                }
+
+            }
+            return View();
+        }
+
+        public ActionResult ResetPasswordSuccess()
+        {
+            return View();
+        }
+        
+        public void SendResetEmail(MembershipUser user)
+        {
+            //The URL to login
+            if (HttpContext.Request.Url == null) return;
+            var domain = HttpContext.Request.Url.GetLeftPart(UriPartial.Authority) +
+                            HttpRuntime.AppDomainAppVirtualPath;
+
+            //link to send
+            var link = domain + "/Account/Logon";
+
+            var body = "<p> Dear " + user.UserName + ",</p>";
+            body += "<p> Your Orion password has been reset, Click " + link + " to login with details below</p>";
+            body += "<p> UserName: " + user.UserName + "</p>";
+            body += "<p> Password: " + user.ResetPassword() + "</p>";
+            body += "<p>It is recomended that you change it after logon.</p>";
+            body += "<p>If you did not request a password reset you do not need to take any action.</p>";
+
+            var plainView = AlternateView.CreateAlternateViewFromString
+                (System.Text.RegularExpressions.Regex.Replace(body, @"<(.|\n)*?>", string.Empty), null, "text/plain");
+
+            var htmlView = AlternateView.CreateAlternateViewFromString(body, null, "text/html");
+
+            var message = new MailMessage("haithem-araissia.com", user.Email)
+                {
+                    Subject = "Password Reset",
+                    BodyEncoding = System.Text.Encoding.GetEncoding("utf-8"),
+                    IsBodyHtml = true,
+                    Priority = MailPriority.High,
+                };
+
+            message.AlternateViews.Add(plainView);
+            message.AlternateViews.Add(htmlView);
+
+            var smtpMail = new SmtpClient();
+            var basicAuthenticationInfo = new System.Net.NetworkCredential("postmaster@haithem-araissia.com",
+                                                                           "haithem759163");
+            smtpMail.Host = "mail.haithem-araissia.com";
+            smtpMail.UseDefaultCredentials = false;
+            smtpMail.Credentials = basicAuthenticationInfo;
+            try
+            {
+                smtpMail.Send(message);
+            }
+            catch (Exception)
+            {
+                RedirectToAction("Index", "Home");
+                throw;
+            }
         }
 
         [Authorize]
@@ -405,6 +497,7 @@ namespace RentalMobile.Controllers
             return user.IsInRole("Specialist") ? "Specialist" : null;
         }
 
+        [Authorize]
         public ActionResult Upload(int id)
         {
             var role = GetCurrentRole();
@@ -442,6 +535,7 @@ namespace RentalMobile.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult UpdateProfilePhoto(int id)
         {
             SavePictures(id);
@@ -565,58 +659,5 @@ namespace RentalMobile.Controllers
             return photoPath.Replace(@"~\Photo", @"../../Photo").Replace("\\", "/");
         }
 
-
-
-
-        ////
-        //// GET: /Tenant/Edit/5
-        //[Authorize]
-        //public ActionResult ChangeAddress(int id)
-        //{
-
-        //    var currentRole = GetCurrentRole();
-        //    ViewBag.RoleModel = currentRole;
-        //    if (currentRole == "Tenant")
-        //    {
-        //        var tenant = _db.Tenants.Find(id);
-        //        return View(tenant);
-
-        //    }
-        //    if (currentRole == "Owner")
-        //    {
-        //        var owner = _db.Owners.Find(id);
-        //        return View(owner);
-
-        //    }
-        //    if (currentRole == "Agent")
-        //    {
-        //        var agent = _db.Agents.Find(id);
-        //        return View(agent);
-
-        //    }
-        //    if (currentRole == "Specialist")
-        //    {
-        //        var specialist = _db.Specialists.Find(id);
-        //        return View(specialist);
-
-        //    }
-        //    return RedirectToAction("LogOn");
-        //}
-
-        ////
-        //// POST: /Tenant/Edit/5
-
-        //[HttpPost]
-        //public ActionResult ChangeAddress(dynamic model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _db.Entry(model).State = EntityState.Modified;
-        //        model.GoogleMap = string.IsNullOrEmpty(model.Address) ? UserHelper.GetFormattedLocation("", "", "USA") : UserHelper.GetFormattedLocation(model.Address, model.City, model.CountryCode);
-        //        _db.SaveChanges();
-        //        return RedirectToAction("Index", GetCurrentRole());
-        //    }
-        //    return View(_db);
-        //}
     }
 }

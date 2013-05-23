@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using RentalMobile.Helpers
+@{
+    ViewBag.Title = "Upload Photo";
     Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
 }
 <head>
@@ -32,10 +33,9 @@
         }
     </style>
 </head>
-<h1>
-    Update Your Profile Photo</h1>
+<h1> Update Your Profile Photo</h1>
 <div class="toolbarcontainer">
-    <a href="@ViewBag.Id" class="hoverbutton"><span class="icon-refresh"></span>Refresh</a>
+<a  href="javascript:window.location.href=window.location.href" class="hoverbutton"><span class="icon-refresh"></span>Refresh</a>
 </div>
 <div class="descriptionheader">
 </div>
@@ -156,3 +156,6 @@
         <input type="submit" value="Update" />
     </p>
 }
+<div>
+    @Html.CustomHyperlink("Back")
+</div>

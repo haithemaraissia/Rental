@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
 }
 <section class="sixteen columns add-bottom relative">
-    <h2>
-        ChangeEmail</h2>
+    <h2> Change Email</h2>
     <ul class="grid-form row remove-bottom">
         <li class="four columns">&nbsp; </li>
         <li class="eight columns">
@@ -16,7 +15,6 @@
             {
                 @Html.ValidationSummary(true, "Email address was not changed was unsuccessful. Please correct the errors and try again.")
                 <fieldset>
-                    <legend>RegisterModel</legend>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.Email)
                         @Html.ValidationMessageFor(model => model.Email)
