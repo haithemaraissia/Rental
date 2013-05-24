@@ -1,0 +1,25 @@
+﻿@model RentalMobile.Models.Agent
+<div id="profile" class="panel center">
+    <div class="seven columns">
+        <img src="@Model.Photo" alt="agent" class="scale-with-grid" style = "width:100%; min-height:320px"  />
+    </div>
+    <div class="eight columns prop-details">
+        <h6 class="h6custom">
+            @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h6>
+        <p class="profile-meta">
+            <span class="social-profile"><a href="mailto:@Html.DisplayFor(model => model.EmailAddress)">
+                <i class="icon-mail"></i></a><a href="@Html.DisplayFor(model => model.VCard)" target="_blank">
+                    <i class="icon-vcard"></i></a><a href="@Html.DisplayFor(model => model.Skype)" target="_blank">
+                        <i class="icon-skype"></i></a><a href="@Html.DisplayFor(model => model.Twitter)" target="_blank">
+                            <i class="icon-twitter"></i></a><a href="@Html.DisplayFor(model => model.LinkedIn)" target="_blank">
+                                <i class="icon-linkedin"></i></a><a href="@Html.DisplayFor(model => model.GooglePlus)" target="_blank">
+                                    <i class="icon-gplus-1"></i></a></span>
+        </p>
+        <br />
+        <h6 class="h6custom">
+            About</h6>
+        <p>
+            @(Model.Description == null ? Html.TextBoxFor(model => model.Description, new { placeholder = "Description", style = "width:100%; min-height:150px" }) : Html.DisplayFor(model => model.Description, new { style = "width:100%; min-height:150px" }))
+        </p>
+    </div>
+</div>

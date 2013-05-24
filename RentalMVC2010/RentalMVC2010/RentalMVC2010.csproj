@@ -269,7 +269,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59661</DevelopmentServerPort>
+          <DevelopmentServerPort>54980</DevelopmentServerPort>
           <DevelopmentServerVPath>/RentalMVC2010</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

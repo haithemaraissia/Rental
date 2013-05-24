@@ -18,7 +18,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FancyImageUploader", "demo\
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "50286"
+		VWDPort = "54612"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMobile", "RentalMobile\RentalMobile.csproj", "{0885FB0A-8DA2-4C0B-9356-CE1A1EEB8AEE}"
@@ -46,7 +46,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Zip", "Zip\Zip\", "{2C05806
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "64856"
+		VWDPort = "54601"
 	EndProjectSection
 EndProject
 Global

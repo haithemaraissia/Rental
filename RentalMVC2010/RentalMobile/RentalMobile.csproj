@@ -98,6 +98,7 @@
     <Compile Include="Controllers\TenantFavoriteController.cs" />
     <Compile Include="Controllers\TenantMaintenanceController.cs" />
     <Compile Include="Controllers\TenantShowingController.cs" />
+    <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\UnitDetailController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UploadMaintenancePhotoController.cs" />
@@ -551,7 +552,6 @@
     <Content Include="Views\Help\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\UnitDetail\Index.cshtml" />
-    <Content Include="Views\Specialist\Index.cshtml" />
     <Content Include="Design\Tenant\Index.cshtml" />
     <Content Include="Handler\ImageUploadHandler.ashx" />
     <Content Include="Handler\ProfileImageUploadHandler.ashx" />
@@ -637,11 +637,6 @@
     <Content Include="Views\Shared\_TopScroller.cshtml" />
     <Content Include="Views\Shared\_TenantBigTabMenu.cshtml" />
     <Content Include="Views\Shared\_TenantMiniTabMenu.cshtml" />
-    <Content Include="Views\Agent\Index.cshtml" />
-    <Content Include="Views\Agent\Details.cshtml" />
-    <Content Include="Views\Agent\Create.cshtml" />
-    <Content Include="Views\Agent\Edit.cshtml" />
-    <Content Include="Views\Agent\Delete.cshtml" />
     <Content Include="Views\Shared\_Owner.cshtml" />
     <Content Include="Views\Shared\_Agent.cshtml" />
     <Content Include="Views\Shared\_Specialist.cshtml" />
@@ -653,6 +648,21 @@
     <Content Include="Views\Owner\ChangeAddress.cshtml" />
     <Content Include="Views\Owner\Delete.cshtml" />
     <Content Include="Views\Owner\Edit.cshtml" />
+    <Content Include="Views\Agent\_ProfileDetail.cshtml" />
+    <Content Include="Views\Agent\Index.cshtml" />
+    <Content Include="Views\Agent\ChangeAddress.cshtml" />
+    <Content Include="Views\Agent\Delete.cshtml" />
+    <Content Include="Views\Agent\Edit.cshtml" />
+    <Content Include="Views\Specialist\_ProfileDetail.cshtml" />
+    <Content Include="Views\Specialist\Index.cshtml" />
+    <Content Include="Views\Specialist\ChangeAddress.cshtml" />
+    <Content Include="Views\Specialist\Delete.cshtml" />
+    <Content Include="Views\Specialist\Edit.cshtml" />
+    <Content Include="Views\Unit\Index.cshtml" />
+    <Content Include="Views\Unit\Details.cshtml" />
+    <Content Include="Views\Unit\Create.cshtml" />
+    <Content Include="Views\Unit\Edit.cshtml" />
+    <Content Include="Views\Unit\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

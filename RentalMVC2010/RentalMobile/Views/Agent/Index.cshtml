@@ -1,141 +1,543 @@
-﻿@model IEnumerable<RentalMobile.Models.Agent>
-
+﻿@model RentalMobile.Models.Agent
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Agent Profile";
+    Layout = "~/Views/Shared/_Agent.cshtml";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            FirstName
-        </th>
-        <th>
-            LastName
-        </th>
-        <th>
-            Address
-        </th>
-        <th>
-            EmailAddress
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            GUID
-        </th>
-        <th>
-            VCard
-        </th>
-        <th>
-            Skype
-        </th>
-        <th>
-            Twitter
-        </th>
-        <th>
-            LinkedIn
-        </th>
-        <th>
-            GooglePlus
-        </th>
-        <th>
-            Photo
-        </th>
-        <th>
-            GoogleMap
-        </th>
-        <th>
-            Country
-        </th>
-        <th>
-            Region
-        </th>
-        <th>
-            City
-        </th>
-        <th>
-            Zip
-        </th>
-        <th>
-            CountryCode
-        </th>
-        <th>
-            Video
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GUID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VCard)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Skype)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Twitter)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinkedIn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GooglePlus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoogleMap)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Region)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Zip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountryCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Video)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AgentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AgentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AgentId })
-        </td>
-    </tr>
+@section profile
+{
+    @Html.Partial("_ProfileDetail", (object)ViewBag.Agent)
 }
-
-</table>
+@section map
+{
+    <div id="map" class="panel">
+        <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?q=@ViewBag.AgentGoogleMap&amp;z=13&amp;output=embed">
+        </iframe>
+        <br />
+    </div>
+}
+@section account
+{
+    <div id="account" class="panel">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Edit Profile" onclick="location.href='/Agent/Edit/@ViewBag.AgentId'"/>
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Edit Email" onclick="location.href='/Account/ChangeEmail'" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Change Passowrd" onclick="location.href='/Account/ChangePassword'" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Change Address" onclick="location.href='/Agent/ChangeAddress/@ViewBag.AgentId'"/>
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Delete Account" onclick="location.href='/Agent/Delete/@ViewBag.AgentId'"/>
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Update Photo" onclick="location.href='/Agent/UpdateProfilePicture/@ViewBag.AgentId'"/>
+                </div>
+            </div>
+        </section>
+    </div>
+}
+@section favorite
+{
+    <div id="favorite">
+        <section>
+            <h2 class="section-titling">
+            </h2>
+            <ul class="row add-bottom mosaic-gallery">
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            12205 South Strange Line, Olathe, KS,USA.</h6>
+                        <h6 style="float: left">
+                            20 Sep 2012 2:00</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Bed: <span>4</span>Bathroom: <span>2</span>Price: <span>$35.000</span></p>
+                    </div>
+                    <div style="text-align: center">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="four columns">
+                    <figure>
+                        <a href="#"></a>
+                        <img src="../../images/dotimages/properties/gallery-480x350.png" alt="//" class="scale-with-grid">
+                    </figure>
+                    <div class="details">
+                        <h6>
+                            Greenwich Village</h6>
+                        <p>
+                            Modern Space lorem ipsum dolor sit amet conse.</p>
+                        <p class="price">
+                            Price: <span>$35.000</span></p>
+                        <ul class="table-list">
+                            <li>Beds<span>8</span></li>
+                            <li>Bathes<span>4</span></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+}
+@section showing
+{
+    <div id="showing" class="panel">
+        <section class="fifteen columns">
+            <!-- List/Grid gallery -->
+            <ul id="property-list" class="list-grid-gallery list">
+                <li class="prop-type all house">
+                    <article>
+                        <figure class="five columns alpha">
+                            <a href="#" class="camera">3</a>
+                            <img src="../../images/dotimages/properties/gallery-280x165.png" class="scale-with-grid"
+                                alt="gallery" />
+                        </figure>
+                        <div class="nine columns omega">
+                            <h4>
+                                House 79th St #8C, New York NY, USA</h4>
+                            <ul class="prop-data">
+                                <li class="price">1/1/2001 </li>
+                                <li class="new">9134060298</li>
+                            </ul>
+                            <p class="prop-webid">
+                                SHowing ID #1</p>
+                            <p class="propr-details">
+                                1 bedroom / 2 bathrom / 1,300 sqft
+                            </p>
+                            <p class="prop-extract">
+                                Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id
+                                rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum
+                                commodteger bibendum c scele.a est quis nunc bibendum consequat. Cras ornare sodales
+                                venenatis. a est quis nunc bibendum consequat. Cras ornare sodales venenatis.
+                            </p>
+                            <ul class="toolbar">
+                                @*                                <li class="dollar"><a href="#">Compare</a></li>
+                                <li class="map"><a href="#">Map</a></li>*@
+                                <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                                @*									<li class="next-arr">@Html.ActionLink("Description", "Index", "UnitDetail")></li>*@
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+                <li class="prop-type all house">
+                    <article>
+                        <figure class="five columns alpha">
+                            <a href="#" class="camera">3</a>
+                            <img src="../../images/dotimages/properties/gallery-280x165.png" class="scale-with-grid"
+                                alt="gallery" />
+                        </figure>
+                        <div class="nine columns omega">
+                            <h4>
+                                House 79th St #8C, New York NY, USA</h4>
+                            <ul class="prop-data">
+                                <li class="price">$1,875,000</li>
+                                <li class="new">New construction</li>
+                            </ul>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="propr-details">
+                                1 bedroom / 2 bathrom / 1,300 sqft
+                            </p>
+                            <p class="prop-extract">
+                                Duis a est quis nunc bibendum consequat. Cras ornare sodales venenatis. Proin id
+                                rhoncus massa ellentesque quis orci non lacus tincidunt scelerisque. Integer bibendum
+                                commodteger bibendum c scele.</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <ul class="toolbar">
+                                <li class="dollar"><a href="#">Compare</a></li>
+                                <li class="map"><a href="#">Map</a></li>
+                                <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                                @*									<li class="next-arr">@Html.ActionLink("Description", "Index", "UnitDetail")></li>*@
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+                <li class="prop-type all house">
+                    <article>
+                        <figure class="five columns alpha">
+                            <a href="#" class="camera">3</a>
+                            <img src="../../images/dotimages/properties/gallery-280x165.png" class="scale-with-grid"
+                                alt="gallery" />
+                        </figure>
+                        <div class="nine columns omega">
+                            <h4>
+                                House 79th St #8C, New York NY, USA</h4>
+                            <ul class="prop-data">
+                                <li class="price">$1,875,000</li>
+                                <li class="new">New construction</li>
+                            </ul>
+                            <p class="propr-details">
+                                1 bedroom / 2 bathrom / 1,300 sqft
+                            </p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <ul class="toolbar">
+                                <li class="dollar"><a href="#">Compare</a></li>
+                                <li class="map"><a href="#">Map</a></li>
+                                <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                                @*									<li class="next-arr">@Html.ActionLink("Description", "Index", "UnitDetail")></li>*@
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+                <li class="prop-type all house">
+                    <article>
+                        <figure class="five columns alpha">
+                            <a href="#" class="camera">3</a>
+                            <img src="../../images/dotimages/properties/gallery-280x165.png" class="scale-with-grid"
+                                alt="gallery" />
+                        </figure>
+                        <div class="nine columns omega">
+                            <h4>
+                                House 79th St #8C, New York NY, USA</h4>
+                            <ul class="prop-data">
+                                <li class="price">$1,875,000</li>
+                                <li class="new">New construction</li>
+                            </ul>
+                            <p class="propr-details">
+                                1 bedroom / 2 bathrom / 1,300 sqft
+                            </p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <ul class="toolbar">
+                                <li class="dollar"><a href="#">Compare</a></li>
+                                <li class="map"><a href="#">Map</a></li>
+                                <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                                @*									<li class="next-arr">@Html.ActionLink("Description", "Index", "UnitDetail")></li>*@
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+                <li class="prop-type all house">
+                    <article>
+                        <figure class="five columns alpha">
+                            <a href="#" class="camera">3</a>
+                            <img src="../../images/dotimages/properties/gallery-280x165.png" class="scale-with-grid"
+                                alt="gallery" />
+                        </figure>
+                        <div class="nine columns omega">
+                            <h4>
+                                House 79th St #8C, New York NY, USA</h4>
+                            <ul class="prop-data">
+                                <li class="price">$1,875,000</li>
+                                <li class="new">New construction</li>
+                            </ul>
+                            <p class="propr-details">
+                                1 bedroom / 2 bathrom / 1,300 sqft
+                            </p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <p class="prop-webid">
+                                Web ID #1</p>
+                            <ul class="toolbar">
+                                <li class="dollar"><a href="#">Compare</a></li>
+                                <li class="map"><a href="#">Map</a></li>
+                                <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                                @*									<li class="next-arr">@Html.ActionLink("Description", "Index", "UnitDetail")></li>*@
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+            <!-- /.List -->
+            <style>
+                #container
+                {
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                #left
+                {
+                    float: left;
+                    width: 50px;
+                    height: 20px;
+                    background: #ff0000;
+                }
+                
+                #center
+                {
+                    display: inline-block;
+                    margin: 0 auto;
+                    width: 50px;
+                    height: 20px;
+                    background: #00ff00;
+                }
+                
+                #right
+                {
+                    float: right;
+                    width: 50px;
+                    height: 20px;
+                    background: #0000ff;
+                }
+            </style>
+            <!--Pagination-->
+            <div id="container">
+                <div id="left">
+                    Previous</div>
+                <div id="center">
+                    Page 1 of 10</div>
+                <div id="right">
+                    Next</div>
+            </div>
+            <!--Pagination-->
+        </section>
+    </div>
+}
+@section maintenance
+{
+    <div id="maintenance">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Manage Provider" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Create New Request" onclick="location.href='./AgentMaintenance/Create';" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Current Requests" onclick="location.href='./AgentMaintenance';" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Archived Requests" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Future: Hire Specialist" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Future" />
+                </div>
+            </div>
+        </section>
+    </div>
+}
+@section application
+{
+    <div id="application">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Create Application" onclick="location.href='';" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Submit Application" onclick="location.href='';" />
+                </div>
+            </div>
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="View Application" onclick="location.href='';" />
+                </div>
+            </div>
+        </section>
+    </div>
+}
+@section contract
+{
+    <div id="contract" class="panel">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="View Contract" onclick="location.href='';" />
+                </div>
+            </div>
+        </section>
+    </div>
+}
+@section payment
+{
+    <div id="payment" class="panel">
+        <section class="row double-bottom">
+            <div class="sixteen columns prop-details">
+                <div class="six columns push by-one">
+                    <input type="submit" class="full-width tall" value="Pay Rent" onclick="location.href='';" />
+                </div>
+                <div class="six columns push by-two">
+                    <input type="submit" class="full-width tall" value="Payment History" onclick="location.href='./AgentMaintenance/Create';" />
+                </div>
+            </div>
+        </section>
+    </div>
+}

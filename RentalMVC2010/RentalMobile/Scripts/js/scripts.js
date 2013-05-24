@@ -13,40 +13,40 @@ $(document).ready(function () {
 	$("#fancybox-manual-c").click(function() {
 				$.fancybox.open([
 					{
-						href : 'images/single-property/big-800x500-1.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-1.jpg',
 						title : 'Property 1 Example'
 					}, {
-						href : 'images/single-property/big-800x500-2.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-2.jpg',
 						title : 'Property 2 Example'
 					}, {
-						href : 'images/single-property/big-800x500-3.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-3.jpg',
 						title : 'Property 3 Example'
 					},{
-						href : 'images/single-property/big-800x500-4.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-4.jpg',
 						title : 'Property 4 Example'
 					},{
-						href : 'images/single-property/big-800x500-5.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-5.jpg',
 						title : 'Property 5 Example'
 					},{
-						href : 'images/single-property/big-800x500-6.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-6.jpg',
 						title : 'Property 6 Example'
 					},{
-						href : 'images/single-property/big-800x500-7.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-7.jpg',
 						title : 'Property 7 Example'
 					}, {
-						href : 'images/single-property/big-800x500-4.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-4.jpg',
 						title : 'Property 8 Example'
 					}, {
-						href : 'images/single-property/big-800x500-1.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-1.jpg',
 						title : 'Property 9 Example'
 					},{
-						href : 'images/single-property/big-800x500-2.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-2.jpg',
 						title : 'Property 10 Example'
 					},{
-						href : 'images/single-property/big-800x500-3.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-3.jpg',
 						title : 'Property 11 Example'
 					},{
-						href : 'images/single-property/big-800x500-5.jpg',
+						href : '../../images/dotimages/single-property/big-800x500-5.jpg',
 						title : 'Property 12 Example'
 					}
 					
