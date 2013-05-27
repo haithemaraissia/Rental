@@ -301,6 +301,7 @@
                 <input type="submit" value="Save" />
             </p>
             <div>
+                                    @Html.HiddenFor(model => model.TenantId)
                 @Html.HiddenFor(model => model.FirstName)
                 @Html.HiddenFor(model => model.LastName)
                 @Html.HiddenFor(model => model.EmailAddress)

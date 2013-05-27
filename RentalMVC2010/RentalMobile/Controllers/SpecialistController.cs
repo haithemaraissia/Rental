@@ -22,11 +22,11 @@ namespace RentalMobile.Controllers
 
         public ViewResult Index()
         {
-            var Specialist = db.Specialists.Find(UserHelper.GetSpecialistID());
-            ViewBag.SpecialistProfile = Specialist;
-            ViewBag.SpecialistId = Specialist.SpecialistId;
-            ViewBag.SpecialistGoogleMap = Specialist.GoogleMap;
-            return View(Specialist);
+            var specialist = db.Specialists.Find(UserHelper.GetSpecialistID());
+            ViewBag.SpecialistProfile = specialist;
+            ViewBag.SpecialistId = specialist.SpecialistId;
+            ViewBag.SpecialistGoogleMap = specialist.GoogleMap;
+            return View(specialist);
         }
 
 

@@ -1,44 +1,55 @@
-﻿@model RentalMobile.Models.Unit
+﻿@using System.Globalization
+@model RentalMobile.Models.Unit
 @{
     ViewBag.Title = "Unit Description";
-    Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
+    Layout = "~/Views/Shared/_Unit.cshtml";
+    var jsonUrl = "/unitdetail/jsonfun/";
+
+    if (String.IsNullOrEmpty(Model.UnitId.ToString(CultureInfo.InvariantCulture)))
+    {
+        Response.Redirect(Url.Action("LogOn", "Account", "Log in"));
+    }
+    else
+    {
+        jsonUrl += Model.UnitId;
+
+    }
 }
-<div class="tools sixteen columns add-bottom">
-    <a href="#">Back</a> | <a href="registration.html">Save</a> | <a href="mortgage.html">
-        Mortgage Calculator</a> | <a href="registration.html">My Favorites</a> | <a href="advanced-search.html">
-            Advanced Search</a>
-</div>
-<!-- Section: slider -->
+
+
 <section class="row">
-    <h2 class="section-titling">
-        Central Park West, $390.000</h2>
-    <div class="tab-container mini-tabs eight columns">
-        <ul class="etabs">
-            <li><a href="#photos"><i class="icon-camera"></i>Photos</a></li>
-            <li><a href="#video"><i class="icon-video"></i>Video</a></li>
-            <li><a href="#map"><i class="icon-map"></i>Map</a></li>
-            <li><a href="#agent"><i class="icon-user"></i>Agent</a></li>
-        </ul>
+    @section photo
+        {
         <div id="photos" class="panel">
             <a id="fancybox-manual-c" href="javascript:;">
                 <img src="../../images/dotimages/single-property/gallery-480x350.png" class="img-preview scale-with-grid"
                     alt="image">
             </a>
         </div>
+    }
+    @section video
+        {
         <div id="video" class="panel">
             <iframe src="http://player.vimeo.com/video/12158329" width="500" height="281" frameborder="0"
                 webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
+    }
+    @section map
+        {
         <div id="map" class="panel">
-            <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0"
-                marginwidth="0" src="https://maps.google.com.ar/maps?f=q&amp;source=s_q&amp;hl=es-419&amp;geocode=&amp;q=United+Center,+West+Madison+Street,+Chicago,+Illinois,+Estados+Unidos&amp;aq=3&amp;oq=Chicago+bulls+&amp;sll=-38.452918,-63.598921&amp;sspn=39.850301,79.013672&amp;ie=UTF8&amp;hq=United+Center,+West+Madison+Street,&amp;hnear=Chicago,+Condado+de+Cook,+Illinois,+Estados+Unidos&amp;t=m&amp;ll=41.880042,-87.671242&amp;spn=0.038343,0.072956&amp;z=13&amp;output=embed">
+            <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?q=@ViewBag.UnitGoogleMap&amp;z=13&amp;output=embed">
             </iframe>
+            <br />
         </div>
+    }
+    @section poster
+    {
         <div id="agent" class="panel">
             <img src="../../images/dotimages/single-property/agent-480x350.png" alt="Agent" class="scale-with-grid">
         </div>
-    </div>
-    <div class="eight columns prop-details">
+    }
+    @section unitrequestshowing
+    {
         <h4>
             Recuest showing</h4>
         <p>
@@ -71,18 +82,12 @@
         </ul>
         <input type="submit" class="full-width tall" value="Request a showing">
         </form>
-    </div>
+    }
 </section>
-<!-- /section: search form -->
-<!-- Section: Property tabs -->
+
 <section class="row double-bottom">
-    <div class="tab-container big-tabs sixteen columns">
-        <ul class="etabs">
-            <li><a href="#description">Description</a></li>
-            <li><a href="#share-on-fb">Share on Facebook</a></li>
-            <li><a href="#send-to-friend">Send to a friend</a></li>
-            <li><a href="#comments">Comments (12)</a></li>
-        </ul>
+    
+    @section description{
         <div id="description" class="panel">
             <div class="seven columns">
                 <h4>
@@ -114,6 +119,10 @@
                 </ul>
             </div>
         </div>
+    }
+
+    @section shareonfb
+    {
         <div id="share-on-fb" class="panel">
             <p>
                 Add your Facebook App here</p>
@@ -124,35 +133,43 @@
                 elementum pharetra, magna neque condimentum purus, nec facilisis risus arcu in elit.
                 Morbi pulvinar diam aliquet risus. tristique nec interdum leo.</p>
         </div>
+    }
+
+    @section sendtofriend
+    {
         <div id="send-to-friend" class="panel">
             <form action="#">
-            <h4 class="section-titling">
-                Send this property to a friend</h4>
-            <ul class="grid-form row remove-bottom eight columns">
-                <li class="four columns alpha">
-                    <label for="friend-name-field" class="screen-reader-text">
-                        Name of your friend</label>
-                    <input id="friend-name-field" type="text" placeholder="Name of your friend" class="full-width" />
-                </li>
-                <li class="four columns omega">
-                    <label for="friend-email-field" class="screen-reader-text">
-                        Email of your friend</label>
-                    <input id="friend-email-field" type="email" placeholder="Email of your friend" class="full-width" />
-                </li>
-                <li class="eight columns alpha omega">
-                    <label for="recomendation-message-field" class="screen-reader-text">
-                        Recomendation</label>
-                    <textarea id="recomendation-message-field" placeholder="Recomendation" class="full-width"></textarea>
-                </li>
-                <li class="two columns alpha">
-                    <input type="submit" value="Send it" />
-                </li>
-                <li class="two columns omega">
-                    <input type="submit" value="Clear" />
-                </li>
-            </ul>
+                <h4 class="section-titling">
+                    Send this property to a friend</h4>
+                <ul class="grid-form row remove-bottom eight columns">
+                    <li class="four columns alpha">
+                        <label for="friend-name-field" class="screen-reader-text">
+                            Name of your friend</label>
+                        <input id="friend-name-field" type="text" placeholder="Name of your friend" class="full-width" />
+                    </li>
+                    <li class="four columns omega">
+                        <label for="friend-email-field" class="screen-reader-text">
+                            Email of your friend</label>
+                        <input id="friend-email-field" type="email" placeholder="Email of your friend" class="full-width" />
+                    </li>
+                    <li class="eight columns alpha omega">
+                        <label for="recomendation-message-field" class="screen-reader-text">
+                            Recomendation</label>
+                        <textarea id="recomendation-message-field" placeholder="Recomendation" class="full-width"></textarea>
+                    </li>
+                    <li class="two columns alpha">
+                        <input type="submit" value="Send it" />
+                    </li>
+                    <li class="two columns omega">
+                        <input type="submit" value="Clear" />
+                    </li>
+                </ul>
             </form>
         </div>
+    }
+
+    @section comments
+    {
         <div id="comments" class="panel">
             <h4 class="section-titling">
                 Comments</h4>
@@ -207,149 +224,68 @@
                 </li>
             </ul>
             <form action="#" class="comment-form ten columns row">
-            <h4 class="divider-title">
-                Leave your comment</h4>
-            <ul class="grid-form row remove-bottom ten columns alpha omega">
-                <li class="five columns alpha">
-                    <label for="name-field" class="screen-reader-text">
-                        Your name</label>
-                    <input id="name-field" type="text" placeholder="Your name" class="full-width" />
-                </li>
-                <li class="five columns omega">
-                    <label for="email-field" class="screen-reader-text">
-                        Your email</label>
-                    <input id="email-field" type="email" placeholder="Your email" class="full-width" />
-                </li>
-                <li class="ten columns alpha omega">
-                    <label for="message-field" class="screen-reader-text">
-                        Comment</label>
-                    <textarea id="message-field" placeholder="Comment" class="full-width"></textarea>
-                </li>
-                <li class="two columns alpha">
-                    <input type="submit" value="Send it" />
-                </li>
-                <li class="two columns omega">
-                    <input type="submit" value="Clear" />
-                </li>
-            </ul>
+                <h4 class="divider-title">
+                    Leave your comment</h4>
+                <ul class="grid-form row remove-bottom ten columns alpha omega">
+                    <li class="five columns alpha">
+                        <label for="name-field" class="screen-reader-text">
+                            Your name</label>
+                        <input id="name-field" type="text" placeholder="Your name" class="full-width" />
+                    </li>
+                    <li class="five columns omega">
+                        <label for="email-field" class="screen-reader-text">
+                            Your email</label>
+                        <input id="email-field" type="email" placeholder="Your email" class="full-width" />
+                    </li>
+                    <li class="ten columns alpha omega">
+                        <label for="message-field" class="screen-reader-text">
+                            Comment</label>
+                        <textarea id="message-field" placeholder="Comment" class="full-width"></textarea>
+                    </li>
+                    <li class="two columns alpha">
+                        <input type="submit" value="Send it" />
+                    </li>
+                    <li class="two columns omega">
+                        <input type="submit" value="Clear" />
+                    </li>
+                </ul>
             </form>
         </div>
-    </div>
-    <!-- /.tab-container -->
+    }
+
 </section>
-<!-- /section: tagline -->
-<!-- Section: carousel -->
-<section class="row double-bottom">
-    <h2 class="section-titling remove-bottom">
-        Features properties for rent</h2>
-    <div class="carousel-controls row half-bottom">
-        <span id="carousel-next" class="fr"></span><span id="carousel-prev" class="fr"></span>
-    </div>
-    <ul class="bx-carousel">
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
-        <li>
-            <img src="../../images/dotimages/properties/gallery-480x310.png" alt="">
-            <div class="details">
-                <h6>
-                    Greenwich Village</h6>
-                <p class="text">
-                    Unique Loft | <span>$35.000 /month</span></p>
-            </div>
-        </li>
+
+<section>
+@section scripts
+{
+    <ul id="jsonRequestFun">
     </ul>
-</section>
-
-
-
-<ul id="jsonRequestFun">
-</ul>
-<a href="#" id="requestFun">Json is fun</a>
-
-
-
-<!-- /section: carousel -->
-<!-- Scripts & Plugins
+    <a href="#" id="requestFun">Json is fun</a>
+    <!-- /section: carousel -->
+    <!-- Scripts & Plugins
   	================================================== -->
-<!-- BX Slider -->
-<script src="../../Scripts/js/jquery.bxslider.min.js" type="text/javascript"></script>
-<!--Fancybox Ligbox-->
-<script src="../../Scripts/js/jquery.fancybox.js" type="text/javascript"></script>
-<!--Fancybox Ligbox Thumbnails-->
-<script src="../../Scripts/js/jquery.fancybox-thumbs.js" type="text/javascript"></script>
-<!-- Tabs -->
-<script src="../../Scripts/js/jquery.easytabs.min.js" type="text/javascript"></script>
-<!-- jQuery dropdown -->
-<script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
-<!-- Tipsy -->
-<script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
-<!-- FitVids -->
-<script src="../../Scripts/js/fitvids.min.js" type="text/javascript"></script>
-<!-- Custom Scripts -->
-@*<script src="../../Scripts/js/scripts.js" type="text/javascript"></script>*@
-
-<script>
+    <!-- BX Slider -->
+    <script src="../../Scripts/js/jquery.bxslider.min.js" type="text/javascript"></script>
+    <!--Fancybox Ligbox-->
+    <script src="../../Scripts/js/jquery.fancybox.js" type="text/javascript"></script>
+    <!--Fancybox Ligbox Thumbnails-->
+    <script src="../../Scripts/js/jquery.fancybox-thumbs.js" type="text/javascript"></script>
+    <!-- Tabs -->
+    <script src="../../Scripts/js/jquery.easytabs.min.js" type="text/javascript"></script>
+    <!-- jQuery dropdown -->
+    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
+    <!-- Tipsy -->
+    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
+    <!-- FitVids -->
+    <script src="../../Scripts/js/fitvids.min.js" type="text/javascript"></script>
+    <!-- jQuery dropdown -->
+    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
+    <!-- Tipsy -->
+    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
+    <!-- Custom Scripts -->
+    <script src="../../Scripts/js/scripts.js" type="text/javascript"></script>
+    <!-- Custom Scripts -->
+    <script>
     $(document).ready(function () {
 
         //scroll to top link
@@ -358,78 +294,15 @@
             return false;
         });
 
-
         //Get the List
-     var $images =   $.getJSON("/unitdetail/jsonfun/1", null, function (data) {
-
-            //            $.each(data, function (index, optionData) {
-
-            //                $("<li>" + optionData.href + "</li>").appendTo("#jsonRequestFun");
-            //                $("<li>" + optionData.title + "</li>").appendTo("#jsonRequestFun");
-            //            });
-
-            // console.log(data);
+        var $images = $.getJSON(@jsonUrl, null, function (data) {
             return data;
         });
 
 
         //Lightbox Fancybox
-
-
-
         $("#fancybox-manual-c").click(function () {
             $.fancybox.open([$images]);
-
-
-            //        $("#fancybox-manual-c").click(function () {
-            //            $.fancybox.open([
-            //					{
-            //					    href: '../../images/dotimages/single-property/big-800x500-1.jpg',
-            //					    title: 'Property 1 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-2.jpg',
-            //					    title: 'Property 2 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-3.jpg',
-            //					    title: 'Property 3 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-4.jpg',
-            //					    title: 'Property 4 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-5.jpg',
-            //					    title: 'Property 5 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-6.jpg',
-            //					    title: 'Property 6 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-7.jpg',
-            //					    title: 'Property 7 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-4.jpg',
-            //					    title: 'Property 8 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-1.jpg',
-            //					    title: 'Property 9 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-2.jpg',
-            //					    title: 'Property 10 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-3.jpg',
-            //					    title: 'Property 11 Example'
-            //					}, {
-            //					    href: '../../images/dotimages/single-property/big-800x500-5.jpg',
-            //					    title: 'Property 12 Example'
-            //					}
-
-
-            //				 {
-            //				    helpers: {
-            //				        thumbs: {
-            //				            width: 75,
-            //				            height: 50
-            //				        }
-            //				    }
-            //				});
         });
 
 
@@ -487,42 +360,40 @@
         });
 
     });
-</script>
+    </script>
+    <script type="text/javascript">
 
-<script type="text/javascript">
+        $(document).ready(function ($) {
 
-    $(document).ready(function ($) {
+            // Init Carousel	
+            $('.bx-carousel').bxSlider({
+                auto: true,
+                minSlides: 1,
+                maxSlides: 3,
+                slideWidth: 300,
+                slideMargin: 20,
+                nextSelector: '#carousel-next',
+                prevSelector: '#carousel-prev',
+                pager: false
+            });
 
-        // Init Carousel	
-        $('.bx-carousel').bxSlider({
-            auto: true,
-            minSlides: 1,
-            maxSlides: 3,
-            slideWidth: 300,
-            slideMargin: 20,
-            nextSelector: '#carousel-next',
-            prevSelector: '#carousel-prev',
-            pager: false
+            //Easy tabs
+            $('.tab-container').easytabs();
+
+            //FitVids
+            $('#video').fitVids();
+
         });
-
-        //Easy tabs
-        $('.tab-container').easytabs();
-
-        //FitVids
-        $('#video').fitVids();
-
-    });
-</script>
-
-
-<script type="text/javascript">
-    $(function () {
-        $("#requestFun").click(function () {
-            $.getJSON("/unitdetail/jsonfun", null, function (data) {
-                $("<li>" + data.href + "</li>").appendTo("#jsonRequestFun");
-                $("<li>" + data.title + "</li>").appendTo("#jsonRequestFun");
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#requestFun").click(function () {
+                $.getJSON("/unitdetail/jsonfun", null, function (data) {
+                    $("<li>" + data.href + "</li>").appendTo("#jsonRequestFun");
+                    $("<li>" + data.title + "</li>").appendTo("#jsonRequestFun");
+                });
             });
         });
-    });
-</script>
-
+    </script>
+}
+</section>

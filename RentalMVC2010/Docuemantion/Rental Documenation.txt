@@ -1,0 +1,131 @@
+tenant Owner Specialist Agent 
+
+Tenant
+Favorite
+Showing
+Maintenance
+	Manage Provider
+	Current request
+	Create new request
+	Archived request
+	Hire Specialist
+	
+Application
+	Create Application
+	View Application
+	Submit Application
+
+Contract
+	View Contract
+Payment
+	Pay Rent
+	Payment History
+
+
+
+Owner/Agent
+Property
+	Add Property
+	Edit Property
+	Remove Property
+	View Property
+
+Maintenance
+	View Application
+	Hire Specialist
+showing
+	Accept/deny Showing
+	Showing Schedule
+Application
+	View Application
+
+Contract
+	View Contract
+Payment
+	Payment History
+
+
+Specialist
+Maintenance
+	Current Request
+	Archived request
+Jobs
+	Request
+
+Property
+	View Property
+
+Contract
+	View Contract
+Payment
+	Payment History
+
+===============================================
+
+View 
+
+Tenant:
+Profile, Photo,Map, Location
+
+Owner/Agent:
+Profile, Photo,Map, Location. properties
+
+Specialist:
+Profile, Photo,Map, Location, work, rating, comment
+===============================================
+
+Rent
+Select unit, schedule showing
+
+Specialist:
+Select specialist , invite to maintenance
+
+Agent:
+Select Agent, aquire listing
+
+===============================================
+Tenant
+
+-1-Schedule showing
+-2-Submit Application
+-3-Hire maintanence
+-4-Sign Contract
+-5-Get the keys
+
+Functions:
+-1-Create maintance request
+-2-Pay rent
+
+OWner/Agent
+-1-Confirm showing
+-2-Accpet/deny application
+-3-Verify Maintance aggrement
+-4-Sign the contract
+-5-Give the keys
+
+
+Functions:
+-1-Post / edit/ delete properties
+-2-View maintenance
+-3-collect rent
+
+Maintenance
+-1-Accept/deny offer of maintenance
+-2-Send confirmaton for renter and owner/agent regarding the maintenance aggrement
+-3-respond to maintenance
+-4-Make recommendation for the owner
+
+=======================================================
+
+Other functions
+-1-Request is being submitted by tenant
+-2-Work done by maintenance
+-3-Tenant submit review , rating of the work
+
+===============================================
+
+Advertisement
+-1-Agent
+-2-Maintenance
+Only, free posting
+

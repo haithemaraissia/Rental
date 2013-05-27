@@ -92,6 +92,7 @@
     <Compile Include="Controllers\MorePhotoController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProfessionalController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
@@ -663,6 +664,11 @@
     <Content Include="Views\Unit\Create.cshtml" />
     <Content Include="Views\Unit\Edit.cshtml" />
     <Content Include="Views\Unit\Delete.cshtml" />
+    <Content Include="Views\Shared\_Unit.cshtml" />
+    <Content Include="Views\Shared\_PhotoGalleryMiniTabMenu.cshtml" />
+    <Content Include="Views\Shared\_PhotoGalleryBigTabMenu.cshtml" />
+    <Content Include="Views\Professional\_ProfileDetail.cshtml" />
+    <Content Include="Views\Professional\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

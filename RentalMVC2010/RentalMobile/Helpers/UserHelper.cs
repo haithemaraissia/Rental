@@ -46,11 +46,33 @@ namespace RentalMobile.Helpers
             return null;
         }
 
+        public static int? GetTenantID(int id)
+        {
+            var userID = DB.Tenants.FirstOrDefault(x => x.TenantId == id);
+            if (userID != null)
+            {
+                var Tenant = DB.Tenants.FirstOrDefault(x => x.GUID == userID.GUID);
+                if (Tenant != null) return Tenant.TenantId;
+            }
+            return null;
+        }
+
         public static int? GetAgentID()
         {
             var userID = GetUserGUID();
             var agent = DB.Agents.FirstOrDefault(x => x.GUID == userID);
             if (agent != null) return agent.AgentId;
+            return null;
+        }
+
+        public static int? GetAgentID(int id)
+        {
+            var userID = DB.Agents.FirstOrDefault(x => x.AgentId == id);
+            if (userID != null)
+            {
+                var Agent = DB.Agents.FirstOrDefault(x => x.GUID == userID.GUID);
+                if (Agent != null) return Agent.AgentId;
+            }
             return null;
         }
 
@@ -62,11 +84,33 @@ namespace RentalMobile.Helpers
             return null;
         }
 
+        public static int? GetOwnerID(int id)
+        {
+            var userID = DB.Owners.FirstOrDefault(x => x.OwnerId == id);
+            if (userID != null)
+            {
+                var owner = DB.Owners.FirstOrDefault(x => x.GUID == userID.GUID);
+                if (owner != null) return owner.OwnerId;
+            }
+            return null;
+        }
+
         public static int? GetSpecialistID()
         {
             var userID = GetUserGUID();
             var specialist = DB.Specialists.FirstOrDefault(x => x.GUID == userID);
             if (specialist != null) return specialist.SpecialistId;
+            return null;
+        }
+
+        public static int? GetSpecialistID(int id)
+        {
+            var userID = DB.Specialists.FirstOrDefault(x => x.SpecialistId == id);
+            if (userID != null)
+            {
+            var specialist = DB.Specialists.FirstOrDefault(x => x.GUID == userID.GUID);
+            if (specialist != null) return specialist.SpecialistId; 
+            }
             return null;
         }
 

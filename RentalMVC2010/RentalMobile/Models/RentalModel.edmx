@@ -253,8 +253,6 @@
             <PropertyRef Name="UnitId" />
           </Key>
           <Property Name="UnitId" Type="int" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="150" />
-          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Bed" Type="int" Nullable="false" />
           <Property Name="Bathroom" Type="float" Nullable="false" />
@@ -262,6 +260,13 @@
           <Property Name="YearBuilt" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="PrimaryPhoto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="GoogleMap" Type="nvarchar(max)" />
+          <Property Name="Country" Type="varchar" MaxLength="128" />
+          <Property Name="Region" Type="varchar" MaxLength="128" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="UnitGallery">
           <Key>
@@ -479,6 +484,11 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="PrimaryPhoto" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="UnitGalleries" Relationship="DB_33736_rentalModel.FK_UnitGallery_Unit" FromRole="Unit" ToRole="UnitGallery" />
+          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="UnitGallery">
           <Key>
@@ -830,6 +840,11 @@
           <EntitySetMapping Name="Units">
             <EntityTypeMapping TypeName="DB_33736_rentalModel.Unit">
               <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
                 <ScalarProperty Name="UnitId" ColumnName="UnitId" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="City" ColumnName="City" />
@@ -1083,7 +1098,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="RentalModel">
-        <EntityTypeShape EntityType="DB_33736_rentalModel.Unit" Width="1.5" PointX="0.75" PointY="1" Height="3.1340950520833313" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Unit" Width="1.5" PointX="0.75" PointY="1" Height="4.0956022135416656" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.UnitGallery" Width="1.5" PointX="3" PointY="1.5" Height="2.1725878906249996" IsExpanded="true" />
         <AssociationConnector Association="DB_33736_rentalModel.FK_UnitGallery_Unit" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="2.5862939453125" />

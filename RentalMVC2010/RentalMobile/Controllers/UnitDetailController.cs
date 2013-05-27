@@ -17,6 +17,8 @@ namespace RentalMobile.Controllers
         public ActionResult Index(int id )
         {
             Unit unit = db.Units.Find(id) ?? db.Units.Find(1);
+            ViewBag.UnitId = unit.UnitId;
+            ViewBag.UnitGoogleMap = unit.GoogleMap;
             return View(unit);
         }
 

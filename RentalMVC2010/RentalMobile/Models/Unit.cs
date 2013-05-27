@@ -29,6 +29,11 @@ namespace RentalMobile.Models
         public int YearBuilt { get; set; }
         public string Description { get; set; }
         public string PrimaryPhoto { get; set; }
+        public string GoogleMap { get; set; }
+        public string Country { get; set; }
+        public string Region { get; set; }
+        public string Zip { get; set; }
+        public string CountryCode { get; set; }
     
         public virtual ICollection<UnitGallery> UnitGalleries { get; set; }
     }
