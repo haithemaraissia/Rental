@@ -7,14 +7,14 @@ using RentalMobile.Models;
 
 namespace RentalMobile.Controllers
 {
-    public class UnitDetailController : Controller
+    public class PropertyController : Controller
     {
         private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
         //
         // GET: /UnitDetail/
 
-        public ActionResult Index(int id )
+        public ActionResult Index(int id)
         {
             Unit unit = db.Units.Find(id) ?? db.Units.Find(1);
             ViewBag.UnitId = unit.UnitId;
@@ -29,7 +29,7 @@ namespace RentalMobile.Controllers
             IQueryable<UnitGallery> unitGallery = db.UnitGalleries.Where(x => x.UnitId == id);
             if (unitGallery.Count() != 0)
             {
-                data.AddRange(unitGallery.Select(photo => new UnitGalleryJsonData {href = photo.Path, title = photo.Caption}));
+                data.AddRange(unitGallery.Select(photo => new UnitGalleryJsonData { href = photo.Path, title = photo.Caption }));
             }
             return Json(data, JsonRequestBehavior.AllowGet);
         }

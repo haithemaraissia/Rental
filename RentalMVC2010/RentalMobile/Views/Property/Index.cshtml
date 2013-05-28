@@ -1,0 +1,399 @@
+﻿@using System.Globalization
+@model RentalMobile.Models.Unit
+@{
+    ViewBag.Title = "Unit Description";
+    Layout = "~/Views/Shared/_Unit.cshtml";
+    var jsonUrl = "/unitdetail/jsonfun/";
+
+    if (String.IsNullOrEmpty(Model.UnitId.ToString(CultureInfo.InvariantCulture)))
+    {
+        Response.Redirect(Url.Action("LogOn", "Account", "Log in"));
+    }
+    else
+    {
+        jsonUrl += Model.UnitId;
+
+    }
+}
+
+
+<section class="row">
+    @section photo
+        {
+        <div id="photos" class="panel">
+            <a id="fancybox-manual-c" href="javascript:;">
+                <img src="../../images/dotimages/single-property/gallery-480x350.png" class="img-preview scale-with-grid"
+                    alt="image">
+            </a>
+        </div>
+    }
+    @section video
+        {
+        <div id="video" class="panel">
+            <iframe src="http://player.vimeo.com/video/12158329" width="500" height="281" frameborder="0"
+                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    }
+    @section map
+        {
+        <div id="map" class="panel">
+            <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?q=@ViewBag.UnitGoogleMap&amp;z=13&amp;output=embed">
+            </iframe>
+            <br />
+        </div>
+    }
+    @section poster
+    {
+        <div id="agent" class="panel">
+            <img src="../../images/dotimages/single-property/agent-480x350.png" alt="Agent" class="scale-with-grid">
+        </div>
+    }
+    @section unitrequestshowing
+    {
+        <h4>
+            Recuest showing</h4>
+        <p>
+            Please complete the form below to request a showing for this property. Quisque non
+            mi magna, eget aliquet urna. Curabitur ut justo est. Quisque iaculis risus et tortor
+            congue porta. Suspendisse eleifend tempor dapibus.
+        </p>
+        <form action="#">
+        <ul class="grid-form">
+            <li class="four columns alpha">
+                <label for="your-name" class="screen-reader-text">
+                    Your name</label>
+                <input id="your-name" placeholder="Your name" type="text" required>
+            </li>
+            <li class="four columns omega">
+                <label for="your-email" class="screen-reader-text">
+                    E-mail</label>
+                <input id="your-email" placeholder="email" type="email" required>
+            </li>
+            <li class="four columns alpha">
+                <label for="your-telephone" class="screen-reader-text">
+                    Your telephone</label>
+                <input id="your-telephone" placeholder="telephone" type="text" required>
+            </li>
+            <li class="four columns omega">
+                <label for="showing-date" class="screen-reader-text">
+                    Showing date</label>
+                <input id="showing-date" placeholder="showing date" type="text" required>
+            </li>
+        </ul>
+        <input type="submit" class="full-width tall" value="Request a showing">
+        </form>
+    }
+</section>
+
+<section class="row double-bottom">
+    
+    @section description{
+        <div id="description" class="panel">
+            <div class="seven columns">
+                <h4>
+                    General Description</h4>
+                <p>
+                    Enter this stately apartment and you are rewarded with a spectacular view of not
+                    only Central Parkoin id rhoncus massa. Pellentesque quis orci non lacus tincidunt
+                    scelerisque. Integer bibendum commodo urn id suscipit sapien porta in. In sollicitudin
+                    dui nec quam semper luctus.</p>
+                <p>
+                    Nulla malesuada tempor mi, in dignissim tortor tempor ut. Donec semper risus feugiat
+                    purus fermentum nec cursus elit dignissim. Aliquam convallis hendrerit ligula sed
+                    ullamcorper. Phasellus porta aliquam velit quis sodales. Sed accumsan, nunc vel
+                    elementum pharetra, magna neque condimentum purus, nec facilisis risus arcu in elit.
+                    Morbi pulvinar diam aliquet risus. tristique nec interdum leo.</p>
+            </div>
+            <div class="six columns push by-two">
+                <h4>
+                    General Amenities</h4>
+                <ul class="arrow">
+                    <li>Garage</li>
+                    <li>Exterior lighting</li>
+                    <li>Dish washer</li>
+                    <li>Barbecue</li>
+                    <li>Garden</li>
+                    <li>Burglar alarm</li>
+                    <li>Swimming pool</li>
+                    <li>Central air</li>
+                </ul>
+            </div>
+        </div>
+    }
+
+    @section shareonfb
+    {
+        <div id="share-on-fb" class="panel">
+            <p>
+                Add your Facebook App here</p>
+            <p>
+                Nulla malesuada tempor mi, in dignissim tortor tempor ut. Donec semper risus feugiat
+                purus fermentum nec cursus elit dignissim. Aliquam convallis hendrerit ligula sed
+                ullamcorper. Phasellus porta aliquam velit quis sodales. Sed accumsan, nunc vel
+                elementum pharetra, magna neque condimentum purus, nec facilisis risus arcu in elit.
+                Morbi pulvinar diam aliquet risus. tristique nec interdum leo.</p>
+        </div>
+    }
+
+    @section sendtofriend
+    {
+        <div id="send-to-friend" class="panel">
+            <form action="#">
+                <h4 class="section-titling">
+                    Send this property to a friend</h4>
+                <ul class="grid-form row remove-bottom eight columns">
+                    <li class="four columns alpha">
+                        <label for="friend-name-field" class="screen-reader-text">
+                            Name of your friend</label>
+                        <input id="friend-name-field" type="text" placeholder="Name of your friend" class="full-width" />
+                    </li>
+                    <li class="four columns omega">
+                        <label for="friend-email-field" class="screen-reader-text">
+                            Email of your friend</label>
+                        <input id="friend-email-field" type="email" placeholder="Email of your friend" class="full-width" />
+                    </li>
+                    <li class="eight columns alpha omega">
+                        <label for="recomendation-message-field" class="screen-reader-text">
+                            Recomendation</label>
+                        <textarea id="recomendation-message-field" placeholder="Recomendation" class="full-width"></textarea>
+                    </li>
+                    <li class="two columns alpha">
+                        <input type="submit" value="Send it" />
+                    </li>
+                    <li class="two columns omega">
+                        <input type="submit" value="Clear" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+    }
+
+    @section comments
+    {
+        <div id="comments" class="panel">
+            <h4 class="section-titling">
+                Comments</h4>
+            <ul class="comments-list ten columns row">
+                <li class="comment clearfix">
+                    <figure class="avatar">
+                        <img src="../../images/dotimages/small-avatar-placeholder.png" alt="//"></figure>
+                    <div class="com-text">
+                        <h5>
+                            Sarah said:</h5>
+                        <p>
+                            I agree with <a href="#">John Doe...</a> This is a great property.</p>
+                        <a href="#" class="reply-btn">- Reply</a>
+                    </div>
+                    <ul>
+                        <li class="comment clearfix">
+                            <figure class="avatar">
+                                <img src="../../images/dotimages/small-avatar-placeholder.png" alt="//"></figure>
+                            <div class="com-text">
+                                <h5>
+                                    Sarah said:</h5>
+                                <p>
+                                    I agree with <a href="#">John Doe...</a> This is a great property.</p>
+                                <a href="#" class="reply-btn">- Reply</a>
+                            </div>
+                            <ul>
+                                <li class="comment clearfix">
+                                    <figure class="avatar">
+                                        <img src="../../images/dotimages/small-avatar-placeholder.png" alt="//"></figure>
+                                    <div class="com-text">
+                                        <h5>
+                                            Sarah said:</h5>
+                                        <p>
+                                            I agree with <a href="#">John Doe...</a> This is a great property.</p>
+                                        <a href="#" class="reply-btn">- Reply</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="comment clearfix">
+                    <figure class="avatar">
+                        <img src="../../images/dotimages/small-avatar-placeholder.png" alt="//"></figure>
+                    <div class="com-text">
+                        <h5>
+                            Sarah said:</h5>
+                        <p>
+                            I agree with <a href="#">John Doe...</a> This is a great property.</p>
+                        <a href="#" class="reply-btn">- Reply</a>
+                    </div>
+                </li>
+            </ul>
+            <form action="#" class="comment-form ten columns row">
+                <h4 class="divider-title">
+                    Leave your comment</h4>
+                <ul class="grid-form row remove-bottom ten columns alpha omega">
+                    <li class="five columns alpha">
+                        <label for="name-field" class="screen-reader-text">
+                            Your name</label>
+                        <input id="name-field" type="text" placeholder="Your name" class="full-width" />
+                    </li>
+                    <li class="five columns omega">
+                        <label for="email-field" class="screen-reader-text">
+                            Your email</label>
+                        <input id="email-field" type="email" placeholder="Your email" class="full-width" />
+                    </li>
+                    <li class="ten columns alpha omega">
+                        <label for="message-field" class="screen-reader-text">
+                            Comment</label>
+                        <textarea id="message-field" placeholder="Comment" class="full-width"></textarea>
+                    </li>
+                    <li class="two columns alpha">
+                        <input type="submit" value="Send it" />
+                    </li>
+                    <li class="two columns omega">
+                        <input type="submit" value="Clear" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+    }
+
+</section>
+
+<section>
+@section scripts
+{
+    <ul id="jsonRequestFun">
+    </ul>
+    <a href="#" id="requestFun">Json is fun</a>
+    <!-- /section: carousel -->
+    <!-- Scripts & Plugins
+  	================================================== -->
+    <!-- BX Slider -->
+    <script src="../../Scripts/js/jquery.bxslider.min.js" type="text/javascript"></script>
+    <!--Fancybox Ligbox-->
+    <script src="../../Scripts/js/jquery.fancybox.js" type="text/javascript"></script>
+    <!--Fancybox Ligbox Thumbnails-->
+    <script src="../../Scripts/js/jquery.fancybox-thumbs.js" type="text/javascript"></script>
+    <!-- Tabs -->
+    <script src="../../Scripts/js/jquery.easytabs.min.js" type="text/javascript"></script>
+    <!-- jQuery dropdown -->
+    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
+    <!-- Tipsy -->
+    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
+    <!-- FitVids -->
+    <script src="../../Scripts/js/fitvids.min.js" type="text/javascript"></script>
+    <!-- jQuery dropdown -->
+    <script src="../../Scripts/js/jquery.dropdown.js" type="text/javascript"></script>
+    <!-- Tipsy -->
+    <script src="../../Scripts/js/jquery.tipsy.js" type="text/javascript"></script>
+    <!-- Custom Scripts -->
+    <script src="../../Scripts/js/scripts.js" type="text/javascript"></script>
+    <!-- Custom Scripts -->
+    <script>
+    $(document).ready(function () {
+
+        //scroll to top link
+        $('.scroll-top').click(function () {
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+
+        //Get the List
+        var $images = $.getJSON(@jsonUrl, null, function (data) {
+            return data;
+        });
+
+
+        //Lightbox Fancybox
+        $("#fancybox-manual-c").click(function () {
+            $.fancybox.open([$images]);
+        });
+
+
+        //responsive menu
+        $('<select />').appendTo('header nav');
+
+        $('<option />', {
+            'selected': 'selected',
+            'value': '',
+            'text': 'Select a Page...'
+        }).appendTo('header nav select');
+
+        $('.menu-bar .menu a').each(function () {
+            var el = $(this);
+            if (el.parents('.menu-bar .menu ul').length) {
+                $('<option />', {
+                    'value': el.attr('href'),
+                    'text': '... ' + el.text()
+                }).appendTo('nav select');
+            } else {
+                $('<option />', {
+                    'value': el.attr('href'),
+                    'text': el.text()
+                }).appendTo('nav select');
+            }
+        });
+
+        $('header nav select').change(function () {
+            window.location = $(this).find('option:selected').val();
+        });
+
+        //tipsy
+        $('ul.social a, .home-btn').tipsy({
+            gravity: 's',
+            fade: true
+        });
+
+        //filters on home and rent
+        var newSelection = "";
+
+        $(".filter-list a").click(function () {
+
+            $("#property-list").fadeTo(200, 0.10);
+
+            $(".filter-list a").removeClass("current");
+            $(this).addClass("current");
+
+            newSelection = $(this).attr("data-rel");
+
+            $(".prop-type").not("." + newSelection).slideUp();
+            $("." + newSelection).slideDown();
+
+            $("#property-list").fadeTo(600, 1);
+
+        });
+
+    });
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function ($) {
+
+            // Init Carousel	
+            $('.bx-carousel').bxSlider({
+                auto: true,
+                minSlides: 1,
+                maxSlides: 3,
+                slideWidth: 300,
+                slideMargin: 20,
+                nextSelector: '#carousel-next',
+                prevSelector: '#carousel-prev',
+                pager: false
+            });
+
+            //Easy tabs
+            $('.tab-container').easytabs();
+
+            //FitVids
+            $('#video').fitVids();
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#requestFun").click(function () {
+                $.getJSON("/unitdetail/jsonfun", null, function (data) {
+                    $("<li>" + data.href + "</li>").appendTo("#jsonRequestFun");
+                    $("<li>" + data.title + "</li>").appendTo("#jsonRequestFun");
+                });
+            });
+        });
+    </script>
+}
+</section>

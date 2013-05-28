@@ -1,0 +1,6 @@
+Routes
+Files used:
+Property Control
+View/Rent/Index
+Global
+//Need to add new route for property/id

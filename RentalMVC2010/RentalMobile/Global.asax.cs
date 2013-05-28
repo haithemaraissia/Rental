@@ -26,7 +26,9 @@ namespace RentalMobile
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-
+            //Need to add new route for property/id
+            //routes.MapRoute("Property", "Property/{id}",
+            //             new { controller = "Property", action = "Index" });
         }
 
         protected void Application_Start()

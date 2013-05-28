@@ -51,9 +51,11 @@
 								<ul class="toolbar">
 									<li class="dollar"><a href="#">Compare</a></li>
                                     <li class="map"><a href="#">Map</a></li>
-                                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-									<li class="next-arr">@Html.ActionLink("Description", "Index", "UnitDetail")></li>
-								</ul>
+								    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+								    <li class="next-arr">@Html.RouteLink("Property", new { id = 0 }, null)></li>
+                                    @Html.RouteLink("Description", "Property",new { id = 0 } )
+						@*			<li class="next-arr">@Html.ActionLink("Description", "Index", "Property", new { id = 0 }, null)></li>
+*@								</ul>
 							</div>
 						</article>
 					</li>

@@ -81,6 +81,7 @@
     <Compile Include="Controllers\AddMaintenancePhotoController.cs" />
     <Compile Include="Controllers\AdvancedSearchController.cs" />
     <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Controllers\AgentsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -91,16 +92,19 @@
     <Compile Include="Controllers\MaintenancePhotoGalleryController.cs" />
     <Compile Include="Controllers\MorePhotoController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
+    <Compile Include="Controllers\OwnersController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="Controllers\ProfessionalController.cs" />
+    <Compile Include="Controllers\ProfessionalsController.cs" />
+    <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\TenantFavoriteController.cs" />
     <Compile Include="Controllers\TenantMaintenanceController.cs" />
+    <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
-    <Compile Include="Controllers\UnitDetailController.cs" />
+    <Compile Include="Backup\Controller\UnitDetailController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UploadMaintenancePhotoController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
@@ -556,6 +560,7 @@
     <Content Include="Design\Tenant\Index.cshtml" />
     <Content Include="Handler\ImageUploadHandler.ashx" />
     <Content Include="Handler\ProfileImageUploadHandler.ashx" />
+    <None Include="Documentation\Rental Documenation.docx" />
     <None Include="Models\RentalContextGenerator.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RentalContextGenerator.Context.cs</LastGenOutput>
@@ -667,8 +672,12 @@
     <Content Include="Views\Shared\_Unit.cshtml" />
     <Content Include="Views\Shared\_PhotoGalleryMiniTabMenu.cshtml" />
     <Content Include="Views\Shared\_PhotoGalleryBigTabMenu.cshtml" />
-    <Content Include="Views\Professional\_ProfileDetail.cshtml" />
-    <Content Include="Views\Professional\Index.cshtml" />
+    <Content Include="Views\Professionals\_ProfileDetail.cshtml" />
+    <Content Include="Views\Professionals\Index.cshtml" />
+    <Content Include="Views\Tenants\Index.cshtml" />
+    <Content Include="Views\Owners\Index.cshtml" />
+    <Content Include="Views\Agents\Index.cshtml" />
+    <Content Include="Views\Property\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
