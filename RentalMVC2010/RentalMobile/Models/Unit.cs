@@ -20,20 +20,32 @@ namespace RentalMobile.Models
         }
     
         public int UnitId { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
         public int Bed { get; set; }
         public double Bathroom { get; set; }
         public double SquareFoot { get; set; }
-        public int YearBuilt { get; set; }
+        public Nullable<double> Lot { get; set; }
+        public Nullable<int> TypeId { get; set; }
+        public System.DateTime YearBuilt { get; set; }
+        public Nullable<System.DateTime> YearRemodeled { get; set; }
         public string Description { get; set; }
         public string PrimaryPhoto { get; set; }
+        public string Address { get; set; }
         public string GoogleMap { get; set; }
         public string Country { get; set; }
+        public string State { get; set; }
         public string Region { get; set; }
+        public string City { get; set; }
         public string Zip { get; set; }
         public string CountryCode { get; set; }
+        public Nullable<int> NumberofPhoto { get; set; }
+        public Nullable<double> Price { get; set; }
+        public string Currency { get; set; }
+        public Nullable<int> CurrencyCode { get; set; }
+        public Nullable<int> ParkingSpaceId { get; set; }
+        public Nullable<int> GarageSizeId { get; set; }
+        public Nullable<int> DaysOnSite { get; set; }
+        public Nullable<int> FloorId { get; set; }
+        public Nullable<System.DateTime> AvailableDate { get; set; }
     
         public virtual ICollection<UnitGallery> UnitGalleries { get; set; }
     }

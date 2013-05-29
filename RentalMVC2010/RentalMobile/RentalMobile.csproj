@@ -105,6 +105,7 @@
     <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Backup\Controller\UnitDetailController.cs" />
+    <Compile Include="Controllers\UnitFeatureTestController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UploadMaintenancePhotoController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
@@ -191,7 +192,28 @@
     <Compile Include="Models\Unit.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UnitAppliance.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnitCommunityAmenity.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnitExteriorAmenity.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnitFeature.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UnitGallery.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnitInteriorAmenity.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnitLuxuryAmenity.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnitPricing.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UrgencyType.cs">
@@ -678,6 +700,11 @@
     <Content Include="Views\Owners\Index.cshtml" />
     <Content Include="Views\Agents\Index.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\UnitFeatureTest\Index.cshtml" />
+    <Content Include="Views\UnitFeatureTest\Details.cshtml" />
+    <Content Include="Views\UnitFeatureTest\Create.cshtml" />
+    <Content Include="Views\UnitFeatureTest\Edit.cshtml" />
+    <Content Include="Views\UnitFeatureTest\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

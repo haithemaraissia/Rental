@@ -21,7 +21,32 @@
           <EntitySet Name="TenantSavedSearch" EntityType="DB_33736_rentalModel.Store.TenantSavedSearch" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TenantShowing" EntityType="DB_33736_rentalModel.Store.TenantShowing" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Unit" EntityType="DB_33736_rentalModel.Store.Unit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitAppliance" EntityType="DB_33736_rentalModel.Store.UnitAppliance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitCommunityAmenities" EntityType="DB_33736_rentalModel.Store.UnitCommunityAmenities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitExteriorAmenities" EntityType="DB_33736_rentalModel.Store.UnitExteriorAmenities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitFeature" EntityType="DB_33736_rentalModel.Store.UnitFeature" store:Type="Tables" store:Schema="dbo" store:Name="UnitFeature">
+            <DefiningQuery>SELECT 
+      [UnitFeature].[UnitId] AS [UnitId], 
+      [UnitFeature].[High Speed Internet Access] AS [High Speed Internet Access], 
+      [UnitFeature].[Internet Included] AS [Internet Included], 
+      [UnitFeature].[Wireless Internet Access] AS [Wireless Internet Access], 
+      [UnitFeature].[Some Paid Utilities] AS [Some Paid Utilities], 
+      [UnitFeature].[Covered Parking] AS [Covered Parking], 
+      [UnitFeature].[Pets allowed] AS [Pets allowed], 
+      [UnitFeature].[Cats Allowed] AS [Cats Allowed], 
+      [UnitFeature].[Small Dogs] AS [Small Dogs], 
+      [UnitFeature].[Large Dogs] AS [Large Dogs], 
+      [UnitFeature].[Alarm system] AS [Alarm system], 
+      [UnitFeature].[Near Transportation] AS [Near Transportation], 
+      [UnitFeature].[Short Term Lease Available] AS [Short Term Lease Available], 
+      [UnitFeature].[RV Parking] AS [RV Parking], 
+      [UnitFeature].[Boat Storage] AS [Boat Storage]
+      FROM [dbo].[UnitFeature] AS [UnitFeature]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="UnitGallery" EntityType="DB_33736_rentalModel.Store.UnitGallery" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitInteriorAmenities" EntityType="DB_33736_rentalModel.Store.UnitInteriorAmenities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitLuxuryAmenities" EntityType="DB_33736_rentalModel.Store.UnitLuxuryAmenities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnitPricing" EntityType="DB_33736_rentalModel.Store.UnitPricing" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UrgencyType" EntityType="DB_33736_rentalModel.Store.UrgencyType" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_CrewMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.Store.FK_CrewMaintenance_MaintenanceOrder">
             <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
@@ -253,20 +278,120 @@
             <PropertyRef Name="UnitId" />
           </Key>
           <Property Name="UnitId" Type="int" Nullable="false" />
-          <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Bed" Type="int" Nullable="false" />
           <Property Name="Bathroom" Type="float" Nullable="false" />
           <Property Name="SquareFoot" Type="float" Nullable="false" />
-          <Property Name="YearBuilt" Type="int" Nullable="false" />
+          <Property Name="Lot" Type="float" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="YearBuilt" Type="smalldatetime" Nullable="false" />
+          <Property Name="YearRemodeled" Type="smalldatetime" />
           <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="PrimaryPhoto" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" />
           <Property Name="GoogleMap" Type="nvarchar(max)" />
           <Property Name="Country" Type="varchar" MaxLength="128" />
+          <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Region" Type="varchar" MaxLength="128" />
           <Property Name="City" Type="varchar" MaxLength="128" />
           <Property Name="Zip" Type="nvarchar" MaxLength="20" />
           <Property Name="CountryCode" Type="varchar" MaxLength="3" />
+          <Property Name="NumberofPhoto" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="20" />
+          <Property Name="CurrencyCode" Type="int" />
+          <Property Name="ParkingSpaceId" Type="int" />
+          <Property Name="GarageSizeId" Type="int" />
+          <Property Name="DaysOnSite" Type="int" />
+          <Property Name="FloorId" Type="int" />
+          <Property Name="AvailableDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="UnitAppliance">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Range/Oven" Type="bit" />
+          <Property Name="Full Refrigerator" Type="bit" />
+          <Property Name="Dishwasher" Type="bit" />
+          <Property Name="Sink Disposal" Type="bit" />
+          <Property Name="Microwave" Type="bit" />
+          <Property Name="Central Vacuum" Type="bit" />
+          <Property Name="Surround Sound" Type="bit" />
+          <Property Name="Wine Fridge" Type="bit" />
+          <Property Name="Washer &amp; Dryer in Unit" Type="bit" />
+          <Property Name="Washer/Dryer Connections" Type="bit" />
+          <Property Name="Shared Laundry Facility" Type="bit" />
+        </EntityType>
+        <EntityType Name="UnitCommunityAmenities">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Neighborhood Name" Type="bit" />
+          <Property Name="Elementary School" Type="bit" />
+          <Property Name="High School" Type="bit" />
+          <Property Name="School District" Type="bit" />
+          <Property Name="Middle School" Type="bit" />
+          <Property Name="County Name" Type="bit" />
+          <Property Name="Assisted Living Community" Type="bit" />
+          <Property Name="Over 55 Active Community" Type="bit" />
+          <Property Name="Disability Access" Type="bit" />
+          <Property Name="Controlled Access" Type="bit" />
+          <Property Name="Community Pool" Type="bit" />
+        </EntityType>
+        <EntityType Name="UnitExteriorAmenities">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Pool" Type="bit" Nullable="false" />
+          <Property Name="Garden" Type="bit" Nullable="false" />
+          <Property Name="Gated Entry" Type="bit" Nullable="false" />
+          <Property Name="Greenhouse" Type="bit" Nullable="false" />
+          <Property Name="Lawn" Type="bit" Nullable="false" />
+          <Property Name="Deck" Type="bit" Nullable="false" />
+          <Property Name="Dock" Type="bit" Nullable="false" />
+          <Property Name="Fenced Yard" Type="bit" Nullable="false" />
+          <Property Name="Sprinkler System" Type="bit" Nullable="false" />
+          <Property Name="Patio" Type="bit" Nullable="false" />
+          <Property Name="Pond" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_33736_rental.dbo.UnitFeature' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="UnitFeature">
+          <Key>
+            <PropertyRef Name="UnitId" />
+            <PropertyRef Name="High Speed Internet Access" />
+            <PropertyRef Name="Internet Included" />
+            <PropertyRef Name="Wireless Internet Access" />
+            <PropertyRef Name="Some Paid Utilities" />
+            <PropertyRef Name="Covered Parking" />
+            <PropertyRef Name="Pets allowed" />
+            <PropertyRef Name="Cats Allowed" />
+            <PropertyRef Name="Small Dogs" />
+            <PropertyRef Name="Large Dogs" />
+            <PropertyRef Name="Alarm system" />
+            <PropertyRef Name="Near Transportation" />
+            <PropertyRef Name="Short Term Lease Available" />
+            <PropertyRef Name="RV Parking" />
+            <PropertyRef Name="Boat Storage" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="High Speed Internet Access" Type="bit" Nullable="false" />
+          <Property Name="Internet Included" Type="bit" Nullable="false" />
+          <Property Name="Wireless Internet Access" Type="bit" Nullable="false" />
+          <Property Name="Some Paid Utilities" Type="bit" Nullable="false" />
+          <Property Name="Covered Parking" Type="bit" Nullable="false" />
+          <Property Name="Pets allowed" Type="bit" Nullable="false" />
+          <Property Name="Cats Allowed" Type="bit" Nullable="false" />
+          <Property Name="Small Dogs" Type="bit" Nullable="false" />
+          <Property Name="Large Dogs" Type="bit" Nullable="false" />
+          <Property Name="Alarm system" Type="bit" Nullable="false" />
+          <Property Name="Near Transportation" Type="bit" Nullable="false" />
+          <Property Name="Short Term Lease Available" Type="bit" Nullable="false" />
+          <Property Name="RV Parking" Type="bit" Nullable="false" />
+          <Property Name="Boat Storage" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="UnitGallery">
           <Key>
@@ -277,6 +402,61 @@
           <Property Name="Caption" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="Rank" Type="int" Nullable="false" />
           <Property Name="UnitId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitInteriorAmenities">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="CoolingTypeId" Type="int" Nullable="false" />
+          <Property Name="HeatingTypeId" Type="int" Nullable="false" />
+          <Property Name="Fireplace" Type="bit" Nullable="false" />
+          <Property Name="Hot Tub/Spa" Type="bit" Nullable="false" />
+          <Property Name="Cable Ready" Type="bit" Nullable="false" />
+          <Property Name="Attic" Type="bit" Nullable="false" />
+          <Property Name="BasementTypeId" Type="int" Nullable="false" />
+          <Property Name="Double Pane/Storm Windows" Type="bit" Nullable="false" />
+          <Property Name="FloorCoveringId" Type="int" Nullable="false" />
+          <Property Name="FoundationTypeId" Type="int" Nullable="false" />
+          <Property Name="Kitchen Island" Type="bit" Nullable="false" />
+          <Property Name="Vaulted Ceiling" Type="bit" Nullable="false" />
+          <Property Name="Ceiling Fan" Type="bit" Nullable="false" />
+          <Property Name="Jetted Tub" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitLuxuryAmenities">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Tennis Court" Type="bit" Nullable="false" />
+          <Property Name="Security System" Type="bit" Nullable="false" />
+          <Property Name="Sports Court" Type="bit" Nullable="false" />
+          <Property Name="Basketball Court" Type="bit" Nullable="false" />
+          <Property Name="Fitness Center" Type="bit" Nullable="false" />
+          <Property Name="Barbecue" Type="bit" Nullable="false" />
+          <Property Name="Elevator" Type="bit" Nullable="false" />
+          <Property Name="Porch" Type="bit" Nullable="false" />
+          <Property Name="Sauna" Type="bit" Nullable="false" />
+          <Property Name="Skylight" Type="bit" Nullable="false" />
+          <Property Name="Intercom" Type="bit" Nullable="false" />
+          <Property Name="Waterfront" Type="bit" Nullable="false" />
+          <Property Name="Wet Bar" Type="bit" Nullable="false" />
+          <Property Name="Doorman" Type="bit" Nullable="false" />
+          <Property Name="Solar Heat" Type="bit" Nullable="false" />
+          <Property Name="Solar Plumbing" Type="bit" Nullable="false" />
+          <Property Name="Solar Screens" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitPricing">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Rent" Type="float" />
+          <Property Name="CurrencyId" Type="int" />
+          <Property Name="AvailableDate" Type="smalldatetime" />
+          <Property Name="Deposit" Type="float" />
+          <Property Name="AppilcationFee" Type="float" />
+          <Property Name="Section 8 Eligible" Type="bit" />
         </EntityType>
         <EntityType Name="UrgencyType">
           <Key>
@@ -411,12 +591,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DB_33736_rentalModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="DB_33736_rentalEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Units" EntityType="DB_33736_rentalModel.Unit" />
           <EntitySet Name="UnitGalleries" EntityType="DB_33736_rentalModel.UnitGallery" />
-          <AssociationSet Name="FK_UnitGallery_Unit" Association="DB_33736_rentalModel.FK_UnitGallery_Unit">
-            <End Role="Unit" EntitySet="Units" />
-            <End Role="UnitGallery" EntitySet="UnitGalleries" />
-          </AssociationSet>
           <EntitySet Name="TenantShowings" EntityType="DB_33736_rentalModel.TenantShowing" />
           <EntitySet Name="Tenants" EntityType="DB_33736_rentalModel.Tenant" />
           <AssociationSet Name="FK_TenantShowing_Tenant" Association="DB_33736_rentalModel.FK_TenantShowing_Tenant">
@@ -468,28 +643,19 @@
           <EntitySet Name="Agents" EntityType="DB_33736_rentalModel.Agent" />
           <EntitySet Name="Owners" EntityType="DB_33736_rentalModel.Owner" />
           <EntitySet Name="Specialists" EntityType="DB_33736_rentalModel.Specialist" />
+          <EntitySet Name="Units" EntityType="DB_33736_rentalModel.Unit" />
+          <EntitySet Name="UnitAppliances" EntityType="DB_33736_rentalModel.UnitAppliance" />
+          <EntitySet Name="UnitCommunityAmenities" EntityType="DB_33736_rentalModel.UnitCommunityAmenity" />
+          <EntitySet Name="UnitExteriorAmenities" EntityType="DB_33736_rentalModel.UnitExteriorAmenity" />
+          <EntitySet Name="UnitFeatures" EntityType="DB_33736_rentalModel.UnitFeature" />
+          <EntitySet Name="UnitInteriorAmenities" EntityType="DB_33736_rentalModel.UnitInteriorAmenity" />
+          <EntitySet Name="UnitLuxuryAmenities" EntityType="DB_33736_rentalModel.UnitLuxuryAmenity" />
+          <EntitySet Name="UnitPricings" EntityType="DB_33736_rentalModel.UnitPricing" />
+          <AssociationSet Name="FK_UnitGallery_Unit" Association="DB_33736_rentalModel.FK_UnitGallery_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="UnitGallery" EntitySet="UnitGalleries" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Unit">
-          <Key>
-            <PropertyRef Name="UnitId" />
-          </Key>
-          <Property Name="UnitId" Type="Int32" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
-          <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="Bed" Type="Int32" Nullable="false" />
-          <Property Name="Bathroom" Type="Double" Nullable="false" />
-          <Property Name="SquareFoot" Type="Double" Nullable="false" />
-          <Property Name="YearBuilt" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
-          <Property Name="PrimaryPhoto" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="UnitGalleries" Relationship="DB_33736_rentalModel.FK_UnitGallery_Unit" FromRole="Unit" ToRole="UnitGallery" />
-          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="UnitGallery">
           <Key>
             <PropertyRef Name="UnitGalleryId" />
@@ -501,18 +667,6 @@
           <Property Name="UnitId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Unit" Relationship="DB_33736_rentalModel.FK_UnitGallery_Unit" FromRole="UnitGallery" ToRole="Unit" />
         </EntityType>
-        <Association Name="FK_UnitGallery_Unit">
-          <End Role="Unit" Type="DB_33736_rentalModel.Unit" Multiplicity="1" />
-          <End Role="UnitGallery" Type="DB_33736_rentalModel.UnitGallery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Unit">
-              <PropertyRef Name="UnitId" />
-            </Principal>
-            <Dependent Role="UnitGallery">
-              <PropertyRef Name="UnitId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="TenantShowing">
           <Key>
             <PropertyRef Name="ShowingId" />
@@ -831,33 +985,197 @@
           <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Int32" Name="Bed" Nullable="false" />
+          <Property Type="Double" Name="Bathroom" Nullable="false" />
+          <Property Type="Double" Name="SquareFoot" Nullable="false" />
+          <Property Type="Double" Name="Lot" />
+          <Property Type="Int32" Name="TypeId" />
+          <Property Type="DateTime" Name="YearBuilt" Nullable="false" />
+          <Property Type="DateTime" Name="YearRemodeled" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PrimaryPhoto" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="NumberofPhoto" />
+          <Property Type="Double" Name="Price" />
+          <Property Type="String" Name="Currency" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CurrencyCode" />
+          <Property Type="Int32" Name="ParkingSpaceId" />
+          <Property Type="Int32" Name="GarageSizeId" />
+          <Property Type="Int32" Name="DaysOnSite" />
+          <Property Type="Int32" Name="FloorId" />
+          <Property Type="DateTime" Name="AvailableDate" />
+          <NavigationProperty Name="UnitGalleries" Relationship="DB_33736_rentalModel.FK_UnitGallery_Unit" FromRole="Unit" ToRole="UnitGallery" />
+        </EntityType>
+        <EntityType Name="UnitAppliance">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Boolean" Name="Range_Oven" />
+          <Property Type="Boolean" Name="Full_Refrigerator" />
+          <Property Type="Boolean" Name="Dishwasher" />
+          <Property Type="Boolean" Name="Sink_Disposal" />
+          <Property Type="Boolean" Name="Microwave" />
+          <Property Type="Boolean" Name="Central_Vacuum" />
+          <Property Type="Boolean" Name="Surround_Sound" />
+          <Property Type="Boolean" Name="Wine_Fridge" />
+          <Property Type="Boolean" Name="Washer___Dryer_in_Unit" />
+          <Property Type="Boolean" Name="Washer_Dryer_Connections" />
+          <Property Type="Boolean" Name="Shared_Laundry_Facility" />
+        </EntityType>
+        <EntityType Name="UnitCommunityAmenity">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Boolean" Name="Neighborhood_Name" />
+          <Property Type="Boolean" Name="Elementary_School" />
+          <Property Type="Boolean" Name="High_School" />
+          <Property Type="Boolean" Name="School_District" />
+          <Property Type="Boolean" Name="Middle_School" />
+          <Property Type="Boolean" Name="County_Name" />
+          <Property Type="Boolean" Name="Assisted_Living_Community" />
+          <Property Type="Boolean" Name="Over_55_Active_Community" />
+          <Property Type="Boolean" Name="Disability_Access" />
+          <Property Type="Boolean" Name="Controlled_Access" />
+          <Property Type="Boolean" Name="Community_Pool" />
+        </EntityType>
+        <EntityType Name="UnitExteriorAmenity">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Boolean" Name="Pool" Nullable="false" />
+          <Property Type="Boolean" Name="Garden" Nullable="false" />
+          <Property Type="Boolean" Name="Gated_Entry" Nullable="false" />
+          <Property Type="Boolean" Name="Greenhouse" Nullable="false" />
+          <Property Type="Boolean" Name="Lawn" Nullable="false" />
+          <Property Type="Boolean" Name="Deck" Nullable="false" />
+          <Property Type="Boolean" Name="Dock" Nullable="false" />
+          <Property Type="Boolean" Name="Fenced_Yard" Nullable="false" />
+          <Property Type="Boolean" Name="Sprinkler_System" Nullable="false" />
+          <Property Type="Boolean" Name="Patio" Nullable="false" />
+          <Property Type="Boolean" Name="Pond" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitFeature">
+          <Key>
+            <PropertyRef Name="UnitId" />
+            <PropertyRef Name="High_Speed_Internet_Access" />
+            <PropertyRef Name="Internet_Included" />
+            <PropertyRef Name="Wireless_Internet_Access" />
+            <PropertyRef Name="Some_Paid_Utilities" />
+            <PropertyRef Name="Covered_Parking" />
+            <PropertyRef Name="Pets_allowed" />
+            <PropertyRef Name="Cats_Allowed" />
+            <PropertyRef Name="Small_Dogs" />
+            <PropertyRef Name="Large_Dogs" />
+            <PropertyRef Name="Alarm_system" />
+            <PropertyRef Name="Near_Transportation" />
+            <PropertyRef Name="Short_Term_Lease_Available" />
+            <PropertyRef Name="RV_Parking" />
+            <PropertyRef Name="Boat_Storage" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Boolean" Name="High_Speed_Internet_Access" Nullable="false" />
+          <Property Type="Boolean" Name="Internet_Included" Nullable="false" />
+          <Property Type="Boolean" Name="Wireless_Internet_Access" Nullable="false" />
+          <Property Type="Boolean" Name="Some_Paid_Utilities" Nullable="false" />
+          <Property Type="Boolean" Name="Covered_Parking" Nullable="false" />
+          <Property Type="Boolean" Name="Pets_allowed" Nullable="false" />
+          <Property Type="Boolean" Name="Cats_Allowed" Nullable="false" />
+          <Property Type="Boolean" Name="Small_Dogs" Nullable="false" />
+          <Property Type="Boolean" Name="Large_Dogs" Nullable="false" />
+          <Property Type="Boolean" Name="Alarm_system" Nullable="false" />
+          <Property Type="Boolean" Name="Near_Transportation" Nullable="false" />
+          <Property Type="Boolean" Name="Short_Term_Lease_Available" Nullable="false" />
+          <Property Type="Boolean" Name="RV_Parking" Nullable="false" />
+          <Property Type="Boolean" Name="Boat_Storage" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitInteriorAmenity">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Int32" Name="CoolingTypeId" Nullable="false" />
+          <Property Type="Int32" Name="HeatingTypeId" Nullable="false" />
+          <Property Type="Boolean" Name="Fireplace" Nullable="false" />
+          <Property Type="Boolean" Name="Hot_Tub_Spa" Nullable="false" />
+          <Property Type="Boolean" Name="Cable_Ready" Nullable="false" />
+          <Property Type="Boolean" Name="Attic" Nullable="false" />
+          <Property Type="Int32" Name="BasementTypeId" Nullable="false" />
+          <Property Type="Boolean" Name="Double_Pane_Storm_Windows" Nullable="false" />
+          <Property Type="Int32" Name="FloorCoveringId" Nullable="false" />
+          <Property Type="Int32" Name="FoundationTypeId" Nullable="false" />
+          <Property Type="Boolean" Name="Kitchen_Island" Nullable="false" />
+          <Property Type="Boolean" Name="Vaulted_Ceiling" Nullable="false" />
+          <Property Type="Boolean" Name="Ceiling_Fan" Nullable="false" />
+          <Property Type="Boolean" Name="Jetted_Tub" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitLuxuryAmenity">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Boolean" Name="Tennis_Court" Nullable="false" />
+          <Property Type="Boolean" Name="Security_System" Nullable="false" />
+          <Property Type="Boolean" Name="Sports_Court" Nullable="false" />
+          <Property Type="Boolean" Name="Basketball_Court" Nullable="false" />
+          <Property Type="Boolean" Name="Fitness_Center" Nullable="false" />
+          <Property Type="Boolean" Name="Barbecue" Nullable="false" />
+          <Property Type="Boolean" Name="Elevator" Nullable="false" />
+          <Property Type="Boolean" Name="Porch" Nullable="false" />
+          <Property Type="Boolean" Name="Sauna" Nullable="false" />
+          <Property Type="Boolean" Name="Skylight" Nullable="false" />
+          <Property Type="Boolean" Name="Intercom" Nullable="false" />
+          <Property Type="Boolean" Name="Waterfront" Nullable="false" />
+          <Property Type="Boolean" Name="Wet_Bar" Nullable="false" />
+          <Property Type="Boolean" Name="Doorman" Nullable="false" />
+          <Property Type="Boolean" Name="Solar_Heat" Nullable="false" />
+          <Property Type="Boolean" Name="Solar_Plumbing" Nullable="false" />
+          <Property Type="Boolean" Name="Solar_Screens" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitPricing">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Type="Int32" Name="UnitId" Nullable="false" />
+          <Property Type="Double" Name="Rent" />
+          <Property Type="Int32" Name="CurrencyId" />
+          <Property Type="DateTime" Name="AvailableDate" />
+          <Property Type="Double" Name="Deposit" />
+          <Property Type="Double" Name="AppilcationFee" />
+          <Property Type="Boolean" Name="Section_8_Eligible" />
+        </EntityType>
+        <Association Name="FK_UnitGallery_Unit">
+          <End Type="DB_33736_rentalModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="DB_33736_rentalModel.UnitGallery" Role="UnitGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="UnitGallery">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DB_33736_rentalModelStoreContainer" CdmEntityContainer="DB_33736_rentalEntities">
-          <EntitySetMapping Name="Units">
-            <EntityTypeMapping TypeName="DB_33736_rentalModel.Unit">
-              <MappingFragment StoreEntitySet="Unit">
-                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
-                <ScalarProperty Name="Zip" ColumnName="Zip" />
-                <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
-                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Bed" ColumnName="Bed" />
-                <ScalarProperty Name="Bathroom" ColumnName="Bathroom" />
-                <ScalarProperty Name="SquareFoot" ColumnName="SquareFoot" />
-                <ScalarProperty Name="YearBuilt" ColumnName="YearBuilt" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="PrimaryPhoto" ColumnName="PrimaryPhoto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UnitGalleries">
             <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitGallery">
               <MappingFragment StoreEntitySet="UnitGallery">
@@ -1076,6 +1394,172 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="AvailableDate" ColumnName="AvailableDate" />
+                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+                <ScalarProperty Name="DaysOnSite" ColumnName="DaysOnSite" />
+                <ScalarProperty Name="GarageSizeId" ColumnName="GarageSizeId" />
+                <ScalarProperty Name="ParkingSpaceId" ColumnName="ParkingSpaceId" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="NumberofPhoto" ColumnName="NumberofPhoto" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PrimaryPhoto" ColumnName="PrimaryPhoto" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="YearRemodeled" ColumnName="YearRemodeled" />
+                <ScalarProperty Name="YearBuilt" ColumnName="YearBuilt" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Lot" ColumnName="Lot" />
+                <ScalarProperty Name="SquareFoot" ColumnName="SquareFoot" />
+                <ScalarProperty Name="Bathroom" ColumnName="Bathroom" />
+                <ScalarProperty Name="Bed" ColumnName="Bed" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitAppliances">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitAppliance">
+              <MappingFragment StoreEntitySet="UnitAppliance">
+                <ScalarProperty Name="Shared_Laundry_Facility" ColumnName="Shared Laundry Facility" />
+                <ScalarProperty Name="Washer_Dryer_Connections" ColumnName="Washer/Dryer Connections" />
+                <ScalarProperty Name="Washer___Dryer_in_Unit" ColumnName="Washer &amp; Dryer in Unit" />
+                <ScalarProperty Name="Wine_Fridge" ColumnName="Wine Fridge" />
+                <ScalarProperty Name="Surround_Sound" ColumnName="Surround Sound" />
+                <ScalarProperty Name="Central_Vacuum" ColumnName="Central Vacuum" />
+                <ScalarProperty Name="Microwave" ColumnName="Microwave" />
+                <ScalarProperty Name="Sink_Disposal" ColumnName="Sink Disposal" />
+                <ScalarProperty Name="Dishwasher" ColumnName="Dishwasher" />
+                <ScalarProperty Name="Full_Refrigerator" ColumnName="Full Refrigerator" />
+                <ScalarProperty Name="Range_Oven" ColumnName="Range/Oven" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitCommunityAmenities">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitCommunityAmenity">
+              <MappingFragment StoreEntitySet="UnitCommunityAmenities">
+                <ScalarProperty Name="Community_Pool" ColumnName="Community Pool" />
+                <ScalarProperty Name="Controlled_Access" ColumnName="Controlled Access" />
+                <ScalarProperty Name="Disability_Access" ColumnName="Disability Access" />
+                <ScalarProperty Name="Over_55_Active_Community" ColumnName="Over 55 Active Community" />
+                <ScalarProperty Name="Assisted_Living_Community" ColumnName="Assisted Living Community" />
+                <ScalarProperty Name="County_Name" ColumnName="County Name" />
+                <ScalarProperty Name="Middle_School" ColumnName="Middle School" />
+                <ScalarProperty Name="School_District" ColumnName="School District" />
+                <ScalarProperty Name="High_School" ColumnName="High School" />
+                <ScalarProperty Name="Elementary_School" ColumnName="Elementary School" />
+                <ScalarProperty Name="Neighborhood_Name" ColumnName="Neighborhood Name" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitExteriorAmenities">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitExteriorAmenity">
+              <MappingFragment StoreEntitySet="UnitExteriorAmenities">
+                <ScalarProperty Name="Pond" ColumnName="Pond" />
+                <ScalarProperty Name="Patio" ColumnName="Patio" />
+                <ScalarProperty Name="Sprinkler_System" ColumnName="Sprinkler System" />
+                <ScalarProperty Name="Fenced_Yard" ColumnName="Fenced Yard" />
+                <ScalarProperty Name="Dock" ColumnName="Dock" />
+                <ScalarProperty Name="Deck" ColumnName="Deck" />
+                <ScalarProperty Name="Lawn" ColumnName="Lawn" />
+                <ScalarProperty Name="Greenhouse" ColumnName="Greenhouse" />
+                <ScalarProperty Name="Gated_Entry" ColumnName="Gated Entry" />
+                <ScalarProperty Name="Garden" ColumnName="Garden" />
+                <ScalarProperty Name="Pool" ColumnName="Pool" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitFeatures">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitFeature">
+              <MappingFragment StoreEntitySet="UnitFeature">
+                <ScalarProperty Name="Boat_Storage" ColumnName="Boat Storage" />
+                <ScalarProperty Name="RV_Parking" ColumnName="RV Parking" />
+                <ScalarProperty Name="Short_Term_Lease_Available" ColumnName="Short Term Lease Available" />
+                <ScalarProperty Name="Near_Transportation" ColumnName="Near Transportation" />
+                <ScalarProperty Name="Alarm_system" ColumnName="Alarm system" />
+                <ScalarProperty Name="Large_Dogs" ColumnName="Large Dogs" />
+                <ScalarProperty Name="Small_Dogs" ColumnName="Small Dogs" />
+                <ScalarProperty Name="Cats_Allowed" ColumnName="Cats Allowed" />
+                <ScalarProperty Name="Pets_allowed" ColumnName="Pets allowed" />
+                <ScalarProperty Name="Covered_Parking" ColumnName="Covered Parking" />
+                <ScalarProperty Name="Some_Paid_Utilities" ColumnName="Some Paid Utilities" />
+                <ScalarProperty Name="Wireless_Internet_Access" ColumnName="Wireless Internet Access" />
+                <ScalarProperty Name="Internet_Included" ColumnName="Internet Included" />
+                <ScalarProperty Name="High_Speed_Internet_Access" ColumnName="High Speed Internet Access" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitInteriorAmenities">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitInteriorAmenity">
+              <MappingFragment StoreEntitySet="UnitInteriorAmenities">
+                <ScalarProperty Name="Jetted_Tub" ColumnName="Jetted Tub" />
+                <ScalarProperty Name="Ceiling_Fan" ColumnName="Ceiling Fan" />
+                <ScalarProperty Name="Vaulted_Ceiling" ColumnName="Vaulted Ceiling" />
+                <ScalarProperty Name="Kitchen_Island" ColumnName="Kitchen Island" />
+                <ScalarProperty Name="FoundationTypeId" ColumnName="FoundationTypeId" />
+                <ScalarProperty Name="FloorCoveringId" ColumnName="FloorCoveringId" />
+                <ScalarProperty Name="Double_Pane_Storm_Windows" ColumnName="Double Pane/Storm Windows" />
+                <ScalarProperty Name="BasementTypeId" ColumnName="BasementTypeId" />
+                <ScalarProperty Name="Attic" ColumnName="Attic" />
+                <ScalarProperty Name="Cable_Ready" ColumnName="Cable Ready" />
+                <ScalarProperty Name="Hot_Tub_Spa" ColumnName="Hot Tub/Spa" />
+                <ScalarProperty Name="Fireplace" ColumnName="Fireplace" />
+                <ScalarProperty Name="HeatingTypeId" ColumnName="HeatingTypeId" />
+                <ScalarProperty Name="CoolingTypeId" ColumnName="CoolingTypeId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitLuxuryAmenities">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitLuxuryAmenity">
+              <MappingFragment StoreEntitySet="UnitLuxuryAmenities">
+                <ScalarProperty Name="Solar_Screens" ColumnName="Solar Screens" />
+                <ScalarProperty Name="Solar_Plumbing" ColumnName="Solar Plumbing" />
+                <ScalarProperty Name="Solar_Heat" ColumnName="Solar Heat" />
+                <ScalarProperty Name="Doorman" ColumnName="Doorman" />
+                <ScalarProperty Name="Wet_Bar" ColumnName="Wet Bar" />
+                <ScalarProperty Name="Waterfront" ColumnName="Waterfront" />
+                <ScalarProperty Name="Intercom" ColumnName="Intercom" />
+                <ScalarProperty Name="Skylight" ColumnName="Skylight" />
+                <ScalarProperty Name="Sauna" ColumnName="Sauna" />
+                <ScalarProperty Name="Porch" ColumnName="Porch" />
+                <ScalarProperty Name="Elevator" ColumnName="Elevator" />
+                <ScalarProperty Name="Barbecue" ColumnName="Barbecue" />
+                <ScalarProperty Name="Fitness_Center" ColumnName="Fitness Center" />
+                <ScalarProperty Name="Basketball_Court" ColumnName="Basketball Court" />
+                <ScalarProperty Name="Sports_Court" ColumnName="Sports Court" />
+                <ScalarProperty Name="Security_System" ColumnName="Security System" />
+                <ScalarProperty Name="Tennis_Court" ColumnName="Tennis Court" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitPricings">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.UnitPricing">
+              <MappingFragment StoreEntitySet="UnitPricing">
+                <ScalarProperty Name="Section_8_Eligible" ColumnName="Section 8 Eligible" />
+                <ScalarProperty Name="AppilcationFee" ColumnName="AppilcationFee" />
+                <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+                <ScalarProperty Name="AvailableDate" ColumnName="AvailableDate" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1098,12 +1582,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="RentalModel">
-        <EntityTypeShape EntityType="DB_33736_rentalModel.Unit" Width="1.5" PointX="0.75" PointY="1" Height="4.0956022135416656" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.UnitGallery" Width="1.5" PointX="3" PointY="1.5" Height="2.1725878906249996" IsExpanded="true" />
-        <AssociationConnector Association="DB_33736_rentalModel.FK_UnitGallery_Unit" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.5862939453125" />
-          <ConnectorPoint PointX="3" PointY="2.5862939453125" />
-        </AssociationConnector>
         <EntityTypeShape EntityType="DB_33736_rentalModel.TenantShowing" Width="1.5" PointX="9.5" PointY="1.25" Height="1.9802864583333339" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.Tenant" Width="1.5" PointX="7.125" PointY="1.25" Height="4.2879036458333326" />
         <AssociationConnector Association="DB_33736_rentalModel.FK_TenantShowing_Tenant" >
@@ -1136,10 +1615,14 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType" >
           <ConnectorPoint PointX="2.25" PointY="13.643992513020836" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="13.643992513020836" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="13.643992513020836" />
           <ConnectorPoint PointX="3" PointY="13.643992513020836" />
         </AssociationConnector>
         <AssociationConnector Association="DB_33736_rentalModel.FK_MaintenanceOrder_UrgencyType" >
           <ConnectorPoint PointX="2.25" PointY="10.776422729492188" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="10.776422729492188" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="10.776422729492188" />
           <ConnectorPoint PointX="3.46679484375" PointY="10.776422729492188" />
           <ConnectorPoint PointX="3.46679484375" PointY="11.875" />
         </AssociationConnector>
@@ -1160,6 +1643,20 @@
         <EntityTypeShape EntityType="DB_33736_rentalModel.Agent" Width="1.5" PointX="7.625" PointY="8.75" Height="4.8648079427083388" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.Owner" Width="1.5" PointX="9.375" PointY="8.75" Height="4.6725065104166674" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.Specialist" Width="1.5" PointX="11.25" PointY="8.75" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.Unit" Width="1.5" PointX="0.75" PointY="15.75" Height="6.4032194010416674" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitAppliance" Width="1.5" PointX="12.375" PointY="0.75" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitCommunityAmenity" Width="1.5" PointX="13.375" PointY="5.75" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitExteriorAmenity" Width="1.5" PointX="13.375" PointY="10.75" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitFeature" Width="1.5" PointX="14.375" PointY="0.75" Height="3.9033007812500102" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitInteriorAmenity" Width="1.5" PointX="7.375" PointY="14.75" Height="3.9033007812500102" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitLuxuryAmenity" Width="1.5" PointX="9.375" PointY="14.75" Height="4.48020507812501" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.UnitPricing" Width="1.5" PointX="15.375" PointY="5.75" Height="2.3648893229166674" />
+        <AssociationConnector Association="DB_33736_rentalModel.FK_UnitGallery_Unit" >
+          <ConnectorPoint PointX="2.25" PointY="15.751152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="15.376152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="2.5862939453125" />
+          <ConnectorPoint PointX="3" PointY="2.5862939453125" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

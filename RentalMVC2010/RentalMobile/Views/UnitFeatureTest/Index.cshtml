@@ -1,0 +1,117 @@
+﻿@model IEnumerable<RentalMobile.Models.UnitFeature>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            UnitId
+        </th>
+        <th>
+            High_Speed_Internet_Access
+        </th>
+        <th>
+            Internet_Included
+        </th>
+        <th>
+            Wireless_Internet_Access
+        </th>
+        <th>
+            Some_Paid_Utilities
+        </th>
+        <th>
+            Covered_Parking
+        </th>
+        <th>
+            Pets_allowed
+        </th>
+        <th>
+            Cats_Allowed
+        </th>
+        <th>
+            Small_Dogs
+        </th>
+        <th>
+            Large_Dogs
+        </th>
+        <th>
+            Alarm_system
+        </th>
+        <th>
+            Near_Transportation
+        </th>
+        <th>
+            Short_Term_Lease_Available
+        </th>
+        <th>
+            RV_Parking
+        </th>
+        <th>
+            Boat_Storage
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.High_Speed_Internet_Access)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Internet_Included)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wireless_Internet_Access)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Some_Paid_Utilities)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Covered_Parking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pets_allowed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cats_Allowed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Small_Dogs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Large_Dogs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alarm_system)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Near_Transportation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Short_Term_Lease_Available)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RV_Parking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Boat_Storage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

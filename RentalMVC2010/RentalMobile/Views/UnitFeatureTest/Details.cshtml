@@ -1,0 +1,90 @@
+﻿@model RentalMobile.Models.UnitFeature
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>UnitFeature</legend>
+
+    <div class="display-label">UnitId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitId)
+    </div>
+
+    <div class="display-label">High_Speed_Internet_Access</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.High_Speed_Internet_Access)
+    </div>
+
+    <div class="display-label">Internet_Included</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Internet_Included)
+    </div>
+
+    <div class="display-label">Wireless_Internet_Access</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Wireless_Internet_Access)
+    </div>
+
+    <div class="display-label">Some_Paid_Utilities</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Some_Paid_Utilities)
+    </div>
+
+    <div class="display-label">Covered_Parking</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Covered_Parking)
+    </div>
+
+    <div class="display-label">Pets_allowed</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pets_allowed)
+    </div>
+
+    <div class="display-label">Cats_Allowed</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cats_Allowed)
+    </div>
+
+    <div class="display-label">Small_Dogs</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Small_Dogs)
+    </div>
+
+    <div class="display-label">Large_Dogs</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Large_Dogs)
+    </div>
+
+    <div class="display-label">Alarm_system</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Alarm_system)
+    </div>
+
+    <div class="display-label">Near_Transportation</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Near_Transportation)
+    </div>
+
+    <div class="display-label">Short_Term_Lease_Available</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Short_Term_Lease_Available)
+    </div>
+
+    <div class="display-label">RV_Parking</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RV_Parking)
+    </div>
+
+    <div class="display-label">Boat_Storage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Boat_Storage)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
