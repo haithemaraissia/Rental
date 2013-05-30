@@ -26,5 +26,7 @@ namespace RentalMobile.Models
         public bool Sprinkler_System { get; set; }
         public bool Patio { get; set; }
         public bool Pond { get; set; }
+    
+        public virtual Unit Unit { get; set; }
     }
 }

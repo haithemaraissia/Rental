@@ -1,0 +1,148 @@
+﻿@model RentalMobile.Models.Unit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Unit</legend>
+
+    <div class="display-label">Bed</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bed)
+    </div>
+
+    <div class="display-label">Bathroom</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bathroom)
+    </div>
+
+    <div class="display-label">SquareFoot</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SquareFoot)
+    </div>
+
+    <div class="display-label">Lot</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lot)
+    </div>
+
+    <div class="display-label">TypeId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeId)
+    </div>
+
+    <div class="display-label">YearBuilt</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.YearBuilt)
+    </div>
+
+    <div class="display-label">YearRemodeled</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.YearRemodeled)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">PrimaryPhoto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrimaryPhoto)
+    </div>
+
+    <div class="display-label">Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">GoogleMap</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GoogleMap)
+    </div>
+
+    <div class="display-label">Country</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country)
+    </div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+
+    <div class="display-label">Region</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region)
+    </div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">Zip</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zip)
+    </div>
+
+    <div class="display-label">CountryCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CountryCode)
+    </div>
+
+    <div class="display-label">NumberofPhoto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberofPhoto)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">Currency</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Currency)
+    </div>
+
+    <div class="display-label">CurrencyCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CurrencyCode)
+    </div>
+
+    <div class="display-label">ParkingSpaceId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParkingSpaceId)
+    </div>
+
+    <div class="display-label">GarageSizeId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GarageSizeId)
+    </div>
+
+    <div class="display-label">DaysOnSite</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DaysOnSite)
+    </div>
+
+    <div class="display-label">FloorId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FloorId)
+    </div>
+
+    <div class="display-label">AvailableDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AvailableDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

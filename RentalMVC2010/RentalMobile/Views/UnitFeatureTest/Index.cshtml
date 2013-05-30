@@ -12,7 +12,7 @@
 <table>
     <tr>
         <th>
-            UnitId
+            Unit
         </th>
         <th>
             High_Speed_Internet_Access
@@ -62,7 +62,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.UnitId)
+            @Html.DisplayFor(modelItem => item.Unit.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.High_Speed_Internet_Access)

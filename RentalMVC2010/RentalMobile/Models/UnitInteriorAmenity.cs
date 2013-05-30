@@ -29,5 +29,7 @@ namespace RentalMobile.Models
         public bool Vaulted_Ceiling { get; set; }
         public bool Ceiling_Fan { get; set; }
         public bool Jetted_Tub { get; set; }
+    
+        public virtual Unit Unit { get; set; }
     }
 }

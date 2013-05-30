@@ -91,6 +91,7 @@
     <Compile Include="Controllers\MaintenanceOrderController.cs" />
     <Compile Include="Controllers\MaintenancePhotoGalleryController.cs" />
     <Compile Include="Controllers\MorePhotoController.cs" />
+    <Compile Include="Controllers\NewUnitTestController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\OwnersController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -304,6 +305,8 @@
     <Content Include="css\pupload\Css\Reset.css" />
     <Content Include="css\pupload\Css\Standard.css" />
     <Content Include="Design\General.aspx" />
+    <Content Include="Documentation\P\P3.txt" />
+    <Content Include="Documentation\P\P4.txt" />
     <Content Include="Global.asax" />
     <Content Include="images\arrowsub.png" />
     <Content Include="images\bg.jpg" />
@@ -582,6 +585,9 @@
     <Content Include="Design\Tenant\Index.cshtml" />
     <Content Include="Handler\ImageUploadHandler.ashx" />
     <Content Include="Handler\ProfileImageUploadHandler.ashx" />
+    <None Include="Documentation\P\AllProperties.docx" />
+    <None Include="Documentation\P\P1.docx" />
+    <None Include="Documentation\P\P2.docx" />
     <None Include="Documentation\Rental Documenation.docx" />
     <None Include="Models\RentalContextGenerator.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -700,6 +706,11 @@
     <Content Include="Views\Owners\Index.cshtml" />
     <Content Include="Views\Agents\Index.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\NewUnitTest\Index.cshtml" />
+    <Content Include="Views\NewUnitTest\Details.cshtml" />
+    <Content Include="Views\NewUnitTest\Create.cshtml" />
+    <Content Include="Views\NewUnitTest\Edit.cshtml" />
+    <Content Include="Views\NewUnitTest\Delete.cshtml" />
     <Content Include="Views\UnitFeatureTest\Index.cshtml" />
     <Content Include="Views\UnitFeatureTest\Details.cshtml" />
     <Content Include="Views\UnitFeatureTest\Create.cshtml" />

@@ -32,5 +32,7 @@ namespace RentalMobile.Models
         public bool Solar_Heat { get; set; }
         public bool Solar_Plumbing { get; set; }
         public bool Solar_Screens { get; set; }
+    
+        public virtual Unit Unit { get; set; }
     }
 }

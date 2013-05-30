@@ -1,0 +1,233 @@
+﻿@model RentalMobile.Models.Unit
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Unit</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Bed)
+            @Html.ValidationMessageFor(model => model.Bed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bathroom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Bathroom)
+            @Html.ValidationMessageFor(model => model.Bathroom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SquareFoot)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SquareFoot)
+            @Html.ValidationMessageFor(model => model.SquareFoot)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Lot)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Lot)
+            @Html.ValidationMessageFor(model => model.Lot)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TypeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TypeId)
+            @Html.ValidationMessageFor(model => model.TypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.YearBuilt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.YearBuilt)
+            @Html.ValidationMessageFor(model => model.YearBuilt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.YearRemodeled)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.YearRemodeled)
+            @Html.ValidationMessageFor(model => model.YearRemodeled)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryPhoto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryPhoto)
+            @Html.ValidationMessageFor(model => model.PrimaryPhoto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GoogleMap)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GoogleMap)
+            @Html.ValidationMessageFor(model => model.GoogleMap)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Country)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Country)
+            @Html.ValidationMessageFor(model => model.Country)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.State)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.State)
+            @Html.ValidationMessageFor(model => model.State)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Region)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Region)
+            @Html.ValidationMessageFor(model => model.Region)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Zip)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Zip)
+            @Html.ValidationMessageFor(model => model.Zip)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CountryCode)
+            @Html.ValidationMessageFor(model => model.CountryCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumberofPhoto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumberofPhoto)
+            @Html.ValidationMessageFor(model => model.NumberofPhoto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Currency)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Currency)
+            @Html.ValidationMessageFor(model => model.Currency)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CurrencyCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CurrencyCode)
+            @Html.ValidationMessageFor(model => model.CurrencyCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParkingSpaceId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ParkingSpaceId)
+            @Html.ValidationMessageFor(model => model.ParkingSpaceId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GarageSizeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GarageSizeId)
+            @Html.ValidationMessageFor(model => model.GarageSizeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DaysOnSite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DaysOnSite)
+            @Html.ValidationMessageFor(model => model.DaysOnSite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FloorId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FloorId)
+            @Html.ValidationMessageFor(model => model.FloorId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AvailableDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AvailableDate)
+            @Html.ValidationMessageFor(model => model.AvailableDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

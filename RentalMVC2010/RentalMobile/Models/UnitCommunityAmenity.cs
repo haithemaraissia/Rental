@@ -26,5 +26,7 @@ namespace RentalMobile.Models
         public Nullable<bool> Disability_Access { get; set; }
         public Nullable<bool> Controlled_Access { get; set; }
         public Nullable<bool> Community_Pool { get; set; }
+    
+        public virtual Unit Unit { get; set; }
     }
 }

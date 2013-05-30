@@ -18,7 +18,8 @@ namespace RentalMobile.Controllers
 
         public ViewResult Index()
         {
-            return View(db.UnitFeatures.ToList());
+            var unitfeatures = db.UnitFeatures.Include(u => u.Unit);
+            return View(unitfeatures.ToList());
         }
 
         //
@@ -35,6 +36,7 @@ namespace RentalMobile.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.UnitId = new SelectList(db.Units, "UnitId", "Description");
             return View();
         } 
 
@@ -51,6 +53,7 @@ namespace RentalMobile.Controllers
                 return RedirectToAction("Index");  
             }
 
+            ViewBag.UnitId = new SelectList(db.Units, "UnitId", "Description", unitfeature.UnitId);
             return View(unitfeature);
         }
         
@@ -60,6 +63,7 @@ namespace RentalMobile.Controllers
         public ActionResult Edit(int id)
         {
             UnitFeature unitfeature = db.UnitFeatures.Find(id);
+            ViewBag.UnitId = new SelectList(db.Units, "UnitId", "Description", unitfeature.UnitId);
             return View(unitfeature);
         }
 
@@ -75,6 +79,7 @@ namespace RentalMobile.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.UnitId = new SelectList(db.Units, "UnitId", "Description", unitfeature.UnitId);
             return View(unitfeature);
         }
 

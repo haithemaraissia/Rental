@@ -26,5 +26,7 @@ namespace RentalMobile.Models
         public Nullable<bool> Washer___Dryer_in_Unit { get; set; }
         public Nullable<bool> Washer_Dryer_Connections { get; set; }
         public Nullable<bool> Shared_Laundry_Facility { get; set; }
+    
+        public virtual Unit Unit { get; set; }
     }
 }

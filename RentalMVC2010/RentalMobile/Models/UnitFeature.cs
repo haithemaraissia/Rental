@@ -29,5 +29,7 @@ namespace RentalMobile.Models
         public bool Short_Term_Lease_Available { get; set; }
         public bool RV_Parking { get; set; }
         public bool Boat_Storage { get; set; }
+    
+        public virtual Unit Unit { get; set; }
     }
 }

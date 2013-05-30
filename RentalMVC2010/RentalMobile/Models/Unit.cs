@@ -25,7 +25,7 @@ namespace RentalMobile.Models
         public double SquareFoot { get; set; }
         public Nullable<double> Lot { get; set; }
         public Nullable<int> TypeId { get; set; }
-        public System.DateTime YearBuilt { get; set; }
+        public Nullable<System.DateTime> YearBuilt { get; set; }
         public Nullable<System.DateTime> YearRemodeled { get; set; }
         public string Description { get; set; }
         public string PrimaryPhoto { get; set; }
@@ -47,6 +47,13 @@ namespace RentalMobile.Models
         public Nullable<int> FloorId { get; set; }
         public Nullable<System.DateTime> AvailableDate { get; set; }
     
+        public virtual UnitAppliance UnitAppliance { get; set; }
+        public virtual UnitCommunityAmenity UnitCommunityAmenity { get; set; }
+        public virtual UnitExteriorAmenity UnitExteriorAmenity { get; set; }
         public virtual ICollection<UnitGallery> UnitGalleries { get; set; }
+        public virtual UnitInteriorAmenity UnitInteriorAmenity { get; set; }
+        public virtual UnitLuxuryAmenity UnitLuxuryAmenity { get; set; }
+        public virtual UnitPricing UnitPricing { get; set; }
+        public virtual UnitFeature UnitFeature { get; set; }
     }
 }

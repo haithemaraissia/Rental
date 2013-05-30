@@ -15,10 +15,10 @@
         <legend>UnitFeature</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.UnitId)
+            @Html.LabelFor(model => model.UnitId, "Unit")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.UnitId)
+            @Html.DropDownList("UnitId", String.Empty)
             @Html.ValidationMessageFor(model => model.UnitId)
         </div>
 
@@ -26,7 +26,7 @@
             @Html.LabelFor(model => model.High_Speed_Internet_Access)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.High_Speed_Internet_Access)
+            @Html.EditorFor(model => model.High_Speed_Internet_Access)
             @Html.ValidationMessageFor(model => model.High_Speed_Internet_Access)
         </div>
 
@@ -34,7 +34,7 @@
             @Html.LabelFor(model => model.Internet_Included)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Internet_Included)
+            @Html.EditorFor(model => model.Internet_Included)
             @Html.ValidationMessageFor(model => model.Internet_Included)
         </div>
 
@@ -42,7 +42,7 @@
             @Html.LabelFor(model => model.Wireless_Internet_Access)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Wireless_Internet_Access)
+            @Html.EditorFor(model => model.Wireless_Internet_Access)
             @Html.ValidationMessageFor(model => model.Wireless_Internet_Access)
         </div>
 
@@ -50,7 +50,7 @@
             @Html.LabelFor(model => model.Some_Paid_Utilities)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Some_Paid_Utilities)
+            @Html.EditorFor(model => model.Some_Paid_Utilities)
             @Html.ValidationMessageFor(model => model.Some_Paid_Utilities)
         </div>
 
@@ -58,7 +58,7 @@
             @Html.LabelFor(model => model.Covered_Parking)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Covered_Parking)
+            @Html.EditorFor(model => model.Covered_Parking)
             @Html.ValidationMessageFor(model => model.Covered_Parking)
         </div>
 
@@ -66,7 +66,7 @@
             @Html.LabelFor(model => model.Pets_allowed)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Pets_allowed)
+            @Html.EditorFor(model => model.Pets_allowed)
             @Html.ValidationMessageFor(model => model.Pets_allowed)
         </div>
 
@@ -74,7 +74,7 @@
             @Html.LabelFor(model => model.Cats_Allowed)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Cats_Allowed)
+            @Html.EditorFor(model => model.Cats_Allowed)
             @Html.ValidationMessageFor(model => model.Cats_Allowed)
         </div>
 
@@ -82,7 +82,7 @@
             @Html.LabelFor(model => model.Small_Dogs)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Small_Dogs)
+            @Html.EditorFor(model => model.Small_Dogs)
             @Html.ValidationMessageFor(model => model.Small_Dogs)
         </div>
 
@@ -90,7 +90,7 @@
             @Html.LabelFor(model => model.Large_Dogs)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Large_Dogs)
+            @Html.EditorFor(model => model.Large_Dogs)
             @Html.ValidationMessageFor(model => model.Large_Dogs)
         </div>
 
@@ -98,7 +98,7 @@
             @Html.LabelFor(model => model.Alarm_system)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Alarm_system)
+            @Html.EditorFor(model => model.Alarm_system)
             @Html.ValidationMessageFor(model => model.Alarm_system)
         </div>
 
@@ -106,7 +106,7 @@
             @Html.LabelFor(model => model.Near_Transportation)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Near_Transportation)
+            @Html.EditorFor(model => model.Near_Transportation)
             @Html.ValidationMessageFor(model => model.Near_Transportation)
         </div>
 
@@ -114,7 +114,7 @@
             @Html.LabelFor(model => model.Short_Term_Lease_Available)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Short_Term_Lease_Available)
+            @Html.EditorFor(model => model.Short_Term_Lease_Available)
             @Html.ValidationMessageFor(model => model.Short_Term_Lease_Available)
         </div>
 
@@ -122,7 +122,7 @@
             @Html.LabelFor(model => model.RV_Parking)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.RV_Parking)
+            @Html.EditorFor(model => model.RV_Parking)
             @Html.ValidationMessageFor(model => model.RV_Parking)
         </div>
 
@@ -130,7 +130,7 @@
             @Html.LabelFor(model => model.Boat_Storage)
         </div>
         <div class="editor-field">
-            @Html.CheckBoxFor(model => model.Boat_Storage)
+            @Html.EditorFor(model => model.Boat_Storage)
             @Html.ValidationMessageFor(model => model.Boat_Storage)
         </div>
 
