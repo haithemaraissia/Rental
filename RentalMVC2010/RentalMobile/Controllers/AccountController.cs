@@ -77,9 +77,9 @@ namespace RentalMobile.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     Roles.AddUserToRole(model.UserName, model.Role);
 
-                    if (model.Role == "Agent")
+                    if (model.Role == "Tenant")
                     {
-                        RegisterAgent(model);
+                        RegisterTenant(model);
                     }
 
                     if (model.Role == "Owner")
@@ -95,6 +95,11 @@ namespace RentalMobile.Controllers
                     if (model.Role == "Specialist")
                     {
                         RegisterSpecialist(model);
+                    }
+
+                    if (model.Role == "Provider")
+                    {
+                        RegisterProvider(model);
                     }
                     //Add User to the Databases
                     return RedirectToAction("Index", model.Role);
@@ -226,12 +231,12 @@ namespace RentalMobile.Controllers
                     }
 
 
-                    if (User.IsInRole("Agent"))
+                    if (User.IsInRole("Tenant"))
                     {
-                        //Agent
-                        var Agent = _db.Agents.Find(UserHelper.GetAgentID());
+                        //Tenant
+                        var Tenant = _db.Tenants.Find(UserHelper.GetTenantID());
                         {
-                            Agent.EmailAddress = model.Email;
+                            Tenant.EmailAddress = model.Email;
                         }
                         _db.SaveChanges();
                     }
@@ -265,7 +270,15 @@ namespace RentalMobile.Controllers
                         }
                         _db.SaveChanges();
                     }
-
+                    if (User.IsInRole("Provider"))
+                    {
+                        //Provider
+                        var Provider = _db.MaintenanceProviders.Find(UserHelper.GetProviderID());
+                        {
+                            Provider.EmailAddress = model.Email;
+                        }
+                        _db.SaveChanges();
+                    }
                 }
                 catch (Exception)
                 {
@@ -378,6 +391,27 @@ namespace RentalMobile.Controllers
             }
         }
 
+
+        [Authorize]
+        public void RegisterTenant(RegisterModel model)
+        {
+            var newtenant = new Tenant { EmailAddress = model.Email };
+            var user = Membership.GetUser(model.UserName);
+            if (user != null)
+            {
+                var providerUserKey = user.ProviderUserKey;
+                if (providerUserKey != null)
+                    newtenant.GUID = (Guid)providerUserKey;
+                newtenant.FirstName = model.UserName;
+                newtenant.Photo = "./../images/dotimages/avatar-placeholder.png";
+                newtenant.GoogleMap = "USA";
+            }
+
+            _db.Tenants.Add(newtenant);
+            _db.SaveChanges();
+
+        }
+
         [Authorize]
         public void RegisterOwner(RegisterModel model)
         {
@@ -438,6 +472,26 @@ namespace RentalMobile.Controllers
 
         }
 
+        [Authorize]
+        public void RegisterProvider(RegisterModel model)
+        {
+            var newprovider = new MaintenanceProvider { EmailAddress = model.Email };
+            var user = Membership.GetUser(model.UserName);
+            if (user != null)
+            {
+                var providerUserKey = user.ProviderUserKey;
+                if (providerUserKey != null)
+                    newprovider.GUID = (Guid)providerUserKey;
+                newprovider.FirstName = model.UserName;
+                newprovider.Photo = "./../images/dotimages/avatar-placeholder.png";
+                newprovider.GoogleMap = "USA";
+            }
+
+            _db.MaintenanceProviders.Add(newprovider);
+            _db.SaveChanges();
+
+        }
+
         //HELPERS
         public string GetUserPhotoPath()
         {
@@ -462,9 +516,9 @@ namespace RentalMobile.Controllers
         public string GetCurrentRole()
         {
             var user = System.Web.HttpContext.Current.User;
-            if (user.IsInRole("Agent"))
+            if (user.IsInRole("Tenant"))
             {
-                return "Agent";
+                return "Tenant";
             }
             if (user.IsInRole("Owner"))
             {
@@ -474,6 +528,10 @@ namespace RentalMobile.Controllers
             {
                 return "Agent";
             }
+            if (user.IsInRole("Provider"))
+            {
+                return "Provider";
+            }
             return user.IsInRole("Specialist") ? "Specialist" : null;
         }
 
@@ -481,12 +539,12 @@ namespace RentalMobile.Controllers
         public ActionResult Upload(int id)
         {
             var role = GetCurrentRole();
-            if (role == "Agent")
+            if (role == "Tenant")
             {
-                ViewBag.Id = UserHelper.GetAgentID();
+                ViewBag.Id = UserHelper.GetTenantID();
                 ViewBag.UserName = System.Web.HttpContext.Current.User.Identity.Name;
                 ViewBag.Type = "Profile";
-                TempData["UserID"] = UserHelper.GetAgentID();
+                TempData["UserID"] = UserHelper.GetTenantID();
             }
 
             if (role == "Owner")
@@ -512,6 +570,14 @@ namespace RentalMobile.Controllers
                 ViewBag.Type = "Profile";
                 TempData["UserID"] = UserHelper.GetSpecialistID();
             }
+            if (role == "Provider")
+            {
+                ViewBag.Id = UserHelper.GetProviderID();
+                ViewBag.UserName = System.Web.HttpContext.Current.User.Identity.Name;
+                ViewBag.Type = "Profile";
+                TempData["UserID"] = UserHelper.GetProviderID();
+            }
+
             return View();
         }
 
@@ -520,9 +586,10 @@ namespace RentalMobile.Controllers
         {
             SavePictures(id);
             var user = System.Web.HttpContext.Current.User;
-            if (user.IsInRole("Agent")) { return RedirectToAction("Index", "Agent"); }
+            if (user.IsInRole("Agent")) { return RedirectToAction("Index", "Tenant"); }
             if (user.IsInRole("Owner")) { return RedirectToAction("Index", "Owner"); }
             if (user.IsInRole("Agent")) { return RedirectToAction("Index", "Agent"); }
+            if (user.IsInRole("Agent")) { return RedirectToAction("Index", "Provider"); }
             return user.IsInRole("Specialist") ? RedirectToAction("Index", "Specialist") : null;
         }
 
@@ -600,6 +667,10 @@ namespace RentalMobile.Controllers
             {
                 AddSpecialistPicture(photoPath);
             }
+            if (role == "Provider")
+            {
+                AddProviderPicture(photoPath);
+            }
         }
 
         public void AddAgentPicture(string photoPath)
@@ -623,6 +694,14 @@ namespace RentalMobile.Controllers
             var specialist = _db.Specialists.Find(UserHelper.GetSpecialistID());
             if (!ModelState.IsValid) return;
             specialist.Photo = CleanUpPhotoPath(photoPath);
+            _db.SaveChanges();
+        }
+
+        public void AddProviderPicture(string photoPath)
+        {
+            var provider = _db.MaintenanceProviders.Find(UserHelper.GetProviderID());
+            if (!ModelState.IsValid) return;
+            provider.Photo = CleanUpPhotoPath(photoPath);
             _db.SaveChanges();
         }
 

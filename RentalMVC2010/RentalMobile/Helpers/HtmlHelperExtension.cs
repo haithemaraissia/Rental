@@ -23,8 +23,8 @@ namespace RentalMobile.Helpers
                 new SelectListItem { Text="Tenant" , Value="Tenant"},
                  new SelectListItem { Text="Owner" , Value="Owner"},
                   new SelectListItem { Text="Agent" , Value="Agent"},
+                   new SelectListItem { Text="Maintenance Provider", Value="Provider" },
                    new SelectListItem { Text="Specialist" , Value="Specialist"},
-                new SelectListItem { Text="Landlord", Value="Landlord" },
             };
         }
 

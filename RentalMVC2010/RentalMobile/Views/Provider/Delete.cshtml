@@ -1,0 +1,22 @@
+﻿@using RentalMobile.Helpers
+@model RentalMobile.Models.MaintenanceProvider
+@{
+    ViewBag.Title = "Delete Specialist Profile";
+    Layout = "~/Views/Shared/_ConceptLayoutPage.cshtml";
+
+}
+<h2>
+    Delete</h2>
+<p>
+    <h3 style="color: rgb(125, 0, 0)">
+        Are you sure you want to delete your Profile?</h3>
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}
+<div>
+    @Html.CustomHyperlink("Back")
+</div>

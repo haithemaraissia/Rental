@@ -86,7 +86,7 @@
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandlordController.cs" />
-    <Compile Include="Controllers\LegalController.cs" />
+    <Compile Include="Backup\Controller\LegalController.cs" />
     <Compile Include="Controllers\MaintainController.cs" />
     <Compile Include="Controllers\MaintenanceOrderController.cs" />
     <Compile Include="Controllers\MaintenancePhotoGalleryController.cs" />
@@ -97,15 +97,17 @@
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfessionalsController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
+    <Compile Include="Controllers\ProviderController.cs" />
+    <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\SpecialistController.cs" />
+    <Compile Include="Controllers\SpecialistsController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\TenantFavoriteController.cs" />
     <Compile Include="Controllers\TenantMaintenanceController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
-    <Compile Include="Backup\Controller\UnitDetailController.cs" />
     <Compile Include="Controllers\UnitFeatureTestController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UploadMaintenancePhotoController.cs" />
@@ -136,13 +138,16 @@
     <Compile Include="Models\Agent.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CrewMaintenance.cs">
+    <Compile Include="Models\C_MaintenanceExteriorHome_ImprovementsandRepairs.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MaintenanceOrder.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MaintenancePhoto.cs">
+      <DependentUpon>RentalContextGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MaintenanceProvider.cs">
       <DependentUpon>RentalContextGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Owner.cs">
@@ -307,6 +312,7 @@
     <Content Include="Design\General.aspx" />
     <Content Include="Documentation\P\P3.txt" />
     <Content Include="Documentation\P\P4.txt" />
+    <Content Include="Documentation\Rental\BrainStorming.txt" />
     <Content Include="Global.asax" />
     <Content Include="images\arrowsub.png" />
     <Content Include="images\bg.jpg" />
@@ -506,24 +512,24 @@
     <Content Include="Views\Account\M\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Backup\TenantMaintenance\_MaintenanceOrder.cshtml" />
-    <Content Include="Backup\TenantMaintenance\_MaintenancePhotoGallery.cshtml" />
-    <Content Include="Backup\TenantMaintenance\_MaintenaneOrderCreate.cshtml" />
-    <Content Include="Backup\TenantMaintenance\Create.cshtml" />
-    <Content Include="Backup\TenantMaintenance\Delete.cshtml" />
-    <Content Include="Backup\TenantMaintenance\Details.cshtml" />
-    <Content Include="Backup\TenantMaintenance\Edit.cshtml" />
-    <Content Include="Backup\TenantMaintenance\Index.cshtml" />
-    <Content Include="Backup\TenantMaintenance\Index3.cshtml" />
-    <Content Include="Backup\Shared\_ConceptLayoutPage.cshtml" />
-    <Content Include="Backup\Shared\_DefaultLayout.cshtml" />
-    <Content Include="Backup\Shared\_DotLayoutPage.cshtml" />
-    <Content Include="Backup\Shared\_Layout.cshtml" />
-    <Content Include="Backup\Shared\_LogOnPartial.cshtml" />
-    <Content Include="Backup\Shared\_Tenant.cshtml" />
-    <Content Include="Backup\Shared\Error.cshtml" />
-    <Content Include="Backup\Shared\M\_Layout.cshtml" />
-    <Content Include="Backup\Shared\M\_LogOnPartial.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\_MaintenanceOrder.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\_MaintenancePhotoGallery.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\_MaintenaneOrderCreate.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\Create.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\Delete.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\Details.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\Edit.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\Index.cshtml" />
+    <Content Include="Backup\Views\TenantMaintenance\Index3.cshtml" />
+    <Content Include="Backup\Views\Shared\_ConceptLayoutPage.cshtml" />
+    <Content Include="Backup\Views\Shared\_DefaultLayout.cshtml" />
+    <Content Include="Backup\Views\Shared\_DotLayoutPage.cshtml" />
+    <Content Include="Backup\Views\Shared\_Layout.cshtml" />
+    <Content Include="Backup\Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Backup\Views\Shared\_Tenant.cshtml" />
+    <Content Include="Backup\Views\Shared\Error.cshtml" />
+    <Content Include="Backup\Views\Shared\M\_Layout.cshtml" />
+    <Content Include="Backup\Views\Shared\M\_LogOnPartial.cshtml" />
     <None Include="css\dotcss\entypo\entypo.eot" />
     <None Include="css\dotcss\entypo\entypo.eot%40" />
     <None Include="css\dotcss\entypo\entypo.ttf" />
@@ -575,8 +581,8 @@
     <Content Include="Views\Shared\_ConceptLayoutPage.cshtml" />
     <Content Include="Views\Rent\Index.cshtml" />
     <Content Include="Views\Post\Index.cshtml" />
-    <Content Include="Views\Maintain\Index.cshtml" />
-    <Content Include="Views\Legal\Index.cshtml" />
+    <Content Include="Backup\CommentIndex.cshtml" />
+    <Content Include="Backup\Views\Legal\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\AdvancedSearch\Index.cshtml" />
     <Content Include="Views\Help\Index.cshtml" />
@@ -589,6 +595,17 @@
     <None Include="Documentation\P\P1.docx" />
     <None Include="Documentation\P\P2.docx" />
     <None Include="Documentation\Rental Documenation.docx" />
+    <None Include="Documentation\Rental\Brainstorming 101.docx" />
+    <None Include="Documentation\Rental\Data\ListofAllHomerelatedFromAngieList.docx" />
+    <None Include="Documentation\Rental\Data\ListOfContractorAnglieListEdited.docx" />
+    <None Include="Documentation\Rental\Data\ListofTypeOfWorkForContractor.docx" />
+    <None Include="Documentation\Rental\Data\ListofTypeOfWorkForContractor2010.docx" />
+    <None Include="Documentation\Rental\Data\ZillowDataSource - Partioned.docx" />
+    <None Include="Documentation\Rental\Data\ZillowDataSource.docx" />
+    <None Include="Documentation\Rental\Data\~%24stofAllHomerelatedFromAngieList.docx" />
+    <None Include="Documentation\Rental\Data\~%24stofTypeOfWorkForContractor.docx" />
+    <None Include="Documentation\Rental\Functions and tools.docx" />
+    <None Include="Documentation\Rental\RentHomeVirtuallyConcept.docx" />
     <None Include="Models\RentalContextGenerator.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RentalContextGenerator.Context.cs</LastGenOutput>
@@ -716,6 +733,16 @@
     <Content Include="Views\UnitFeatureTest\Create.cshtml" />
     <Content Include="Views\UnitFeatureTest\Edit.cshtml" />
     <Content Include="Views\UnitFeatureTest\Delete.cshtml" />
+    <Content Include="Views\Shared\_SpecialistMiniTabMenu.cshtml" />
+    <Content Include="Views\Shared\_SpecialistBigTabMenu.cshtml" />
+    <Content Include="Views\Providers\Index.cshtml" />
+    <Content Include="Views\Maintain\Index.cshtml" />
+    <Content Include="Views\Specialists\Index.cshtml" />
+    <Content Include="Views\Provider\_ProfileDetail.cshtml" />
+    <Content Include="Views\Provider\Index.cshtml" />
+    <Content Include="Views\Provider\ChangeAddress.cshtml" />
+    <Content Include="Views\Provider\Delete.cshtml" />
+    <Content Include="Views\Provider\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

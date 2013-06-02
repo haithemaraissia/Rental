@@ -30,7 +30,6 @@ namespace RentalMobile.Models
         public DbSet<Tenant> Tenants { get; set; }
         public DbSet<TenantFavorite> TenantFavorites { get; set; }
         public DbSet<TenantSavedSearch> TenantSavedSearches { get; set; }
-        public DbSet<CrewMaintenance> CrewMaintenances { get; set; }
         public DbSet<MaintenanceOrder> MaintenanceOrders { get; set; }
         public DbSet<MaintenancePhoto> MaintenancePhotoes { get; set; }
         public DbSet<OwnerMaintenance> OwnerMaintenances { get; set; }
@@ -49,5 +48,7 @@ namespace RentalMobile.Models
         public DbSet<UnitPricing> UnitPricings { get; set; }
         public DbSet<Unit> Units { get; set; }
         public DbSet<UnitFeature> UnitFeatures { get; set; }
+        public DbSet<C_MaintenanceExteriorHome_ImprovementsandRepairs> C_MaintenanceExteriorHome_ImprovementsandRepairs { get; set; }
+        public DbSet<MaintenanceProvider> MaintenanceProviders { get; set; }
     }
 }

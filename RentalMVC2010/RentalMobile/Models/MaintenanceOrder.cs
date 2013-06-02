@@ -16,7 +16,6 @@ namespace RentalMobile.Models
     {
         public MaintenanceOrder()
         {
-            this.CrewMaintenances = new HashSet<CrewMaintenance>();
             this.MaintenancePhotoes = new HashSet<MaintenancePhoto>();
             this.OwnerMaintenances = new HashSet<OwnerMaintenance>();
         }
@@ -30,7 +29,6 @@ namespace RentalMobile.Models
         public bool PetsinUnit { get; set; }
         public bool TenantPresence { get; set; }
     
-        public virtual ICollection<CrewMaintenance> CrewMaintenances { get; set; }
         public virtual ServiceType ServiceType { get; set; }
         public virtual UrgencyType UrgencyType { get; set; }
         public virtual ICollection<MaintenancePhoto> MaintenancePhotoes { get; set; }

@@ -6,10 +6,11 @@
     <edmx:StorageModels>
     <Schema Namespace="DB_33736_rentalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DB_33736_rentalModelStoreContainer">
+          <EntitySet Name="[MaintenanceExteriorHome ImprovementsandRepairs" EntityType="DB_33736_rentalModel.Store.[MaintenanceExteriorHome ImprovementsandRepairs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Agent" EntityType="DB_33736_rentalModel.Store.Agent" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CrewMaintenance" EntityType="DB_33736_rentalModel.Store.CrewMaintenance" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MaintenanceOrder" EntityType="DB_33736_rentalModel.Store.MaintenanceOrder" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MaintenancePhoto" EntityType="DB_33736_rentalModel.Store.MaintenancePhoto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MaintenanceProvider" EntityType="DB_33736_rentalModel.Store.MaintenanceProvider" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Owner" EntityType="DB_33736_rentalModel.Store.Owner" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OwnerMaintenance" EntityType="DB_33736_rentalModel.Store.OwnerMaintenance" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ServiceType" EntityType="DB_33736_rentalModel.Store.ServiceType" store:Type="Tables" Schema="dbo" />
@@ -30,10 +31,6 @@
           <EntitySet Name="UnitLuxuryAmenities" EntityType="DB_33736_rentalModel.Store.UnitLuxuryAmenities" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UnitPricing" EntityType="DB_33736_rentalModel.Store.UnitPricing" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UrgencyType" EntityType="DB_33736_rentalModel.Store.UrgencyType" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_CrewMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.Store.FK_CrewMaintenance_MaintenanceOrder">
-            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
-            <End Role="CrewMaintenance" EntitySet="CrewMaintenance" />
-          </AssociationSet>
           <AssociationSet Name="FK_MaintenanceOrder_ServiceType" Association="DB_33736_rentalModel.Store.FK_MaintenanceOrder_ServiceType">
             <End Role="ServiceType" EntitySet="ServiceType" />
             <End Role="MaintenanceOrder" EntitySet="MaintenanceOrder" />
@@ -99,6 +96,40 @@
             <End Role="UnitPricing" EntitySet="UnitPricing" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="[MaintenanceExteriorHome ImprovementsandRepairs">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Architects/Architectural" Type="nchar" MaxLength="10" />
+          <Property Name="Asphalt Paving" Type="nchar" MaxLength="10" />
+          <Property Name="Awnings" Type="nchar" MaxLength="10" />
+          <Property Name="Barns, Gazebos and Sheds" Type="nchar" MaxLength="10" />
+          <Property Name="Concrete" Type="nchar" MaxLength="10" />
+          <Property Name="Concrete Breaking and Cutting" Type="nchar" MaxLength="10" />
+          <Property Name="Decks, Patios and Enclosures" Type="nchar" MaxLength="10" />
+          <Property Name="Design and Build" Type="nchar" MaxLength="10" />
+          <Property Name="Exterior Doors" Type="nchar" MaxLength="10" />
+          <Property Name="Fence Install and Repair" Type="nchar" MaxLength="10" />
+          <Property Name="Foundation" Type="nchar" MaxLength="10" />
+          <Property Name="Garage/Carport" Type="nchar" MaxLength="10" />
+          <Property Name="Gutter Cleaning and Installation" Type="nchar" MaxLength="10" />
+          <Property Name="Hot Tubs, Spas and Jacuzzis" Type="nchar" MaxLength="10" />
+          <Property Name="Lakes, Ponds and Waterfalls" Type="nchar" MaxLength="10" />
+          <Property Name="Landscaping Design / Installation" Type="nchar" MaxLength="10" />
+          <Property Name="Lawn Care" Type="nchar" MaxLength="10" />
+          <Property Name="Masonry and Brick Work" Type="nchar" MaxLength="10" />
+          <Property Name="Painting" Type="nchar" MaxLength="10" />
+          <Property Name="Plaster and Stucco" Type="nchar" MaxLength="10" />
+          <Property Name="Roofing" Type="nchar" MaxLength="10" />
+          <Property Name="Sandblasting &amp; Power Washing" Type="nchar" MaxLength="10" />
+          <Property Name="Siding" Type="nchar" MaxLength="10" />
+          <Property Name="Sprinkler Systems and Irrigation" Type="nchar" MaxLength="10" />
+          <Property Name="Swimming Pool Install" Type="nchar" MaxLength="10" />
+          <Property Name="Tree Service" Type="nchar" MaxLength="10" />
+          <Property Name="Waterproofing" Type="nchar" MaxLength="10" />
+          <Property Name="Windows" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="AgentId" />
@@ -124,13 +155,6 @@
           <Property Name="CountryCode" Type="varchar" MaxLength="3" />
           <Property Name="Video" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="CrewMaintenance">
-          <Key>
-            <PropertyRef Name="CrewID" />
-          </Key>
-          <Property Name="CrewID" Type="int" Nullable="false" />
-          <Property Name="MaintenanceID" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="MaintenanceOrder">
           <Key>
             <PropertyRef Name="MaintenanceID" />
@@ -151,6 +175,30 @@
           <Property Name="MaintenanceID" Type="int" Nullable="false" />
           <Property Name="PhotoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PhotoPath" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaintenanceProvider">
+          <Key>
+            <PropertyRef Name="MaintenanceProviderId" />
+          </Key>
+          <Property Name="MaintenanceProviderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VCard" Type="nvarchar" MaxLength="100" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="100" />
+          <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="GoogleMap" Type="nvarchar(max)" />
+          <Property Name="Country" Type="varchar" MaxLength="128" />
+          <Property Name="Region" Type="varchar" MaxLength="128" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Owner">
           <Key>
@@ -459,18 +507,6 @@
           <Property Name="UrgencyType" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="LCID" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_CrewMaintenance_MaintenanceOrder">
-          <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="1" />
-          <End Role="CrewMaintenance" Type="DB_33736_rentalModel.Store.CrewMaintenance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MaintenanceOrder">
-              <PropertyRef Name="MaintenanceID" />
-            </Principal>
-            <Dependent Role="CrewMaintenance">
-              <PropertyRef Name="MaintenanceID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MaintenanceOrder_ServiceType">
           <End Role="ServiceType" Type="DB_33736_rentalModel.Store.ServiceType" Multiplicity="1" />
           <End Role="MaintenanceOrder" Type="DB_33736_rentalModel.Store.MaintenanceOrder" Multiplicity="*" />
@@ -685,17 +721,12 @@
             <End Role="Tenant" EntitySet="Tenants" />
             <End Role="TenantSavedSearch" EntitySet="TenantSavedSearches" />
           </AssociationSet>
-          <EntitySet Name="CrewMaintenances" EntityType="DB_33736_rentalModel.CrewMaintenance" />
           <EntitySet Name="MaintenanceOrders" EntityType="DB_33736_rentalModel.MaintenanceOrder" />
           <EntitySet Name="MaintenancePhotoes" EntityType="DB_33736_rentalModel.MaintenancePhoto" />
           <EntitySet Name="OwnerMaintenances" EntityType="DB_33736_rentalModel.OwnerMaintenance" />
           <EntitySet Name="ServiceTypes" EntityType="DB_33736_rentalModel.ServiceType" />
           <EntitySet Name="sysdiagrams" EntityType="DB_33736_rentalModel.sysdiagram" />
           <EntitySet Name="UrgencyTypes" EntityType="DB_33736_rentalModel.UrgencyType" />
-          <AssociationSet Name="FK_CrewMaintenance_MaintenanceOrder" Association="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder">
-            <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
-            <End Role="CrewMaintenance" EntitySet="CrewMaintenances" />
-          </AssociationSet>
           <AssociationSet Name="FK_MaintenanceOrder_ServiceType" Association="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType">
             <End Role="ServiceType" EntitySet="ServiceTypes" />
             <End Role="MaintenanceOrder" EntitySet="MaintenanceOrders" />
@@ -760,6 +791,8 @@
             <End Role="Unit" EntitySet="Units" />
             <End Role="UnitFeature" EntitySet="UnitFeatures" />
           </AssociationSet>
+          <EntitySet Name="C_MaintenanceExteriorHome_ImprovementsandRepairs" EntityType="DB_33736_rentalModel.C_MaintenanceExteriorHome_ImprovementsandRepairs" />
+          <EntitySet Name="MaintenanceProviders" EntityType="DB_33736_rentalModel.MaintenanceProvider" />
           </EntityContainer>
         <EntityType Name="UnitGallery">
           <Key>
@@ -865,14 +898,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="CrewMaintenance">
-          <Key>
-            <PropertyRef Name="CrewID" />
-          </Key>
-          <Property Type="Int32" Name="CrewID" Nullable="false" />
-          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
-          <NavigationProperty Name="MaintenanceOrder" Relationship="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder" FromRole="CrewMaintenance" ToRole="MaintenanceOrder" />
-        </EntityType>
         <EntityType Name="MaintenanceOrder">
           <Key>
             <PropertyRef Name="MaintenanceID" />
@@ -885,7 +910,6 @@
           <Property Type="Int32" Name="ServiceTypeID" Nullable="false" />
           <Property Type="Boolean" Name="PetsinUnit" Nullable="false" />
           <Property Type="Boolean" Name="TenantPresence" Nullable="false" />
-          <NavigationProperty Name="CrewMaintenances" Relationship="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder" FromRole="MaintenanceOrder" ToRole="CrewMaintenance" />
           <NavigationProperty Name="ServiceType" Relationship="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType" FromRole="MaintenanceOrder" ToRole="ServiceType" />
           <NavigationProperty Name="UrgencyType" Relationship="DB_33736_rentalModel.FK_MaintenanceOrder_UrgencyType" FromRole="MaintenanceOrder" ToRole="UrgencyType" />
           <NavigationProperty Name="MaintenancePhotoes" Relationship="DB_33736_rentalModel.FK_MaintenancePhoto_MaintenanceOrder" FromRole="MaintenanceOrder" ToRole="MaintenancePhoto" />
@@ -937,18 +961,6 @@
           <Property Type="Int32" Name="LCID" Nullable="false" />
           <NavigationProperty Name="MaintenanceOrders" Relationship="DB_33736_rentalModel.FK_MaintenanceOrder_UrgencyType" FromRole="UrgencyType" ToRole="MaintenanceOrder" />
         </EntityType>
-        <Association Name="FK_CrewMaintenance_MaintenanceOrder">
-          <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="1" />
-          <End Type="DB_33736_rentalModel.CrewMaintenance" Role="CrewMaintenance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MaintenanceOrder">
-              <PropertyRef Name="MaintenanceID" />
-            </Principal>
-            <Dependent Role="CrewMaintenance">
-              <PropertyRef Name="MaintenanceID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MaintenanceOrder_ServiceType">
           <End Type="DB_33736_rentalModel.ServiceType" Role="ServiceType" Multiplicity="1" />
           <End Type="DB_33736_rentalModel.MaintenanceOrder" Role="MaintenanceOrder" Multiplicity="*" />
@@ -1359,6 +1371,64 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="C_MaintenanceExteriorHome_ImprovementsandRepairs">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Type="Int32" Name="CompanyId" Nullable="false" />
+          <Property Type="String" Name="Architects_Architectural" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Asphalt_Paving" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Awnings" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Barns__Gazebos_and_Sheds" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Concrete" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Concrete_Breaking_and_Cutting" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Decks__Patios_and_Enclosures" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Design_and_Build" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Exterior_Doors" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Fence_Install_and_Repair" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Foundation" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Garage_Carport" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Gutter_Cleaning_and_Installation" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Hot_Tubs__Spas_and_Jacuzzis" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Lakes__Ponds_and_Waterfalls" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Landscaping_Design___Installation" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Lawn_Care" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Masonry_and_Brick_Work" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Painting" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Plaster_and_Stucco" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Roofing" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Sandblasting___Power_Washing" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Siding" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Sprinkler_Systems_and_Irrigation" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Swimming_Pool_Install" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Tree_Service" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Waterproofing" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Windows" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MaintenanceProvider">
+          <Key>
+            <PropertyRef Name="MaintenanceProviderId" />
+          </Key>
+          <Property Type="Int32" Name="MaintenanceProviderId" Nullable="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="GUID" Nullable="false" />
+          <Property Type="String" Name="VCard" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Skype" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Twitter" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LinkedIn" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GooglePlus" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Photo" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GoogleMap" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Region" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1428,14 +1498,6 @@
                 <ScalarProperty Name="Search" ColumnName="Search" />
                 <ScalarProperty Name="TenantId" ColumnName="TenantId" />
                 <ScalarProperty Name="SearchId" ColumnName="SearchId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CrewMaintenances">
-            <EntityTypeMapping TypeName="DB_33736_rentalModel.CrewMaintenance">
-              <MappingFragment StoreEntitySet="CrewMaintenance">
-                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
-                <ScalarProperty Name="CrewID" ColumnName="CrewID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1749,6 +1811,66 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="C_MaintenanceExteriorHome_ImprovementsandRepairs">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.C_MaintenanceExteriorHome_ImprovementsandRepairs">
+              <MappingFragment StoreEntitySet="[MaintenanceExteriorHome ImprovementsandRepairs">
+                <ScalarProperty Name="Windows" ColumnName="Windows" />
+                <ScalarProperty Name="Waterproofing" ColumnName="Waterproofing" />
+                <ScalarProperty Name="Tree_Service" ColumnName="Tree Service" />
+                <ScalarProperty Name="Swimming_Pool_Install" ColumnName="Swimming Pool Install" />
+                <ScalarProperty Name="Sprinkler_Systems_and_Irrigation" ColumnName="Sprinkler Systems and Irrigation" />
+                <ScalarProperty Name="Siding" ColumnName="Siding" />
+                <ScalarProperty Name="Sandblasting___Power_Washing" ColumnName="Sandblasting &amp; Power Washing" />
+                <ScalarProperty Name="Roofing" ColumnName="Roofing" />
+                <ScalarProperty Name="Plaster_and_Stucco" ColumnName="Plaster and Stucco" />
+                <ScalarProperty Name="Painting" ColumnName="Painting" />
+                <ScalarProperty Name="Masonry_and_Brick_Work" ColumnName="Masonry and Brick Work" />
+                <ScalarProperty Name="Lawn_Care" ColumnName="Lawn Care" />
+                <ScalarProperty Name="Landscaping_Design___Installation" ColumnName="Landscaping Design / Installation" />
+                <ScalarProperty Name="Lakes__Ponds_and_Waterfalls" ColumnName="Lakes, Ponds and Waterfalls" />
+                <ScalarProperty Name="Hot_Tubs__Spas_and_Jacuzzis" ColumnName="Hot Tubs, Spas and Jacuzzis" />
+                <ScalarProperty Name="Gutter_Cleaning_and_Installation" ColumnName="Gutter Cleaning and Installation" />
+                <ScalarProperty Name="Garage_Carport" ColumnName="Garage/Carport" />
+                <ScalarProperty Name="Foundation" ColumnName="Foundation" />
+                <ScalarProperty Name="Fence_Install_and_Repair" ColumnName="Fence Install and Repair" />
+                <ScalarProperty Name="Exterior_Doors" ColumnName="Exterior Doors" />
+                <ScalarProperty Name="Design_and_Build" ColumnName="Design and Build" />
+                <ScalarProperty Name="Decks__Patios_and_Enclosures" ColumnName="Decks, Patios and Enclosures" />
+                <ScalarProperty Name="Concrete_Breaking_and_Cutting" ColumnName="Concrete Breaking and Cutting" />
+                <ScalarProperty Name="Concrete" ColumnName="Concrete" />
+                <ScalarProperty Name="Barns__Gazebos_and_Sheds" ColumnName="Barns, Gazebos and Sheds" />
+                <ScalarProperty Name="Awnings" ColumnName="Awnings" />
+                <ScalarProperty Name="Asphalt_Paving" ColumnName="Asphalt Paving" />
+                <ScalarProperty Name="Architects_Architectural" ColumnName="Architects/Architectural" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaintenanceProviders">
+            <EntityTypeMapping TypeName="DB_33736_rentalModel.MaintenanceProvider">
+              <MappingFragment StoreEntitySet="MaintenanceProvider">
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="GoogleMap" ColumnName="GoogleMap" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="VCard" ColumnName="VCard" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MaintenanceProviderId" ColumnName="MaintenanceProviderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1778,30 +1900,23 @@
           <ConnectorPoint PointX="8.625" PointY="2.2401432291666667" />
           <ConnectorPoint PointX="9.5" PointY="2.2401432291666667" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="DB_33736_rentalModel.TenantFavorite" Width="1.5" PointX="6" PointY="5.375" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.TenantFavorite" Width="1.5" PointX="5.125" PointY="5.5" Height="1.9802864583333335" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.TenantSavedSearch" Width="1.5" PointX="8.75" PointY="5.25" Height="1.9802864583333317" />
         <AssociationConnector Association="DB_33736_rentalModel.FK_TenantFavorite_Tenant" >
-          <ConnectorPoint PointX="8.0625005" PointY="5.5379036458333326" />
-          <ConnectorPoint PointX="8.0625005" PointY="6.4465955520833322" />
-          <ConnectorPoint PointX="7.5" PointY="6.4465955520833322" />
+          <ConnectorPoint PointX="7.125" PointY="5.9997054036458328" />
+          <ConnectorPoint PointX="6.625" PointY="5.9997054036458328" />
         </AssociationConnector>
         <AssociationConnector Association="DB_33736_rentalModel.FK_TenantSavedSearch_Tenant" >
           <ConnectorPoint PointX="8.3750022500000014" PointY="5.5379036458333326" />
           <ConnectorPoint PointX="8.3750022500000014" PointY="6.0235020989583337" />
           <ConnectorPoint PointX="8.75" PointY="6.0235020989583337" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="DB_33736_rentalModel.CrewMaintenance" Width="1.5" PointX="5.25" PointY="9.25" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.MaintenanceOrder" Width="1.5" PointX="3" PointY="11.875" Height="3.7109993489583317" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.MaintenancePhoto" Width="1.5" PointX="5.25" PointY="11.625" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.OwnerMaintenance" Width="1.5" PointX="5.25" PointY="14.125" Height="1.5956835937499996" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.ServiceType" Width="1.5" PointX="0.75" PointY="12.75" Height="1.787985026041671" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.sysdiagram" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333317" />
         <EntityTypeShape EntityType="DB_33736_rentalModel.UrgencyType" Width="1.5" PointX="0.75" PointY="9.75" Height="1.7879850260416674" />
-        <AssociationConnector Association="DB_33736_rentalModel.FK_CrewMaintenance_MaintenanceOrder" >
-          <ConnectorPoint PointX="3.9960946875" PointY="11.875" />
-          <ConnectorPoint PointX="3.9960946875" PointY="10.014860432942708" />
-          <ConnectorPoint PointX="5.25" PointY="10.014860432942708" />
-        </AssociationConnector>
         <AssociationConnector Association="DB_33736_rentalModel.FK_MaintenanceOrder_ServiceType" >
           <ConnectorPoint PointX="2.25" PointY="13.643992513020836" />
           <ConnectorPoint PointX="2.5416666666666665" PointY="13.643992513020836" />
@@ -1889,6 +2004,8 @@
           <ConnectorPoint PointX="2.10937875" PointY="46.172801106770834" />
           <ConnectorPoint PointX="3" PointY="46.172801106770834" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DB_33736_rentalModel.C_MaintenanceExteriorHome_ImprovementsandRepairs" Width="1.5" PointX="12.375" PointY="0.75" Height="6.5955208333333246" />
+        <EntityTypeShape EntityType="DB_33736_rentalModel.MaintenanceProvider" Width="1.5" PointX="13.375" PointY="8.75" Height="4.6725065104166674" />
         </Diagram>
     </Diagrams>
   </Designer>

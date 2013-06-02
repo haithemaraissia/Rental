@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace RentalMobile.Controllers
 {
-    public class LegalController : Controller
+    public class SpecialistsController : Controller
     {
         //
-        // GET: /Legal/
+        // GET: /Specialists/
 
         public ActionResult Index()
         {

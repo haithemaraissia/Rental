@@ -114,6 +114,25 @@ namespace RentalMobile.Helpers
             return null;
         }
 
+        public static int? GetProviderID()
+        {
+            var userID = GetUserGUID();
+            var Provider = DB.MaintenanceProviders.FirstOrDefault(x => x.GUID == userID);
+            if (Provider != null) return Provider.MaintenanceProviderId;
+            return null;
+        }
+
+        public static int? GetProviderID(int id)
+        {
+            var userID = DB.MaintenanceProviders.FirstOrDefault(x => x.MaintenanceProviderId == id);
+            if (userID != null)
+            {
+                var Provider = DB.MaintenanceProviders.FirstOrDefault(x => x.GUID == userID.GUID);
+                if (Provider != null) return Provider.MaintenanceProviderId;
+            }
+            return null;
+        }
+
         public static bool ValidateLocation(string location)
         {
             var address = String.Format("http://maps.google.com/maps/api/geocode/json?address={0}&sensor=false", location.Replace(" ", "+"));

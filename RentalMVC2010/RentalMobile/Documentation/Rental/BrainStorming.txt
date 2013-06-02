@@ -1,0 +1,9 @@
+MVC Learning
+Retreive the sites and paging from Differnt sites, save images, login with different social in KC
+
+-2-Allow the Client to view and save information
+-3-Allow owner to post listing
+
+
+
+Make it Mobile, Tables Reading Comfortable
