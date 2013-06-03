@@ -2,7 +2,7 @@
 @model RentalMobile.Models.Unit
 @{
     ViewBag.Title = "Unit Description";
-    Layout = "~/Views/Shared/_Unit.cshtml";
+    Layout = "~/Views/Shared/ViewofProfiles/_Unit.cshtml";
     var jsonUrl = "/unitdetail/jsonfun/";
 
     if (String.IsNullOrEmpty(Model.UnitId.ToString(CultureInfo.InvariantCulture)))

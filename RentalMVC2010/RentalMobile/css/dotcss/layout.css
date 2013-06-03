@@ -829,6 +829,32 @@ ul.arrow li {
 	color: #000;
 }
 
+
+.provider-list li {
+	text-align: center;
+	background-color: #f7f7f7;
+	margin-bottom: 20px !important;
+}
+.provider-list img {
+	margin-bottom: 15px;
+}
+.provider-list .profile-meta {
+	color: #396991;
+	margin-bottom: 10px;
+}
+.provider-list .social-profile {
+	border-top: 1px #ccc dotted;
+	margin: 0 20px;
+	padding: 5px 0;
+}
+.provider-list a {
+	display: inline-block;
+	margin: 0 3px;
+}
+.provider-list a:hover {
+	text-decoration: none;
+	color: #000;
+}
 /*------- Social-aside links on home 2 -------*/
 .social-aside {
 	border-left: 3px solid #396991;
