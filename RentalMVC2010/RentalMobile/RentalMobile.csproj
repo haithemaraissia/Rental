@@ -86,7 +86,6 @@
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandlordController.cs" />
-    <Compile Include="Backup\Controller\LegalController.cs" />
     <Compile Include="Controllers\MaintainController.cs" />
     <Compile Include="Controllers\MaintenanceOrderController.cs" />
     <Compile Include="Controllers\MaintenancePhotoGalleryController.cs" />
@@ -743,11 +742,15 @@
     <Content Include="Views\Provider\ChangeAddress.cshtml" />
     <Content Include="Views\Provider\Delete.cshtml" />
     <Content Include="Views\Provider\Edit.cshtml" />
+    <Content Include="Views\Shared\Copy of _Unit.cshtml" />
+    <Content Include="Views\Shared\_Professional.cshtml" />
+    <Content Include="Views\Shared\Copy %283%29 of _Unit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Backup\Controller\" />
     <Folder Include="Photo\Tenant\" />
     <Folder Include="TempUploads\" />
     <Folder Include="UploadedImages\" />
