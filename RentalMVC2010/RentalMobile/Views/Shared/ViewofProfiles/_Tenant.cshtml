@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+@Html.Partial("LayoutFrame/_IEHandler")
+<html lang="en">
+@RenderSection("head", false)
+@Html.Partial("LayoutFrame/_Head")
+<body>
+    <div class="main" role="main">
+        @RenderBody()
+    </div>
+    <div class="container page add-bottom">
+        @Html.Partial("LayoutFrame/_TopBar")
+        @Html.Partial("LayoutFrame/_BrandHeader")
+        <div class="main" role="main">
+            <section class="row">
+                <div class="tab-container mini-tabs sixteen columns">
+                    @Html.Partial("Menu/_TenantMiniTabMenu")
+                    @RenderSection("profile", false)
+                    @RenderSection("map",false)
+                    @RenderSection("account",false)
+                </div>
+            </section>
+            <section class="row double-bottom">
+                <div class="tab-container big-tabs sixteen columns">
+                    @Html.Partial("Menu/_TenantBigTabMenu")
+                    @RenderSection("comments", false)
+                    <div id="favorite">
+                        @RenderSection("favorite", false)
+                    </div>
+                    @RenderSection("showing", false)
+                    @RenderSection("maintenance", false)
+                    @RenderSection("contract", false)
+                    @RenderSection("application", false)
+                    @RenderSection("payment", false)
+                </div>
+            </section>
+            @Html.Partial("LayoutFrame/_Features")
+            @Html.Partial("LayoutFrame/_Partners")
+        </div>
+        @Html.Partial("LayoutFrame/_BreadCrumb")
+        @Html.Partial("LayoutFrame/_TopScroller")
+    </div>
+    @Html.Partial("LayoutFrame/_Footer")
+    @Html.Partial("LayoutFrame/_InitialScripts")
+    @RenderSection("scripts", false)
+</body>
+</html>

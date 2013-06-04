@@ -750,6 +750,14 @@
     <Content Include="Views\Shared\Profiles\_Provider.cshtml" />
     <Content Include="Views\Shared\Menu\ViewsofProfile\_ProviderMiniTabMenu.cshtml" />
     <Content Include="Views\Shared\Menu\ViewsofProfile\_ProviderBigTabMenu.cshtml" />
+    <Content Include="Views\Shared\ViewofProfiles\_Tenant.cshtml" />
+    <Content Include="Views\Shared\BackUp\ViewofProfiles\_Agent.cshtml" />
+    <Content Include="Views\Shared\BackUp\ViewofProfiles\_Owner.cshtml" />
+    <Content Include="Views\Shared\BackUp\ViewofProfiles\_Professional.cshtml" />
+    <Content Include="Views\Shared\BackUp\ViewofProfiles\_Provider.cshtml" />
+    <Content Include="Views\Shared\BackUp\ViewofProfiles\_Tenant.cshtml" />
+    <Content Include="Views\Shared\BackUp\ViewofProfiles\_Unit.cshtml" />
+    <Content Include="Views\Shared\BackUp\ViewofProfiles\Copy of Copy %283%29 of _Unit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
