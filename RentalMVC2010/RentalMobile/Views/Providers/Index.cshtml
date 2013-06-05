@@ -1,7 +1,7 @@
 ﻿@using System.Globalization
 @model RentalMobile.Models.MaintenanceProvider
 @{
-    ViewBag.Title = "Unit Description";
+    ViewBag.Title = "Provider Profile";
     Layout = "~/Views/Shared/ViewofProfiles/_Provider.cshtml";
     var jsonUrl = "/unitdetail/jsonfun/";
 
@@ -60,22 +60,22 @@
         </p>
         <form action="#">
             <ul class="grid-form">
-                <li class="four columns alpha">
+                <li class="three columns alpha">
                     <label for="your-name" class="screen-reader-text">
                         Your name</label>
                     <input id="your-name" placeholder="Your name" type="text" required>
                 </li>
-                <li class="four columns omega">
+                <li class="three columns omega">
                     <label for="your-email" class="screen-reader-text">
                         E-mail</label>
                     <input id="your-email" placeholder="email" type="email" required>
                 </li>
-                <li class="four columns alpha">
+                <li class="three columns alpha">
                     <label for="your-telephone" class="screen-reader-text">
                         Your telephone</label>
                     <input id="your-telephone" placeholder="telephone" type="text" required>
                 </li>
-                <li class="four columns omega">
+                <li class="three columns omega">
                     <label for="showing-date" class="screen-reader-text">
                         Showing date</label>
                     <input id="showing-date" placeholder="showing date" type="text" required>
@@ -106,31 +106,19 @@
                     Morbi pulvinar diam aliquet risus. tristique nec interdum leo.</p>
             </div>
             <div class="six columns push by-two">
-                
-                  <h4>
-                    Review</h4>
+                <h4>Recommendation</h4>
                 <ul class="arrow">
-                    <li>50% Approval.</li>
-                    <li>10 people recommend their services.</li>
+                     <li>50% Approval</li>
                 </ul>
-                
-                <br/>
-
-                <h4>
-                    Rate</h4>
+                <h4>Rate</h4>
                 <ul class="arrow">
-                    <li>Rate = 150</li>
+                    <li>Rate = 150 per hour</li>
                 </ul>
-                
-                <br/>
-                
-                <h4>
-                    Zone: Zipcode Area</h4>
+                <h4> Zone</h4>
                 <ul class="arrow">
                     <li>Overland Park - 66202</li>
+                    <li>Olathe - 66203</li>
                 </ul>
-                
-
             </div>
         </div>
     }
@@ -139,6 +127,102 @@
     {
         <div id="coverage">Exterior/ Interior</div>
         
+        <div class="fourteen columns">
+            <h4>Interior</h4>
+            <ul >
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                              <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+            </ul>
+            <br/>
+            <br/>
+        </div>
+
+        <div class="three columns">
+            <h4>Interior</h4>
+            <ul class="arrow">
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+            </ul>
+            <br/>
+            <br/>
+        </div>
+        <div class="three columns">
+            <h4>Interior</h4>
+            <ul class="arrow">
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+                <li>50% Approval</li>
+            </ul>
+            <br/>
+            <br/>
+        </div>
+                 <div class="three columns">
+                <h4>Interior</h4>
+              <ul class="arrow">
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                   <li>50% Approval</li>
+              </ul>
+              <br/>
+         <br/>
+         </div>
+        <div class="three columns">
+                <h4>Interior</h4>
+              <ul class="arrow">
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                  <li>50% Approval</li>
+                   <li>50% Approval</li>
+              </ul>
+              <br/>
+              <br/>
+                <h4>Exterior</h4>
+              <ul class="arrow">
+                  <li>Rate = 150 per hour</li>
+              </ul>
+              
+                 <br/>
+              <br/>
+              <h4> Zone</h4>
+                <ul class="arrow">
+                    <li>Overland Park - 66202</li>
+                    <li>Olathe - 66203</li>
+                </ul>
+            </div>
         @*<div id="share-on-fb" class="panel">
             <p>
                 Add your Facebook App here</p>
@@ -161,12 +245,12 @@
                 <h4 class="section-titling">
                     Send this property to a friend</h4>
                 <ul class="grid-form row remove-bottom eight columns">
-                    <li class="four columns alpha">
+                    <li class="three columns alpha">
                         <label for="friend-name-field" class="screen-reader-text">
                             Name of your friend</label>
                         <input id="friend-name-field" type="text" placeholder="Name of your friend" class="full-width" />
                     </li>
-                    <li class="four columns omega">
+                    <li class="three columns omega">
                         <label for="friend-email-field" class="screen-reader-text">
                             Email of your friend</label>
                         <input id="friend-email-field" type="email" placeholder="Email of your friend" class="full-width" />

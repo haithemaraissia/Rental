@@ -10,22 +10,11 @@ namespace RentalMobile.Controllers
 {
     public class AgentsController : Controller
     {
-        private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
-
-
-        public ViewResult Index(int id)
+        public ActionResult Index()
         {
-            var agent = db.Agents.Find(UserHelper.GetAgentID(id));
-            ViewBag.agentProfile = agent;
-            ViewBag.agentId = agent.AgentId;
-            ViewBag.agentGoogleMap = agent.GoogleMap;
-            return View(agent);
+            return View();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
+
     }
 }

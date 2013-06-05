@@ -13,13 +13,9 @@ namespace RentalMobile.Controllers
         private DB_33736_rentalEntities db = new DB_33736_rentalEntities();
 
 
-        public ViewResult Index(int id)
+        public ActionResult Index()
         {
-            var tenant = db.Tenants.Find(UserHelper.GetTenantID(id));
-            ViewBag.tenantProfile = tenant;
-            ViewBag.tenantId = tenant.TenantId;
-            ViewBag.tenantGoogleMap = tenant.GoogleMap;
-            return View(tenant);
+            return View();
         }
 
     }

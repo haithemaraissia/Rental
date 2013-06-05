@@ -49,6 +49,10 @@
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
+    <Reference Include="plUploadHandler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\plUploadHandler.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -113,8 +117,8 @@
     <Compile Include="Controllers\UnitFeatureTestController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UploadMaintenancePhotoController.cs" />
-    <Compile Include="Controllers\UserProfileController.cs" />
-    <Compile Include="Controllers\ViewUserProfileController.cs" />
+    <Compile Include="Backup\Controller\UserProfileController.cs" />
+    <Compile Include="Backup\Controller\ViewUserProfileController.cs" />
     <Compile Include="Design\General.aspx.cs">
       <DependentUpon>General.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,9 +316,9 @@
     <Content Include="css\pupload\Css\Reset.css" />
     <Content Include="css\pupload\Css\Standard.css" />
     <Content Include="Design\General.aspx" />
-    <Content Include="Documentation\P\P3.txt" />
-    <Content Include="Documentation\P\P4.txt" />
-    <Content Include="Documentation\Rental\BrainStorming.txt" />
+    <Content Include="Documentation\BrainStorming+MaintenanceData\BrainStorming.txt" />
+    <Content Include="Documentation\UnitProperty\P3.txt" />
+    <Content Include="Documentation\UnitProperty\P4.txt" />
     <Content Include="Global.asax" />
     <Content Include="images\arrowsub.png" />
     <Content Include="images\bg.jpg" />
@@ -593,21 +597,22 @@
     <Content Include="Design\Tenant\Index.cshtml" />
     <Content Include="Handler\ImageUploadHandler.ashx" />
     <Content Include="Handler\ProfileImageUploadHandler.ashx" />
-    <None Include="Documentation\P\AllProperties.docx" />
-    <None Include="Documentation\P\P1.docx" />
-    <None Include="Documentation\P\P2.docx" />
-    <None Include="Documentation\Rental Documenation.docx" />
-    <None Include="Documentation\Rental\Brainstorming 101.docx" />
-    <None Include="Documentation\Rental\Data\ListofAllHomerelatedFromAngieList.docx" />
-    <None Include="Documentation\Rental\Data\ListOfContractorAnglieListEdited.docx" />
-    <None Include="Documentation\Rental\Data\ListofTypeOfWorkForContractor.docx" />
-    <None Include="Documentation\Rental\Data\ListofTypeOfWorkForContractor2010.docx" />
-    <None Include="Documentation\Rental\Data\ZillowDataSource - Partioned.docx" />
-    <None Include="Documentation\Rental\Data\ZillowDataSource.docx" />
-    <None Include="Documentation\Rental\Data\~%24stofAllHomerelatedFromAngieList.docx" />
-    <None Include="Documentation\Rental\Data\~%24stofTypeOfWorkForContractor.docx" />
-    <None Include="Documentation\Rental\Functions and tools.docx" />
-    <None Include="Documentation\Rental\RentHomeVirtuallyConcept.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Brainstorming 101.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\ListofAllHomerelatedFromAngieList.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\ListOfContractorAnglieListEdited.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\ListofTypeOfWorkForContractor.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\ListofTypeOfWorkForContractor2010.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\ZillowDataSource - Partioned.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\ZillowDataSource.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\~%24stofAllHomerelatedFromAngieList.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Data\~%24stofTypeOfWorkForContractor.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\Functions and tools.docx" />
+    <None Include="Documentation\BrainStorming+MaintenanceData\RentHomeVirtuallyConcept.docx" />
+    <None Include="Documentation\Process\Functions.docx" />
+    <None Include="Documentation\Structure\Sitemap.docx" />
+    <None Include="Documentation\UnitProperty\AllProperties.docx" />
+    <None Include="Documentation\UnitProperty\P1.docx" />
+    <None Include="Documentation\UnitProperty\P2.docx" />
     <None Include="Models\RentalContextGenerator.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RentalContextGenerator.Context.cs</LastGenOutput>
@@ -631,13 +636,13 @@
     <Content Include="Views\Tenant\BackUp\Create.cshtml" />
     <Content Include="Views\Tenant\Edit.cshtml" />
     <Content Include="Views\Tenant\Delete.cshtml" />
-    <Content Include="Views\UserProfile\MaintenanceProfile.cshtml" />
-    <Content Include="Views\ViewUserProfile\Tenant.cshtml" />
-    <Content Include="Views\ViewUserProfile\OwnerorAgent.cshtml" />
-    <Content Include="Views\ViewUserProfile\Maintenance.cshtml" />
-    <Content Include="Views\ViewUserProfile\Index.cshtml" />
-    <Content Include="Views\UserProfile\Index.cshtml" />
-    <Content Include="Views\Landlord\Index.cshtml" />
+    <Content Include="Backup\Views\UserProfile\MaintenanceProfile.cshtml" />
+    <Content Include="Backup\Views\ViewUserProfile\Tenant.cshtml" />
+    <Content Include="Backup\Views\ViewUserProfile\OwnerorAgent.cshtml" />
+    <Content Include="Backup\Views\ViewUserProfile\Maintenance.cshtml" />
+    <Content Include="Backup\Views\ViewUserProfile\Index.cshtml" />
+    <Content Include="Backup\Views\UserProfile\Index.cshtml" />
+    <Content Include="Backup\Views\Landlord\Index.cshtml" />
     <Content Include="Views\Tenant\BackUp\_TenantFavorite.cshtml" />
     <Content Include="Views\TenantFavorite\Delete.cshtml" />
     <Content Include="Views\Shared\Profiles\_Tenant.cshtml" />
@@ -769,16 +774,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Backup\Controller\" />
     <Folder Include="Photo\Tenant\" />
     <Folder Include="TempUploads\" />
     <Folder Include="UploadedImages\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Westwind.plUploadHandler\Westwind.plUploadHandler.csproj">
-      <Project>{913A8E97-DC0B-4D26-AB59-4AC5C232910E}</Project>
-      <Name>Westwind.plUploadHandler</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
