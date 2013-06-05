@@ -11,26 +11,32 @@
         @Html.Partial("LayoutFrame/_TopBar")
         @Html.Partial("LayoutFrame/_BrandHeader")
         <div class="main" role="main">
+            <div class="tools sixteen columns add-bottom">
+                <a href="#">Back</a> | <a href="../../WIP/Pool/registration.html">Save</a> | <a href="../../WIP/Pool/mortgage.html">
+                    Mortgage Calculator</a> | <a href="../../WIP/Pool/registration.html">My Favorites</a>
+                | <a href="../../WIP/Pool/advanced-search.html">Advanced Search</a>
+            </div>
             <section class="row">
-                <div class="tab-container mini-tabs sixteen columns">
-                    @Html.Partial("Menu/_TenantMiniTabMenu")
-                    @RenderSection("profile", false)
-                    @RenderSection("map",false)
-                    @RenderSection("account",false)
+                <h2 class="section-titling">
+                    Central Park West, $390.000</h2>
+                <div class="tab-container mini-tabs eight columns">
+                    @Html.Partial("Menu/ViewsofProfile/_ProviderMiniTabMenu")
+                    @RenderSection("provider", false)
+                    @RenderSection("work", false)
+                    @RenderSection("video", false)
+                    @RenderSection("map", false)
+                </div>
+                <div class="eight columns prop-details">
+                    @RenderSection("unitrequestshowing", false)
                 </div>
             </section>
             <section class="row double-bottom">
                 <div class="tab-container big-tabs sixteen columns">
-                    @Html.Partial("Menu/_TenantBigTabMenu")
+                    @Html.Partial("Menu/ViewsofProfile/_ProviderBigTabMenu")
+                    @RenderSection("description", false)
+                    @RenderSection("coverage", false)
+                    @RenderSection("team", false)
                     @RenderSection("comments", false)
-                    <div id="favorite">
-                        @RenderSection("favorite", false)
-                    </div>
-                    @RenderSection("showing", false)
-                    @RenderSection("maintenance", false)
-                    @RenderSection("contract", false)
-                    @RenderSection("application", false)
-                    @RenderSection("payment", false)
                 </div>
             </section>
             @Html.Partial("LayoutFrame/_Features")
@@ -40,7 +46,6 @@
         @Html.Partial("LayoutFrame/_TopScroller")
     </div>
     @Html.Partial("LayoutFrame/_Footer")
-    @Html.Partial("LayoutFrame/_InitialScripts")
     @RenderSection("scripts", false)
 </body>
 </html>

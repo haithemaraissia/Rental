@@ -81,6 +81,7 @@
     <Compile Include="Controllers\AddMaintenancePhotoController.cs" />
     <Compile Include="Controllers\AdvancedSearchController.cs" />
     <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Controllers\AgentProfileController.cs" />
     <Compile Include="Controllers\AgentsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Controllers\MorePhotoController.cs" />
     <Compile Include="Controllers\NewUnitTestController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
+    <Compile Include="Controllers\OwnerProfileController.cs" />
     <Compile Include="Controllers\OwnersController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfessionalsController.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\TenantFavoriteController.cs" />
     <Compile Include="Controllers\TenantMaintenanceController.cs" />
+    <Compile Include="Controllers\TenantProfileController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\TenantShowingController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
@@ -758,6 +761,9 @@
     <Content Include="Views\Shared\BackUp\ViewofProfiles\_Tenant.cshtml" />
     <Content Include="Views\Shared\BackUp\ViewofProfiles\_Unit.cshtml" />
     <Content Include="Views\Shared\BackUp\ViewofProfiles\Copy of Copy %283%29 of _Unit.cshtml" />
+    <Content Include="Views\AgentProfile\Index.cshtml" />
+    <Content Include="Views\TenantProfile\Index.cshtml" />
+    <Content Include="Views\OwnerProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
